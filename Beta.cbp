@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Beta" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Alpha" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-Wfatal-errors" />
+					<Add option="-Wextra" />
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add directory="include/Graphics/Wrapper" />
+					<Add directory="include/Graphics" />
+					<Add directory="include/Game" />
+				</Compiler>
+				<Linker>
+					<Add library="lib\box2d_debug\libBox2D.dll.a" />
+					<Add library="lib\jsoncpp_debug\libjsoncpp.dll.a" />
+					<Add library="lib\sfml_debug\libsfml-audio-d.a" />
+					<Add library="lib\sfml_debug\libsfml-graphics-d.a" />
+					<Add library="lib\sfml_debug\libsfml-network-d.a" />
+					<Add library="lib\sfml_debug\libsfml-system-d.a" />
+					<Add library="lib\sfml_debug\libsfml-window-d.a" />
+					<Add library="lib\tgui_debug\libtgui-d.a" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Alpha" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O" />
+					<Add directory="include/Graphics/Wrapper" />
+					<Add directory="include/Graphics" />
+					<Add directory="include/Game" />
+				</Compiler>
+				<Linker>
+					<Add library="lib\box2d_release\libBox2D.dll.a" />
+					<Add library="lib\jsoncpp_release\libjsoncpp.dll.a" />
+					<Add library="lib\sfml_release\libsfml-audio.a" />
+					<Add library="lib\sfml_release\libsfml-graphics.a" />
+					<Add library="lib\sfml_release\libsfml-network.a" />
+					<Add library="lib\sfml_release\libsfml-system.a" />
+					<Add library="lib\sfml_release\libsfml-window.a" />
+					<Add library="lib\tgui_release\libtgui.a" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wuninitialized" />
+			<Add directory="include/API" />
+			<Add directory="include/API/JSON" />
+			<Add directory="include/Basic" />
+			<Add directory="include/Control" />
+			<Add directory="include/Game" />
+			<Add directory="include/Graphics" />
+			<Add directory="include/Gui" />
+			<Add directory="include/Headers" />
+			<Add directory="include/IO" />
+			<Add directory="include/IO/Variable" />
+			<Add directory="include/Physics" />
+			<Add directory="include/Universe" />
+			<Add directory="include/Universe/Chunk" />
+			<Add directory="include/Universe/Module" />
+			<Add directory="include/Universe/ModuleComponent" />
+			<Add directory="include/Universe/Utility" />
+			<Add directory="include/Universe/Weapon" />
+			<Add directory="include/Graphics/Wrapper" />
+			<Add directory="include/Graphics/Interface" />
+			<Add directory="include/Graphics/Component" />
+		</Compiler>
+		<Unit filename="include/Game/Game.hpp" />
+		<Unit filename="include/Graphics/BatchLayers.hpp" />
+		<Unit filename="include/Graphics/GraphicsComponent.hpp" />
+		<Unit filename="include/Graphics/GraphicsLayer.hpp" />
+		<Unit filename="include/Graphics/QuadBatchContainer.hpp" />
+		<Unit filename="include/Graphics/QuadComponent.hpp" />
+		<Unit filename="include/Graphics/TextureAllocator.hpp" />
+		<Unit filename="include/Headers/ClassType.hpp" />
+		<Unit filename="include/Headers/Convert.hpp" />
+		<Unit filename="include/Headers/Globals.hpp" />
+		<Unit filename="include/Headers/Rotation.hpp" />
+		<Unit filename="include/Headers/stdafx.hpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/Game/Game.cpp" />
+		<Unit filename="src/Graphics/BatchLayers.cpp" />
+		<Unit filename="src/Graphics/GraphicsComponent.cpp" />
+		<Unit filename="src/Graphics/QuadBatchContainer.cpp" />
+		<Unit filename="src/Graphics/QuadComponent.cpp" />
+		<Unit filename="src/Graphics/TextureAllocator.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

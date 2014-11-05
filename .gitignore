@@ -1,3 +1,9 @@
+# Other
+*.dll
+*.a
+*.exe
+*.o
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
