@@ -17,6 +17,7 @@ public:
     virtual ~QuadComponent();
 
     ///void setAnimation();
+    virtual void update();
 
 protected:
 private:

@@ -1,60 +1,12 @@
-
-#include "Convert.hpp"
-#include "TextureAllocator.hpp"
-#include "BatchLayers.hpp"
-
-#include "QuadComponent.hpp"
+#include "Globals.hpp"
 
 using namespace std;
 
 Game game;
 
-
-
 int main()
 {
-
-    //game.loadWindow("window.ini");
-
-    sf::RenderWindow window(sf::VideoMode(1280, 640), "SFML works!");
-
-
-
-
-
-
-    QuadComponentData data;
-    data.layer = GraphicsLayer::BackgroundClose;
-    QuadComponent comp(data);
-    comp.setPosition(b2Vec2(1,-1));
-
-    QuadComponentData data2;
-    data2.texName = "other.png";
-    data2.center = sf::Vector2f(-128,-128);
-
-    QuadComponent john(data2);
-    john.setPosition(b2Vec2(2,-2));
-
-
-
-
-
-    float x = 0;
-    while(window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-        john.setRotation(x+=0.001);
-
-        window.clear(sf::Color(255,255,0,255));
-        game.getBatchLayers().draw(window);
-        window.display();
-    }
+    game.run();
 
     return 0;
 }

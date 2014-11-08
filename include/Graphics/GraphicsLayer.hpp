@@ -18,8 +18,8 @@ enum class GraphicsLayer
     Projectiles,//other
     Shield,//force fields
 
-    HUD,
-    Menus,
+    HUD,//HUD SPRITES LIKE HEALTH AND AMMO
+    Menus,//unknown what this is for
     maxLayers,
 };
 

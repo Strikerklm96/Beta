@@ -37,6 +37,8 @@ public:
     float getRotation() const;
     const sf::Vector2f& getOffset() const;
 
+    virtual void update() = 0;//used to update animation
+
 protected:
     sf::Transform getTransform() const;
 

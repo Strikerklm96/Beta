@@ -251,8 +251,8 @@ protected:
     ///
     ////////////////////////////////////////////////////////////
     virtual void onReceive(const void* data, std::size_t size);
-    bool checkSize(std::size_t size);//CHANGED FROM PRIVATE TO PROTECTED
 
+private :
 
     ////////////////////////////////////////////////////////////
     /// Disallow comparisons between packets
@@ -271,7 +271,7 @@ protected:
     /// \return True if \a size bytes can be read from the packet
     ///
     ////////////////////////////////////////////////////////////
-
+    bool checkSize(std::size_t size);
 
     ////////////////////////////////////////////////////////////
     // Member data
@@ -279,11 +279,6 @@ protected:
     std::vector<char> m_data;    ///< Data stored in the packet
     std::size_t       m_readPos; ///< Current reading position in the packet
     bool              m_isValid; ///< Reading state of the packet
-
-
-
-private :
-
 };
 
 } // namespace sf

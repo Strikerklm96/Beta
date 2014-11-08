@@ -13,7 +13,7 @@ QuadBatchContainer::~QuadBatchContainer()
 {
 
 }
-QuadData QuadBatchContainer::request(const std::string& rTexName)
+QuadData QuadBatchContainer::request(const std::string& rTexName)///IMPLEMENT VERTEX FREEING AND REUSE FOR DESTROYED THINGS
 {
     Vertex vert(sf::Vector2f(0, 0), sf::Color::White);
     QuadData data;
@@ -51,7 +51,6 @@ void QuadBatchContainer::draw(sf::RenderTarget& rTarget, sf::RenderStates states
 {
     for(auto it = m_vertexLists.cbegin(); it != m_vertexLists.cend(); ++it)
     {
-        //cout << "\n" << it->second->vertexList.getVertexCount();
         states.texture = it->second->pTexture;
         rTarget.draw(it->second->vertexList, states);
     }

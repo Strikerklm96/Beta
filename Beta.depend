@@ -1,11 +1,8 @@
 # depslib dependency file v1.0
-1415150913 source:c:\users\leon\desktop\projects\beta\main.cpp
-	"Convert.hpp"
-	"TextureAllocator.hpp"
-	"BatchLayers.hpp"
-	"QuadComponent.hpp"
+1415400949 source:c:\users\leon\desktop\projects\beta\main.cpp
+	"Globals.hpp"
 
-1414448134 c:\users\leon\desktop\projects\beta\include\headers\stdafx.hpp
+1415474765 c:\users\leon\desktop\projects\beta\include\headers\stdafx.hpp
 	<iostream>
 	<stdio.h>
 	<vector>
@@ -17,6 +14,9 @@
 	<tr1/memory>
 	<cstdlib>
 	<ctime>
+	<memory>
+	<functional>
+	<random>
 	<SFML/System.hpp>
 	<SFML/Window.hpp>
 	<SFML/Graphics.hpp>
@@ -473,7 +473,7 @@
 	<ostream>
 	<string>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\network\packet.hpp
+1415391205 c:\users\leon\desktop\projects\beta\include\api\sfml\network\packet.hpp
 	<SFML/Network/Export.hpp>
 	<string>
 	<vector>
@@ -869,14 +869,14 @@
 	"stdafx.hpp"
 	"Globals.hpp"
 
-1415142240 c:\users\leon\desktop\projects\beta\include\headers\globals.hpp
+1415397063 c:\users\leon\desktop\projects\beta\include\headers\globals.hpp
 	"Game.hpp"
 
-1415147151 source:c:\users\leon\desktop\projects\beta\src\graphics\quadbatchcontainer.cpp
+1415340518 source:c:\users\leon\desktop\projects\beta\src\graphics\quadbatchcontainer.cpp
 	"QuadBatchContainer.hpp"
 	"Globals.hpp"
 
-1415146263 c:\users\leon\desktop\projects\beta\include\graphics\quadbatchcontainer.hpp
+1415255188 c:\users\leon\desktop\projects\beta\include\graphics\quadbatchcontainer.hpp
 	"stdafx.hpp"
 	"TextureAllocator.hpp"
 
@@ -886,30 +886,39 @@
 1414974662 c:\users\leon\desktop\projects\beta\include\graphics\textureallocator.hpp
 	"stdafx.hpp"
 
-1415151101 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicscomponent.cpp
+1415398488 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicscomponent.cpp
 	"GraphicsComponent.hpp"
 	"convert.hpp"
+	"Universe.hpp"
+	"GraphicsComponentUpdater.hpp"
 
-1415149946 c:\users\leon\desktop\projects\beta\include\graphics\graphicscomponent.hpp
+1415256149 c:\users\leon\desktop\projects\beta\include\graphics\graphicscomponent.hpp
 	"stdafx.hpp"
 	"GraphicsLayer.hpp"
 
-1415150007 source:c:\users\leon\desktop\projects\beta\src\graphics\quadcomponent.cpp
+1415398525 source:c:\users\leon\desktop\projects\beta\src\graphics\quadcomponent.cpp
 	"QuadComponent.hpp"
 	"Convert.hpp"
 	"BatchLayers.hpp"
 	"Globals.hpp"
+	"Universe.hpp"
 
-1415148287 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
+1415256501 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
 	"GraphicsComponent.hpp"
 
-1415149851 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
+1415478707 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
 	"Game.hpp"
 	"Globals.hpp"
 	"TextureAllocator.hpp"
 	"BatchLayers.hpp"
+	"GraphicsComponentUpdater.hpp"
+	"Overlay.hpp"
+	"IOManager.hpp"
+	"Player.hpp"
+	"Universe.hpp"
+	"QuadComponent.hpp"
 
-1415149666 c:\users\leon\desktop\projects\beta\include\game\game.hpp
+1415476216 c:\users\leon\desktop\projects\beta\include\game\game.hpp
 	"stdafx.hpp"
 
 1415149801 source:c:\users\leon\desktop\projects\beta\src\graphics\batchlayers.cpp
@@ -919,5 +928,173 @@
 	"QuadBatchContainer.hpp"
 	"GraphicsLayer.hpp"
 
-1415149030 c:\users\leon\desktop\projects\beta\include\graphics\graphicslayer.hpp
+1415325377 c:\users\leon\desktop\projects\beta\include\graphics\graphicslayer.hpp
+
+1415256409 c:\users\leon\desktop\projects\beta\include\graphics\graphicscomponentupdater.hpp
+	"stdafx.hpp"
+
+1415258574 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicscomponentupdater.cpp
+	"GraphicsComponentUpdater.hpp"
+	"GraphicsComponent.hpp"
+
+1415322541 source:c:\users\leon\desktop\projects\beta\src\control\camera.cpp
+	"Camera.hpp"
+	"Globals.hpp"
+	"Convert.hpp"
+
+1415321593 c:\users\leon\desktop\projects\beta\include\control\camera.hpp
+	"stdafx.hpp"
+
+1415476670 source:c:\users\leon\desktop\projects\beta\src\control\intelligence.cpp
+	"Intelligence.hpp"
+
+1415476828 c:\users\leon\desktop\projects\beta\include\control\intelligence.hpp
+	"stdafx.hpp"
+	"IOComponent.hpp"
+	"Globals.hpp"
+	"Universe.hpp"
+
+1415479883 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
+	"Player.hpp"
+	"Globals.hpp"
+	"Overlay.hpp"
+	"Panel.hpp"
+	"Universe.hpp"
+	"IOManager.hpp"
+
+1415477264 c:\users\leon\desktop\projects\beta\include\control\player.hpp
+	"stdafx.hpp"
+	"Intelligence.hpp"
+	"Camera.hpp"
+
+1415324812 source:c:\users\leon\desktop\projects\beta\src\control\input.cpp
+	"Input.hpp"
+
+1415324812 c:\users\leon\desktop\projects\beta\include\control\input.hpp
+
+1407456649 source:c:\users\leon\desktop\projects\beta\src\basic\link.cpp
+	"Link.hpp"
+
+1415323345 c:\users\leon\desktop\projects\beta\include\basic\link.hpp
+	"stdafx.hpp"
+
+1415327747 source:c:\users\leon\desktop\projects\beta\src\basic\timer.cpp
+	"Timer.hpp"
+	"globals.hpp"
+	"Universe.hpp"
+
+1415327493 c:\users\leon\desktop\projects\beta\include\basic\timer.hpp
+
+1415478656 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
+	"stdafx.hpp"
+	"IOComponent.hpp"
+
+1415394126 c:\users\leon\desktop\projects\beta\include\overlay\overlay.hpp
+	"stdafx.hpp"
+
+1415482152 c:\users\leon\desktop\projects\beta\include\overlay\panel.hpp
+	"WidgetBase.hpp"
+
+1415480246 c:\users\leon\desktop\projects\beta\include\overlay\widgetbase.hpp
+	"stdafx.hpp"
+	"Globals.hpp"
+	"IOComponent.hpp"
+
+1415469742 source:c:\users\leon\desktop\projects\beta\src\io\condition.cpp
+	"Condition.hpp"
+	"stdafx.hpp"
+	"Globals.hpp"
+
+1415392166 c:\users\leon\desktop\projects\beta\include\io\condition.hpp
+	"EventTypes.hpp"
+
+1415345920 c:\users\leon\desktop\projects\beta\include\io\event.hpp
+
+1415476536 c:\users\leon\desktop\projects\beta\include\io\iocomponent.hpp
+	"EventTypes.hpp"
+	"stdafx.hpp"
+	"Courier.hpp"
+	"Eventer.hpp"
+
+1415476550 source:c:\users\leon\desktop\projects\beta\src\io\iocomponent.cpp
+	"IOComponent.hpp"
+	"IOManager.hpp"
+
+1415340582 source:c:\users\leon\desktop\projects\beta\src\io\iocomponentstore.cpp
+	"IOComponentStore.hpp"
+
+1415346345 c:\users\leon\desktop\projects\beta\include\io\iocomponentstore.hpp
+	"stdafx.hpp"
+
+1415388045 source:c:\users\leon\desktop\projects\beta\src\overlay\button.cpp
+	"Button.hpp"
+
+1415339854 c:\users\leon\desktop\projects\beta\include\overlay\button.hpp
+	"WidgetBase.hpp"
+
+1415388246 source:c:\users\leon\desktop\projects\beta\src\overlay\editbox.cpp
+	"EditBox.hpp"
+
+1415388390 c:\users\leon\desktop\projects\beta\include\overlay\editbox.hpp
+	"WidgetBase.hpp"
+
+1415481635 source:c:\users\leon\desktop\projects\beta\src\overlay\overlay.cpp
+	"Overlay.hpp"
+	"Globals.hpp"
+	"Panel.hpp"
+	"Picture.hpp"
+	"Button.hpp"
+	"Courier.hpp"
+
+1415481526 source:c:\users\leon\desktop\projects\beta\src\overlay\panel.cpp
+	"Panel.hpp"
+	"globals.hpp"
+	"TextureAllocator.hpp"
+
+1415477874 source:c:\users\leon\desktop\projects\beta\src\overlay\picture.cpp
+	"Picture.hpp"
+	"globals.hpp"
+
+1415477856 c:\users\leon\desktop\projects\beta\include\overlay\picture.hpp
+	"WidgetBase.hpp"
+
+1415480953 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
+	"WidgetBase.hpp"
+
+1415481572 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
+	"Universe.hpp"
+	"Globals.hpp"
+	"BatchLayers.hpp"
+	"GraphicsComponentUpdater.hpp"
+	"IOManager.hpp"
+	"Player.hpp"
+
+1415391266 c:\users\leon\desktop\projects\beta\include\io\eventtypes.hpp
+
+1415475489 source:c:\users\leon\desktop\projects\beta\src\io\iomanager.cpp
+	"IOManager.hpp"
+	"stdafx.hpp"
+	"Globals.hpp"
+	"IOComponent.hpp"
+
+1415475431 c:\users\leon\desktop\projects\beta\include\io\iomanager.hpp
+	"Timer.hpp"
+	"Courier.hpp"
+
+1415392156 c:\users\leon\desktop\projects\beta\include\io\courier.hpp
+	"Message.hpp"
+	"Condition.hpp"
+
+1415405706 c:\users\leon\desktop\projects\beta\include\io\message.hpp
+	"stdafx.hpp"
+
+1415412669 source:c:\users\leon\desktop\projects\beta\src\io\message.cpp
+	"Message.hpp"
+
+1415470949 source:c:\users\leon\desktop\projects\beta\src\io\eventer.cpp
+	"Eventer.hpp"
+	"IOManager.hpp"
+
+1415469567 c:\users\leon\desktop\projects\beta\include\io\eventer.hpp
+	"Courier.hpp"
 

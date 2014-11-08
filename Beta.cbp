@@ -7,7 +7,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/Alpha" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/Beta" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -19,6 +19,10 @@
 					<Add directory="include/Graphics/Wrapper" />
 					<Add directory="include/Graphics" />
 					<Add directory="include/Game" />
+					<Add directory="include/Control" />
+					<Add directory="include/Universe" />
+					<Add directory="include/Overlay" />
+					<Add directory="include/IO" />
 				</Compiler>
 				<Linker>
 					<Add library="lib\box2d_debug\libBox2D.dll.a" />
@@ -41,6 +45,10 @@
 					<Add directory="include/Graphics/Wrapper" />
 					<Add directory="include/Graphics" />
 					<Add directory="include/Game" />
+					<Add directory="include/Control" />
+					<Add directory="include/Universe" />
+					<Add directory="include/Overlay" />
+					<Add directory="include/IO" />
 				</Compiler>
 				<Linker>
 					<Add library="lib\box2d_release\libBox2D.dll.a" />
@@ -78,25 +86,65 @@
 			<Add directory="include/Graphics/Interface" />
 			<Add directory="include/Graphics/Component" />
 		</Compiler>
+		<Unit filename="include/Basic/Link.hpp" />
+		<Unit filename="include/Basic/Timer.hpp" />
+		<Unit filename="include/Control/Camera.hp" />
+		<Unit filename="include/Control/Camera.hpp" />
+		<Unit filename="include/Control/Input.hpp" />
+		<Unit filename="include/Control/Intelligence.hpp" />
+		<Unit filename="include/Control/Player.hpp" />
 		<Unit filename="include/Game/Game.hpp" />
 		<Unit filename="include/Graphics/BatchLayers.hpp" />
 		<Unit filename="include/Graphics/GraphicsComponent.hpp" />
+		<Unit filename="include/Graphics/GraphicsComponentUpdater.hpp" />
 		<Unit filename="include/Graphics/GraphicsLayer.hpp" />
 		<Unit filename="include/Graphics/QuadBatchContainer.hpp" />
 		<Unit filename="include/Graphics/QuadComponent.hpp" />
 		<Unit filename="include/Graphics/TextureAllocator.hpp" />
-		<Unit filename="include/Headers/ClassType.hpp" />
 		<Unit filename="include/Headers/Convert.hpp" />
 		<Unit filename="include/Headers/Globals.hpp" />
 		<Unit filename="include/Headers/Rotation.hpp" />
 		<Unit filename="include/Headers/stdafx.hpp" />
+		<Unit filename="include/IO/Condition.hpp" />
+		<Unit filename="include/IO/Courier.hpp" />
+		<Unit filename="include/IO/EventTypes.hpp" />
+		<Unit filename="include/IO/Eventer.hpp" />
+		<Unit filename="include/IO/IOComponent.hpp" />
+		<Unit filename="include/IO/IOManager.hpp" />
+		<Unit filename="include/IO/Message.hpp" />
+		<Unit filename="include/Overlay/Button.hpp" />
+		<Unit filename="include/Overlay/EditBox.hpp" />
+		<Unit filename="include/Overlay/Overlay.hpp" />
+		<Unit filename="include/Overlay/Panel.hpp" />
+		<Unit filename="include/Overlay/Picture.hpp" />
+		<Unit filename="include/Overlay/WidgetBase.hpp" />
+		<Unit filename="include/Universe/Universe.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Basic/Link.cpp" />
+		<Unit filename="src/Basic/Timer.cpp" />
+		<Unit filename="src/Control/Camera.cpp" />
+		<Unit filename="src/Control/Input.cpp" />
+		<Unit filename="src/Control/Intelligence.cpp" />
+		<Unit filename="src/Control/Player.cpp" />
 		<Unit filename="src/Game/Game.cpp" />
 		<Unit filename="src/Graphics/BatchLayers.cpp" />
 		<Unit filename="src/Graphics/GraphicsComponent.cpp" />
+		<Unit filename="src/Graphics/GraphicsComponentUpdater.cpp" />
 		<Unit filename="src/Graphics/QuadBatchContainer.cpp" />
 		<Unit filename="src/Graphics/QuadComponent.cpp" />
 		<Unit filename="src/Graphics/TextureAllocator.cpp" />
+		<Unit filename="src/IO/Condition.cpp" />
+		<Unit filename="src/IO/Eventer.cpp" />
+		<Unit filename="src/IO/IOComponent.cpp" />
+		<Unit filename="src/IO/IOManager.cpp" />
+		<Unit filename="src/IO/Message.cpp" />
+		<Unit filename="src/Overlay/Button.cpp" />
+		<Unit filename="src/Overlay/EditBox.cpp" />
+		<Unit filename="src/Overlay/Overlay.cpp" />
+		<Unit filename="src/Overlay/Panel.cpp" />
+		<Unit filename="src/Overlay/Picture.cpp" />
+		<Unit filename="src/Overlay/WidgetBase.cpp" />
+		<Unit filename="src/Universe/Universe.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

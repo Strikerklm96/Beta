@@ -12,6 +12,9 @@
 #include <tr1/memory>
 #include <cstdlib>
 #include <ctime>
+#include <memory>
+#include <functional>
+#include <random>
 
 
 #include <SFML/System.hpp>/**SFML**/

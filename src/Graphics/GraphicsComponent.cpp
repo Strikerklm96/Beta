@@ -1,23 +1,28 @@
 #include "GraphicsComponent.hpp"
 
 #include "convert.hpp"
+#include "Universe.hpp"
+#include "GraphicsComponentUpdater.hpp"
 
 using namespace std;
 using namespace sf;
 
 GraphicsComponent::GraphicsComponent(const GraphicsComponentData& rData)
 {
+    game.getUniverse().getGfxUpdater().store(this);
     m_rotation = 0;
     m_offset = sf::Vector2f(0,0);
 
+
     m_permanentRot = rData.permanentRot;
     m_center = rData.center;
-
-    m_latestPosition = b2Vec2(0,0);
 }
 GraphicsComponent::~GraphicsComponent()
 {
+    game.getUniverse().getGfxUpdater().free(this);
 
+    for(int i=0; i<m_numVerts; ++i)
+        (*m_pVerts)[i+m_startVert].color = sf::Color(0,0,0,0);//make them transparent so they can no longer be seen
 }
 
 
