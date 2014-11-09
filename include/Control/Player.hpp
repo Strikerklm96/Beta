@@ -78,7 +78,7 @@ public:
     void getInput();//get input from the outside world!
 
 protected:
-    void input(const std::string& rCommand, const sf::Packet& rData);
+    void input(std::string rCommand, sf::Packet rData);
 
 private:
     IOComponent m_io;

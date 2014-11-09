@@ -5,32 +5,43 @@
 #include "GraphicsComponentUpdater.hpp"
 #include "IOManager.hpp"
 #include "Player.hpp"
+#include "QuadComponent.hpp"
+#include "GameObject.hpp"
 
 using namespace std;
 
-Universe::Universe(const IOComponentData& rData) : m_io(rData)
+Universe::Universe(const IOComponentData& rData) : m_io(rData), m_physWorld(b2Vec2(0,0))
 {
     m_spBatchLayers = std::tr1::shared_ptr<BatchLayers>(new BatchLayers);
     m_spGfxUpdater = std::tr1::shared_ptr<GraphicsComponentUpdater>(new GraphicsComponentUpdater);
-    m_spUniverseIO = std::tr1::shared_ptr<IOManager>(new IOManager(true));
 
+    /**IO**/
+    m_spUniverseIO = std::tr1::shared_ptr<IOManager>(new IOManager(true));
     m_io.bindCallback(&Universe::input, this);
     m_spUniverseIO->give(&m_io);
+    m_spUniverseIO->give(&game.getLocalPlayer().getIOComp());
+    /**IO**/
 
+
+    /**PHYSICS**/
     m_paused = false;
     m_skippedTime = 0;
     m_paused = false;
 
-    m_velocityIterations = 1;///how should these be set?
-    m_positionIterations = 1;///how should these be set?
+    m_velocityIterations = 1;
+    m_positionIterations = 1;
     m_timeStep = 1.0f/120.0f;///LOAD FROM FILE
     m_maxIterations = 6;
 
-    m_spUniverseIO->give(&game.getLocalPlayer().getIOComp());
+    m_physWorld.SetContactListener(&m_contactListener);
+    m_physWorld.SetDebugDraw(&m_debugDraw);
+    /**PHYSICS**/
+
+    m_debugDrawEnabled = false;
 }
 Universe::~Universe()
 {
-
+    cout << "\nUniverse Destroying...";
 }
 
 
@@ -49,17 +60,33 @@ IOManager& Universe::getUniverseIO()
 
 
 
-void Universe::update(sf::RenderTarget& rTarget)
+float Universe::update(sf::RenderTarget& rTarget)
 {
     float dT = getTime()-m_lastTime;
     m_lastTime = getTime();
 
-    m_spGfxUpdater->update();
-    m_spBatchLayers->draw(rTarget);
     m_spUniverseIO->update(dT);
+    m_spGfxUpdater->update();
 
-    ///update b
+    if(m_debugDrawEnabled)
+        m_physWorld.DrawDebugData();
+    else
+        m_spBatchLayers->draw(rTarget);
+
+
+    if(not m_paused)
+    {
+        for(auto it = m_goList.begin(); it != m_goList.end(); ++it)
+            (*it)->update(dT);
+
+        m_physWorld.Step(m_timeStep, m_velocityIterations, m_positionIterations);
+
+        ///m_projAlloc.recoverProjectiles();
+    }
+
+    return m_timeStep;
 }
+
 
 
 
@@ -81,9 +108,19 @@ float Universe::getTime() const
         return game.getTime()-m_skippedTime;
 }
 
+void loadBP(const std::string& bluePrints)//loads blueprints
+{
 
+}
+void loadLevel(const std::string& level)//loads a level using blueprints
+{
+    QuadComponentData data;
+    data.dimensions.x = 128;
+    QuadComponent comp(data);
+    comp.setPosition(b2Vec2(1,-1));
+}
 
-void Universe::input(const std::string& rCommand, const sf::Packet& rData)
+void Universe::input(std::string rCommand, sf::Packet rData)
 {
     sf::Packet data(rData);
     if(rCommand == "togglePause")

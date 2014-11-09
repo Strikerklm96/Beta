@@ -3,7 +3,7 @@ Player
 	toggleGuiMode:
 	setGuiMode: (bool)
 }
-Game
+Game	///TODO
 {
 	load: (string)
 	exit:

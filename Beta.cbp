@@ -13,8 +13,6 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-Wfatal-errors" />
-					<Add option="-Wextra" />
-					<Add option="-Wall" />
 					<Add option="-g" />
 					<Add directory="include/Graphics/Wrapper" />
 					<Add directory="include/Graphics" />
@@ -23,6 +21,9 @@
 					<Add directory="include/Universe" />
 					<Add directory="include/Overlay" />
 					<Add directory="include/IO" />
+					<Add directory="include/Physics" />
+					<Add directory="include/Network" />
+					<Add directory="include/Universe/Modules" />
 				</Compiler>
 				<Linker>
 					<Add library="lib\box2d_debug\libBox2D.dll.a" />
@@ -49,6 +50,9 @@
 					<Add directory="include/Universe" />
 					<Add directory="include/Overlay" />
 					<Add directory="include/IO" />
+					<Add directory="include/Physics" />
+					<Add directory="include/Network" />
+					<Add directory="include/Universe/Modules" />
 				</Compiler>
 				<Linker>
 					<Add library="lib\box2d_release\libBox2D.dll.a" />
@@ -88,7 +92,6 @@
 		</Compiler>
 		<Unit filename="include/Basic/Link.hpp" />
 		<Unit filename="include/Basic/Timer.hpp" />
-		<Unit filename="include/Control/Camera.hp" />
 		<Unit filename="include/Control/Camera.hpp" />
 		<Unit filename="include/Control/Input.hpp" />
 		<Unit filename="include/Control/Intelligence.hpp" />
@@ -112,12 +115,18 @@
 		<Unit filename="include/IO/IOComponent.hpp" />
 		<Unit filename="include/IO/IOManager.hpp" />
 		<Unit filename="include/IO/Message.hpp" />
+		<Unit filename="include/Network/NetworkComponent.hpp" />
 		<Unit filename="include/Overlay/Button.hpp" />
 		<Unit filename="include/Overlay/EditBox.hpp" />
 		<Unit filename="include/Overlay/Overlay.hpp" />
 		<Unit filename="include/Overlay/Panel.hpp" />
 		<Unit filename="include/Overlay/Picture.hpp" />
 		<Unit filename="include/Overlay/WidgetBase.hpp" />
+		<Unit filename="include/Physics/BodyComponent.hpp" />
+		<Unit filename="include/Physics/FixtureComponent.hpp" />
+		<Unit filename="include/Universe/GameObject.hpp" />
+		<Unit filename="include/Universe/GameObjectFactory.hpp" />
+		<Unit filename="include/Universe/Modules/Module.hpp" />
 		<Unit filename="include/Universe/Universe.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Basic/Link.cpp" />
@@ -138,13 +147,23 @@
 		<Unit filename="src/IO/IOComponent.cpp" />
 		<Unit filename="src/IO/IOManager.cpp" />
 		<Unit filename="src/IO/Message.cpp" />
+		<Unit filename="src/Network/NetworkComponent.cpp" />
 		<Unit filename="src/Overlay/Button.cpp" />
 		<Unit filename="src/Overlay/EditBox.cpp" />
 		<Unit filename="src/Overlay/Overlay.cpp" />
 		<Unit filename="src/Overlay/Panel.cpp" />
 		<Unit filename="src/Overlay/Picture.cpp" />
 		<Unit filename="src/Overlay/WidgetBase.cpp" />
+		<Unit filename="src/Physics/BodyComponent.cpp" />
+		<Unit filename="src/Physics/FixtureComponent.cpp" />
+		<Unit filename="src/Universe/GameObject.cpp" />
+		<Unit filename="src/Universe/GameObjectFactory.cpp" />
+		<Unit filename="src/Universe/Modules/Module.cpp" />
 		<Unit filename="src/Universe/Universe.cpp" />
+		<Unit filename="src/Universe/Utility/DebugDraw.cpp" />
+		<Unit filename="src/Universe/Utility/GameObject.cpp" />
+		<Unit filename="src/Universe/Utility/GameObjectFactory.cpp" />
+		<Unit filename="src/Universe/Utility/UniversalContactListener.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

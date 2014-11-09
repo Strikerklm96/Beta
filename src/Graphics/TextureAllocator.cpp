@@ -20,7 +20,7 @@ TextureAllocator::TextureAllocator(bool shouldSmoothTextures)
 }
 TextureAllocator::~TextureAllocator()
 {
-
+    cout << "\nTexAlloc Destroying...";
 }
 void TextureAllocator::smoothTextures(bool smooth)
 {

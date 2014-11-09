@@ -15,7 +15,7 @@ Overlay::Overlay() : m_gui(game.getWindow())
 }
 Overlay::~Overlay()
 {
-
+    cout << "\nOverlay Destroying...";
 }
 void Overlay::addPanel(std::tr1::shared_ptr<leon::Panel> spPanel)
 {

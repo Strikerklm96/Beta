@@ -19,11 +19,13 @@ void IOComponent::event(EventType type, int value, const sf::Packet& rData)
 }
 void IOComponent::recieve(const std::string& rCommand, const sf::Packet& rData)
 {
-    cout << "\nMessage Received [" << m_name << "]";
-    sf::Packet copy(rData);
-    m_cbFunction(rCommand, copy);
+    m_cbFunction(rCommand, rData);
 }
 const std::string& IOComponent::getName() const
 {
     return m_name;
+}
+unsigned IOComponent::getPosition() const
+{
+    return m_ioManPosition;
 }

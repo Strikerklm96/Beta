@@ -87,3 +87,7 @@ void EditBox::f_ReturnKeyPressed()
     text << m_pEditBox->getText();
     m_io.event(EventType::ReturnKeyPressed, 0, text);
 }
+void EditBox::input(const std::string rCommand, sf::Packet rData)
+{
+    WidgetBase::input(rCommand, rData);
+}

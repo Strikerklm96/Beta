@@ -8,12 +8,15 @@ class Message
 public:
     Message();
     Message(const std::string& rTargetName, const std::string& rCommand, const sf::Packet& rData, float delay, bool replaceData);
+    Message(unsigned rTargetPosition, const std::string& rCommand, const sf::Packet& rData, float delay, bool replaceData);
     virtual ~Message();
     void reset(const std::string& rTargetName, const std::string& rCommand, const sf::Packet& rData, float delay, bool replaceData);
+    void reset(unsigned rTargetPosition, const std::string& rCommand, const sf::Packet& rData, float delay, bool replaceData);
 
     void tryReplaceData(const sf::Packet& rData);
     float changeDelay(float change);//the m_delay will be changed by that much (used by IOManager)
 
+    unsigned getTargetPosition() const;
     const std::string& getTargetName() const;
     const std::string& getCommand() const;
     const sf::Packet& getData() const;
@@ -21,6 +24,7 @@ public:
 
 protected:
 private:
+    unsigned m_targetPosition;
     std::string m_targetName;//the name of our target IOComponent
     std::string m_command;//the command that we want the target to do
     sf::Packet m_data;//the data associated with that command

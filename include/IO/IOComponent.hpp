@@ -32,9 +32,10 @@ public:
     void event(EventType type, int value, const sf::Packet& rData);//EventType occurred, has value, and other data
     void recieve(const std::string& rCommand, const sf::Packet& rData);
     const std::string& getName() const;
+    unsigned getPosition() const;
 
     template <typename T>
-    void bindCallback(void (T::*func)(const std::string&, const sf::Packet&), T* const classPtr)//because C++
+    void bindCallback(void (T::*func)(std::string, sf::Packet), T* const classPtr)//because C++
     {
         m_cbFunction = std::bind(func, classPtr, std::placeholders::_1, std::placeholders::_2);
     }
@@ -43,10 +44,10 @@ protected:
 private:
     IOManager& m_rManager;
     std::string m_name;
-    int m_ioManPosition;//position of us in the io manager
+    unsigned m_ioManPosition;//position of us in the io manager
 
     Eventer m_eventer;
-    std::function<void(const std::string&, const sf::Packet&)> m_cbFunction;//the function we call when we get a receive call
+    std::function<void(std::string, sf::Packet)> m_cbFunction;//the function we call when we get a receive call
 };
 
 #endif // IOCOMPONENT_HPP

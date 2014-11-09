@@ -40,7 +40,7 @@ public:
     virtual void toggleEnabled(bool enabled) final;
 
 protected:
-    virtual void input(const std::string& rCommand, const sf::Packet& rData);
+    virtual void input(std::string rCommand, sf::Packet rData);
     void f_assign(tgui::Widget* pWidget);//must assign m_pWidget to something!
 
     virtual void f_callback(const tgui::Callback& callback);

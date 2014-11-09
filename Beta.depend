@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1415400949 source:c:\users\leon\desktop\projects\beta\main.cpp
+1415496035 source:c:\users\leon\desktop\projects\beta\main.cpp
 	"Globals.hpp"
 
 1415474765 c:\users\leon\desktop\projects\beta\include\headers\stdafx.hpp
@@ -880,7 +880,7 @@
 	"stdafx.hpp"
 	"TextureAllocator.hpp"
 
-1415145927 source:c:\users\leon\desktop\projects\beta\src\graphics\textureallocator.cpp
+1415495664 source:c:\users\leon\desktop\projects\beta\src\graphics\textureallocator.cpp
 	"TextureAllocator.hpp"
 
 1414974662 c:\users\leon\desktop\projects\beta\include\graphics\textureallocator.hpp
@@ -906,7 +906,7 @@
 1415256501 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
 	"GraphicsComponent.hpp"
 
-1415478707 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
+1415496014 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
 	"Game.hpp"
 	"Globals.hpp"
 	"TextureAllocator.hpp"
@@ -918,7 +918,7 @@
 	"Universe.hpp"
 	"QuadComponent.hpp"
 
-1415476216 c:\users\leon\desktop\projects\beta\include\game\game.hpp
+1415495897 c:\users\leon\desktop\projects\beta\include\game\game.hpp
 	"stdafx.hpp"
 
 1415149801 source:c:\users\leon\desktop\projects\beta\src\graphics\batchlayers.cpp
@@ -954,7 +954,7 @@
 	"Globals.hpp"
 	"Universe.hpp"
 
-1415479883 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
+1415495752 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
 	"Player.hpp"
 	"Globals.hpp"
 	"Overlay.hpp"
@@ -962,7 +962,7 @@
 	"Universe.hpp"
 	"IOManager.hpp"
 
-1415477264 c:\users\leon\desktop\projects\beta\include\control\player.hpp
+1415483614 c:\users\leon\desktop\projects\beta\include\control\player.hpp
 	"stdafx.hpp"
 	"Intelligence.hpp"
 	"Camera.hpp"
@@ -985,17 +985,19 @@
 
 1415327493 c:\users\leon\desktop\projects\beta\include\basic\timer.hpp
 
-1415478656 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
+1415501085 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
+	"UniversalContactListener.hpp"
+	"DebugDraw.hpp"
 
-1415394126 c:\users\leon\desktop\projects\beta\include\overlay\overlay.hpp
+1415495847 c:\users\leon\desktop\projects\beta\include\overlay\overlay.hpp
 	"stdafx.hpp"
 
 1415482152 c:\users\leon\desktop\projects\beta\include\overlay\panel.hpp
 	"WidgetBase.hpp"
 
-1415480246 c:\users\leon\desktop\projects\beta\include\overlay\widgetbase.hpp
+1415483750 c:\users\leon\desktop\projects\beta\include\overlay\widgetbase.hpp
 	"stdafx.hpp"
 	"Globals.hpp"
 	"IOComponent.hpp"
@@ -1010,13 +1012,13 @@
 
 1415345920 c:\users\leon\desktop\projects\beta\include\io\event.hpp
 
-1415476536 c:\users\leon\desktop\projects\beta\include\io\iocomponent.hpp
+1415486006 c:\users\leon\desktop\projects\beta\include\io\iocomponent.hpp
 	"EventTypes.hpp"
 	"stdafx.hpp"
 	"Courier.hpp"
 	"Eventer.hpp"
 
-1415476550 source:c:\users\leon\desktop\projects\beta\src\io\iocomponent.cpp
+1415486036 source:c:\users\leon\desktop\projects\beta\src\io\iocomponent.cpp
 	"IOComponent.hpp"
 	"IOManager.hpp"
 
@@ -1032,13 +1034,13 @@
 1415339854 c:\users\leon\desktop\projects\beta\include\overlay\button.hpp
 	"WidgetBase.hpp"
 
-1415388246 source:c:\users\leon\desktop\projects\beta\src\overlay\editbox.cpp
+1415483933 source:c:\users\leon\desktop\projects\beta\src\overlay\editbox.cpp
 	"EditBox.hpp"
 
 1415388390 c:\users\leon\desktop\projects\beta\include\overlay\editbox.hpp
 	"WidgetBase.hpp"
 
-1415481635 source:c:\users\leon\desktop\projects\beta\src\overlay\overlay.cpp
+1415495693 source:c:\users\leon\desktop\projects\beta\src\overlay\overlay.cpp
 	"Overlay.hpp"
 	"Globals.hpp"
 	"Panel.hpp"
@@ -1046,7 +1048,7 @@
 	"Button.hpp"
 	"Courier.hpp"
 
-1415481526 source:c:\users\leon\desktop\projects\beta\src\overlay\panel.cpp
+1415482106 source:c:\users\leon\desktop\projects\beta\src\overlay\panel.cpp
 	"Panel.hpp"
 	"globals.hpp"
 	"TextureAllocator.hpp"
@@ -1058,20 +1060,22 @@
 1415477856 c:\users\leon\desktop\projects\beta\include\overlay\picture.hpp
 	"WidgetBase.hpp"
 
-1415480953 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
+1415483750 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
 	"WidgetBase.hpp"
 
-1415481572 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
+1415501100 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
 	"Universe.hpp"
 	"Globals.hpp"
 	"BatchLayers.hpp"
 	"GraphicsComponentUpdater.hpp"
 	"IOManager.hpp"
 	"Player.hpp"
+	"QuadComponent.hpp"
+	"GameObject.hpp"
 
 1415391266 c:\users\leon\desktop\projects\beta\include\io\eventtypes.hpp
 
-1415475489 source:c:\users\leon\desktop\projects\beta\src\io\iomanager.cpp
+1415492283 source:c:\users\leon\desktop\projects\beta\src\io\iomanager.cpp
 	"IOManager.hpp"
 	"stdafx.hpp"
 	"Globals.hpp"
@@ -1085,10 +1089,10 @@
 	"Message.hpp"
 	"Condition.hpp"
 
-1415405706 c:\users\leon\desktop\projects\beta\include\io\message.hpp
+1415486355 c:\users\leon\desktop\projects\beta\include\io\message.hpp
 	"stdafx.hpp"
 
-1415412669 source:c:\users\leon\desktop\projects\beta\src\io\message.cpp
+1415486334 source:c:\users\leon\desktop\projects\beta\src\io\message.cpp
 	"Message.hpp"
 
 1415470949 source:c:\users\leon\desktop\projects\beta\src\io\eventer.cpp
@@ -1097,4 +1101,76 @@
 
 1415469567 c:\users\leon\desktop\projects\beta\include\io\eventer.hpp
 	"Courier.hpp"
+
+1415494756 source:c:\users\leon\desktop\projects\beta\src\physics\fixturecomponent.cpp
+	"FixtureComponent.hpp"
+	"Globals.hpp"
+
+1415494191 c:\users\leon\desktop\projects\beta\include\physics\fixturecomponent.hpp
+	"stdafx.hpp"
+
+1415498432 source:c:\users\leon\desktop\projects\beta\src\physics\bodycomponent.cpp
+	"BodyComponent.hpp"
+
+1415496788 c:\users\leon\desktop\projects\beta\include\physics\bodycomponent.hpp
+	"stdafx.hpp"
+
+1415497105 source:c:\users\leon\desktop\projects\beta\src\network\networkcomponent.cpp
+	"NetworkComponent.hpp"
+
+1415497197 c:\users\leon\desktop\projects\beta\include\network\networkcomponent.hpp
+
+1415497302 source:c:\users\leon\desktop\projects\beta\src\universe\gameobject.cpp
+	"GameObject.hpp"
+
+1415499213 c:\users\leon\desktop\projects\beta\include\universe\gameobject.hpp
+	"Globals.hpp"
+	"NetworkComponent.hpp"
+	"IOComponent.hpp"
+	"Universe.hpp"
+
+1415499973 source:c:\users\leon\desktop\projects\beta\src\universe\modules\module.cpp
+	"Module.hpp"
+
+1415499995 c:\users\leon\desktop\projects\beta\include\universe\modules\module.hpp
+	"Globals.hpp"
+	"IOComponent.hpp"
+	"NetworkComponent.hpp"
+	"FixtureComponent.hpp"
+	"Universe.hpp"
+
+1415497798 source:c:\users\leon\desktop\projects\beta\src\universe\gameobjectfactory.cpp
+	"GameObjectFactory.hpp"
+
+1415498963 c:\users\leon\desktop\projects\beta\include\universe\gameobjectfactory.hpp
+	"stdafx.hpp"
+
+1407456649 c:\users\leon\desktop\projects\beta\include\universe\utility\universalcontactlistener.hpp
+	"stdafx.hpp"
+
+1407456649 c:\users\leon\desktop\projects\beta\include\universe\utility\debugdraw.hpp
+	"stdafx.hpp"
+
+1415499213 c:\users\leon\desktop\projects\beta\include\universe\utility\gameobject.hpp
+	"Globals.hpp"
+	"NetworkComponent.hpp"
+	"IOComponent.hpp"
+	"Universe.hpp"
+
+1415501160 source:c:\users\leon\desktop\projects\beta\src\universe\utility\debugdraw.cpp
+	"DebugDraw.hpp"
+	"globals.hpp"
+	"Convert.hpp"
+
+1415497302 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobject.cpp
+	"GameObject.hpp"
+
+1415497798 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobjectfactory.cpp
+	"GameObjectFactory.hpp"
+
+1415498963 c:\users\leon\desktop\projects\beta\include\universe\utility\gameobjectfactory.hpp
+	"stdafx.hpp"
+
+1415501218 source:c:\users\leon\desktop\projects\beta\src\universe\utility\universalcontactlistener.cpp
+	"UniversalContactListener.hpp"
 

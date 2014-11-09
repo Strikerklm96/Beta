@@ -13,6 +13,7 @@
 
 using namespace std;
 using namespace sf;
+using namespace leon;
 
 
 ///
@@ -25,8 +26,6 @@ Game::Game()
 {
     loadWindow("window.ini");
 
-
-    m_spTexAlloc = std::tr1::shared_ptr<TextureAllocator>(new TextureAllocator(false));
     ///m_spAnimAlloc = std::tr1::shared_ptr<AnimationAllocator>(new AnimationAllocator);
     m_spCoreIO = std::tr1::shared_ptr<IOManager>(new IOManager(true));
     m_spOverlay = std::tr1::shared_ptr<Overlay>(new Overlay);
@@ -35,15 +34,17 @@ Game::Game()
     m_spLocalPlayer = std::tr1::shared_ptr<Player>(new Player(playerData));
 
 
-    ///PUT IT UNIVERSE LOAD FUNCTION
-    IOComponentData universeData(getCoreIO());
-    universeData.name = "universe";
-    m_spUniverse = std::tr1::shared_ptr<Universe>(new Universe(universeData));
-    ///PUT IT UNIVERSE LOAD FUNCTION
+    loadUniverse("THING");
+
+    IOComponentData gameData(getCoreIO());
+    gameData.name = "game";
+    m_spIO = std::tr1::shared_ptr<IOComponent>(new IOComponent(gameData));
+    m_spUniverse->getUniverseIO().give(&*m_spIO);
+    m_spIO->bindCallback(Game::input, this);
 }
 Game::~Game()
 {
-
+    cout << "\nGame Destroying...";
 }
 
 Player& Game::getLocalPlayer()
@@ -97,16 +98,20 @@ void Game::run()
     defaultView.setCenter(rWindow.getSize().x/2, rWindow.getSize().y/2);
     defaultView.setSize(sf::Vector2f(rWindow.getSize()));
 
-    QuadComponentData data;
-    data.dimensions.x = 128;
-    QuadComponent comp(data);
-    comp.setPosition(b2Vec2(1,-1));
+
 
 
 
     float lastTime = 0;
     while(rWindow.isOpen())
     {
+        /**EXPERIMENTING**/
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::H))
+        {
+            this->loadUniverse("");
+        }
+
+
         /**GET INPUT**/
         getLocalPlayer().getInput();
 
@@ -140,7 +145,12 @@ void Game::exit()
 
 
 
-
+void Game::loadUniverse(const std::string& stuff)
+{
+    IOComponentData universeData(getCoreIO());
+    universeData.name = "universe";
+    m_spUniverse = std::tr1::shared_ptr<Universe>(new Universe(universeData));
+}
 
 void Game::loadWindow(const std::string& windowFile)
 {
@@ -224,5 +234,26 @@ void Game::loadWindow(const std::string& windowFile)
     {
         m_spWindow.reset(new sf::RenderWindow(windowData.mode, windowData.windowName, style, settings));
         m_spTexAlloc.reset(new TextureAllocator(windowData.smoothTextures));
+    }
+}
+
+
+
+
+
+
+void Game::input(std::string rCommand, sf::Packet rData)
+{
+    if(rCommand == "exit")
+    {
+        exit();
+    }
+    else if(rCommand == "load")
+    {
+        ///TODO
+    }
+    else
+    {
+        cout << "Game: [" << rCommand << "] not found.";
     }
 }

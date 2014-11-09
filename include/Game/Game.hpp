@@ -5,6 +5,7 @@
 
 class Player;
 class Universe;
+class IOComponent;
 
 class Overlay;
 class IOManager;
@@ -37,23 +38,27 @@ public:
 
 
     void loadWindow(const std::string& windowFile);//loads the window
+    void loadUniverse(const std::string& stuff);
     void run();//runs the game loop
     void exit();
 
 protected:
+    void input(std::string rCommand, sf::Packet rData);
+
 private:
+    std::tr1::shared_ptr<IOManager> m_spCoreIO;//manages IO just for the GUI
 
     std::tr1::shared_ptr<Player> m_spLocalPlayer;
-
-
     std::tr1::shared_ptr<sf::RenderWindow> m_spWindow;
     std::tr1::shared_ptr<Overlay> m_spOverlay;
-    std::tr1::shared_ptr<IOManager> m_spCoreIO;//manages IO just for the GUI
+
     std::tr1::shared_ptr<TextureAllocator> m_spTexAlloc;
     std::tr1::shared_ptr<AnimationAllocator> m_spAnimAlloc;
 
 
     std::tr1::shared_ptr<Universe> m_spUniverse;
+
+    std::tr1::shared_ptr<IOComponent> m_spIO;
 
 
     sf::Clock m_clock;

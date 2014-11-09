@@ -51,7 +51,7 @@ void WidgetBase::toggleEnabled(bool enabled)
 }
 
 /**IO**/
-void WidgetBase::input(const std::string& rCommand, const sf::Packet& rData)
+void WidgetBase::input(std::string rCommand, sf::Packet rData)
 {
     sf::Packet data(rData);
 

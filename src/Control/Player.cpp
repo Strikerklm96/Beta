@@ -15,7 +15,7 @@ Player::Player(const PlayerData& rData) : Intelligence(rData), m_io(rData.ioComp
 }
 Player::~Player()
 {
-
+    cout << "\nPlayer Destroying...";
 }
 Camera& Player::getCamera()
 {
@@ -109,7 +109,7 @@ void Player::getInput()
 
 
 
-void Player::input(const std::string& rCommand, const sf::Packet& rData)
+void Player::input(std::string rCommand, sf::Packet rData)
 {
     sf::Packet data(rData);
     if(rCommand == "toggleGuiMode")

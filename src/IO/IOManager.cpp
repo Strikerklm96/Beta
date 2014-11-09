@@ -69,26 +69,41 @@ void IOManager::free(unsigned position)//don't adjust the list, just mark the no
     else
     {
         cout << FILELINE;
-     ///ERROR LOG
+        ///ERROR LOG
     }
 }
 
 void IOManager::f_send(const Message& rMessage)
 {
-    auto it = m_nameLookup.find(rMessage.getTargetName());
-    if(it != m_nameLookup.end())
+    unsigned pos = rMessage.getTargetPosition();
+
+    if(rMessage.getTargetName() != "")
     {
-        if(m_componentPtrs[it->second] != NULL)
-            m_componentPtrs[it->second]->recieve(rMessage.getCommand(), rMessage.getData());
+        auto it = m_nameLookup.find(rMessage.getTargetName());
+        if(it != m_nameLookup.end())
+        {
+            if(m_componentPtrs[it->second] != NULL)
+                m_componentPtrs[it->second]->recieve(rMessage.getCommand(), rMessage.getData());
+            else
+            {
+                cout << "\nHe's dead Jim. [" << rMessage.getTargetName() << "]." << FILELINE;
+                ///ERROR LOG
+            }
+        }
         else
         {
-            cout << "\nHe's dead Jim. [" << rMessage.getTargetName() << "]." << FILELINE;
+            cout << "\nTarget [" << rMessage.getTargetName() << "] was not found." << FILELINE;
             ///ERROR LOG
         }
     }
+    else if(pos >= 0 && pos < m_componentPtrs.size())
+    {
+        if(m_componentPtrs[pos] != NULL)
+            m_componentPtrs[pos]->recieve(rMessage.getCommand(), rMessage.getData());
+    }
     else
     {
-        cout << "\nTarget [" << rMessage.getTargetName() << "] was not found." << FILELINE;
+        cout << "\nTarget [" << rMessage.getTargetName() << "][" << pos << "]." << FILELINE;
         ///ERROR LOG
     }
 }
