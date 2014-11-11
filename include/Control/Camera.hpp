@@ -14,7 +14,7 @@ class Camera
         void setZoom(float level);//multiple of each dimension to find new
         void setRotation(float radiansCCW);
 
-        const b2Vec2& getPosition() const;
+        b2Vec2 getPosition() const;
         float getZoom() const;
         float getRotation() const;
         const sf::View& getView() const;

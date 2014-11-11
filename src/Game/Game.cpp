@@ -28,11 +28,17 @@ using namespace leon;
 
 Game::Game()
 {
-    loadWindow("window.ini");
+    srand(time(NULL));
+
+
+    cout << "\nEnter other address:";
     NetworkBossData data;
     std::string targetIP;
     cin >> targetIP;
     data.sendIP = targetIP;
+
+    loadWindow("window.ini");
+
 
     ///m_spAnimAlloc = std::tr1::shared_ptr<AnimationAllocator>(new AnimationAllocator);
     m_spCoreIO = std::tr1::shared_ptr<IOManager>(new IOManager(true));
@@ -108,10 +114,13 @@ void Game::run()
     defaultView.setSize(sf::Vector2f(rWindow.getSize()));
 
     sf::Packet message;
-    std::string str = "To other game.";
-    std::string rec = "3";
 
     m_spUniverse->loadLevel("levels");
+
+
+    int hisKey = -1;
+    int myKey = rand();
+    cout << "\nKey: " << myKey;
 
     int messageCount = 0;
     float lastTime = 0;
@@ -132,6 +141,7 @@ void Game::run()
 
         ++messageCount;
         message << messageCount;
+        message << myKey;
         message << myName;
         message << pX;
         message << pY;
@@ -153,6 +163,7 @@ void Game::run()
 
         message.clear();
         message = m_spNetworkBoss->recieveLatest();
+        message >> hisKey;
         message >> oName;
         message >> xp;
         message >> yp;
@@ -173,13 +184,27 @@ void Game::run()
         }
 
 
+        if(hisKey < myKey)
+        {
+            getLocalPlayer().setSlave("chunk_1");
+        }
+        else if(hisKey > myKey)
+        {
+            getLocalPlayer().setSlave("chunk_2");
+        }
+        else
+        {
+            cout << "\nOne of you needs to reconnect.";
+        }
+
+
 
 
         frameTime = m_clock.getElapsedTime().asSeconds()-lastTime;
         lastTime = m_clock.getElapsedTime().asSeconds();
 
         /**EXPERIMENTING**/
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::H))
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace))
         {
             cout << "\n" << 1/frameTime;
 

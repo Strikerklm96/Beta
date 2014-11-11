@@ -54,7 +54,7 @@ void FixtureComponent::endContact(FixtureComponent* pOther)
 
 
 
-b2Vec2& FixtureComponent::getCenter() const
+b2Vec2 FixtureComponent::getCenter() const
 {
     b2Vec2 center(0,0);
 

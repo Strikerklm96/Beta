@@ -40,7 +40,7 @@ void Camera::setRotation(float radiansCCW)
 
 
 
-const b2Vec2& Camera::getPosition() const
+b2Vec2 Camera::getPosition() const
 {
     return leon::sfTob2(m_view.getCenter());
 }

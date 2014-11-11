@@ -15,6 +15,8 @@
 #include <memory>
 #include <functional>
 #include <random>
+#include <conio.h>
+#include <stdlib.h>
 
 
 #include <SFML/System.hpp>/**SFML**/
