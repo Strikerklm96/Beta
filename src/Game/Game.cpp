@@ -113,7 +113,6 @@ void Game::run()
 
     m_spUniverse->loadLevel("levels");
 
-        int mess = 0;
     int messageCount = 0;
     float lastTime = 0;
     float frameTime = 0;
@@ -131,21 +130,17 @@ void Game::run()
 
         message.clear();
 
-        ++mess;
-        if(mess >= 3)
-        {
-            ++messageCount;
-            message << messageCount;
-            message << myName;
-            message << pX;
-            message << pY;
-            message << vX;
-            message << vY;
-            message << myAngle;
-            message << myAngleVel;
-            m_spNetworkBoss->send(message);
-            mess = 0;
-        }
+        ++messageCount;
+        message << messageCount;
+        message << myName;
+        message << pX;
+        message << pY;
+        message << vX;
+        message << vY;
+        message << myAngle;
+        message << myAngleVel;
+        m_spNetworkBoss->send(message);
+
 
         std::string oName;
         b2Body* oBody;

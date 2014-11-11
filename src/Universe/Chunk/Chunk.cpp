@@ -34,7 +34,7 @@ void Chunk::setAim(const b2Vec2& world)//send our aim coordinates
 }
 void Chunk::directive(Directive issue)//send command to target
 {
-    const float force = 5;
+    const float force = 25;
     switch(issue)
     {
     case(Directive::Up):
