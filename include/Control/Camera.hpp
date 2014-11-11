@@ -10,16 +10,18 @@ class Camera
         virtual ~Camera();
 
         void setPosition(const b2Vec2& rPos);//world position
+        void move(const b2Vec2& change);
         void setZoom(float level);//multiple of each dimension to find new
         void setRotation(float radiansCCW);
 
+        const b2Vec2& getPosition() const;
         float getZoom() const;
         float getRotation() const;
         const sf::View& getView() const;
 
     protected:
     private:
-        int m_zoomLevel;//current zoom between [1,16]
+        float m_zoomLevel;//current zoom between [1,16]
         sf::Vector2f m_standardSize;
         sf::View m_view;
 };

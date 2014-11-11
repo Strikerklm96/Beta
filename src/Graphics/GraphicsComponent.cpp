@@ -26,7 +26,6 @@ GraphicsComponent::~GraphicsComponent()
 }
 
 
-
 void GraphicsComponent::setPosition(const b2Vec2& rWorldCoords)
 {
     m_latestPosition = rWorldCoords;

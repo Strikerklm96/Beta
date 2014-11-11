@@ -25,16 +25,17 @@ struct BodyComponentData
 class BodyComponent
 {
 public:
-    BodyComponent();
+    BodyComponent(const BodyComponentData& rData);
     virtual ~BodyComponent();
 
     const b2Vec2& getPosition() const;
+    b2Body* getBodyPtr();
 
     bool isAwake() const;
     void sleep();
     void wake();
     void wake(b2Vec2 coords, float radiansCCW, b2Vec2 velocity, float angularVel);
-    b2Body* getBodyPtr();
+
 
 protected:
 private:

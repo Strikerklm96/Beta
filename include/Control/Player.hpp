@@ -15,8 +15,8 @@ struct InputConfig
         down(sf::Keyboard::S),
         left(sf::Keyboard::Q),
         right(sf::Keyboard::E),
-        rollLeft(sf::Keyboard::A),
-        rollRight(sf::Keyboard::D),
+        rollCCW(sf::Keyboard::A),
+        rollCW(sf::Keyboard::D),
         special_1(sf::Keyboard::Space),
         special_2(sf::Keyboard::R),
         special_3(sf::Keyboard::F),
@@ -25,15 +25,19 @@ struct InputConfig
         special_6(sf::Keyboard::Z),
         special_7(sf::Keyboard::LShift),
         primary(sf::Mouse::Left),
-        secondary(sf::Mouse::Right)
+        secondary(sf::Mouse::Right),
+        cameraUp(sf::Keyboard::Up),
+        cameraDown(sf::Keyboard::Down),
+        cameraLeft(sf::Keyboard::Left),
+        cameraRight(sf::Keyboard::Right)
     {}
 
     sf::Keyboard::Key up;
     sf::Keyboard::Key down;
     sf::Keyboard::Key left;
     sf::Keyboard::Key right;
-    sf::Keyboard::Key rollLeft;
-    sf::Keyboard::Key rollRight;
+    sf::Keyboard::Key rollCCW;
+    sf::Keyboard::Key rollCW;
     sf::Keyboard::Key special_1;
     sf::Keyboard::Key special_2;
     sf::Keyboard::Key special_3;
@@ -44,19 +48,26 @@ struct InputConfig
 
     sf::Mouse::Button primary;
     sf::Mouse::Button secondary;
+
+    sf::Keyboard::Key cameraUp;
+    sf::Keyboard::Key cameraDown;
+    sf::Keyboard::Key cameraLeft;
+    sf::Keyboard::Key cameraRight;
 };
 struct PlayerData : public IntelligenceData
 {
     PlayerData() :
         IntelligenceData(),
         keyConfig(),
-        ioComp(game.getCoreIO())
+        ioComp(game.getCoreIO()),
+        tracking(true)
     {
         ioComp.name = "local_player";
     }
 
     InputConfig keyConfig;
     IOComponentData ioComp;
+    bool tracking;
 };
 
 
@@ -88,6 +99,7 @@ private:
     Camera m_camera;//players camera
     InputConfig m_inCfg;
     bool m_inGuiMode;//true if we are in GUI mode
+    bool m_tracking;
 };
 
 #endif // PLAYER_HPP

@@ -22,7 +22,6 @@ struct GraphicsComponentData
     GraphicsLayer layer;
 };
 
-
 class GraphicsComponent
 {
 public:

@@ -38,9 +38,9 @@ void IOManager::update(float dT)//iterate over the list of Packages, and if the 
 
 
 /**STORE/FREE COMPONENTS**/
-unsigned IOManager::give(IOComponent* pComponent)//we recieve a pointer to a component and we store it and remember the name and position
+int IOManager::give(IOComponent* pComponent)//we recieve a pointer to a component and we store it and remember the name and position
 {
-    unsigned position;
+    int position;
 
     if(not m_freeIndexes.empty())//check free positions
     {
@@ -59,7 +59,7 @@ unsigned IOManager::give(IOComponent* pComponent)//we recieve a pointer to a com
 
     return position;
 }
-void IOManager::free(unsigned position)//don't adjust the list, just mark the node as null and offer it as a position to future customers
+void IOManager::free(int position)//don't adjust the list, just mark the node as null and offer it as a position to future customers
 {
     if(m_componentPtrs.size() > position)
     {
@@ -75,7 +75,7 @@ void IOManager::free(unsigned position)//don't adjust the list, just mark the no
 
 void IOManager::f_send(const Message& rMessage)
 {
-    unsigned pos = rMessage.getTargetPosition();
+    int pos = rMessage.getTargetPosition();
 
     if(rMessage.getTargetName() != "")
     {

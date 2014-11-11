@@ -19,7 +19,9 @@ public:
 protected:
 
     sf::ConvexShape m_convex;//necessary to hold here to prevent major lag from creating and destroying
+    sf::ConvexShape m_convex2;//necessary to hold here to prevent major lag from creating and destroying
     sf::CircleShape m_circle;
+    sf::VertexArray m_line;
 private:
 };
 

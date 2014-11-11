@@ -9,6 +9,10 @@
 #include "IOManager.hpp"
 #include "Player.hpp"
 #include "Universe.hpp"
+#include "NetworkBoss.hpp"
+#include "Convert.hpp"
+#include "SlaveLocator.hpp"
+#include "Chunk.hpp"
 
 
 using namespace std;
@@ -25,9 +29,14 @@ using namespace leon;
 Game::Game()
 {
     loadWindow("window.ini");
+    NetworkBossData data;
+    std::string targetIP;
+    cin >> targetIP;
+    data.sendIP = targetIP;
 
     ///m_spAnimAlloc = std::tr1::shared_ptr<AnimationAllocator>(new AnimationAllocator);
     m_spCoreIO = std::tr1::shared_ptr<IOManager>(new IOManager(true));
+    m_spNetworkBoss = std::tr1::shared_ptr<NetworkBoss>(new NetworkBoss(data));
     m_spOverlay = std::tr1::shared_ptr<Overlay>(new Overlay);
     m_spOverlay->loadMenus();
     PlayerData playerData;
@@ -98,17 +107,94 @@ void Game::run()
     defaultView.setCenter(rWindow.getSize().x/2, rWindow.getSize().y/2);
     defaultView.setSize(sf::Vector2f(rWindow.getSize()));
 
+    sf::Packet message;
+    std::string str = "To other game.";
+    std::string rec = "3";
 
+    m_spUniverse->loadLevel("levels");
 
-
-
+        int mess = 0;
+    int messageCount = 0;
     float lastTime = 0;
+    float frameTime = 0;
     while(rWindow.isOpen())
     {
+        std::string myName = m_spLocalPlayer->getSlaveName();
+        b2Body* pMyBody = m_spLocalPlayer->getBodyPtr();
+        float pX = pMyBody->GetPosition().x;
+        float pY = pMyBody->GetPosition().y;
+        float vX = pMyBody->GetLinearVelocity().x;
+        float vY = pMyBody->GetLinearVelocity().y;
+        float myAngle = pMyBody->GetAngle();
+        float myAngleVel = pMyBody->GetAngularVelocity();
+
+
+        message.clear();
+
+        ++mess;
+        if(mess >= 3)
+        {
+            ++messageCount;
+            message << messageCount;
+            message << myName;
+            message << pX;
+            message << pY;
+            message << vX;
+            message << vY;
+            message << myAngle;
+            message << myAngleVel;
+            m_spNetworkBoss->send(message);
+            mess = 0;
+        }
+
+        std::string oName;
+        b2Body* oBody;
+        float xp;
+        float yp;
+        float xv;
+        float yv;
+        float oAngle;
+        float oAngleVel;
+
+        message.clear();
+        message = m_spNetworkBoss->recieveLatest();
+        message >> oName;
+        message >> xp;
+        message >> yp;
+        message >> xv;
+        message >> yv;
+        message >> oAngle;
+        message >> oAngleVel;
+
+
+        Chunk* pChunk = m_spUniverse->getSlaveLocator().findHack(oName);
+        if(pChunk != NULL)
+        {
+            oBody = pChunk->getBodyPtr();
+
+            oBody->SetTransform(b2Vec2(xp,yp), oAngle);
+            oBody->SetLinearVelocity(b2Vec2(xv,yv));
+            oBody->SetAngularVelocity(oAngleVel);
+        }
+
+
+
+
+        frameTime = m_clock.getElapsedTime().asSeconds()-lastTime;
+        lastTime = m_clock.getElapsedTime().asSeconds();
+
         /**EXPERIMENTING**/
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::H))
         {
-            this->loadUniverse("");
+            cout << "\n" << 1/frameTime;
+
+            std::string choose;
+            cin >> choose;
+            getLocalPlayer().setSlave(choose);
+
+            /**
+            game.loadUniverse("stuff");
+            m_spUniverse->loadLevel("levels");**/
         }
 
 
@@ -120,12 +206,12 @@ void Game::run()
 
         /**UPDATE GAME**/
         rWindow.setView(m_spLocalPlayer->getCamera().getView());
-        m_spUniverse->update(rWindow);
+        m_spUniverse->update(rWindow, frameTime);
 
         /**UPDATE GUI**/
         rWindow.setView(defaultView);
-        m_spCoreIO->update(m_clock.getElapsedTime().asSeconds()-lastTime);
-        lastTime = m_clock.getElapsedTime().asSeconds();
+        m_spCoreIO->update(frameTime);
+
         m_spOverlay->getGui().draw();
 
         /**DRAW GAME**/
@@ -235,6 +321,7 @@ void Game::loadWindow(const std::string& windowFile)
         m_spWindow.reset(new sf::RenderWindow(windowData.mode, windowData.windowName, style, settings));
         m_spTexAlloc.reset(new TextureAllocator(windowData.smoothTextures));
     }
+    m_spWindow->setFramerateLimit(windowData.targetFPS);
 }
 
 

@@ -12,6 +12,7 @@ class UniversalContactListener : public b2ContactListener
         void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse);
 
     protected:
+        friend class FixtureComponent;
     private:
 };
 

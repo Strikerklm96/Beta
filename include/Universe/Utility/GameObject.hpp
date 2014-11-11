@@ -28,9 +28,9 @@ public:
     virtual void update(float dT) = 0;
 
 protected:
-private:
     IOComponent m_io;
     NetworkComponent m_nw;
+private:
 };
 
 #endif // GAMEOBJECT_HPP

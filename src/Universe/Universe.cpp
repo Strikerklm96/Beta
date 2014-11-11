@@ -1,17 +1,23 @@
 #include "Universe.hpp"
 
 #include "Globals.hpp"
+#include "SlaveLocator.hpp"
 #include "BatchLayers.hpp"
 #include "GraphicsComponentUpdater.hpp"
 #include "IOManager.hpp"
 #include "Player.hpp"
 #include "QuadComponent.hpp"
 #include "GameObject.hpp"
+#include "Chunk.hpp"
+#include "Factory.hpp"
+#include "ShipModule.hpp"
 
 using namespace std;
 
 Universe::Universe(const IOComponentData& rData) : m_io(rData), m_physWorld(b2Vec2(0,0))
 {
+    m_spSlaveLocator = std::tr1::shared_ptr<SlaveLocator>(new SlaveLocator);
+    m_spFactory = std::tr1::shared_ptr<Factory>(new Factory);
     m_spBatchLayers = std::tr1::shared_ptr<BatchLayers>(new BatchLayers);
     m_spGfxUpdater = std::tr1::shared_ptr<GraphicsComponentUpdater>(new GraphicsComponentUpdater);
 
@@ -31,10 +37,10 @@ Universe::Universe(const IOComponentData& rData) : m_io(rData), m_physWorld(b2Ve
     m_velocityIterations = 1;
     m_positionIterations = 1;
     m_timeStep = 1.0f/120.0f;///LOAD FROM FILE
-    m_maxIterations = 6;
 
     m_physWorld.SetContactListener(&m_contactListener);
     m_physWorld.SetDebugDraw(&m_debugDraw);
+    m_debugDraw.SetFlags(b2Draw::e_shapeBit);///what does this do?
     /**PHYSICS**/
 
     m_debugDrawEnabled = false;
@@ -43,8 +49,23 @@ Universe::~Universe()
 {
     cout << "\nUniverse Destroying...";
 }
+void Universe::toggleDebugDraw()
+{
+    m_debugDrawEnabled = !m_debugDrawEnabled;
+}
 
-
+SlaveLocator& Universe::getSlaveLocator()
+{
+    return *m_spSlaveLocator;
+}
+b2World& Universe::getWorld()
+{
+    return m_physWorld;
+}
+Factory& Universe::getFactory()
+{
+    return *m_spFactory;
+}
 BatchLayers& Universe::getBatchLayers()
 {
     return *m_spBatchLayers;
@@ -60,12 +81,9 @@ IOManager& Universe::getUniverseIO()
 
 
 
-float Universe::update(sf::RenderTarget& rTarget)
+float Universe::update(sf::RenderTarget& rTarget, float fdT)
 {
-    float dT = getTime()-m_lastTime;
-    m_lastTime = getTime();
-
-    m_spUniverseIO->update(dT);
+    m_spUniverseIO->update(fdT);
     m_spGfxUpdater->update();
 
     if(m_debugDrawEnabled)
@@ -77,10 +95,8 @@ float Universe::update(sf::RenderTarget& rTarget)
     if(not m_paused)
     {
         for(auto it = m_goList.begin(); it != m_goList.end(); ++it)
-            (*it)->update(dT);
-
+            (*it)->update(fdT);
         m_physWorld.Step(m_timeStep, m_velocityIterations, m_positionIterations);
-
         ///m_projAlloc.recoverProjectiles();
     }
 
@@ -108,17 +124,35 @@ float Universe::getTime() const
         return game.getTime()-m_skippedTime;
 }
 
-void loadBP(const std::string& bluePrints)//loads blueprints
+void Universe::loadBP(const std::string& bluePrints)//loads blueprints
 {
 
 }
-void loadLevel(const std::string& level)//loads a level using blueprints
+void Universe::loadLevel(const std::string& level)//loads a level using blueprints
 {
-    QuadComponentData data;
-    data.dimensions.x = 128;
-    QuadComponent comp(data);
-    comp.setPosition(b2Vec2(1,-1));
+    auto spChunkData = std::tr1::shared_ptr<ChunkData>(new ChunkData);
+    spChunkData->moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ShipModuleData));
+    spChunkData->ioComp.name = "chunk_1";
+    Chunk* pChunk1 = m_spFactory->createChunk(spChunkData);
+    spChunkData->bodyComp.coords = b2Vec2(2,0);
+    spChunkData->ioComp.name = "chunk_2";
+    Chunk* pChunk2 = m_spFactory->createChunk(spChunkData);
+    add(pChunk1);
+    add(pChunk2);
+
+
+
+    game.getLocalPlayer().setSlave("chunk_1");
 }
+void Universe::add(std::tr1::shared_ptr<GameObject> spGO)
+{
+    m_goList.push_back(spGO);
+}
+void Universe::add(GameObject* pGO)
+{
+    m_goList.push_back(std::tr1::shared_ptr<GameObject>(pGO));
+}
+
 
 void Universe::input(std::string rCommand, sf::Packet rData)
 {

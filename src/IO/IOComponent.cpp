@@ -25,7 +25,7 @@ const std::string& IOComponent::getName() const
 {
     return m_name;
 }
-unsigned IOComponent::getPosition() const
+int IOComponent::getPosition() const
 {
     return m_ioManPosition;
 }
