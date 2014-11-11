@@ -17,10 +17,10 @@ Chunk::~Chunk()
 {
     game.getUniverse().getSlaveLocator().free(m_slavePosition);
 }
-void Chunk::update(float dT)
+void Chunk::prePhysUpdate()
 {
     for(auto it = m_modules.begin(); it!=m_modules.end(); ++it)
-        (*it)->update(dT);
+        (*it)->prePhysUpdate();
 }
 const std::string& Chunk::getName() const
 {

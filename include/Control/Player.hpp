@@ -13,10 +13,16 @@ struct InputConfig
     InputConfig() :
         up(sf::Keyboard::W),
         down(sf::Keyboard::S),
-        left(sf::Keyboard::Q),
-        right(sf::Keyboard::E),
         rollCCW(sf::Keyboard::A),
         rollCW(sf::Keyboard::D),
+
+        primary(sf::Mouse::Left),
+        secondary(sf::Mouse::Right),
+
+        nextWeapon(sf::Keyboard::E),
+        prevWeapon(sf::Keyboard::Q),
+
+
         special_1(sf::Keyboard::Space),
         special_2(sf::Keyboard::R),
         special_3(sf::Keyboard::F),
@@ -24,8 +30,8 @@ struct InputConfig
         special_5(sf::Keyboard::X),
         special_6(sf::Keyboard::Z),
         special_7(sf::Keyboard::LShift),
-        primary(sf::Mouse::Left),
-        secondary(sf::Mouse::Right),
+
+
         cameraUp(sf::Keyboard::Up),
         cameraDown(sf::Keyboard::Down),
         cameraLeft(sf::Keyboard::Left),
@@ -34,10 +40,15 @@ struct InputConfig
 
     sf::Keyboard::Key up;
     sf::Keyboard::Key down;
-    sf::Keyboard::Key left;
-    sf::Keyboard::Key right;
     sf::Keyboard::Key rollCCW;
     sf::Keyboard::Key rollCW;
+
+    sf::Mouse::Button primary;
+    sf::Mouse::Button secondary;
+
+    sf::Keyboard::Key nextWeapon;
+    sf::Keyboard::Key prevWeapon;
+
     sf::Keyboard::Key special_1;
     sf::Keyboard::Key special_2;
     sf::Keyboard::Key special_3;
@@ -46,8 +57,6 @@ struct InputConfig
     sf::Keyboard::Key special_6;
     sf::Keyboard::Key special_7;
 
-    sf::Mouse::Button primary;
-    sf::Mouse::Button secondary;
 
     sf::Keyboard::Key cameraUp;
     sf::Keyboard::Key cameraDown;
@@ -71,8 +80,6 @@ struct PlayerData : public IntelligenceData
 };
 
 
-
-
 /**This class is exclusively for 1 local player**/
 class Player : public Intelligence
 {
@@ -86,7 +93,8 @@ public:
     bool inGuiMode() const;//is the player in GUI mode?
     bool toggleGuiMode(bool isGuiModeOn);
 
-    void getInput();//get input from the outside world!
+    void getLiveInput();//get direct feed from keyboard and mouse, just gets their states though (up, down, position)
+    void getWindowEvents(sf::RenderWindow& rWindow);//process window events
 
 protected:
     void input(std::string rCommand, sf::Packet rData);

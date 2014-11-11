@@ -35,7 +35,7 @@ public:
     Chunk(const ChunkData& rData);
     virtual ~Chunk();
 
-    virtual void update(float dT);
+    virtual void prePhysUpdate();
     const std::string& getName() const;
 
     void setAim(const b2Vec2& world);//send our aim coordinates

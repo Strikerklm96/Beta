@@ -40,7 +40,7 @@ Universe::Universe(const IOComponentData& rData) : m_io(rData), m_physWorld(b2Ve
 
     m_physWorld.SetContactListener(&m_contactListener);
     m_physWorld.SetDebugDraw(&m_debugDraw);
-    m_debugDraw.SetFlags(b2Draw::e_shapeBit);///what does this do?
+    m_debugDraw.SetFlags(b2Draw::e_shapeBit);
     /**PHYSICS**/
 
     m_debugDrawEnabled = false;
@@ -80,33 +80,29 @@ IOManager& Universe::getUniverseIO()
 }
 
 
-
-float Universe::update(sf::RenderTarget& rTarget, float fdT)
+float Universe::getTimeStep() const
 {
-    m_spUniverseIO->update(fdT);
-    m_spGfxUpdater->update();
-
-    if(m_debugDrawEnabled)
-        m_physWorld.DrawDebugData();
-    else
-        m_spBatchLayers->draw(rTarget);
-
-
+    return m_timeStep;
+}
+void Universe::physUpdate()
+{
     if(not m_paused)
     {
         for(auto it = m_goList.begin(); it != m_goList.end(); ++it)
-            (*it)->update(fdT);
+            (*it)->prePhysUpdate();
+
         m_physWorld.Step(m_timeStep, m_velocityIterations, m_positionIterations);
         ///m_projAlloc.recoverProjectiles();
     }
-
-    return m_timeStep;
 }
 
 
 
 
-
+    bool Universe::debugDraw() const//should we draw debug or normal?
+    {
+        return m_debugDrawEnabled;
+    }
 void Universe::togglePause(bool pause)
 {
     m_paused = pause;

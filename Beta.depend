@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1415679634 source:c:\users\leon\desktop\projects\beta\main.cpp
+1415681411 source:c:\users\leon\desktop\projects\beta\main.cpp
 	"Globals.hpp"
 
-1415681234 c:\users\leon\desktop\projects\beta\include\headers\stdafx.hpp
+1415682177 c:\users\leon\desktop\projects\beta\include\headers\stdafx.hpp
 	<iostream>
 	<stdio.h>
 	<vector>
@@ -888,27 +888,27 @@
 1414974662 c:\users\leon\desktop\projects\beta\include\graphics\textureallocator.hpp
 	"stdafx.hpp"
 
-1415679634 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicscomponent.cpp
+1415689984 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicscomponent.cpp
 	"GraphicsComponent.hpp"
 	"convert.hpp"
 	"Universe.hpp"
 	"GraphicsComponentUpdater.hpp"
 
-1415679634 c:\users\leon\desktop\projects\beta\include\graphics\graphicscomponent.hpp
+1415689835 c:\users\leon\desktop\projects\beta\include\graphics\graphicscomponent.hpp
 	"stdafx.hpp"
 	"GraphicsLayer.hpp"
 
-1415398525 source:c:\users\leon\desktop\projects\beta\src\graphics\quadcomponent.cpp
+1415689920 source:c:\users\leon\desktop\projects\beta\src\graphics\quadcomponent.cpp
 	"QuadComponent.hpp"
 	"Convert.hpp"
 	"BatchLayers.hpp"
 	"Globals.hpp"
 	"Universe.hpp"
 
-1415256501 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
+1415689913 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
 	"GraphicsComponent.hpp"
 
-1415681058 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
+1415691651 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
 	"Game.hpp"
 	"Globals.hpp"
 	"TextureAllocator.hpp"
@@ -922,9 +922,8 @@
 	"Convert.hpp"
 	"SlaveLocator.hpp"
 	"Chunk.hpp"
-	"QuadComponent.hpp"
 
-1415679634 c:\users\leon\desktop\projects\beta\include\game\game.hpp
+1415683987 c:\users\leon\desktop\projects\beta\include\game\game.hpp
 	"stdafx.hpp"
 
 1415149801 source:c:\users\leon\desktop\projects\beta\src\graphics\batchlayers.cpp
@@ -943,34 +942,35 @@
 	"GraphicsComponentUpdater.hpp"
 	"GraphicsComponent.hpp"
 
-1415680862 source:c:\users\leon\desktop\projects\beta\src\control\camera.cpp
+1415682177 source:c:\users\leon\desktop\projects\beta\src\control\camera.cpp
 	"Camera.hpp"
 	"Globals.hpp"
 	"Convert.hpp"
 
-1415680869 c:\users\leon\desktop\projects\beta\include\control\camera.hpp
+1415682177 c:\users\leon\desktop\projects\beta\include\control\camera.hpp
 	"stdafx.hpp"
 
-1415679634 source:c:\users\leon\desktop\projects\beta\src\control\intelligence.cpp
+1415685767 source:c:\users\leon\desktop\projects\beta\src\control\intelligence.cpp
 	"Intelligence.hpp"
 	"SlaveLocator.hpp"
 	"Chunk.hpp"
 
-1415679634 c:\users\leon\desktop\projects\beta\include\control\intelligence.hpp
+1415687202 c:\users\leon\desktop\projects\beta\include\control\intelligence.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"Globals.hpp"
 	"Universe.hpp"
 
-1415679634 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
+1415686979 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
 	"Player.hpp"
 	"Globals.hpp"
 	"Overlay.hpp"
 	"Panel.hpp"
 	"Universe.hpp"
 	"IOManager.hpp"
+	"Convert.hpp"
 
-1415679634 c:\users\leon\desktop\projects\beta\include\control\player.hpp
+1415686131 c:\users\leon\desktop\projects\beta\include\control\player.hpp
 	"stdafx.hpp"
 	"Intelligence.hpp"
 	"Camera.hpp"
@@ -993,7 +993,7 @@
 
 1415327493 c:\users\leon\desktop\projects\beta\include\basic\timer.hpp
 
-1415679634 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
+1415688972 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"UniversalContactListener.hpp"
@@ -1071,7 +1071,7 @@
 1415483750 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
 	"WidgetBase.hpp"
 
-1415679634 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
+1415689419 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
 	"Universe.hpp"
 	"Globals.hpp"
 	"SlaveLocator.hpp"
@@ -1114,11 +1114,11 @@
 1415469567 c:\users\leon\desktop\projects\beta\include\io\eventer.hpp
 	"Courier.hpp"
 
-1415680841 source:c:\users\leon\desktop\projects\beta\src\physics\fixturecomponent.cpp
+1415682177 source:c:\users\leon\desktop\projects\beta\src\physics\fixturecomponent.cpp
 	"FixtureComponent.hpp"
 	"Globals.hpp"
 
-1415680850 c:\users\leon\desktop\projects\beta\include\physics\fixturecomponent.hpp
+1415682177 c:\users\leon\desktop\projects\beta\include\physics\fixturecomponent.hpp
 	"stdafx.hpp"
 
 1415679634 source:c:\users\leon\desktop\projects\beta\src\physics\bodycomponent.cpp
@@ -1144,10 +1144,10 @@
 	"IOComponent.hpp"
 	"Universe.hpp"
 
-1415679634 source:c:\users\leon\desktop\projects\beta\src\universe\modules\module.cpp
+1415690209 source:c:\users\leon\desktop\projects\beta\src\universe\modules\module.cpp
 	"Module.hpp"
 
-1415679634 c:\users\leon\desktop\projects\beta\include\universe\modules\module.hpp
+1415689469 c:\users\leon\desktop\projects\beta\include\universe\modules\module.hpp
 	"Globals.hpp"
 	"IOComponent.hpp"
 	"NetworkComponent.hpp"
@@ -1166,7 +1166,7 @@
 1415679634 c:\users\leon\desktop\projects\beta\include\universe\utility\debugdraw.hpp
 	"stdafx.hpp"
 
-1415679634 c:\users\leon\desktop\projects\beta\include\universe\utility\gameobject.hpp
+1415689391 c:\users\leon\desktop\projects\beta\include\universe\utility\gameobject.hpp
 	"Globals.hpp"
 	"NetworkComponent.hpp"
 	"IOComponent.hpp"
@@ -1191,14 +1191,14 @@
 	"UniversalContactListener.hpp"
 	"FixtureComponent.hpp"
 
-1415679634 source:c:\users\leon\desktop\projects\beta\src\universe\chunk\chunk.cpp
+1415689455 source:c:\users\leon\desktop\projects\beta\src\universe\chunk\chunk.cpp
 	"Chunk.hpp"
 	"Factory.hpp"
 	"Module.hpp"
 	"SlaveLocator.hpp"
 	"Intelligence.hpp"
 
-1415679634 c:\users\leon\desktop\projects\beta\include\universe\chunk\chunk.hpp
+1415689429 c:\users\leon\desktop\projects\beta\include\universe\chunk\chunk.hpp
 	"GameObject.hpp"
 	"BodyComponent.hpp"
 
@@ -1228,10 +1228,10 @@
 	"Globals.hpp"
 	"Chunk.hpp"
 
-1415679634 source:c:\users\leon\desktop\projects\beta\src\universe\modules\shipmodule.cpp
+1415689562 source:c:\users\leon\desktop\projects\beta\src\universe\modules\shipmodule.cpp
 	"ShipModule.hpp"
 
-1415679634 c:\users\leon\desktop\projects\beta\include\universe\modules\shipmodule.hpp
+1415689508 c:\users\leon\desktop\projects\beta\include\universe\modules\shipmodule.hpp
 	"Module.hpp"
 	"QuadComponent.hpp"
 

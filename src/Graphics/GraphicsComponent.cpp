@@ -28,23 +28,11 @@ GraphicsComponent::~GraphicsComponent()
 
 void GraphicsComponent::setPosition(const b2Vec2& rWorldCoords)
 {
-    m_latestPosition = rWorldCoords;
-    sf::Transform t = getTransform();
-    sf::Vector2f offsetFixed(m_offset.x, -m_offset.y);
-    sf::Vector2f centerFixed(m_center.x, -m_center.y);
-
-    for(int i=0; i<m_numVerts; ++i)
-        (*m_pVerts)[i+m_startVert].position = t.transformPoint(m_originPos[i]+offsetFixed-centerFixed);
+    coordinates = rWorldCoords;
 }
 void GraphicsComponent::setRotation(float radiansCCW)
 {
     m_rotation = radiansCCW;
-    sf::Transform t = getTransform();
-    sf::Vector2f offsetFixed(m_offset.x, -m_offset.y);
-    sf::Vector2f centerFixed(m_center.x, -m_center.y);
-
-    for(int i=0; i<m_numVerts; ++i)
-        (*m_pVerts)[i+m_startVert].position = t.transformPoint(m_originPos[i]+offsetFixed-centerFixed);
 }
 void GraphicsComponent::setOffset(const sf::Vector2f pixels)//sets the origin of us
 {
@@ -55,7 +43,7 @@ void GraphicsComponent::setOffset(const sf::Vector2f pixels)//sets the origin of
 
 const b2Vec2& GraphicsComponent::getPosition() const
 {
-    return m_latestPosition;
+    return coordinates;
 }
 float GraphicsComponent::getRotation() const
 {
@@ -68,10 +56,22 @@ const sf::Vector2f& GraphicsComponent::getOffset() const
 
 
 
+
+void GraphicsComponent::update()
+{
+    sf::Transform form = getTransform();
+    sf::Vector2f offsetFixed(m_offset.x, -m_offset.y);
+    sf::Vector2f centerFixed(m_center.x, -m_center.y);
+
+    for(int i=0; i<m_numVerts; ++i)
+        (*m_pVerts)[i+m_startVert].position = form.transformPoint(m_originPos[i]+offsetFixed-centerFixed);
+
+    postUpdate();
+}
 sf::Transform GraphicsComponent::getTransform() const
 {
     sf::Transform transform;
-    transform.translate(leon::b2Tosf<float>(m_latestPosition)).rotate(leon::radToDeg(-m_rotation-m_permanentRot));
+    transform.translate(leon::b2Tosf<float>(coordinates)).rotate(leon::radToDeg(-m_rotation-m_permanentRot));
     return transform;
 }
 

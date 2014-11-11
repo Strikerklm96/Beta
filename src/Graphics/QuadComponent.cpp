@@ -28,7 +28,7 @@ QuadComponent::~QuadComponent()
 {
 
 }
-void QuadComponent::update()
+void QuadComponent::postUpdate()
 {
 
 }

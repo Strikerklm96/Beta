@@ -10,13 +10,7 @@ class Slave;
 
 enum class Directive
 {
-    FirePrimary,
-    FireSecondary,
-    Reload,
-
-    NextWeapon,
-    PreviousWeapon,
-
+    /**== MOVEMENT ==**/
     Up,
     Down,
     Left,
@@ -24,9 +18,18 @@ enum class Directive
     RollCCW,//roll left
     RollCW,//roll right
 
+
+    /**== COMBAT ==**/
+    FirePrimary,
+    FireSecondary,
+
+    NextWeapon,
+    PrevWeapon,
+    Reload,
+
+    /**== MISC. ==**/
     Use,
     ShieldToggle,
-
     Special1,
     Special2,
 };
@@ -57,22 +60,27 @@ public:
     Intelligence(const IntelligenceData& rData);
     virtual ~Intelligence();
 
+
+
+
+    /**== CHUNK ==**/
     void setSlave(const std::string& rSlaveName);
     const std::string& getSlaveName() const;
-    const b2Vec2& getAim() const;
 
     void setAim(const b2Vec2& world);//send our aim coordinates
-    b2Body* getBodyPtr();//return position
     void directive(Directive issue);//send command to target
-    float get(Request value);//return the requested value
 
+    float get(Request value);//return the requested value
+    b2Body* getBodyPtr();//return our chunk body if we have one
 
 
 protected:
     int m_slavePosition;
     std::string m_slaveName;
+    b2Vec2 m_aim;//where we are aiming in the world ATM
+
 private:
-    b2Vec2 m_aim;//where we are aiming in the world
+
     ///IOComponent m_io;???
 };
 

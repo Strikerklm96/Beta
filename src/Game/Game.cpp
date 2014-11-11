@@ -20,25 +20,12 @@ using namespace sf;
 using namespace leon;
 
 
-///
-#include "QuadComponent.hpp"
-
-
-
-
 Game::Game()
 {
-    srand(time(NULL));
-
-
-    cout << "\nEnter other address:";
     NetworkBossData data;
-    std::string targetIP;
-    cin >> targetIP;
-    data.sendIP = targetIP;
+    data.sendIP = "127.0.0.1";
 
     loadWindow("window.ini");
-
 
     ///m_spAnimAlloc = std::tr1::shared_ptr<AnimationAllocator>(new AnimationAllocator);
     m_spCoreIO = std::tr1::shared_ptr<IOManager>(new IOManager(true));
@@ -51,6 +38,7 @@ Game::Game()
 
     loadUniverse("THING");
 
+    /**== GAME IO COMPONENT ==**/
     IOComponentData gameData(getCoreIO());
     gameData.name = "game";
     m_spIO = std::tr1::shared_ptr<IOComponent>(new IOComponent(gameData));
@@ -108,138 +96,65 @@ float Game::getTime() const
 
 void Game::run()
 {
+    m_spUniverse->loadLevel("levels");
+
     RenderWindow& rWindow = *m_spWindow;
     sf::View defaultView;
     defaultView.setCenter(rWindow.getSize().x/2, rWindow.getSize().y/2);
     defaultView.setSize(sf::Vector2f(rWindow.getSize()));
 
-    sf::Packet message;
-
-    m_spUniverse->loadLevel("levels");
-
-
-    int hisKey = -1;
-    int myKey = rand();
-    cout << "\nKey: " << myKey;
-
-    int messageCount = 0;
     float lastTime = 0;
-    float frameTime = 0;
+    float frameTime = 1;
+    float timeRemaining = 0;
+    float timeStep = 0;
+
     while(rWindow.isOpen())
     {
-        std::string myName = m_spLocalPlayer->getSlaveName();
-        b2Body* pMyBody = m_spLocalPlayer->getBodyPtr();
-        float pX = pMyBody->GetPosition().x;
-        float pY = pMyBody->GetPosition().y;
-        float vX = pMyBody->GetLinearVelocity().x;
-        float vY = pMyBody->GetLinearVelocity().y;
-        float myAngle = pMyBody->GetAngle();
-        float myAngleVel = pMyBody->GetAngularVelocity();
 
-
-        message.clear();
-
-        ++messageCount;
-        message << messageCount;
-        message << myKey;
-        message << myName;
-        message << pX;
-        message << pY;
-        message << vX;
-        message << vY;
-        message << myAngle;
-        message << myAngleVel;
-        m_spNetworkBoss->send(message);
-
-
-        std::string oName;
-        b2Body* oBody;
-        float xp;
-        float yp;
-        float xv;
-        float yv;
-        float oAngle;
-        float oAngleVel;
-
-        message.clear();
-        message = m_spNetworkBoss->recieveLatest();
-        message >> hisKey;
-        message >> oName;
-        message >> xp;
-        message >> yp;
-        message >> xv;
-        message >> yv;
-        message >> oAngle;
-        message >> oAngleVel;
-
-
-        Chunk* pChunk = m_spUniverse->getSlaveLocator().findHack(oName);
-        if(pChunk != NULL)
-        {
-            oBody = pChunk->getBodyPtr();
-
-            oBody->SetTransform(b2Vec2(xp,yp), oAngle);
-            oBody->SetLinearVelocity(b2Vec2(xv,yv));
-            oBody->SetAngularVelocity(oAngleVel);
-        }
-
-
-        if(hisKey < myKey)
-        {
-            getLocalPlayer().setSlave("chunk_1");
-        }
-        else if(hisKey > myKey)
-        {
-            getLocalPlayer().setSlave("chunk_2");
-        }
-        else
-        {
-            cout << "\nOne of you needs to reconnect.";
-        }
-
-
-
-
+        /**== FRAMERATE ==**/
         frameTime = m_clock.getElapsedTime().asSeconds()-lastTime;
         lastTime = m_clock.getElapsedTime().asSeconds();
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::F))
+            std::cout << "\nFPS: " << 1.f/frameTime;
 
-        /**EXPERIMENTING**/
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace))
+
+        /**== IO ==**/
+        getCoreIO().update(frameTime);
+        getUniverse().getUniverseIO().update(frameTime);
+
+
+        /**== PHYSICS ==**/
+        timeRemaining += frameTime;
+        timeStep = getUniverse().getTimeStep();
+        while(timeRemaining >= timeStep)
         {
-            cout << "\n" << 1/frameTime;
-
-            std::string choose;
-            cin >> choose;
-            getLocalPlayer().setSlave(choose);
-
-            /**
-            game.loadUniverse("stuff");
-            m_spUniverse->loadLevel("levels");**/
+            getLocalPlayer().getLiveInput();
+            getUniverse().physUpdate();
+            timeRemaining -= timeStep;
         }
 
 
-        /**GET INPUT**/
-        getLocalPlayer().getInput();
 
-        /**CLEAR SCREEN**/
+        /**== WINDOW ==**/
+        getLocalPlayer().getWindowEvents(rWindow);
+        getUniverse().getGfxUpdater().update();
+
+        /**== DRAW UNIVERSE ==**/
         rWindow.clear();
 
-        /**UPDATE GAME**/
-        rWindow.setView(m_spLocalPlayer->getCamera().getView());
-        m_spUniverse->update(rWindow, frameTime);
+        rWindow.setView(getLocalPlayer().getCamera().getView());
+        if(getUniverse().debugDraw())
+            getUniverse().getWorld().DrawDebugData();
+        else
+            getUniverse().getBatchLayers().draw(rWindow);
 
-        /**UPDATE GUI**/
+        /**== DRAW GUI ==**/
         rWindow.setView(defaultView);
-        m_spCoreIO->update(frameTime);
-
         m_spOverlay->getGui().draw();
 
-        /**DRAW GAME**/
+        /**== DISPLAY ==**/
         rWindow.display();
     }
-
-
-
 }
 void Game::exit()
 {
@@ -341,6 +256,8 @@ void Game::loadWindow(const std::string& windowFile)
         m_spWindow.reset(new sf::RenderWindow(windowData.mode, windowData.windowName, style, settings));
         m_spTexAlloc.reset(new TextureAllocator(windowData.smoothTextures));
     }
+
+    m_spWindow->setVerticalSyncEnabled(windowData.vSinc);
     m_spWindow->setFramerateLimit(windowData.targetFPS);
 }
 

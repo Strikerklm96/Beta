@@ -15,9 +15,8 @@ NetworkBoss::NetworkBoss(const NetworkBossData& rData)
     if(m_socket.bind(m_receivePort) != sf::Socket::Done)
     {
         cout << "\nThere was an error binding to [" << m_receivePort << "]";
+        ///ERROR LOG
     }
-    else
-        cout << "\nSuccessful bind.";
 }
 NetworkBoss::~NetworkBoss()
 {
@@ -33,6 +32,7 @@ sf::Packet NetworkBoss::recieve()
     if (m_socket.receive(receivePacket, m_receiveIP, m_receivePort) != sf::Socket::Done)
     {
         cout << "\nThere was an error receiving the packet from [" << m_receiveIP << "]::[" << m_receivePort << "]";
+                ///ERROR LOG
     }
     return receivePacket;
 }
@@ -50,7 +50,6 @@ sf::Packet NetworkBoss::recieveLatest()
         receivePacket >> tempNum;
         if(tempNum > latestNum)
         {
-        cout << "\n(" << latestNum << ")";
             latestNum = tempNum;
             return receivePacket;
         }
@@ -63,5 +62,6 @@ void NetworkBoss::send(const sf::Packet& pack)
     if (m_socket.send(copy, m_ip, m_ipPort) != sf::Socket::Done)
     {
         cout << "\nThere was an error sending the packet to [" << m_ip << "]::[" << m_ipPort << "]";
+            ///ERROR LOG
     }
 }

@@ -62,7 +62,7 @@ private:
 
     std::tr1::shared_ptr<IOComponent> m_spIO;
 
-
+    double m_targetFPS;
     sf::Clock m_clock;
 };
 

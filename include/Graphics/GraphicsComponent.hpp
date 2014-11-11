@@ -26,17 +26,21 @@ class GraphicsComponent
 {
 public:
     GraphicsComponent(const GraphicsComponentData& rData);
-    virtual ~GraphicsComponent() = 0;
+    virtual ~GraphicsComponent();
 
+    /**SETTERS**/
     void setPosition(const b2Vec2& rWorldCoords);//set our position in the world (absolute)
     void setRotation(float radiansCCW);//set our rotation in radians CCW (absolute)
     void setOffset(const sf::Vector2f pixels);//offsets us in pixels (from center of us)
 
+    /**GETTERS**/
     const b2Vec2& getPosition() const;
     float getRotation() const;
     const sf::Vector2f& getOffset() const;
 
-    virtual void update() = 0;//used to update animation
+    /**UPDATE**/
+    void update();
+    virtual void postUpdate() = 0;//used to update animation, and other things
 
 protected:
     sf::Transform getTransform() const;
@@ -47,7 +51,7 @@ protected:
     float m_permanentRot;// RADIANS CCW how much we are normally rotated (aka when told to be at 0)
     sf::Vector2f m_center;//true center of us (aka our offset when told to offset by 0) (calculated automatically)
 
-    b2Vec2 m_latestPosition;//the latest position of us in world coordinates
+    b2Vec2 coordinates;//the latest position of us in world coordinates
 
     int m_numVerts;
     int m_startVert;

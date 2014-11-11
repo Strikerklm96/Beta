@@ -26,8 +26,11 @@ public:
     b2World& getWorld();
     Factory& getFactory();
 
-    float update(sf::RenderTarget& rTarget, float dT);
+    float getTimeStep() const;
+    void physUpdate();
 
+
+    bool debugDraw() const;//should we draw debug or normal?
     float getTime() const;
     void togglePause(bool pause);
     void toggleDebugDraw();
@@ -39,11 +42,9 @@ public:
 
 protected:
     void input(std::string rCommand, sf::Packet rData);
-private:
 
+private:
     /**PHYSICS**/
-    float m_remainingTime;
-    int m_iterations;
     float m_timeStep;
     int m_velocityIterations;
     int m_positionIterations;
@@ -61,8 +62,6 @@ private:
     std::tr1::shared_ptr<IOManager> m_spUniverseIO;//manages IO for the game objects
 
     std::vector<std::tr1::shared_ptr<GameObject> > m_goList;//list of game objects that WE need to keep track of
-    /**keep in mind this is not all game objects, because most are modules which are owned by Chunks**/
-    /**but some are**/
 
     IOComponent m_io;
     float m_lastTime;//used for update method//cant use timer because timer references us!

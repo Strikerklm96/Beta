@@ -12,7 +12,7 @@ public:
     ShipModule(const ShipModuleData& rData);
     virtual ~ShipModule();
 
-    virtual void update(float dT);
+    virtual void prePhysUpdate();
 
 protected:
 private:

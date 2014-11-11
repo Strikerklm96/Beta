@@ -25,7 +25,7 @@ public:
     GameObject(const GameObjectData& rData);
     virtual ~GameObject();
 
-    virtual void update(float dT) = 0;
+    virtual void prePhysUpdate() = 0;//called just before physics step
 
 protected:
     IOComponent m_io;

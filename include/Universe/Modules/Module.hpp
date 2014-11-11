@@ -15,7 +15,7 @@ public:
     Module(const ModuleData& rData);
     virtual ~Module();
 
-    virtual void update(float dT) = 0;
+    virtual void prePhysUpdate() = 0;
 
 
 protected:
