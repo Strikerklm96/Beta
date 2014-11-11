@@ -92,9 +92,11 @@ public:
     const InputConfig& getInCfg() const;
     bool inGuiMode() const;//is the player in GUI mode?
     bool toggleGuiMode(bool isGuiModeOn);
+    bool isTracking() const;
 
     void getLiveInput();//get direct feed from keyboard and mouse, just gets their states though (up, down, position)
     void getWindowEvents(sf::RenderWindow& rWindow);//process window events
+    void updateView();
 
 protected:
     void input(std::string rCommand, sf::Packet rData);

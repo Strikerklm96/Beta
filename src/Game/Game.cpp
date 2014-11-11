@@ -142,7 +142,9 @@ void Game::run()
         /**== DRAW UNIVERSE ==**/
         rWindow.clear();
 
+        getLocalPlayer().updateView();
         rWindow.setView(getLocalPlayer().getCamera().getView());
+
         if(getUniverse().debugDraw())
             getUniverse().getWorld().DrawDebugData();
         else

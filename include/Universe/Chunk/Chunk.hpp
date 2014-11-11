@@ -36,6 +36,8 @@ public:
     virtual ~Chunk();
 
     virtual void prePhysUpdate();
+    virtual void postPhysUpdate();
+
     const std::string& getName() const;
 
     void setAim(const b2Vec2& world);//send our aim coordinates

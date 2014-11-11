@@ -11,6 +11,10 @@ ShipModule::~ShipModule()
 }
 void ShipModule::prePhysUpdate()
 {
+
+}
+void ShipModule::postPhysUpdate()
+{
     m_baseDecor.setPosition(m_fix.getCenter());
     m_baseDecor.setRotation(m_fix.getAngle());
 }

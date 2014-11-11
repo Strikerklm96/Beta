@@ -25,7 +25,8 @@ public:
     GameObject(const GameObjectData& rData);
     virtual ~GameObject();
 
-    virtual void prePhysUpdate() = 0;//called just before physics step
+    virtual void prePhysUpdate() = 0;//called just before physics step (do extra physics)
+    virtual void postPhysUpdate() = 0;//called just after physics step (do corrections, or graphics stuff)
 
 protected:
     IOComponent m_io;

@@ -22,6 +22,11 @@ void Chunk::prePhysUpdate()
     for(auto it = m_modules.begin(); it!=m_modules.end(); ++it)
         (*it)->prePhysUpdate();
 }
+void Chunk::postPhysUpdate()
+{
+    for(auto it = m_modules.begin(); it!=m_modules.end(); ++it)
+        (*it)->postPhysUpdate();
+}
 const std::string& Chunk::getName() const
 {
     return m_io.getName();
@@ -34,7 +39,7 @@ void Chunk::setAim(const b2Vec2& world)//send our aim coordinates
 }
 void Chunk::directive(Directive issue)//send command to target
 {
-    const float force = 25;
+    const float force = 16;
     switch(issue)
     {
     case(Directive::Up):
@@ -43,10 +48,10 @@ void Chunk::directive(Directive issue)//send command to target
     case(Directive::Down):
             m_body.getBodyPtr()->ApplyForceToCenter(b2Vec2(0,-force), true);
             break;
-    case(Directive::Left):
+    case(Directive::RollCCW):
             m_body.getBodyPtr()->ApplyForceToCenter(b2Vec2(-force,0), true);
             break;
-    case(Directive::Right):
+    case(Directive::RollCW):
             m_body.getBodyPtr()->ApplyForceToCenter(b2Vec2(force,0), true);
             break;
     }

@@ -16,6 +16,7 @@ public:
     virtual ~Module();
 
     virtual void prePhysUpdate() = 0;
+    virtual void postPhysUpdate() = 0;
 
 
 protected:

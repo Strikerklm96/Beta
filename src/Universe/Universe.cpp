@@ -92,6 +92,9 @@ void Universe::physUpdate()
             (*it)->prePhysUpdate();
 
         m_physWorld.Step(m_timeStep, m_velocityIterations, m_positionIterations);
+
+        for(auto it = m_goList.begin(); it != m_goList.end(); ++it)
+            (*it)->postPhysUpdate();
         ///m_projAlloc.recoverProjectiles();
     }
 }
@@ -99,10 +102,10 @@ void Universe::physUpdate()
 
 
 
-    bool Universe::debugDraw() const//should we draw debug or normal?
-    {
-        return m_debugDrawEnabled;
-    }
+bool Universe::debugDraw() const//should we draw debug or normal?
+{
+    return m_debugDrawEnabled;
+}
 void Universe::togglePause(bool pause)
 {
     m_paused = pause;
@@ -111,6 +114,10 @@ void Universe::togglePause(bool pause)
         m_skippedTime += game.getTime()-m_pauseTime;
     else
         m_pauseTime = game.getTime();
+}
+void Universe::togglePause()
+{
+    togglePause(!m_paused);
 }
 float Universe::getTime() const
 {

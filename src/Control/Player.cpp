@@ -39,7 +39,10 @@ bool Player::toggleGuiMode(bool isGuiModeOn)
 {
     return m_inGuiMode = isGuiModeOn;
 }
-
+bool Player::isTracking() const
+{
+    return m_tracking;
+}
 void Player::getLiveInput()//get direct feed from keyboard and mouse, just gets their states though (up, down, position)
 {
     if(not m_inGuiMode)
@@ -77,6 +80,10 @@ void Player::getLiveInput()//get direct feed from keyboard and mouse, just gets 
 
             b2Vec2 worldAim = leon::sfTob2(game.getWindow().mapPixelToCoords(Mouse::getPosition(game.getWindow()), m_camera.getView()));
             setAim(worldAim);
+
+            /**== DEVELOPER ==**/
+            if(Keyboard::isKeyPressed(Keyboard::G))
+                cout << "\n(" << pBody->GetPosition().x << ",\t" << pBody->GetPosition().y << ")";
         }
     }
 }
@@ -135,14 +142,29 @@ void Player::getWindowEvents(sf::RenderWindow& rWindow)//process window events
                     m_camera.setZoom(m_camera.getZoom()*1.2);
             }
             /**== DEVELOPER OPTIONS ==**/
-            if(event.key.code == Keyboard::O)
-                game.getUniverse().toggleDebugDraw();
-            if(event.key.code == Keyboard::T)
-                m_tracking = !m_tracking;
+            if(event.type == Event::KeyPressed)
+            {
+                if(event.key.code == Keyboard::O)
+                    game.getUniverse().toggleDebugDraw();
+                if(event.key.code == Keyboard::T)
+                    m_tracking = !m_tracking;
+                if(event.key.code == Keyboard::P)
+                    game.getUniverse().togglePause();
+            }
         }
     }
 }
+void Player::updateView()
+{
+    b2Body* pBody = getBodyPtr();
+    if(!m_inGuiMode && pBody != NULL)
+    {
+        if(m_tracking)
+            m_camera.setPosition(pBody->GetPosition());
 
+        ///UPDATE HUD
+    }
+}
 
 
 

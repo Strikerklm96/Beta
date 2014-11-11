@@ -13,6 +13,7 @@ public:
     virtual ~ShipModule();
 
     virtual void prePhysUpdate();
+    virtual void postPhysUpdate();
 
 protected:
 private:

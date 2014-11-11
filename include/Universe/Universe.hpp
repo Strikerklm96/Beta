@@ -33,6 +33,7 @@ public:
     bool debugDraw() const;//should we draw debug or normal?
     float getTime() const;
     void togglePause(bool pause);
+    void togglePause();
     void toggleDebugDraw();
 
     void loadBP(const std::string& bluePrints);//loads blueprints
