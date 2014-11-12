@@ -26,6 +26,7 @@
 					<Add directory="include/Universe/Modules" />
 					<Add directory="include/Universe/Chunk" />
 					<Add directory="include/Universe/Utility" />
+					<Add directory="include/Graphics/Utility" />
 				</Compiler>
 				<Linker>
 					<Add library="lib\box2d_debug\libBox2D.dll.a" />
@@ -57,6 +58,7 @@
 					<Add directory="include/Universe/Modules" />
 					<Add directory="include/Universe/Chunk" />
 					<Add directory="include/Universe/Utility" />
+					<Add directory="include/Graphics/Utility" />
 				</Compiler>
 				<Linker>
 					<Add library="lib\box2d_release\libBox2D.dll.a" />
@@ -90,9 +92,7 @@
 			<Add directory="include/Universe/ModuleComponent" />
 			<Add directory="include/Universe/Utility" />
 			<Add directory="include/Universe/Weapon" />
-			<Add directory="include/Graphics/Wrapper" />
-			<Add directory="include/Graphics/Interface" />
-			<Add directory="include/Graphics/Component" />
+			<Add directory="include/Graphics/Utility" />
 		</Compiler>
 		<Unit filename="include/Basic/Link.hpp" />
 		<Unit filename="include/Basic/Timer.hpp" />
@@ -102,13 +102,16 @@
 		<Unit filename="include/Control/Player.hpp" />
 		<Unit filename="include/Control/SlaveLocator.hpp" />
 		<Unit filename="include/Game/Game.hpp" />
-		<Unit filename="include/Graphics/BatchLayers.hpp" />
+		<Unit filename="include/Graphics/Animator.hpp" />
 		<Unit filename="include/Graphics/GraphicsComponent.hpp" />
-		<Unit filename="include/Graphics/GraphicsComponentUpdater.hpp" />
-		<Unit filename="include/Graphics/GraphicsLayer.hpp" />
-		<Unit filename="include/Graphics/QuadBatchContainer.hpp" />
 		<Unit filename="include/Graphics/QuadComponent.hpp" />
-		<Unit filename="include/Graphics/TextureAllocator.hpp" />
+		<Unit filename="include/Graphics/Utility/AnimAlloc.hpp" />
+		<Unit filename="include/Graphics/Utility/Animation.hpp" />
+		<Unit filename="include/Graphics/Utility/BatchLayers.hpp" />
+		<Unit filename="include/Graphics/Utility/GraphicsComponentUpdater.hpp" />
+		<Unit filename="include/Graphics/Utility/GraphicsLayer.hpp" />
+		<Unit filename="include/Graphics/Utility/QuadBatchContainer.hpp" />
+		<Unit filename="include/Graphics/Utility/TextureAllocator.hpp" />
 		<Unit filename="include/Headers/Convert.hpp" />
 		<Unit filename="include/Headers/Globals.hpp" />
 		<Unit filename="include/Headers/Rotation.hpp" />
@@ -147,12 +150,14 @@
 		<Unit filename="src/Control/Player.cpp" />
 		<Unit filename="src/Control/SlaveLocator.cpp" />
 		<Unit filename="src/Game/Game.cpp" />
-		<Unit filename="src/Graphics/BatchLayers.cpp" />
+		<Unit filename="src/Graphics/Animator.cpp" />
 		<Unit filename="src/Graphics/GraphicsComponent.cpp" />
-		<Unit filename="src/Graphics/GraphicsComponentUpdater.cpp" />
-		<Unit filename="src/Graphics/QuadBatchContainer.cpp" />
 		<Unit filename="src/Graphics/QuadComponent.cpp" />
-		<Unit filename="src/Graphics/TextureAllocator.cpp" />
+		<Unit filename="src/Graphics/Utility/AnimAlloc.cpp" />
+		<Unit filename="src/Graphics/Utility/BatchLayers.cpp" />
+		<Unit filename="src/Graphics/Utility/GraphicsComponentUpdater.cpp" />
+		<Unit filename="src/Graphics/Utility/QuadBatchContainer.cpp" />
+		<Unit filename="src/Graphics/Utility/TextureAllocator.cpp" />
 		<Unit filename="src/IO/Condition.cpp" />
 		<Unit filename="src/IO/Eventer.cpp" />
 		<Unit filename="src/IO/IOComponent.cpp" />

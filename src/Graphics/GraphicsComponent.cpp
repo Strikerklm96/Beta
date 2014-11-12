@@ -7,12 +7,13 @@
 using namespace std;
 using namespace sf;
 
-GraphicsComponent::GraphicsComponent(const GraphicsComponentData& rData)
+GraphicsComponent::GraphicsComponent(const GraphicsComponentData& rData) : m_animator(rData.animSheetName)
 {
     game.getUniverse().getGfxUpdater().store(this);
     m_rotation = 0;
     m_offset = sf::Vector2f(0,0);
 
+    m_dimensions = rData.dimensions;
 
     m_permanentRot = rData.permanentRot;
     m_center = rData.center;
@@ -65,6 +66,11 @@ void GraphicsComponent::update()
 
     for(int i=0; i<m_numVerts; ++i)
         (*m_pVerts)[i+m_startVert].position = form.transformPoint(m_originPos[i]+offsetFixed-centerFixed);
+
+    sf::Vector2i tile = m_animator.getTile();
+
+    for(int i=0; i<m_numVerts; ++i)
+        (*m_pVerts)[i+m_startVert].texCoords = sf::Vector2f(m_originTex[i].x+tile.x*m_animator.getTileSize().x, m_originTex[i].y+tile.y*m_animator.getTileSize().y);
 
     postUpdate();
 }

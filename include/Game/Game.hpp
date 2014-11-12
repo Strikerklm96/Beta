@@ -10,7 +10,7 @@ class IOComponent;
 class Overlay;
 class IOManager;
 class TextureAllocator;
-class AnimationAllocator;
+class AnimAlloc;
 class BatchLayers;
 class GraphicsComponentUpdater;
 class NetworkBoss;
@@ -29,7 +29,7 @@ public:
     Overlay& getOverlay();
     IOManager& getCoreIO();
     TextureAllocator& getTextureAllocator();
-    AnimationAllocator& getAnimationAllocator();
+    AnimAlloc& getAnimAlloc();
 
 
     Universe& getUniverse();
@@ -55,7 +55,7 @@ private:
     std::tr1::shared_ptr<Overlay> m_spOverlay;
 
     std::tr1::shared_ptr<TextureAllocator> m_spTexAlloc;
-    std::tr1::shared_ptr<AnimationAllocator> m_spAnimAlloc;
+    std::tr1::shared_ptr<AnimAlloc> m_spAnimAlloc;
 
 
     std::tr1::shared_ptr<Universe> m_spUniverse;

@@ -70,7 +70,7 @@ TextureAllocator& Game::getTextureAllocator()
 {
     return *m_spTexAlloc;
 }
-AnimationAllocator& Game::getAnimationAllocator()
+AnimAlloc& Game::getAnimAlloc()
 {
     return *m_spAnimAlloc;
 }

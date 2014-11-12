@@ -1,11 +1,17 @@
 {
-	"texTileSize": [256,256],
+    "texTileSize": [
+        256,
+        256
+    ],
     "stateList": [
         {
             "comment": "The default state is the state we are normally in",
             "state": "Default",
             "nextState": null,
-            "tileList": [0,0],
+            "tileList": [
+                0,
+                0
+            ],
             "copyFrom": null
         },
         {
@@ -13,14 +19,26 @@
             "state": "Activated",
             "nextState": "Activated",
             "tileList": [
-                0,
-                0,
-                1,
-                0,
-                2,
-                0,
-                3,
-                0
+                {
+                    "x": 0,
+                    "y": 0,
+                    "t": 0.25
+                },
+                {
+                    "x": 1,
+                    "y": 0,
+                    "t": 0.25
+                },
+                {
+                    "x": 2,
+                    "y": 0,
+                    "t": 0.25
+                },
+                {
+                    "x": 3,
+                    "y": 0,
+                    "t": 0.25
+                }
             ],
             "copyFrom": null
         },
@@ -31,8 +49,8 @@
             "tileList": [
                 0,
                 0,
-				0,
-				0
+                0,
+                0
             ],
             "copyFrom": null
         },
@@ -46,15 +64,15 @@
             ],
             "copyFrom": null
         },
-	        {
+        {
             "comment": "We have been destroyed",
             "state": "Destroyed",
             "nextState": null,
             "tileList": [
                 2,
                 0,
-				3,
-				0
+                3,
+                0
             ],
             "copyFrom": null
         }

@@ -18,6 +18,13 @@ QuadComponent::QuadComponent(const QuadComponentData& rData) : GraphicsComponent
     m_originPos[2] = sf::Vector2f( rData.dimensions.x/2,  rData.dimensions.y/2);
     m_originPos[3] = sf::Vector2f( rData.dimensions.x/2, -rData.dimensions.y/2);
 
+    m_originTex.resize(m_numVerts);
+    m_originTex[0] = sf::Vector2f(0, 0);
+    m_originTex[1] = sf::Vector2f(0, rData.dimensions.y);
+    m_originTex[2] = sf::Vector2f(rData.dimensions.x, rData.dimensions.y);
+    m_originTex[3] = sf::Vector2f(rData.dimensions.x, 0);
+
+
     QuadData dat = game.getUniverse().getBatchLayers().request(rData.texName, rData.layer);
 
     m_pVerts = dat.vertexList;
