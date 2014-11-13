@@ -1,11 +1,15 @@
 #include "Animator.hpp"
 
 #include "Globals.hpp"
+#include "AnimAlloc.hpp"
+
+#include "Animation.hpp"
+
+using namespace std;
 
 Animator::Animator(const std::string& setAnimationSheet)
 {
-    m_tileSize = sf::Vector2f(256,256);
-   // game.getAnimAlloc().
+    pSet = game.getAnimAlloc().request(setAnimationSheet);
 }
 Animator::~Animator()
 {
@@ -23,5 +27,5 @@ sf::Vector2i Animator::getTile() const//what texture tile should we be on? 0,0, 
 }
 const sf::Vector2f& Animator::getTileSize() const
 {
-    return m_tileSize;
+    return pSet->tileSize;
 }

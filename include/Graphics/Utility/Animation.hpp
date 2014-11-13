@@ -14,6 +14,6 @@ struct AnimSet
     std::string setName;//name of our file including directory MINUS textures/
     sf::Vector2f tileSize;//size of texture tiles
     std::map<std::string, Animation> animations;//name of <Animation, the Animation>
-}
+};
 
 #endif // ANIMATION_HPP

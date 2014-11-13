@@ -6,7 +6,7 @@
 
 struct QuadComponentData : public GraphicsComponentData
 {
-    std::string animName = "default.acfg";//name of our animation
+
 };
 
 

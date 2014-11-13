@@ -2,6 +2,7 @@
 
 #include "Globals.hpp"
 #include "TextureAllocator.hpp"
+#include "AnimAlloc.hpp"
 
 #include "BatchLayers.hpp"
 #include "GraphicsComponentUpdater.hpp"
@@ -13,6 +14,7 @@
 #include "Convert.hpp"
 #include "SlaveLocator.hpp"
 #include "Chunk.hpp"
+#include "QuadComponent.hpp"
 
 
 using namespace std;
@@ -27,7 +29,7 @@ Game::Game()
 
     loadWindow("window.ini");
 
-    ///m_spAnimAlloc = std::tr1::shared_ptr<AnimationAllocator>(new AnimationAllocator);
+    m_spAnimAlloc = std::tr1::shared_ptr<AnimAlloc>(new AnimAlloc);
     m_spCoreIO = std::tr1::shared_ptr<IOManager>(new IOManager(true));
     m_spNetworkBoss = std::tr1::shared_ptr<NetworkBoss>(new NetworkBoss(data));
     m_spOverlay = std::tr1::shared_ptr<Overlay>(new Overlay);
@@ -96,6 +98,30 @@ float Game::getTime() const
 
 void Game::run()
 {
+    /**===========================**/
+    /**EVAN PUT STUFF TO DRAW HERE**/
+    QuadComponentData quadData;
+    quadData.dimensions = sf::Vector2f(512,512);//this specifies how big the in game object is, to specify texture size, edit the animation configuration file
+    quadData.layer = GraphicsLayer::BackgroundFar;
+    quadData.texName = "default.png";//automatically accesses textures folder
+    quadData.animSheetName = "defaultEDIT.acfg";//automatically accesses textures folder
+    quadData.permanentRot = 0;//will be rotated by this much (degrees CCW)
+    quadData.center = sf::Vector2f(0,0);//this will designate the center of the picture( 0,0 is center, -width/2, +height/2 would be top left corner)
+    QuadComponent evansQuad(quadData);
+    evansQuad.setPosition(b2Vec2(-3,-4));
+    evansQuad.setRotation(leon::degToRad(45));
+
+    //animation functionality coming soon!
+
+    //to access data like mouse coordinates and zoom level
+    getLocalPlayer().getCamera().getZoom();
+    getLocalPlayer().getCamera().getPosition();
+    getLocalPlayer().getAim();
+
+    /**EVAN PUT STUFF TO DRAW HERE**/
+    /**===========================**/
+
+
     m_spUniverse->loadLevel("levels");
 
     RenderWindow& rWindow = *m_spWindow;
@@ -110,6 +136,13 @@ void Game::run()
 
     while(rWindow.isOpen())
     {
+        /**== TESTING ==**/
+        //EVAN
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::N))
+        {
+            cout << "\nPut stuff here.";
+        }
+
 
         /**== FRAMERATE ==**/
         frameTime = m_clock.getElapsedTime().asSeconds()-lastTime;

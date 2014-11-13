@@ -899,20 +899,21 @@
 	"GraphicsLayer.hpp"
 	"Animator.hpp"
 
-1415753329 source:c:\users\leon\desktop\projects\beta\src\graphics\quadcomponent.cpp
+1415848974 source:c:\users\leon\desktop\projects\beta\src\graphics\quadcomponent.cpp
 	"QuadComponent.hpp"
 	"Convert.hpp"
 	"BatchLayers.hpp"
 	"Globals.hpp"
 	"Universe.hpp"
 
-1415721509 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
+1415847809 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
 	"GraphicsComponent.hpp"
 
-1415752613 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
+1415848386 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
 	"Game.hpp"
 	"Globals.hpp"
 	"TextureAllocator.hpp"
+	"AnimAlloc.hpp"
 	"BatchLayers.hpp"
 	"GraphicsComponentUpdater.hpp"
 	"Overlay.hpp"
@@ -923,6 +924,7 @@
 	"Convert.hpp"
 	"SlaveLocator.hpp"
 	"Chunk.hpp"
+	"QuadComponent.hpp"
 
 1415752574 c:\users\leon\desktop\projects\beta\include\game\game.hpp
 	"stdafx.hpp"
@@ -951,12 +953,12 @@
 1415682177 c:\users\leon\desktop\projects\beta\include\control\camera.hpp
 	"stdafx.hpp"
 
-1415721509 source:c:\users\leon\desktop\projects\beta\src\control\intelligence.cpp
+1415848331 source:c:\users\leon\desktop\projects\beta\src\control\intelligence.cpp
 	"Intelligence.hpp"
 	"SlaveLocator.hpp"
 	"Chunk.hpp"
 
-1415721509 c:\users\leon\desktop\projects\beta\include\control\intelligence.hpp
+1415848171 c:\users\leon\desktop\projects\beta\include\control\intelligence.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"Globals.hpp"
@@ -1272,17 +1274,23 @@
 1415495664 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\textureallocator.cpp
 	"TextureAllocator.hpp"
 
-1415752942 source:c:\users\leon\desktop\projects\beta\src\graphics\animator.cpp
+1415848833 source:c:\users\leon\desktop\projects\beta\src\graphics\animator.cpp
 	"Animator.hpp"
 	"Globals.hpp"
+	"AnimAlloc.hpp"
+	"Animation.hpp"
 
-1415752971 c:\users\leon\desktop\projects\beta\include\graphics\animator.hpp
+1415847528 c:\users\leon\desktop\projects\beta\include\graphics\animator.hpp
 	"stdafx.hpp"
 	"Timer.hpp"
 
-1415752942 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\animalloc.cpp
+1415848818 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\animalloc.cpp
 	"AnimAlloc.hpp"
+	"Animation.hpp"
+	"Globals.hpp"
 
-1415753181 c:\users\leon\desktop\projects\beta\include\graphics\utility\animalloc.hpp
+1415753785 c:\users\leon\desktop\projects\beta\include\graphics\utility\animalloc.hpp
 	"stdafx.hpp"
+
+1415822564 c:\users\leon\desktop\projects\beta\include\graphics\utility\animation.hpp
 

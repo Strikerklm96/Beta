@@ -5,6 +5,7 @@
 #include "Timer.hpp"
 
 class AnimAlloc;
+struct AnimSet;
 
 class Animator
 {
@@ -20,6 +21,9 @@ protected:
 private:
     mutable Timer m_timer;
     sf::Vector2f m_tileSize;
+    const AnimSet* pSet;
+    std::string tiles;//the current animation state we are in
+    float currentDuration;//how long the animation that we are executing should last
 };
 
 #endif // ANIMATOR_HPP

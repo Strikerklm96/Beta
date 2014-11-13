@@ -68,6 +68,7 @@ public:
     const std::string& getSlaveName() const;
 
     void setAim(const b2Vec2& world);//send our aim coordinates
+    const b2Vec2& getAim() const;
     void directive(Directive issue);//send command to target
 
     float get(Request value);//return the requested value

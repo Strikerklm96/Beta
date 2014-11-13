@@ -41,6 +41,10 @@ void Intelligence::setAim(const b2Vec2& world)//send our aim coordinates
     if(temp != NULL)
         temp->setAim(m_aim);
 }
+const b2Vec2& Intelligence::getAim() const
+{
+    return m_aim;
+}
 b2Body* Intelligence::getBodyPtr()//return position
 {
     Chunk* temp = game.getUniverse().getSlaveLocator().find(m_slavePosition);

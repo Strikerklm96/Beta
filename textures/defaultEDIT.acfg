@@ -1,6 +1,6 @@
 {
     "texTileSize": [
-        256,
+        512,
         256
     ],
     "stateList": [
