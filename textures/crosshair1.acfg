@@ -1,0 +1,34 @@
+{
+    "texTileSize": [
+        429,
+        569
+    ],
+    "stateList": [
+        {
+            "comment": "The default state is the state we are normally in",
+            "state": "Default",
+            "nextState": null,
+            "tileList": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "t": 1
+                }
+            ],
+            "copyFrom": null
+        },
+        {
+            "comment": "This is the state we go into if we are told to go into a state we dont have (always have this for all acfg files",
+            "state": "Error",
+            "nextState": "Error",
+            "tileList": [
+                {
+                    "x": 3,
+                    "y": 0,
+                    "t": 1
+                }
+            ],
+            "copyFrom": null
+        }
+    ]
+}

@@ -118,6 +118,18 @@ void Game::run()
     getLocalPlayer().getCamera().getPosition();
     getLocalPlayer().getAim();
 
+
+
+    QuadComponentData cross1_quadData;
+    cross1_quadData.dimensions = sf::Vector2f(429,569);//this specifies how big the in game object is, to specify texture size, edit the animation configuration file
+    cross1_quadData.layer = GraphicsLayer::BackgroundFar;
+    cross1_quadData.texName = "crosshair1.png";//automatically accesses textures folder
+    cross1_quadData.animSheetName = "crosshair1.acfg";//automatically accesses textures folder
+    cross1_quadData.permanentRot = 0;//will be rotated by this much (degrees CCW)
+    cross1_quadData.center = sf::Vector2f(0,0);//this will designate the center of the picture( 0,0 is center, -width/2, +height/2 would be top left corner)
+    QuadComponent cross1_quad(cross1_quadData);
+    cross1_quad.setPosition(b2Vec2(-5,-5));
+
     /**EVAN PUT STUFF TO DRAW HERE**/
     /**===========================**/
 
@@ -142,6 +154,10 @@ void Game::run()
         {
             cout << "\nPut stuff here.";
         }
+
+        //update crosshair position
+        cross1_quad.setPosition(getLocalPlayer().getAim());
+        //
 
 
         /**== FRAMERATE ==**/

@@ -137,15 +137,114 @@ void Universe::loadLevel(const std::string& level)//loads a level using blueprin
     spChunkData->moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ShipModuleData));
     spChunkData->ioComp.name = "chunk_1";
     Chunk* pChunk1 = m_spFactory->createChunk(spChunkData);
+
     spChunkData->bodyComp.coords = b2Vec2(2,0);
     spChunkData->ioComp.name = "chunk_2";
     Chunk* pChunk2 = m_spFactory->createChunk(spChunkData);
+
     add(pChunk1);
     add(pChunk2);
 
 
 
     game.getLocalPlayer().setSlave("chunk_1");
+
+
+
+
+    /**
+    Evan - New Ships
+    **/
+
+    //!!!
+
+    //set one thing at a time
+    //start with texture
+    spChunkData = std::tr1::shared_ptr<ChunkData>(new ChunkData);
+    spChunkData->moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ShipModuleData));
+    spChunkData->ioComp.name = "ship1";
+    Chunk* pChunk3 = m_spFactory->createChunk(spChunkData);
+    add(pChunk3);
+    //ship modules
+    //vector<tr1::shared_ptr<const ShipModuleData> > moduleList1;
+
+    /*
+    //
+    moduleList1.push_back( tr1::shared_ptr<const ShipModuleData>(new ShipModule(armorData)) );
+
+    //
+    armorData.offset.x = 0;
+    armorData.offset.y = -.5;
+    moduleList1.push_back( tr1::shared_ptr<const GModuleData>(new ArmorData(armorData)) );
+    //
+    armorData.offset.x = 0;
+    armorData.offset.y = 0;
+    moduleList1.push_back( tr1::shared_ptr<const GModuleData>(new ArmorData(armorData)) );
+    //
+    armorData.offset.x = 0;
+    armorData.offset.y = .5;
+    moduleList1.push_back( tr1::shared_ptr<const GModuleData>(new ArmorData(armorData)) );
+    //
+    armorData.offset.x = 0;
+    armorData.offset.y = 1;
+    moduleList1.push_back( tr1::shared_ptr<const GModuleData>(new ArmorData(armorData)) );
+    //
+    armorData.offset.x = .5;
+    armorData.offset.y = -2;
+    moduleList1.push_back( tr1::shared_ptr<const GModuleData>(new ArmorData(armorData)) );
+    //
+    armorData.offset.x = -.5;
+    armorData.offset.y = -2;
+    moduleList1.push_back( tr1::shared_ptr<const GModuleData>(new ArmorData(armorData)) );
+    //
+    turretData.weaponData.refireDelay = 0.8;
+    turretData.weaponData.barrelData.push_back( std::tr1::shared_ptr<WeaponBarrelData>(new ProjectileBarrelData(barrelData1)) );
+    turretData.weaponData.barrelData.push_back( std::tr1::shared_ptr<WeaponBarrelData>(new ProjectileBarrelData(barrelData2)) );
+    turretData.offset = b2Vec2(1, -1.5);
+    moduleList1.push_back( tr1::shared_ptr<const GModuleData>(new TurretData(turretData)) );
+    //
+    turretData.offset = b2Vec2(-1, -1.5);
+    moduleList1.push_back( tr1::shared_ptr<const GModuleData>(new TurretData(turretData)) );
+    //
+    capData.offset = b2Vec2(.5, -1.5);
+    moduleList1.push_back( tr1::shared_ptr<const GModuleData>(new CapacitorData(capData)) );
+    //
+    ammoData.offset.x = -.5;
+    ammoData.offset.y = -1.5;
+    moduleList1.push_back( tr1::shared_ptr<const GModuleData>(new AmmoStorageData(ammoData)) );
+    //thruster
+    thrustDat1.offset = b2Vec2(0, -2);
+    moduleList1.push_back( tr1::shared_ptr<const GModuleData>(new ThrusterData(thrustDat1)) );
+    //
+    reacData.offset = b2Vec2(0, -1.5);
+    moduleList1.push_back( tr1::shared_ptr<const GModuleData>(new ReactorData(reacData)) );
+
+    //set ship collision box
+    //moduleList2.push_back( tr1::shared_ptr<const ModuleData>(new HullData(hull)) );
+    */
+
+    /*
+    //ship specific params
+    ShipData shipDat;
+    shipDat.bodyType = b2BodyType::b2_dynamicBody;
+    shipDat.type = ClassType::SHIP;
+    shipDat.ammoGrouping.getAmmo(AmmoType::MediumShell).changeValue(100);
+
+    shipDat.position = b2Vec2(-30, 20);
+    shipDat.name = "evan_ship";
+    shipDat.hullDecor.gfxCompData.texName = "textures/hull/titan1.png";
+    shipDat.hullDecor.gfxCompData.animationFileName = "textures/hull/titan1.acfg";
+    shipDat.hullDecor.gfxCompData.dimensions = sf::Vector2f(3275,2454);
+    Chunk* pShip4 = new Ship(shipDat);
+    pShip4->add(moduleList1);
+    //pShip4->add(moduleList2);
+    m_spUniverse->add(pShip4);
+    */
+
+    /**
+    Evan - New Ships
+    **/
+
 }
 void Universe::add(std::tr1::shared_ptr<GameObject> spGO)
 {
