@@ -3,6 +3,8 @@
 *.a
 *.exe
 *.o
+*.layout
+*.depend
 
 # Windows image file caches
 Thumbs.db
@@ -48,6 +50,3 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-*.layout
-*.layout
-*.layout

@@ -129,15 +129,16 @@ void Universe::loadLevel(const std::string& level)//loads a level using blueprin
 {
     ChunkData chunkdata_1;
     chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ShipModuleData));
-    chunkdata_1.ioComp.name = "chunk_1";
 
+    ShipModuleData data;
+    data.fixComp.offset = b2Vec2(1,0);
+    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ShipModuleData(data)));
+    chunkdata_1.ioComp.name = "chunk_1";
     add(chunkdata_1.generate());
 
     chunkdata_1.bodyComp.coords = b2Vec2(2,0);
     chunkdata_1.ioComp.name = "chunk_2";
     add(chunkdata_1.generate());
-
-
 
     game.getLocalPlayer().setSlave("chunk_1");
 }
