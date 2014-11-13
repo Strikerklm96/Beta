@@ -1,5 +1,4 @@
 #include "Chunk.hpp"
-#include "Factory.hpp"
 #include "Module.hpp"
 #include "SlaveLocator.hpp"
 #include "Intelligence.hpp"

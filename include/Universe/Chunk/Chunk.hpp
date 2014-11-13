@@ -4,6 +4,7 @@
 #include "GameObject.hpp"
 #include "BodyComponent.hpp"
 
+struct ChunkData;
 class Module;
 class ModuleData;
 enum class Directive;
@@ -12,21 +13,6 @@ enum class Request;
 enum class ChunkType
 {
     Chunk,
-};
-
-struct ChunkData : public GameObjectData
-{
-    ChunkData() :
-        GameObjectData(),
-        type(ChunkType::Chunk),
-        bodyComp()
-    {
-
-    }
-
-    ChunkType type;
-    BodyComponentData bodyComp;
-    std::vector<std::tr1::shared_ptr<const ModuleData> > moduleData;
 };
 
 class Chunk : public GameObject
@@ -52,5 +38,29 @@ private:
     BodyComponent m_body;
     std::vector<std::tr1::shared_ptr<Module> > m_modules;
 };
+
+
+struct ChunkData : public GameObjectData
+{
+    ChunkData() :
+        GameObjectData(),
+        type(ChunkType::Chunk),
+        bodyComp()
+    {
+
+    }
+
+    ChunkType type;
+    BodyComponentData bodyComp;
+    std::vector<std::tr1::shared_ptr<const ModuleData> > moduleData;
+
+    virtual Chunk* generate() const
+    {
+        ChunkData copy(*this);
+        return new Chunk(copy);
+    }
+
+};
+
 
 #endif // CHUNK_HPP

@@ -9,7 +9,6 @@
 #include "QuadComponent.hpp"
 #include "GameObject.hpp"
 #include "Chunk.hpp"
-#include "Factory.hpp"
 #include "ShipModule.hpp"
 
 using namespace std;
@@ -17,7 +16,6 @@ using namespace std;
 Universe::Universe(const IOComponentData& rData) : m_io(rData), m_physWorld(b2Vec2(0,0))
 {
     m_spSlaveLocator = std::tr1::shared_ptr<SlaveLocator>(new SlaveLocator);
-    m_spFactory = std::tr1::shared_ptr<Factory>(new Factory);
     m_spBatchLayers = std::tr1::shared_ptr<BatchLayers>(new BatchLayers);
     m_spGfxUpdater = std::tr1::shared_ptr<GraphicsComponentUpdater>(new GraphicsComponentUpdater);
 
@@ -32,7 +30,7 @@ Universe::Universe(const IOComponentData& rData) : m_io(rData), m_physWorld(b2Ve
     /**PHYSICS**/
     m_paused = false;
     m_skippedTime = 0;
-    m_paused = false;
+    m_pauseTime = game.getTime();
 
     m_velocityIterations = 1;
     m_positionIterations = 1;
@@ -61,10 +59,6 @@ SlaveLocator& Universe::getSlaveLocator()
 b2World& Universe::getWorld()
 {
     return m_physWorld;
-}
-Factory& Universe::getFactory()
-{
-    return *m_spFactory;
 }
 BatchLayers& Universe::getBatchLayers()
 {
@@ -133,15 +127,15 @@ void Universe::loadBP(const std::string& bluePrints)//loads blueprints
 }
 void Universe::loadLevel(const std::string& level)//loads a level using blueprints
 {
-    auto spChunkData = std::tr1::shared_ptr<ChunkData>(new ChunkData);
-    spChunkData->moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ShipModuleData));
-    spChunkData->ioComp.name = "chunk_1";
-    Chunk* pChunk1 = m_spFactory->createChunk(spChunkData);
-    spChunkData->bodyComp.coords = b2Vec2(2,0);
-    spChunkData->ioComp.name = "chunk_2";
-    Chunk* pChunk2 = m_spFactory->createChunk(spChunkData);
-    add(pChunk1);
-    add(pChunk2);
+    ChunkData chunkdata_1;
+    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ShipModuleData));
+    chunkdata_1.ioComp.name = "chunk_1";
+
+    add(chunkdata_1.generate());
+
+    chunkdata_1.bodyComp.coords = b2Vec2(2,0);
+    chunkdata_1.ioComp.name = "chunk_2";
+    add(chunkdata_1.generate());
 
 
 

@@ -888,28 +888,28 @@
 1414974662 c:\users\leon\desktop\projects\beta\include\graphics\textureallocator.hpp
 	"stdafx.hpp"
 
-1415752997 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicscomponent.cpp
+1415849820 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicscomponent.cpp
 	"GraphicsComponent.hpp"
 	"convert.hpp"
 	"Universe.hpp"
 	"GraphicsComponentUpdater.hpp"
 
-1415751854 c:\users\leon\desktop\projects\beta\include\graphics\graphicscomponent.hpp
+1415849820 c:\users\leon\desktop\projects\beta\include\graphics\graphicscomponent.hpp
 	"stdafx.hpp"
 	"GraphicsLayer.hpp"
 	"Animator.hpp"
 
-1415848974 source:c:\users\leon\desktop\projects\beta\src\graphics\quadcomponent.cpp
+1415849820 source:c:\users\leon\desktop\projects\beta\src\graphics\quadcomponent.cpp
 	"QuadComponent.hpp"
 	"Convert.hpp"
 	"BatchLayers.hpp"
 	"Globals.hpp"
 	"Universe.hpp"
 
-1415847809 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
+1415849820 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
 	"GraphicsComponent.hpp"
 
-1415848386 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
+1415856935 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
 	"Game.hpp"
 	"Globals.hpp"
 	"TextureAllocator.hpp"
@@ -926,7 +926,7 @@
 	"Chunk.hpp"
 	"QuadComponent.hpp"
 
-1415752574 c:\users\leon\desktop\projects\beta\include\game\game.hpp
+1415849820 c:\users\leon\desktop\projects\beta\include\game\game.hpp
 	"stdafx.hpp"
 
 1415149801 source:c:\users\leon\desktop\projects\beta\src\graphics\batchlayers.cpp
@@ -953,18 +953,18 @@
 1415682177 c:\users\leon\desktop\projects\beta\include\control\camera.hpp
 	"stdafx.hpp"
 
-1415848331 source:c:\users\leon\desktop\projects\beta\src\control\intelligence.cpp
+1415849820 source:c:\users\leon\desktop\projects\beta\src\control\intelligence.cpp
 	"Intelligence.hpp"
 	"SlaveLocator.hpp"
 	"Chunk.hpp"
 
-1415848171 c:\users\leon\desktop\projects\beta\include\control\intelligence.hpp
+1415849820 c:\users\leon\desktop\projects\beta\include\control\intelligence.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"Globals.hpp"
 	"Universe.hpp"
 
-1415721509 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
+1415849820 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
 	"Player.hpp"
 	"Globals.hpp"
 	"Overlay.hpp"
@@ -973,7 +973,7 @@
 	"IOManager.hpp"
 	"Convert.hpp"
 
-1415721509 c:\users\leon\desktop\projects\beta\include\control\player.hpp
+1415849820 c:\users\leon\desktop\projects\beta\include\control\player.hpp
 	"stdafx.hpp"
 	"Intelligence.hpp"
 	"Camera.hpp"
@@ -994,9 +994,9 @@
 	"globals.hpp"
 	"Universe.hpp"
 
-1415327493 c:\users\leon\desktop\projects\beta\include\basic\timer.hpp
+1415850142 c:\users\leon\desktop\projects\beta\include\basic\timer.hpp
 
-1415721509 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
+1415854403 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"UniversalContactListener.hpp"
@@ -1074,7 +1074,7 @@
 1415483750 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
 	"WidgetBase.hpp"
 
-1415740264 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
+1415857176 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
 	"Universe.hpp"
 	"Globals.hpp"
 	"SlaveLocator.hpp"
@@ -1085,7 +1085,6 @@
 	"QuadComponent.hpp"
 	"GameObject.hpp"
 	"Chunk.hpp"
-	"Factory.hpp"
 	"ShipModule.hpp"
 
 1415391266 c:\users\leon\desktop\projects\beta\include\io\eventtypes.hpp
@@ -1147,10 +1146,10 @@
 	"IOComponent.hpp"
 	"Universe.hpp"
 
-1415721509 source:c:\users\leon\desktop\projects\beta\src\universe\modules\module.cpp
+1415849820 source:c:\users\leon\desktop\projects\beta\src\universe\modules\module.cpp
 	"Module.hpp"
 
-1415721509 c:\users\leon\desktop\projects\beta\include\universe\modules\module.hpp
+1415849820 c:\users\leon\desktop\projects\beta\include\universe\modules\module.hpp
 	"Globals.hpp"
 	"IOComponent.hpp"
 	"NetworkComponent.hpp"
@@ -1169,7 +1168,7 @@
 1415679634 c:\users\leon\desktop\projects\beta\include\universe\utility\debugdraw.hpp
 	"stdafx.hpp"
 
-1415721509 c:\users\leon\desktop\projects\beta\include\universe\utility\gameobject.hpp
+1415849820 c:\users\leon\desktop\projects\beta\include\universe\utility\gameobject.hpp
 	"Globals.hpp"
 	"NetworkComponent.hpp"
 	"IOComponent.hpp"
@@ -1194,14 +1193,13 @@
 	"UniversalContactListener.hpp"
 	"FixtureComponent.hpp"
 
-1415740264 source:c:\users\leon\desktop\projects\beta\src\universe\chunk\chunk.cpp
+1415854234 source:c:\users\leon\desktop\projects\beta\src\universe\chunk\chunk.cpp
 	"Chunk.hpp"
-	"Factory.hpp"
 	"Module.hpp"
 	"SlaveLocator.hpp"
 	"Intelligence.hpp"
 
-1415740264 c:\users\leon\desktop\projects\beta\include\universe\chunk\chunk.hpp
+1415854364 c:\users\leon\desktop\projects\beta\include\universe\chunk\chunk.hpp
 	"GameObject.hpp"
 	"BodyComponent.hpp"
 
@@ -1231,66 +1229,66 @@
 	"Globals.hpp"
 	"Chunk.hpp"
 
-1415721509 source:c:\users\leon\desktop\projects\beta\src\universe\modules\shipmodule.cpp
+1415849820 source:c:\users\leon\desktop\projects\beta\src\universe\modules\shipmodule.cpp
 	"ShipModule.hpp"
 
-1415721509 c:\users\leon\desktop\projects\beta\include\universe\modules\shipmodule.hpp
+1415849820 c:\users\leon\desktop\projects\beta\include\universe\modules\shipmodule.hpp
 	"Module.hpp"
 	"QuadComponent.hpp"
 
-1415740264 source:c:\users\leon\desktop\projects\beta\src\network\networkboss.cpp
+1415849820 source:c:\users\leon\desktop\projects\beta\src\network\networkboss.cpp
 	"NetworkBoss.hpp"
 
 1415679634 c:\users\leon\desktop\projects\beta\include\network\networkboss.hpp
 	"stdafx.hpp"
 
-1414974662 c:\users\leon\desktop\projects\beta\include\graphics\utility\textureallocator.hpp
+1415849820 c:\users\leon\desktop\projects\beta\include\graphics\utility\textureallocator.hpp
 	"stdafx.hpp"
 
-1415149754 c:\users\leon\desktop\projects\beta\include\graphics\utility\batchlayers.hpp
+1415849820 c:\users\leon\desktop\projects\beta\include\graphics\utility\batchlayers.hpp
 	"QuadBatchContainer.hpp"
 	"GraphicsLayer.hpp"
 
-1415255188 c:\users\leon\desktop\projects\beta\include\graphics\utility\quadbatchcontainer.hpp
+1415849820 c:\users\leon\desktop\projects\beta\include\graphics\utility\quadbatchcontainer.hpp
 	"stdafx.hpp"
 	"TextureAllocator.hpp"
 
-1415679634 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicslayer.hpp
+1415849820 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicslayer.hpp
 
-1415256409 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicscomponentupdater.hpp
+1415849820 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicscomponentupdater.hpp
 	"stdafx.hpp"
 
-1415149801 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\batchlayers.cpp
+1415849820 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\batchlayers.cpp
 	"BatchLayers.hpp"
 
-1415258574 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\graphicscomponentupdater.cpp
+1415849820 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\graphicscomponentupdater.cpp
 	"GraphicsComponentUpdater.hpp"
 	"GraphicsComponent.hpp"
 
-1415340518 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\quadbatchcontainer.cpp
+1415849820 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\quadbatchcontainer.cpp
 	"QuadBatchContainer.hpp"
 	"Globals.hpp"
 
-1415495664 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\textureallocator.cpp
+1415849820 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\textureallocator.cpp
 	"TextureAllocator.hpp"
 
-1415848833 source:c:\users\leon\desktop\projects\beta\src\graphics\animator.cpp
+1415857736 source:c:\users\leon\desktop\projects\beta\src\graphics\animator.cpp
 	"Animator.hpp"
 	"Globals.hpp"
 	"AnimAlloc.hpp"
 	"Animation.hpp"
 
-1415847528 c:\users\leon\desktop\projects\beta\include\graphics\animator.hpp
+1415857581 c:\users\leon\desktop\projects\beta\include\graphics\animator.hpp
 	"stdafx.hpp"
 	"Timer.hpp"
 
-1415848818 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\animalloc.cpp
+1415856466 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\animalloc.cpp
 	"AnimAlloc.hpp"
 	"Animation.hpp"
 	"Globals.hpp"
 
-1415753785 c:\users\leon\desktop\projects\beta\include\graphics\utility\animalloc.hpp
+1415849820 c:\users\leon\desktop\projects\beta\include\graphics\utility\animalloc.hpp
 	"stdafx.hpp"
 
-1415822564 c:\users\leon\desktop\projects\beta\include\graphics\utility\animation.hpp
+1415853807 c:\users\leon\desktop\projects\beta\include\graphics\utility\animation.hpp
 

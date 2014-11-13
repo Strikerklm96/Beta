@@ -5,7 +5,7 @@
 struct Animation
 {
     std::string name;//name of this state
-    std::string nextState;//name of next state
+    bool repeats;//should we repeat
     std::vector<std::pair<sf::Vector2i, float> > tileSet;//texture tiles, %time to be on each one
 };
 

@@ -206,6 +206,7 @@ void Game::loadUniverse(const std::string& stuff)
     IOComponentData universeData(getCoreIO());
     universeData.name = "universe";
     m_spUniverse = std::tr1::shared_ptr<Universe>(new Universe(universeData));
+    m_spUniverse->togglePause(true);
 }
 
 void Game::loadWindow(const std::string& windowFile)

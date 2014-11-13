@@ -38,10 +38,6 @@ const AnimSet* AnimAlloc::request(const std::string& rAnimFile)
         if(parsedSuccess)
         {
 
-
-
-
-
             spAnimSet->setName = rAnimFile;
             spAnimSet->tileSize = sf::Vector2f(root["texTileSize"][0].asInt(), root["texTileSize"][1].asInt());
             const Json::Value stateList = root["stateList"];
@@ -53,12 +49,12 @@ const AnimSet* AnimAlloc::request(const std::string& rAnimFile)
                 Animation animation;
 
                 animation.name = (*it)["state"].asString();
-                animation.nextState = (*it)["nextState"].asString();
+                animation.repeats = (*it)["repeats"].asBool();
                 const Json::Value tileList = (*it)["tileList"];
 
                 for(unsigned int i = 0; i<tileList.size(); ++i)
                 {
-                    animation.tileSet.push_back(std::pair<sf::Vector2i, float>(sf::Vector2i(tileList[i]["x"].asInt(), tileList[i]["x"].asInt()), tileList[i]["t"].asFloat()));
+                    animation.tileSet.push_back(std::pair<sf::Vector2i, float>(sf::Vector2i(tileList[i]["x"].asInt(), tileList[i]["y"].asInt()), tileList[i]["t"].asFloat()));
                 }
 
                 spAnimSet->animations[animation.name] = animation;

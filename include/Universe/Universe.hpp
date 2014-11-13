@@ -24,7 +24,6 @@ public:
     GraphicsComponentUpdater& getGfxUpdater();
     IOManager& getUniverseIO();
     b2World& getWorld();
-    Factory& getFactory();
 
     float getTimeStep() const;
     void physUpdate();
@@ -57,7 +56,6 @@ private:
     /**PHYSICS**/
 
     std::tr1::shared_ptr<SlaveLocator> m_spSlaveLocator;//list of all slaves
-    std::tr1::shared_ptr<Factory> m_spFactory;
     std::tr1::shared_ptr<BatchLayers> m_spBatchLayers;
     std::tr1::shared_ptr<GraphicsComponentUpdater> m_spGfxUpdater;
     std::tr1::shared_ptr<IOManager> m_spUniverseIO;//manages IO for the game objects

@@ -29,7 +29,6 @@ QuadComponent::QuadComponent(const QuadComponentData& rData) : GraphicsComponent
 
     m_pVerts = dat.vertexList;
     m_startVert = dat.firstElement;
-
 }
 QuadComponent::~QuadComponent()
 {
