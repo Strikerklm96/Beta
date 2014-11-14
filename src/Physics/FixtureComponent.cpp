@@ -44,11 +44,11 @@ FixtureComponent::~FixtureComponent()
 }
 void FixtureComponent::startContact(FixtureComponent* pOther)
 {
-    m_startCB(pOther, pOther->getIOPos());
+    m_startCB(pOther);
 }
 void FixtureComponent::endContact(FixtureComponent* pOther)
 {
-    m_endCB(pOther, pOther->getIOPos());
+    m_endCB(pOther);
 }
 
 

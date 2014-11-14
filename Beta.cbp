@@ -27,6 +27,7 @@
 					<Add directory="include/Universe/Chunk" />
 					<Add directory="include/Universe/Utility" />
 					<Add directory="include/Graphics/Utility" />
+					<Add directory="include/Basic" />
 				</Compiler>
 				<Linker>
 					<Add library="lib\box2d_debug\libBox2D.dll.a" />
@@ -59,6 +60,7 @@
 					<Add directory="include/Universe/Chunk" />
 					<Add directory="include/Universe/Utility" />
 					<Add directory="include/Graphics/Utility" />
+					<Add directory="include/Basic" />
 				</Compiler>
 				<Linker>
 					<Add library="lib\box2d_release\libBox2D.dll.a" />
@@ -95,6 +97,7 @@
 			<Add directory="include/Graphics/Utility" />
 		</Compiler>
 		<Unit filename="include/Basic/Link.hpp" />
+		<Unit filename="include/Basic/Pool.hpp" />
 		<Unit filename="include/Basic/Timer.hpp" />
 		<Unit filename="include/Control/Camera.hpp" />
 		<Unit filename="include/Control/Input.hpp" />
@@ -135,6 +138,7 @@
 		<Unit filename="include/Physics/FixtureComponent.hpp" />
 		<Unit filename="include/Universe/Chunk/Chunk.hpp" />
 		<Unit filename="include/Universe/Modules/Module.hpp" />
+		<Unit filename="include/Universe/Modules/Sensor.hpp" />
 		<Unit filename="include/Universe/Modules/ShipModule.hpp" />
 		<Unit filename="include/Universe/Universe.hpp" />
 		<Unit filename="include/Universe/Utility/DebugDraw.hpp" />
@@ -142,6 +146,7 @@
 		<Unit filename="include/Universe/Utility/UniversalContactListener.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Basic/Link.cpp" />
+		<Unit filename="src/Basic/Pool.cpp" />
 		<Unit filename="src/Basic/Timer.cpp" />
 		<Unit filename="src/Control/Camera.cpp" />
 		<Unit filename="src/Control/Input.cpp" />
@@ -174,6 +179,7 @@
 		<Unit filename="src/Physics/FixtureComponent.cpp" />
 		<Unit filename="src/Universe/Chunk/Chunk.cpp" />
 		<Unit filename="src/Universe/Modules/Module.cpp" />
+		<Unit filename="src/Universe/Modules/Sensor.cpp" />
 		<Unit filename="src/Universe/Modules/ShipModule.cpp" />
 		<Unit filename="src/Universe/Universe.cpp" />
 		<Unit filename="src/Universe/Utility/DebugDraw.cpp" />

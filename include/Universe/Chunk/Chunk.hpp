@@ -3,12 +3,15 @@
 
 #include "GameObject.hpp"
 #include "BodyComponent.hpp"
+#include "Pool.hpp"
 
 struct ChunkData;
 class Module;
 class ModuleData;
 enum class Directive;
 enum class Request;
+
+
 
 enum class ChunkType
 {
@@ -34,6 +37,12 @@ public:
 
 protected:
 private:
+
+    Pool<Ballistic> m_ballisticPool;
+    Pool<Missiles> m_missilePool;
+    Pool<Energy> m_energyPool;
+    Pool<float> m_zoomPool;
+
     int m_slavePosition;
     BodyComponent m_body;
     std::vector<std::tr1::shared_ptr<Module> > m_modules;
@@ -49,6 +58,13 @@ struct ChunkData : public GameObjectData
     {
 
     }
+
+    PoolData<Missiles> missileData;
+    PoolData<Ballistic> ballisticData;
+    PoolData<Energy> energyData;
+    PoolData<float> zoomData;
+
+
 
     ChunkType type;
     BodyComponentData bodyComp;

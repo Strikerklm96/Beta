@@ -26,14 +26,16 @@ struct ShipModuleData : public ModuleData
 {
     ShipModuleData() :
         baseDecor()
-        {
-        }
+    {
 
-        QuadComponentData baseDecor;
+    }
 
-    virtual Module* generate(b2Body* pBody) const
+    QuadComponentData baseDecor;
+
+    virtual Module* generate(b2Body* pBody, PoolCollection stuff) const
     {
         ShipModuleData copy(*this);
+        copy.pools = stuff;
         copy.fixComp.pBody = pBody;
         return new ShipModule(copy);
     }

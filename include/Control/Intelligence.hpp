@@ -35,11 +35,17 @@ enum class Directive
 };
 enum class Request
 {
-    Angle,
     Zoom,
+    MaxZoom,
+
     Energy,
-    Projectiles,
+    MaxEnergy,
+
+    Ballistics,
+    MaxBallistics,
+
     Missiles,
+    MaxMissiles,
 };
 
 

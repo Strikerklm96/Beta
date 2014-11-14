@@ -104,7 +104,7 @@ void Game::run()
     quadData.dimensions = sf::Vector2f(512,512);//this specifies how big the in game object is, to specify texture size, edit the animation configuration file
     quadData.layer = GraphicsLayer::BackgroundFar;
     quadData.texName = "default.png";//automatically accesses textures folder
-    quadData.animSheetName = "defaultEDIT.acfg";//automatically accesses textures folder
+    quadData.animSheetName = "other/defaultEDIT.acfg";//automatically accesses textures folder
     quadData.permanentRot = 0;//will be rotated by this much (degrees CCW)
     quadData.center = sf::Vector2f(0,0);//this will designate the center of the picture( 0,0 is center, -width/2, +height/2 would be top left corner)
     QuadComponent evansQuad(quadData);

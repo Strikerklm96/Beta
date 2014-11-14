@@ -10,6 +10,7 @@
 #include "GameObject.hpp"
 #include "Chunk.hpp"
 #include "ShipModule.hpp"
+#include "Sensor.hpp"
 
 using namespace std;
 
@@ -84,11 +85,10 @@ void Universe::physUpdate()
     {
         for(auto it = m_goList.begin(); it != m_goList.end(); ++it)
             (*it)->prePhysUpdate();
-
         m_physWorld.Step(m_timeStep, m_velocityIterations, m_positionIterations);
-
         for(auto it = m_goList.begin(); it != m_goList.end(); ++it)
             (*it)->postPhysUpdate();
+
         ///m_projAlloc.recoverProjectiles();
     }
 }
@@ -132,7 +132,10 @@ void Universe::loadLevel(const std::string& level)//loads a level using blueprin
 
     ShipModuleData data;
     data.fixComp.offset = b2Vec2(1,0);
+    SensorData sens;
+    sens.fixComp.offset = b2Vec2(-1,0);
     chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ShipModuleData(data)));
+    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new SensorData(sens)));
     chunkdata_1.ioComp.name = "chunk_1";
     add(chunkdata_1.generate());
 

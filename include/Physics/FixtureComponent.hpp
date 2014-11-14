@@ -47,31 +47,34 @@ public:
     float getAngle() const;//RADIANS CCW
     int getIOPos() const;
 
+    ///THESE NEED TO CHECK IF THE GAME IS PAUSED, CAUSE IF IT IS, WE SHOULDNT APPLY FORCE
     void applyForce();//applies force to center of body(Newtons)
-    void applyForceFixture();//applies force at the center of fixture
+    void applyForceFixture();//applies force at the center of fixture(Newtons)
     void applyTorque(float radiansCCW);//applies torque to body(Newton Meters)
 
+
+protected:
+private:
+    friend class UniversalContactListener;
+    friend class Module;
+    template <typename T>
+    void bindStartCB(void (T::*func)(FixtureComponent*), T* const classPtr)//because C++
+    {
+        m_startCB = std::bind(func, classPtr, std::placeholders::_1);
+    }
+    template <typename T>
+    void bindEndCB(void (T::*func)(FixtureComponent*), T* const classPtr)//because C++
+    {
+        m_endCB = std::bind(func, classPtr, std::placeholders::_1);
+    }
+    void setIOPos(int ioPos);
 
 
     void startContact(FixtureComponent* pOther);
     void endContact(FixtureComponent* pOther);
 
-    template <typename T>
-    void bindStartCB(void (T::*func)(FixtureComponent*, int), T* const classPtr)//because C++
-    {
-        m_startCB = std::bind(func, classPtr, std::placeholders::_1, std::placeholders::_2);
-    }
-    template <typename T>
-    void bindEndCB(void (T::*func)(FixtureComponent*, int), T* const classPtr)//because C++
-    {
-        m_endCB = std::bind(func, classPtr, std::placeholders::_1, std::placeholders::_2);
-    }
-    void setIOPos(int ioPos);
-
-protected:
-private:
-    std::function<void(FixtureComponent*, int)> m_startCB;//other component, their IO position
-    std::function<void(FixtureComponent*, int)> m_endCB;//other component, their IO position
+    std::function<void(FixtureComponent*)> m_startCB;//other component, their IO position
+    std::function<void(FixtureComponent*)> m_endCB;//other component, their IO position
 
     std::tr1::shared_ptr<b2Shape> m_spShape;
     b2FixtureDef m_fixtureDef;

@@ -6,7 +6,9 @@
 #include "NetworkComponent.hpp"
 #include "FixtureComponent.hpp"
 #include "Universe.hpp"
+#include "Pool.hpp"
 
+enum class Directive;
 struct ModuleData;
 
 class Module
@@ -16,16 +18,22 @@ public:
     virtual ~Module();
 
     virtual void prePhysUpdate() = 0;
-    virtual void postPhysUpdate() = 0;
+    virtual void postPhysUpdate();
+    virtual void directive(Directive issue);
 
 
 protected:
-    virtual void startContactCB(FixtureComponent* pOther, int ioPos);
-    virtual void endContactCB(FixtureComponent* pOther, int ioPos);
+    virtual void startContactCB(FixtureComponent* pOther);
+    virtual void endContactCB(FixtureComponent* pOther);
 
     IOComponent m_io;
     NetworkComponent m_nw;
     FixtureComponent m_fix;
+
+    Pool<Missiles>* m_pMissilePool;
+    Pool<Ballistic>* m_pBallisticPool;
+    Pool<Energy>* m_pEnergyPool;
+    Pool<float>* m_pZoomPool;
 
 private:
 };
@@ -42,12 +50,12 @@ struct ModuleData
 
     }
 
-    //ModuleType type;
     IOComponentData ioComp;
     NetworkComponentData nwComp;
     FixtureComponentData fixComp;
+    PoolCollection pools;
 
-    virtual Module* generate(b2Body* pBody) const = 0;
+    virtual Module* generate(b2Body* pBody, PoolCollection stuff) const = 0;
 };
 
 

@@ -4,6 +4,7 @@ ShipModule::ShipModule(const ShipModuleData& rData) : Module(rData), m_baseDecor
 {
     m_baseDecor.setPosition(m_fix.getCenter());
     m_baseDecor.setRotation(m_fix.getAngle());
+
 }
 ShipModule::~ShipModule()
 {
