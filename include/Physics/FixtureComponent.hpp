@@ -13,7 +13,7 @@ struct FixtureComponentData
 {
     FixtureComponentData() :
     offset(0,0),
-           ///COLLISION MASK AND CATEGORY
+    ///COLLISION MASK AND CATEGORY
            pBody(NULL),
            shape(Shape::Rectangle),
            size(1,1),

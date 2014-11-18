@@ -130,6 +130,7 @@ void Game::run()
     /**===========================**/
 
 
+    m_spUniverse->loadBlueprints("blueprints/");
     m_spUniverse->loadLevel("levels");
 
     RenderWindow& rWindow = *m_spWindow;

@@ -909,7 +909,7 @@
 1416270900 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
 	"GraphicsComponent.hpp"
 
-1416271844 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
+1416291084 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
 	"Game.hpp"
 	"Globals.hpp"
 	"TextureAllocator.hpp"
@@ -997,7 +997,7 @@
 
 1416204888 c:\users\leon\desktop\projects\beta\include\basic\timer.hpp
 
-1416204888 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
+1416291111 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"UniversalContactListener.hpp"
@@ -1030,7 +1030,7 @@
 	"Courier.hpp"
 	"Eventer.hpp"
 
-1415679634 source:c:\users\leon\desktop\projects\beta\src\io\iocomponent.cpp
+1416291339 source:c:\users\leon\desktop\projects\beta\src\io\iocomponent.cpp
 	"IOComponent.hpp"
 	"IOManager.hpp"
 
@@ -1075,8 +1075,9 @@
 1415483750 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
 	"WidgetBase.hpp"
 
-1416274216 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
+1416291283 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
 	"Universe.hpp"
+	"BlueprintLoader.hpp"
 	"Globals.hpp"
 	"SlaveLocator.hpp"
 	"BatchLayers.hpp"
@@ -1092,7 +1093,8 @@
 	"Reactor.hpp"
 	"Capacitor.hpp"
 
-1416254455 c:\users\leon\desktop\projects\beta\include\io\eventtypes.hpp
+1416286552 c:\users\leon\desktop\projects\beta\include\io\eventtypes.hpp
+	"stdafx.hpp"
 
 1415679634 source:c:\users\leon\desktop\projects\beta\src\io\iomanager.cpp
 	"IOManager.hpp"
@@ -1125,7 +1127,7 @@
 	"FixtureComponent.hpp"
 	"Globals.hpp"
 
-1416259802 c:\users\leon\desktop\projects\beta\include\physics\fixturecomponent.hpp
+1416276722 c:\users\leon\desktop\projects\beta\include\physics\fixturecomponent.hpp
 	"stdafx.hpp"
 
 1416204888 source:c:\users\leon\desktop\projects\beta\src\physics\bodycomponent.cpp
@@ -1151,11 +1153,11 @@
 	"IOComponent.hpp"
 	"Universe.hpp"
 
-1416204888 source:c:\users\leon\desktop\projects\beta\src\universe\modules\module.cpp
+1416291223 source:c:\users\leon\desktop\projects\beta\src\universe\modules\module.cpp
 	"Module.hpp"
 	"Intelligence.hpp"
 
-1416204888 c:\users\leon\desktop\projects\beta\include\universe\modules\module.hpp
+1416282780 c:\users\leon\desktop\projects\beta\include\universe\modules\module.hpp
 	"Globals.hpp"
 	"IOComponent.hpp"
 	"NetworkComponent.hpp"
@@ -1200,7 +1202,7 @@
 	"UniversalContactListener.hpp"
 	"FixtureComponent.hpp"
 
-1416204888 source:c:\users\leon\desktop\projects\beta\src\universe\chunk\chunk.cpp
+1416291204 source:c:\users\leon\desktop\projects\beta\src\universe\chunk\chunk.cpp
 	"Chunk.hpp"
 	"Module.hpp"
 	"SlaveLocator.hpp"
@@ -1240,7 +1242,7 @@
 1416272561 source:c:\users\leon\desktop\projects\beta\src\universe\modules\shipmodule.cpp
 	"ShipModule.hpp"
 
-1416272523 c:\users\leon\desktop\projects\beta\include\universe\modules\shipmodule.hpp
+1416283179 c:\users\leon\desktop\projects\beta\include\universe\modules\shipmodule.hpp
 	"Module.hpp"
 	"QuadComponent.hpp"
 
@@ -1290,7 +1292,7 @@
 	"stdafx.hpp"
 	"Timer.hpp"
 
-1416204888 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\animalloc.cpp
+1416285164 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\animalloc.cpp
 	"AnimAlloc.hpp"
 	"Animation.hpp"
 	"Globals.hpp"
@@ -1311,11 +1313,11 @@
 1416255047 c:\users\leon\desktop\projects\beta\include\universe\modules\sensor.hpp
 	"Module.hpp"
 
-1416261520 source:c:\users\leon\desktop\projects\beta\src\universe\modules\thruster.cpp
+1416291213 source:c:\users\leon\desktop\projects\beta\src\universe\modules\thruster.cpp
 	"Thruster.hpp"
 	"Intelligence.hpp"
 
-1416262003 c:\users\leon\desktop\projects\beta\include\universe\modules\thruster.hpp
+1416291422 c:\users\leon\desktop\projects\beta\include\universe\modules\thruster.hpp
 	"ShipModule.hpp"
 
 1416271678 source:c:\users\leon\desktop\projects\beta\src\graphics\spinner.cpp
@@ -1336,4 +1338,21 @@
 
 1416274114 c:\users\leon\desktop\projects\beta\include\universe\module\capacitor.hpp
 	"ShipModule.hpp"
+
+1416291045 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
+	"BlueprintLoader.hpp"
+	"Module.hpp"
+	"ShipModule.hpp"
+	"Thruster.hpp"
+
+1416288947 c:\users\leon\desktop\projects\beta\include\universe\utility\blueprintloader.hpp
+	"stdafx.hpp"
+	"IOComponent.hpp"
+	"QuadComponent.hpp"
+	"Spinner.hpp"
+	"FixtureComponent.hpp"
+	"NetworkComponent.hpp"
+
+1416286557 source:c:\users\leon\desktop\projects\beta\src\io\eventtypes.cpp
+	"EventTypes.hpp"
 

@@ -12,6 +12,7 @@ class IOManager;
 class GameObject;
 class Factory;
 class SlaveLocator;
+class BlueprintLoader;
 
 class Universe
 {
@@ -35,7 +36,7 @@ public:
     void togglePause();
     void toggleDebugDraw();
 
-    void loadBP(const std::string& bluePrints);//loads blueprints
+    void loadBlueprints(const std::string& bluePrints);//loads blueprints
     void loadLevel(const std::string& level);//loads a level using blueprints
     void add(std::tr1::shared_ptr<GameObject> spGO);
     void add(GameObject* pGO);
@@ -55,6 +56,7 @@ private:
     b2World m_physWorld;
     /**PHYSICS**/
 
+    std::tr1::shared_ptr<BlueprintLoader> m_spBPLoader;
     std::tr1::shared_ptr<SlaveLocator> m_spSlaveLocator;//list of all slaves
     std::tr1::shared_ptr<BatchLayers> m_spBatchLayers;
     std::tr1::shared_ptr<GraphicsComponentUpdater> m_spGfxUpdater;

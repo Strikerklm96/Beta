@@ -1,6 +1,8 @@
 #ifndef EVENTTYPES_HPP
 #define EVENTTYPES_HPP
 
+#include "stdafx.hpp"
+
 enum class EventType
 {
     /**UNIVERSE**/
@@ -26,5 +28,8 @@ enum class EventType
 
     None,
 };
+
+EventType ChooseEvent(const std::string& rStr);
+
 
 #endif // EVENTTYPES_HPP

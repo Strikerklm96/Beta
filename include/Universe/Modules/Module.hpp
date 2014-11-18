@@ -55,7 +55,10 @@ struct ModuleData
     FixtureComponentData fixComp;
     PoolCollection pools;
 
-    virtual Module* generate(b2Body* pBody, PoolCollection stuff) const = 0;
+    virtual Module* generate(b2Body* pBody, PoolCollection stuff) const
+    {
+        std::cout << FILELINE;
+    }
 };
 
 

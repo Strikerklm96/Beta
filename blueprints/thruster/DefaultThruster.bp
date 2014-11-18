@@ -1,0 +1,8 @@
+{
+    "ClassName": "Thruster",
+	"Title": "DefaultThruster",
+    "Inherits": "DefaultShipModule",
+	"Force": 100,
+	"Torque": 50,
+	"EnergyConsumption": 10
+}

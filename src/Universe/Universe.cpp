@@ -1,5 +1,6 @@
 #include "Universe.hpp"
 
+#include "BlueprintLoader.hpp"
 #include "Globals.hpp"
 #include "SlaveLocator.hpp"
 #include "BatchLayers.hpp"
@@ -19,6 +20,7 @@ using namespace std;
 
 Universe::Universe(const IOComponentData& rData) : m_io(rData), m_physWorld(b2Vec2(0,0))
 {
+    m_spBPLoader = std::tr1::shared_ptr<BlueprintLoader>(new BlueprintLoader);//MUST BE AFTER IO
     m_spSlaveLocator = std::tr1::shared_ptr<SlaveLocator>(new SlaveLocator);
     m_spBatchLayers = std::tr1::shared_ptr<BatchLayers>(new BatchLayers);
     m_spGfxUpdater = std::tr1::shared_ptr<GraphicsComponentUpdater>(new GraphicsComponentUpdater);
@@ -29,6 +31,8 @@ Universe::Universe(const IOComponentData& rData) : m_io(rData), m_physWorld(b2Ve
     m_spUniverseIO->give(&m_io);
     m_spUniverseIO->give(&game.getLocalPlayer().getIOComp());
     /**IO**/
+
+
 
 
     /**PHYSICS**/
@@ -124,19 +128,20 @@ float Universe::getTime() const
         return game.getTime()-m_skippedTime;
 }
 
-void Universe::loadBP(const std::string& bluePrints)//loads blueprints
+void Universe::loadBlueprints(const std::string& bluePrints)//loads blueprints
 {
-
+    m_spBPLoader->loadRoster(bluePrints);
 }
 void Universe::loadLevel(const std::string& level)//loads a level using blueprints
 {
+
+
     ChunkData chunkdata_1;
     chunkdata_1.bodyComp.coords = b2Vec2(-2,0);
     chunkdata_1.ioComp.name = "chunk_1";
 
-    ThrusterData thrust;
-    thrust.fixComp.offset = b2Vec2(0,0);
-    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ThrusterData(thrust)));
+
+    chunkdata_1.moduleData.push_back(m_spBPLoader->getModuleDataSPtr("DefaultThruster"));
 
     ReactorData data;
     data.fixComp.offset = b2Vec2(1,0);
@@ -145,6 +150,7 @@ void Universe::loadLevel(const std::string& level)//loads a level using blueprin
     CapacitorData data3;
     data3.fixComp.offset = b2Vec2(-1,0);
     chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new CapacitorData(data3)));
+
 
     add(chunkdata_1.generate());
 
