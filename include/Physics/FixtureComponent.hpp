@@ -48,8 +48,8 @@ public:
     int getIOPos() const;
 
     ///THESE NEED TO CHECK IF THE GAME IS PAUSED, CAUSE IF IT IS, WE SHOULDNT APPLY FORCE
-    void applyForce();//applies force to center of body(Newtons)
-    void applyForceFixture();//applies force at the center of fixture(Newtons)
+    void applyForce(const b2Vec2& rForce);//applies force to center of body(Newtons)
+    void applyForceFixture(const b2Vec2& rForce);//applies force at the center of fixture(Newtons)
     void applyTorque(float radiansCCW);//applies torque to body(Newton Meters)
 
 

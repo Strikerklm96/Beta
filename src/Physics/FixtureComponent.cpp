@@ -93,3 +93,21 @@ void FixtureComponent::setIOPos(int ioPos)
 {
     m_ioPos = ioPos;
 }
+
+
+
+
+
+
+void FixtureComponent::applyForce(const b2Vec2& rForce)//applies force to center of body(Newtons)
+{
+    m_pFixture->GetBody()->ApplyForceToCenter(rForce, true);
+}
+void FixtureComponent::applyForceFixture(const b2Vec2& rForce)//applies force at the center of fixture(Newtons)
+{
+    m_pFixture->GetBody()->ApplyForce(rForce, getCenter(), true);
+}
+void FixtureComponent::applyTorque(float radiansCCW)//applies torque to body(Newton Meters)
+{
+    m_pFixture->GetBody()->ApplyTorque(radiansCCW, true);
+}

@@ -13,6 +13,9 @@ public:
 
     virtual void prePhysUpdate();
 
+    virtual void entered(FixtureComponent* pOther) = 0;
+    virtual void exited(FixtureComponent* pOther) = 0;
+
 protected:
     void startContactCB(FixtureComponent* pOther) final;
     void endContactCB(FixtureComponent* pOther) final;
@@ -33,13 +36,7 @@ struct SensorData : public ModuleData
     }
 
 
-    virtual Module* generate(b2Body* pBody, PoolCollection stuff) const
-    {
-        SensorData copy(*this);
-        copy.pools = stuff;
-        copy.fixComp.pBody = pBody;
-        return new Sensor(copy);
-    }
+    virtual Module* generate(b2Body* pBody, PoolCollection stuff) const = 0;
 };
 
 

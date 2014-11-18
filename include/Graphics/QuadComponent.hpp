@@ -6,6 +6,11 @@
 
 struct QuadComponentData : public GraphicsComponentData
 {
+    QuadComponentData() :
+        GraphicsComponentData()
+    {
+
+    }
 
 };
 

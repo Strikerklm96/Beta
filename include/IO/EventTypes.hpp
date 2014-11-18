@@ -21,7 +21,7 @@ enum class EventType
     /**TRIGGERS**/
     OnCount,//called when GuestCount changes, pass in GuestCount
     OnEnter,//called when an object enters us, pass in GuestCount
-    OnLeft,//called when an object leaves a trigger, pass in GuestCount
+    OnExit,//called when an object leaves a trigger, pass in GuestCount
     /**TRIGGERS**/
 
     None,

@@ -15,6 +15,7 @@
 #include "SlaveLocator.hpp"
 #include "Chunk.hpp"
 #include "QuadComponent.hpp"
+#include "Spinner.hpp"
 
 
 using namespace std;
@@ -24,6 +25,7 @@ using namespace leon;
 
 Game::Game()
 {
+    srand(time(NULL));
     NetworkBossData data;
     data.sendIP = "127.0.0.1";
 
@@ -111,6 +113,12 @@ void Game::run()
     evansQuad.setPosition(b2Vec2(-3,-4));
     evansQuad.setRotation(leon::degToRad(45));
 
+
+    SpinnerData spin;
+    spin.rate = 0;
+    Spinner thing(spin);
+    thing.setPosition(b2Vec2(0,5));
+
     //animation functionality coming soon!
 
     //to access data like mouse coordinates and zoom level
@@ -142,7 +150,7 @@ void Game::run()
         {
             cout << "\nPut stuff here.";
         }
-
+        thing.setRotation(0);
 
         /**== FRAMERATE ==**/
         frameTime = m_clock.getElapsedTime().asSeconds()-lastTime;

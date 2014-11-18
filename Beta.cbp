@@ -108,6 +108,7 @@
 		<Unit filename="include/Graphics/Animator.hpp" />
 		<Unit filename="include/Graphics/GraphicsComponent.hpp" />
 		<Unit filename="include/Graphics/QuadComponent.hpp" />
+		<Unit filename="include/Graphics/Spinner.hpp" />
 		<Unit filename="include/Graphics/Utility/AnimAlloc.hpp" />
 		<Unit filename="include/Graphics/Utility/Animation.hpp" />
 		<Unit filename="include/Graphics/Utility/BatchLayers.hpp" />
@@ -138,8 +139,10 @@
 		<Unit filename="include/Physics/FixtureComponent.hpp" />
 		<Unit filename="include/Universe/Chunk/Chunk.hpp" />
 		<Unit filename="include/Universe/Modules/Module.hpp" />
+		<Unit filename="include/Universe/Modules/Reactor.hpp" />
 		<Unit filename="include/Universe/Modules/Sensor.hpp" />
 		<Unit filename="include/Universe/Modules/ShipModule.hpp" />
+		<Unit filename="include/Universe/Modules/Thruster.hpp" />
 		<Unit filename="include/Universe/Universe.hpp" />
 		<Unit filename="include/Universe/Utility/DebugDraw.hpp" />
 		<Unit filename="include/Universe/Utility/GameObject.hpp" />
@@ -157,6 +160,7 @@
 		<Unit filename="src/Graphics/Animator.cpp" />
 		<Unit filename="src/Graphics/GraphicsComponent.cpp" />
 		<Unit filename="src/Graphics/QuadComponent.cpp" />
+		<Unit filename="src/Graphics/Spinner.cpp" />
 		<Unit filename="src/Graphics/Utility/AnimAlloc.cpp" />
 		<Unit filename="src/Graphics/Utility/BatchLayers.cpp" />
 		<Unit filename="src/Graphics/Utility/GraphicsComponentUpdater.cpp" />
@@ -179,8 +183,10 @@
 		<Unit filename="src/Physics/FixtureComponent.cpp" />
 		<Unit filename="src/Universe/Chunk/Chunk.cpp" />
 		<Unit filename="src/Universe/Modules/Module.cpp" />
+		<Unit filename="src/Universe/Modules/Reactor.cpp" />
 		<Unit filename="src/Universe/Modules/Sensor.cpp" />
 		<Unit filename="src/Universe/Modules/ShipModule.cpp" />
+		<Unit filename="src/Universe/Modules/Thruster.cpp" />
 		<Unit filename="src/Universe/Universe.cpp" />
 		<Unit filename="src/Universe/Utility/DebugDraw.cpp" />
 		<Unit filename="src/Universe/Utility/GameObject.cpp" />

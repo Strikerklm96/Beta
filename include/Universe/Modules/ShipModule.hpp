@@ -10,7 +10,7 @@ class ShipModule : public Module
 {
 public:
     ShipModule(const ShipModuleData& rData);
-    virtual ~ShipModule();
+    virtual ~ShipModule() = 0;
 
     virtual void prePhysUpdate();
     virtual void postPhysUpdate();
@@ -32,13 +32,7 @@ struct ShipModuleData : public ModuleData
 
     QuadComponentData baseDecor;
 
-    virtual Module* generate(b2Body* pBody, PoolCollection stuff) const
-    {
-        ShipModuleData copy(*this);
-        copy.pools = stuff;
-        copy.fixComp.pBody = pBody;
-        return new ShipModule(copy);
-    }
+    virtual Module* generate(b2Body* pBody, PoolCollection stuff) const = 0;
 };
 
 

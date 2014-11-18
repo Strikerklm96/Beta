@@ -11,6 +11,9 @@
 #include "Chunk.hpp"
 #include "ShipModule.hpp"
 #include "Sensor.hpp"
+#include "Thruster.hpp"
+#include "Reactor.hpp"
+#include "Capacitor.hpp"
 
 using namespace std;
 
@@ -128,20 +131,29 @@ void Universe::loadBP(const std::string& bluePrints)//loads blueprints
 void Universe::loadLevel(const std::string& level)//loads a level using blueprints
 {
     ChunkData chunkdata_1;
-    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ShipModuleData));
-
-    ShipModuleData data;
-    data.fixComp.offset = b2Vec2(1,0);
-    SensorData sens;
-    sens.fixComp.offset = b2Vec2(-1,0);
-    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ShipModuleData(data)));
-    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new SensorData(sens)));
+    chunkdata_1.bodyComp.coords = b2Vec2(-2,0);
     chunkdata_1.ioComp.name = "chunk_1";
+
+    ThrusterData thrust;
+    thrust.fixComp.offset = b2Vec2(0,0);
+    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ThrusterData(thrust)));
+
+    ReactorData data;
+    data.fixComp.offset = b2Vec2(1,0);
+    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ReactorData(data)));
+
+    CapacitorData data3;
+    data3.fixComp.offset = b2Vec2(-1,0);
+    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new CapacitorData(data3)));
+
     add(chunkdata_1.generate());
+
+
 
     chunkdata_1.bodyComp.coords = b2Vec2(2,0);
     chunkdata_1.ioComp.name = "chunk_2";
     add(chunkdata_1.generate());
+
 
     game.getLocalPlayer().setSlave("chunk_1");
 }

@@ -56,7 +56,8 @@ struct ChunkData : public GameObjectData
         type(ChunkType::Chunk),
         bodyComp()
     {
-
+    zoomData.startMin = 1;
+    zoomData.startMax = 128;
     }
 
     PoolData<Missiles> missileData;

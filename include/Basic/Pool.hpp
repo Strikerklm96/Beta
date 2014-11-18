@@ -12,9 +12,9 @@ template <typename T>
 struct PoolData
 {
     PoolData() :
-        startMax(100),
+        startMax(0),
         startMin(0),
-        startValue(100)
+        startValue(0)
     {
 
     }
