@@ -28,6 +28,7 @@
 					<Add directory="include/Universe/Utility" />
 					<Add directory="include/Graphics/Utility" />
 					<Add directory="include/Basic" />
+					<Add directory="include/Universe/Module" />
 				</Compiler>
 				<Linker>
 					<Add library="lib\box2d_debug\libBox2D.dll.a" />
@@ -61,6 +62,7 @@
 					<Add directory="include/Universe/Utility" />
 					<Add directory="include/Graphics/Utility" />
 					<Add directory="include/Basic" />
+					<Add directory="include/Universe/Module" />
 				</Compiler>
 				<Linker>
 					<Add library="lib\box2d_release\libBox2D.dll.a" />
@@ -138,12 +140,14 @@
 		<Unit filename="include/Physics/BodyComponent.hpp" />
 		<Unit filename="include/Physics/FixtureComponent.hpp" />
 		<Unit filename="include/Universe/Chunk/Chunk.hpp" />
+		<Unit filename="include/Universe/Module/Capacitor.hpp" />
 		<Unit filename="include/Universe/Modules/Module.hpp" />
 		<Unit filename="include/Universe/Modules/Reactor.hpp" />
 		<Unit filename="include/Universe/Modules/Sensor.hpp" />
 		<Unit filename="include/Universe/Modules/ShipModule.hpp" />
 		<Unit filename="include/Universe/Modules/Thruster.hpp" />
 		<Unit filename="include/Universe/Universe.hpp" />
+		<Unit filename="include/Universe/Utility/BlueprintLoader.hpp" />
 		<Unit filename="include/Universe/Utility/DebugDraw.hpp" />
 		<Unit filename="include/Universe/Utility/GameObject.hpp" />
 		<Unit filename="include/Universe/Utility/UniversalContactListener.hpp" />
@@ -159,6 +163,7 @@
 		<Unit filename="src/Game/Game.cpp" />
 		<Unit filename="src/Graphics/Animator.cpp" />
 		<Unit filename="src/Graphics/GraphicsComponent.cpp" />
+		<Unit filename="src/Graphics/GraphicsLayer.cpp" />
 		<Unit filename="src/Graphics/QuadComponent.cpp" />
 		<Unit filename="src/Graphics/Spinner.cpp" />
 		<Unit filename="src/Graphics/Utility/AnimAlloc.cpp" />
@@ -167,6 +172,7 @@
 		<Unit filename="src/Graphics/Utility/QuadBatchContainer.cpp" />
 		<Unit filename="src/Graphics/Utility/TextureAllocator.cpp" />
 		<Unit filename="src/IO/Condition.cpp" />
+		<Unit filename="src/IO/EventTypes.cpp" />
 		<Unit filename="src/IO/Eventer.cpp" />
 		<Unit filename="src/IO/IOComponent.cpp" />
 		<Unit filename="src/IO/IOManager.cpp" />
@@ -182,12 +188,14 @@
 		<Unit filename="src/Physics/BodyComponent.cpp" />
 		<Unit filename="src/Physics/FixtureComponent.cpp" />
 		<Unit filename="src/Universe/Chunk/Chunk.cpp" />
+		<Unit filename="src/Universe/Module/Capacitor.cpp" />
 		<Unit filename="src/Universe/Modules/Module.cpp" />
 		<Unit filename="src/Universe/Modules/Reactor.cpp" />
 		<Unit filename="src/Universe/Modules/Sensor.cpp" />
 		<Unit filename="src/Universe/Modules/ShipModule.cpp" />
 		<Unit filename="src/Universe/Modules/Thruster.cpp" />
 		<Unit filename="src/Universe/Universe.cpp" />
+		<Unit filename="src/Universe/Utility/BlueprintLoader.cpp" />
 		<Unit filename="src/Universe/Utility/DebugDraw.cpp" />
 		<Unit filename="src/Universe/Utility/GameObject.cpp" />
 		<Unit filename="src/Universe/Utility/UniversalContactListener.cpp" />

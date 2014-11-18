@@ -27,7 +27,7 @@ struct ShipModuleData : public ModuleData
     ShipModuleData() :
         baseDecor()
     {
-
+        baseDecor.layer = GraphicsLayer::ShipModules;
     }
 
     QuadComponentData baseDecor;

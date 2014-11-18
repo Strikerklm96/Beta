@@ -205,11 +205,24 @@ NetworkComponentData BlueprintLoader::loadNWComp(const Json::Value& root)
 
 
 
-QuadComponentData BlueprintLoader::loadQuad(const Json::Value& rQuadRoot)
+QuadComponentData BlueprintLoader::loadQuad(const Json::Value& root)
 {
-    return QuadComponentData();
+    QuadComponentData data;
+    data.dimensions.x = root["dimensions"][0].asInt();
+    data.dimensions.y = root["dimensions"][1].asInt();
+
+    data.permanentRot = root["permanentRot"].asFloat();
+
+    data.center.x = root["center"][0].asInt();
+    data.center.y = root["center"][1].asInt();
+
+    data.texName = root["texName"].asString();
+    data.animSheetName = root["animSheetName"].asString();
+    data.layer = ChooseLayer(root["layer"].asString());
+
+    return data;
 }
-SpinnerData BlueprintLoader::loadSpinner(const Json::Value& rSpinnerRoot)
+SpinnerData BlueprintLoader::loadSpinner(const Json::Value& root)
 {
     return SpinnerData();
 }

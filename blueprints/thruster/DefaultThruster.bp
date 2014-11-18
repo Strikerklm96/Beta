@@ -4,5 +4,19 @@
     "Inherits": "DefaultShipModule",
 	"Force": 100,
 	"Torque": 50,
-	"EnergyConsumption": 10
+	"EnergyConsumption": 10,
+    "BaseSprite": {
+        "dimensions": [
+            256,
+            256
+        ],
+        "permanentRot": 0,
+        "center": [
+            0,
+            0
+        ],
+        "texName": "thruster/thruster_base.png",
+        "animSheetName": "thruster/thruster_base.acfg",
+        "layer": "ShipModules"
+    }
 }

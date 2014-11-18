@@ -1,6 +1,8 @@
 #ifndef GRAPHICSLAYER_H
 #define GRAPHICSLAYER_H
 
+#include "stdafx.hpp"
+
 enum class GraphicsLayer
 {
     BackgroundFar = 0,//scenery
@@ -8,7 +10,7 @@ enum class GraphicsLayer
 
     ShipUnder,//fill background
     ShipMiddle,//fill (meter)
-    GModules,//ship module
+    ShipModules,//ship module
 
     ShipHull,//ship skin
 
@@ -22,5 +24,7 @@ enum class GraphicsLayer
     Menus,//unknown what this is for
     maxLayers,
 };
+
+GraphicsLayer ChooseLayer(const std::string& rStr);
 
 #endif // GRAPHICSLAYER_H

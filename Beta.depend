@@ -1242,7 +1242,7 @@
 1416272561 source:c:\users\leon\desktop\projects\beta\src\universe\modules\shipmodule.cpp
 	"ShipModule.hpp"
 
-1416283179 c:\users\leon\desktop\projects\beta\include\universe\modules\shipmodule.hpp
+1416292564 c:\users\leon\desktop\projects\beta\include\universe\modules\shipmodule.hpp
 	"Module.hpp"
 	"QuadComponent.hpp"
 
@@ -1263,7 +1263,8 @@
 	"stdafx.hpp"
 	"TextureAllocator.hpp"
 
-1416204888 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicslayer.hpp
+1416292572 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicslayer.hpp
+	"stdafx.hpp"
 
 1416204888 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicscomponentupdater.hpp
 	"stdafx.hpp"
@@ -1339,7 +1340,7 @@
 1416274114 c:\users\leon\desktop\projects\beta\include\universe\module\capacitor.hpp
 	"ShipModule.hpp"
 
-1416291045 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
+1416291934 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
 	"BlueprintLoader.hpp"
 	"Module.hpp"
 	"ShipModule.hpp"
@@ -1355,4 +1356,7 @@
 
 1416286557 source:c:\users\leon\desktop\projects\beta\src\io\eventtypes.cpp
 	"EventTypes.hpp"
+
+1416292194 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicslayer.cpp
+	"GraphicsLayer.hpp"
 

@@ -14,6 +14,6 @@
         ],
         "texName": "default.png",
         "animSheetName": "default.acfg",
-        "layer": "BackgroundFar"
+        "layer": "GModules"
     }
 }
