@@ -321,6 +321,12 @@ void Game::input(std::string rCommand, sf::Packet rData)
     {
         ///TODO
     }
+    else if(rCommand == "printToConsole")
+    {
+        string str;
+        rData >> str;
+        cout << "\n" << str;
+    }
     else
     {
         cout << "Game: [" << rCommand << "] not found.";

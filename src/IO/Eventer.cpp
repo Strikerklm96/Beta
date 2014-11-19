@@ -22,17 +22,13 @@ void Eventer::add(const std::vector<Courier>& rCourierList)
 }
 void Eventer::event(EventType type, int value, const sf::Packet& rData)
 {
-    //cout << "\nSize Map:" << m_courierMap.size();
-
     auto typeIt = m_courierMap.find(type);
 
     if(typeIt != m_courierMap.end())
     {
         for(int i=0; i<typeIt->second.size(); ++i)//each courier of that type
         {
-
             vector<Courier>& rList = typeIt->second;
-            //cout << "\nSize List:" << rList.size();
 
             if(rList[i].condition.evaluate(value))
             {
@@ -46,8 +42,6 @@ void Eventer::event(EventType type, int value, const sf::Packet& rData)
                     --i;
                 }
             }
-
-
         }
     }
 }

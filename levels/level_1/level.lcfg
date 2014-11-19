@@ -83,11 +83,83 @@
                 },
                 {
                     "ClassName": "Thruster",
+                    "Copies": "DefaultThruster",
                     "Torque": 25,
                     "EnergyConsumption": 10,
                     "BaseSprite": {
                         "texName": "thruster/thruster_base.png",
                         "animSheetName": "thruster/thruster_base.acfg"
+                    }
+                },
+                {
+                    "ClassName": "Sensor",
+                    "Inherits": "DefaultModule",
+                    "IO": {
+                        "name": "NONAMEBP",
+                        "courierList": [
+                            {
+                                "message": {
+                                    "target": "game",
+                                    "command": "printToConsole",
+                                    "data": [
+                                        "string",
+                                        "Message from superclass."
+                                    ],
+                                    "delay": 1,
+                                    "sendValue": false
+                                },
+                                "condition": {
+                                    "event": "OnExit",
+                                    "value": 0,
+                                    "comparator": "d",
+                                    "repeatable": true
+                                }
+                            },
+                            {
+                                "message": {
+                                    "target": "game",
+                                    "command": "printToConsole",
+                                    "data": [
+                                        "string",
+                                        "Message from subclass."
+                                    ],
+                                    "delay": 0,
+                                    "sendValue": false
+                                },
+                                "condition": {
+                                    "event": "OnEnter",
+                                    "value": 0,
+                                    "comparator": "d",
+                                    "repeatable": false
+                                }
+                            },
+                            {
+                                "message": {
+                                    "target": "game",
+                                    "command": "printToConsole",
+                                    "data": [
+                                        "string",
+                                        "Two objects!"
+                                    ],
+                                    "delay": 0,
+                                    "sendValue": false
+                                },
+                                "condition": {
+                                    "event": "OnCount",
+                                    "value": 2,
+                                    "comparator": "=",
+                                    "repeatable": true
+                                }
+                            }
+                        ]
+                    },
+                    "Physics": {
+                        "offset": [
+                            0,
+                            2
+                        ],
+                        "density": 0,
+                        "isSensor": true
                     }
                 },
                 {
@@ -98,13 +170,13 @@
                         "texName": "thruster/thruster_base.png",
                         "animSheetName": "thruster/thruster_base.acfg"
                     },
-					"Physics": {
-						"offset": [
-							0,
-							1
-						],
-						"density": 0.5
-					}
+                    "Physics": {
+                        "offset": [
+                            0,
+                            1
+                        ],
+                        "density": 0.5
+                    }
                 }
             ],
             "Network": {}

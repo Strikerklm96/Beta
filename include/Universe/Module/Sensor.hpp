@@ -13,8 +13,8 @@ public:
 
     virtual void prePhysUpdate();
 
-    virtual void entered(FixtureComponent* pOther) = 0;
-    virtual void exited(FixtureComponent* pOther) = 0;
+    virtual void entered(FixtureComponent* pOther);
+    virtual void exited(FixtureComponent* pOther);
 
 protected:
     void startContactCB(FixtureComponent* pOther) final;
@@ -35,8 +35,17 @@ struct SensorData : public ModuleData
         fixComp.density = 0.f;
     }
 
-
-    virtual Module* generate(b2Body* pBody, PoolCollection stuff) const = 0;
+    virtual Module* generate(b2Body* pBody, PoolCollection stuff) const
+    {
+        SensorData copy(*this);
+        copy.pools = stuff;
+        copy.fixComp.pBody = pBody;
+        return new Sensor(copy);
+    }
+    virtual ModuleData* clone() const
+    {
+        return new SensorData(*this);
+    }
 };
 
 

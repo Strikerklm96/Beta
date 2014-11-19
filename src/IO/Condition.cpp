@@ -2,6 +2,8 @@
 #include "stdafx.hpp"
 #include "Globals.hpp"
 
+using namespace std;
+
 Condition::Condition()
 {
     ///this shouldn't be the defualt condition

@@ -6,6 +6,7 @@
 #include "Capacitor.hpp"
 #include "Reactor.hpp"
 #include "Chunk.hpp"
+#include "Sensor.hpp"
 
 using namespace std;
 
@@ -172,9 +173,28 @@ std::tr1::shared_ptr<const ModuleData> BlueprintLoader::loadModule(const Json::V
 {
     std::tr1::shared_ptr<const ModuleData> spMod;
 
+    /**=================**/
+    /**==== MODULES ====**/
+    /**=================**/
     if(root["ClassName"].asString() == "Module")
     {
         ModuleData* pSMod = new ModuleData;
+
+        if(not root["IO"].isNull())
+            pSMod->ioComp = loadIOComp(root["IO"], pSMod->ioComp);
+        if(not root["Physics"].isNull())
+            pSMod->fixComp = loadFixComp(root["Physics"], pSMod->fixComp);
+        if(not root["Network"].isNull())
+            pSMod->nwComp = loadNWComp(root["Network"], pSMod->nwComp);
+
+        spMod.reset(pSMod);
+    }
+    else if(root["ClassName"].asString() == "Sensor")
+    {
+        SensorData* pSMod = new SensorData;
+        /**INHERIT**/
+        if(not root["Inherits"].isNull())
+            *static_cast<ModuleData*>(pSMod) = *static_cast<const ModuleData*>(getModuleSPtr(root["Inherits"].asString()).get());
 
         if(not root["IO"].isNull())
             pSMod->ioComp = loadIOComp(root["IO"], pSMod->ioComp);
@@ -189,7 +209,8 @@ std::tr1::shared_ptr<const ModuleData> BlueprintLoader::loadModule(const Json::V
     {
         ShipModuleData* pSMod = new ShipModuleData;
         /**INHERIT**/
-        *static_cast<ModuleData*>(pSMod) = *static_cast<const ModuleData*>(getModuleSPtr(root["Inherits"].asString()).get());
+        if(not root["Inherits"].isNull())
+            *static_cast<ModuleData*>(pSMod) = *static_cast<const ModuleData*>(getModuleSPtr(root["Inherits"].asString()).get());
 
         /**OVERWRITES**/
         if(not root["IO"].isNull())
@@ -203,9 +224,9 @@ std::tr1::shared_ptr<const ModuleData> BlueprintLoader::loadModule(const Json::V
 
         spMod.reset(pSMod);
     }
-    /**=================**/
-    /**==== MODULES ====**/
-    /**=================**/
+    /**======================**/
+    /**==== SHIP MODULES ====**/
+    /**======================**/
     else if(root["ClassName"].asString() == "Thruster")
     {
         ThrusterData* pSMod = new ThrusterData;
@@ -291,7 +312,6 @@ void BlueprintLoader::insertModData(const Json::Value& root, std::vector<std::tr
         else if(not (*it)["ClassName"].isNull())
         {
             spMod.reset(loadModule(*it)->clone());
-            cout << "\nHere.";
         }
         else
         {
@@ -351,7 +371,30 @@ IOComponentData BlueprintLoader::loadIOComp(const Json::Value& root, const IOCom
 
             string target = (*it)["message"]["target"].asString();
             string command = (*it)["message"]["command"].asString();
-            sf::Packet packData;///READ DATA
+
+            sf::Packet packData;
+            const Json::Value dataList = (*it)["message"]["data"];
+            if(dataList.size()%2 == 0)//if it's divisible by two
+                for(auto it = dataList.begin(); it!=dataList.end(); ++it)
+                {
+                    string type = it->asString();
+
+                    ++it;
+                    if(type == "bool")
+                        packData << it->asBool();
+                    if(type == "int")
+                        packData << it->asInt();
+                    if(type == "float")
+                        packData << it->asFloat();
+                    if(type == "string")
+                        packData << it->asString();
+                }
+            else
+            {
+                cout << "\n" << FILELINE;
+                ///ERROR LOG
+            }
+
             float delay = (*it)["message"]["delay"].asFloat();
             bool sendValue = (*it)["message"]["sendValue"].asBool();
             c.message.reset(target, command, packData, delay, sendValue);
@@ -375,8 +418,6 @@ FixtureComponentData BlueprintLoader::loadFixComp(const Json::Value& root, const
     {
         data.offset.x = root["offset"][0].asFloat();
         data.offset.y = root["offset"][1].asFloat();
-        cout << "\nOffX:" << root["offset"][0].asFloat();
-        cout << "\nOffY:" << root["offset"][1].asFloat();
     }
 
     if(not root["shape"].isNull())
@@ -387,7 +428,10 @@ FixtureComponentData BlueprintLoader::loadFixComp(const Json::Value& root, const
         else if(temp == "circle")
             data.shape = Shape::Circle;
         else
+        {
             cout << "\n" << FILELINE;
+            data.shape = Shape::Circle;
+        }
     }
 
     if(not root["size"].isNull())
@@ -402,6 +446,8 @@ FixtureComponentData BlueprintLoader::loadFixComp(const Json::Value& root, const
         data.friction = root["friction"].asFloat();
     if(not root["restitution"].isNull())
         data.restitution = root["restitution"].asFloat();
+    if(not root["isSensor"].isNull())
+        data.isSensor = root["isSensor"].asBool();
 
     return data;
 }

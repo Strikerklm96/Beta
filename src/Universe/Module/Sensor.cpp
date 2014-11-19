@@ -17,7 +17,6 @@ void Sensor::prePhysUpdate()
 void Sensor::startContactCB(FixtureComponent* pOther)
 {
     m_guests.push_back(pOther);
-
     sf::Packet enter;
     enter << pOther;
     m_io.event(EventType::OnEnter, m_guests.size(), enter);
@@ -46,4 +45,12 @@ void Sensor::endContactCB(FixtureComponent* pOther)
     m_io.event(EventType::OnCount, m_guests.size(), count);
 
     exited(pOther);
+}
+void Sensor::entered(FixtureComponent* pOther)
+{
+
+}
+void Sensor::exited(FixtureComponent* pOther)
+{
+
 }

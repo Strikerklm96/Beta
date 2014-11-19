@@ -3,23 +3,7 @@
     "Title": "DefaultModule",
     "IO": {
         "name": "NONAMEBP",
-        "courierList": [
-            {
-                "message": {
-                    "target": "targetName",
-                    "command": "setHidden",
-                    "data": "",
-                    "delay": 3.56,
-                    "sendValue": false
-                },
-                "condition": {
-                    "event": "OnCount",
-                    "value": 3,
-                    "comparator": ">",
-                    "repeatable": true
-                }
-            }
-        ]
+        "courierList": []
     },
     "Physics": {
         "offset": [
@@ -33,7 +17,8 @@
         ],
         "density": 1,
         "friction": 0.3,
-        "restitution": 0.2
+        "restitution": 0.2,
+        "isSensor": false
     },
     "Network": {}
 }
