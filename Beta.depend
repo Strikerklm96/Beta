@@ -1075,7 +1075,7 @@
 1415483750 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
 	"WidgetBase.hpp"
 
-1416291283 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
+1416355618 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
 	"Universe.hpp"
 	"BlueprintLoader.hpp"
 	"Globals.hpp"
@@ -1208,7 +1208,7 @@
 	"SlaveLocator.hpp"
 	"Intelligence.hpp"
 
-1416273388 c:\users\leon\desktop\projects\beta\include\universe\chunk\chunk.hpp
+1416353280 c:\users\leon\desktop\projects\beta\include\universe\chunk\chunk.hpp
 	"GameObject.hpp"
 	"BodyComponent.hpp"
 	"Pool.hpp"
@@ -1234,17 +1234,18 @@
 1415679634 c:\users\leon\desktop\projects\beta\include\control\slavelocator.hpp
 	"stdafx.hpp"
 
-1415679634 source:c:\users\leon\desktop\projects\beta\src\control\slavelocator.cpp
+1416355481 source:c:\users\leon\desktop\projects\beta\src\control\slavelocator.cpp
 	"SlaveLocator.hpp"
 	"Globals.hpp"
 	"Chunk.hpp"
 
-1416272561 source:c:\users\leon\desktop\projects\beta\src\universe\modules\shipmodule.cpp
+1416347772 source:c:\users\leon\desktop\projects\beta\src\universe\modules\shipmodule.cpp
 	"ShipModule.hpp"
 
-1416292564 c:\users\leon\desktop\projects\beta\include\universe\modules\shipmodule.hpp
+1416347736 c:\users\leon\desktop\projects\beta\include\universe\modules\shipmodule.hpp
 	"Module.hpp"
 	"QuadComponent.hpp"
+	"Health.hpp"
 
 1416204888 source:c:\users\leon\desktop\projects\beta\src\network\networkboss.cpp
 	"NetworkBoss.hpp"
@@ -1306,7 +1307,7 @@
 1416204888 source:c:\users\leon\desktop\projects\beta\src\basic\pool.cpp
 	"Pool.hpp"
 
-1416273352 c:\users\leon\desktop\projects\beta\include\basic\pool.hpp
+1416350007 c:\users\leon\desktop\projects\beta\include\basic\pool.hpp
 
 1416255010 source:c:\users\leon\desktop\projects\beta\src\universe\modules\sensor.cpp
 	"Sensor.hpp"
@@ -1337,26 +1338,76 @@
 1416273993 source:c:\users\leon\desktop\projects\beta\src\universe\module\capacitor.cpp
 	"Capacitor.hpp"
 
-1416274114 c:\users\leon\desktop\projects\beta\include\universe\module\capacitor.hpp
+1416349861 c:\users\leon\desktop\projects\beta\include\universe\module\capacitor.hpp
 	"ShipModule.hpp"
 
-1416291934 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
+1416355506 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
 	"BlueprintLoader.hpp"
 	"Module.hpp"
 	"ShipModule.hpp"
 	"Thruster.hpp"
+	"Capacitor.hpp"
+	"Reactor.hpp"
+	"Chunk.hpp"
 
-1416288947 c:\users\leon\desktop\projects\beta\include\universe\utility\blueprintloader.hpp
+1416354745 c:\users\leon\desktop\projects\beta\include\universe\utility\blueprintloader.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"QuadComponent.hpp"
 	"Spinner.hpp"
 	"FixtureComponent.hpp"
 	"NetworkComponent.hpp"
+	"BodyComponent.hpp"
+	"Health.hpp"
 
 1416286557 source:c:\users\leon\desktop\projects\beta\src\io\eventtypes.cpp
 	"EventTypes.hpp"
 
-1416292194 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicslayer.cpp
+1416292581 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicslayer.cpp
 	"GraphicsLayer.hpp"
+
+1416347259 source:c:\users\leon\desktop\projects\beta\src\universe\module\health.cpp
+	"Health.hpp"
+
+1416349143 c:\users\leon\desktop\projects\beta\include\universe\module\health.hpp
+	"Pool.hpp"
+
+1416349816 c:\users\leon\desktop\projects\beta\include\universe\module\module.hpp
+	"Globals.hpp"
+	"IOComponent.hpp"
+	"NetworkComponent.hpp"
+	"FixtureComponent.hpp"
+	"Universe.hpp"
+	"Pool.hpp"
+
+1416349879 c:\users\leon\desktop\projects\beta\include\universe\module\shipmodule.hpp
+	"Module.hpp"
+	"QuadComponent.hpp"
+	"Health.hpp"
+
+1416255047 c:\users\leon\desktop\projects\beta\include\universe\module\sensor.hpp
+	"Module.hpp"
+
+1416349901 c:\users\leon\desktop\projects\beta\include\universe\module\thruster.hpp
+	"ShipModule.hpp"
+
+1416349977 c:\users\leon\desktop\projects\beta\include\universe\module\reactor.hpp
+	"ShipModule.hpp"
+
+1416291223 source:c:\users\leon\desktop\projects\beta\src\universe\module\module.cpp
+	"Module.hpp"
+	"Intelligence.hpp"
+
+1416272799 source:c:\users\leon\desktop\projects\beta\src\universe\module\reactor.cpp
+	"Reactor.hpp"
+
+1416255010 source:c:\users\leon\desktop\projects\beta\src\universe\module\sensor.cpp
+	"Sensor.hpp"
+
+1416347772 source:c:\users\leon\desktop\projects\beta\src\universe\module\shipmodule.cpp
+	"ShipModule.hpp"
+
+1416291213 source:c:\users\leon\desktop\projects\beta\src\universe\module\thruster.cpp
+	"Thruster.hpp"
+	"Intelligence.hpp"
 

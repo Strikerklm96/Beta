@@ -39,6 +39,10 @@ struct CapacitorData : ShipModuleData
         copy.fixComp.pBody = pBody;
         return new Capacitor(copy);
     }
+    virtual ModuleData* clone() const
+    {
+        return new CapacitorData(*this);
+    }
 };
 
 #endif // CAPACITOR_HPP

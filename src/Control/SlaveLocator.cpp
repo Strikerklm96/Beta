@@ -17,6 +17,8 @@ int SlaveLocator::give(Chunk* pSlave)//we recieve a pointer to a component and w
 {
     int position;
 
+    cout << "\nChunk: " << pSlave->getName() << ".";
+
     if(not m_freeIndexes.empty())//check free positions
     {
         position = m_freeIndexes.back();
@@ -58,7 +60,7 @@ int SlaveLocator::findPos(const std::string& slaveTarget)
         {
             cout << "\nTarget [" << slaveTarget << "] was not found." << FILELINE;
             ///ERROR LOG
-            return -1;
+            return 0;
         }
 }
 Chunk* SlaveLocator::find(int position)
@@ -75,7 +77,7 @@ Chunk* SlaveLocator::findHack(const std::string& rName)
         }
         else
         {
-        //    cout << "\nTarget [" << rName << "] was not found." << FILELINE;
+            cout << "\nTarget [" << rName << "] was not found." << FILELINE;
             ///ERROR LOG
             return NULL;
         }

@@ -16,7 +16,7 @@ public:
 
 protected:
 private:
-    float m_rate;//energy per second
+    Energy m_rate;//energy per second
 };
 
 
@@ -30,7 +30,7 @@ struct ReactorData : public ShipModuleData
         baseDecor.animSheetName = "reactor/reactor_base.acfg";
     }
 
-    float rate;// J/s
+    Energy rate;// J/s
 
     virtual Module* generate(b2Body* pBody, PoolCollection stuff) const
     {
@@ -38,6 +38,10 @@ struct ReactorData : public ShipModuleData
         copy.pools = stuff;
         copy.fixComp.pBody = pBody;
         return new Reactor(copy);
+    }
+    virtual ModuleData* clone() const
+    {
+        return new ReactorData(*this);
     }
 };
 

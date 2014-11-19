@@ -3,6 +3,7 @@
 
 #include "Module.hpp"
 #include "QuadComponent.hpp"
+#include "Health.hpp"
 
 struct ShipModuleData;
 
@@ -16,6 +17,8 @@ public:
     virtual void postPhysUpdate();
 
 protected:
+    Health m_health;
+
 private:
     QuadComponent m_baseDecor;
 };
@@ -31,8 +34,13 @@ struct ShipModuleData : public ModuleData
     }
 
     QuadComponentData baseDecor;
+    HealthData health;
 
     virtual Module* generate(b2Body* pBody, PoolCollection stuff) const
+    {
+        std::cout << FILELINE;
+    }
+    virtual ModuleData* clone() const
     {
         std::cout << FILELINE;
     }

@@ -13,11 +13,6 @@ enum class Request;
 
 
 
-enum class ChunkType
-{
-    Chunk,
-};
-
 class Chunk : public GameObject
 {
 public:
@@ -53,11 +48,10 @@ struct ChunkData : public GameObjectData
 {
     ChunkData() :
         GameObjectData(),
-        type(ChunkType::Chunk),
         bodyComp()
     {
-    zoomData.startMin = 1;
-    zoomData.startMax = 128;
+        zoomData.startMin = 1;
+        zoomData.startMax = 128;
     }
 
     PoolData<Missiles> missileData;
@@ -65,9 +59,6 @@ struct ChunkData : public GameObjectData
     PoolData<Energy> energyData;
     PoolData<float> zoomData;
 
-
-
-    ChunkType type;
     BodyComponentData bodyComp;
     std::vector<std::tr1::shared_ptr<const ModuleData> > moduleData;
 
@@ -76,7 +67,10 @@ struct ChunkData : public GameObjectData
         ChunkData copy(*this);
         return new Chunk(copy);
     }
-
+    virtual ChunkData* clone() const
+    {
+        return new ChunkData(*this);
+    }
 };
 
 

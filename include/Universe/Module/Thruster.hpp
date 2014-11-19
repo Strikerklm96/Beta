@@ -60,6 +60,10 @@ struct ThrusterData : public ShipModuleData
         copy.fixComp.pBody = pBody;
         return new Thruster(copy);
     }
+    virtual ModuleData* clone() const
+    {
+        return new ThrusterData(*this);
+    }
 };
 
 #endif // THRUSTER_HPP

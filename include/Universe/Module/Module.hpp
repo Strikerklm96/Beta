@@ -59,6 +59,10 @@ struct ModuleData
     {
         std::cout << FILELINE;
     }
+    virtual ModuleData* clone() const
+    {
+        std::cout << FILELINE;
+    }
 };
 
 

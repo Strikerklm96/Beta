@@ -134,34 +134,14 @@ void Universe::loadBlueprints(const std::string& bluePrints)//loads blueprints
 }
 void Universe::loadLevel(const std::string& level)//loads a level using blueprints
 {
+    ///LOAD FROM THE LEVEL WHAT OBJECT TO SET AS SLAVE
+    string localPlayerSlave = "BPCHUNKNAME";
 
-
-    ChunkData chunkdata_1;
-    chunkdata_1.bodyComp.coords = b2Vec2(-2,0);
-    chunkdata_1.ioComp.name = "chunk_1";
-
-
-    chunkdata_1.moduleData.push_back(m_spBPLoader->getModuleDataSPtr("DefaultThruster"));
-
-    ReactorData data;
-    data.fixComp.offset = b2Vec2(1,0);
-    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ReactorData(data)));
-
-    CapacitorData data3;
-    data3.fixComp.offset = b2Vec2(-1,0);
-    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new CapacitorData(data3)));
-
-
-    add(chunkdata_1.generate());
+    add(m_spBPLoader->getChunkSPtr("DefaultChunk")->generate());
 
 
 
-    chunkdata_1.bodyComp.coords = b2Vec2(2,0);
-    chunkdata_1.ioComp.name = "chunk_2";
-    add(chunkdata_1.generate());
-
-
-    game.getLocalPlayer().setSlave("chunk_1");
+    game.getLocalPlayer().setSlave(localPlayerSlave);
 }
 void Universe::add(std::tr1::shared_ptr<GameObject> spGO)
 {
