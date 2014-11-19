@@ -42,8 +42,8 @@ struct ThrusterData : public ShipModuleData
 {
     ThrusterData() :
         energyConsumption(5),
-        force(20),
-        torque(10)
+        force(1),
+        torque(1)
     {
         baseDecor.texName = "thruster/thruster_base.png";
         baseDecor.animSheetName = "thruster/thruster_base.acfg";

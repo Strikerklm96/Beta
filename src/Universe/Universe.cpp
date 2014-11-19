@@ -128,16 +128,72 @@ float Universe::getTime() const
         return game.getTime()-m_skippedTime;
 }
 
-void Universe::loadBlueprints(const std::string& bluePrints)//loads blueprints
+void Universe::loadBlueprints(const std::string& bpDir)//loads blueprints
 {
-    m_spBPLoader->loadRoster(bluePrints);
+    m_spBPLoader->storeRoster(bpDir);
 }
-void Universe::loadLevel(const std::string& level)//loads a level using blueprints
+void Universe::loadLevel(const std::string& levelDir)//loads a level using blueprints
 {
-    ///LOAD FROM THE LEVEL WHAT OBJECT TO SET AS SLAVE
     string localPlayerSlave = "BPCHUNKNAME";
+    string configFile = "level.lcfg";
+    string modDir = "mods/";
 
-    add(m_spBPLoader->getChunkSPtr("DefaultChunk")->generate());
+    ifstream level(levelDir+configFile, std::ifstream::binary);
+    Json::Reader reader;
+    Json::Value root;
+    bool parsedSuccess = reader.parse(level, root, false);
+
+
+    if(not parsedSuccess)
+    {
+        cout << "\nProblem Parsing [" << levelDir+configFile << "].";
+        ///error log
+        return;
+    }
+    else
+    {
+        /**ADDITIONAL BLUEPRINTS**/
+        const Json::Value bpList = root["AdditionalBlueprints"];
+        for(auto it = bpList.begin(); it != bpList.end(); ++it)
+        {
+            m_spBPLoader->storeRoster(modDir+it->asString());
+        }
+
+        /**PLAYER SLAVE**/
+        localPlayerSlave = root["Player1Slave"].asString();
+
+        /**CHUNKS**/
+        std::tr1::shared_ptr<ChunkData> spCnk;
+        const Json::Value chunks = root["Chunks"];
+        for(auto it = chunks.begin(); it != chunks.end(); ++it)
+        {
+            if(not (*it)["Title"].isNull())
+            {
+                spCnk.reset(m_spBPLoader->getChunkSPtr((*it)["Title"].asString())->clone());
+                spCnk->bodyComp.coords.x = (*it)["Coordinates"][0].asFloat();
+                spCnk->bodyComp.coords.y = (*it)["Coordinates"][1].asFloat();
+            }
+            else if(not (*it)["ClassName"].isNull())
+            {
+                spCnk.reset(m_spBPLoader->loadChunk(*it)->clone());
+            }
+            else
+            {
+                cout << "\n" << FILELINE;
+                ///ERROR LOG
+            }
+
+            add(spCnk->generate());
+        }
+
+    }
+
+
+    //add(m_spBPLoader->getChunkSPtr("DefaultChunk")->generate());
+
+
+
+
 
 
 

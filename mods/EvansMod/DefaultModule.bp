@@ -21,7 +21,7 @@
             }
         ]
     },
-    "Physics": {
+    "Collision": {
         "offset": [
             0,
             0

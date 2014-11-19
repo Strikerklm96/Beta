@@ -1,6 +1,0 @@
-{
-    "comment1": "start at root to find additional blueprints to add or overwrite to the standard set",
-    "additionalBlueprints": null,
-    "comment2": "start at root to find a cfg file for the players stuff",
-    "lastPlayerState": null
-}

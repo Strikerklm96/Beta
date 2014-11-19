@@ -131,7 +131,7 @@ void Game::run()
 
 
     m_spUniverse->loadBlueprints("blueprints/");
-    m_spUniverse->loadLevel("levels");
+    m_spUniverse->loadLevel("levels/level_1/");
 
     RenderWindow& rWindow = *m_spWindow;
     sf::View defaultView;
