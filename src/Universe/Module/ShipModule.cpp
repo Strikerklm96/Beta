@@ -19,3 +19,22 @@ void ShipModule::postPhysUpdate()
     m_baseDecor.setPosition(m_fix.getCenter());
     m_baseDecor.setRotation(m_fix.getAngle());
 }
+void ShipModule::input(std::string rCommand, sf::Packet rData)
+{
+    if(rCommand == "damage")
+    {
+        int val;
+        rData >> val;
+        m_health.damage(val);
+        m_io.event(EventType::Health, m_health.getHealth(), voidPacket);
+    }
+    if(rCommand == "heal")
+    {
+        int val;
+        rData >> val;
+        m_health.heal(val);
+        m_io.event(EventType::Health, m_health.getHealth(), voidPacket);
+    }
+    else
+        Module::input(rCommand, rData);
+}

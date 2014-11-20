@@ -3,6 +3,8 @@
 #include "Globals.hpp"
 #include "Convert.hpp"
 
+const float Camera::m_maxZoom = 128;
+const float Camera::m_minZoom = 1;
 Camera::Camera()
 {
     m_zoomLevel = 1;
@@ -27,7 +29,7 @@ void Camera::move(const b2Vec2& change)
 }
 void Camera::setZoom(float level)//multiple of each dimension to find new
 {
-    if(level>1 && level<32)
+    if(level>=m_minZoom && level<=m_maxZoom)
     {
         m_zoomLevel = level;
         m_view.setSize(m_standardSize.x*m_zoomLevel, m_standardSize.y*m_zoomLevel);

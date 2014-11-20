@@ -6,6 +6,8 @@ using namespace std;
 
 Module::Module(const ModuleData& rData) : m_io(rData.ioComp), m_nw(rData.nwComp), m_fix(rData.fixComp)
 {
+    m_io.bindCallback(&Module::input, this);
+
     m_fix.setIOPos(m_io.getPosition());
     m_fix.bindStartCB(Module::startContactCB, this);
     m_fix.bindEndCB(Module::endContactCB, this);
@@ -34,4 +36,8 @@ void Module::startContactCB(FixtureComponent* pOther)
 void Module::endContactCB(FixtureComponent* pOther)
 {
 
+}
+void Module::input(std::string rCommand, sf::Packet rData)
+{
+    cout << "\nCommand not found in [" << m_io.getName() << "].";
 }

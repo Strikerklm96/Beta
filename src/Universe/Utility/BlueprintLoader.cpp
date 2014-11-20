@@ -7,6 +7,8 @@
 #include "Reactor.hpp"
 #include "Chunk.hpp"
 #include "Sensor.hpp"
+#include "Radar.hpp"
+#include "Plating.hpp"
 
 using namespace std;
 
@@ -227,6 +229,27 @@ std::tr1::shared_ptr<const ModuleData> BlueprintLoader::loadModule(const Json::V
     /**======================**/
     /**==== SHIP MODULES ====**/
     /**======================**/
+    else if(root["ClassName"].asString() == "Plating")
+    {
+        PlatingData* pSMod = new PlatingData;
+        if(not root["Copies"].isNull())
+            *pSMod = *dynamic_cast<const PlatingData*>(getModuleSPtr(root["Copies"].asString()).get());
+
+        inheritShipModule(root, pSMod);
+        spMod.reset(pSMod);
+    }
+    else if(root["ClassName"].asString() == "Radar")
+    {
+        RadarData* pSMod = new RadarData;
+        if(not root["Copies"].isNull())
+            *pSMod = *dynamic_cast<const RadarData*>(getModuleSPtr(root["Copies"].asString()).get());
+
+        if(not root["RadarStrength"].isNull())
+            pSMod->zoomAddition = root["RadarStrength"].asFloat();
+
+        inheritShipModule(root, pSMod);
+        spMod.reset(pSMod);
+    }
     else if(root["ClassName"].asString() == "Thruster")
     {
         ThrusterData* pSMod = new ThrusterData;

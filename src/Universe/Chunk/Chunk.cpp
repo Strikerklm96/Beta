@@ -87,3 +87,7 @@ b2Body* Chunk::getBodyPtr()
 {
     return m_body.getBodyPtr();
 }
+void Chunk::input(std::string rCommand, sf::Packet rData)
+{
+    cout << "\nCommand not found in [" << m_io.getName() << "].";
+}

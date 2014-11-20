@@ -17,6 +17,8 @@ public:
     virtual void postPhysUpdate();
 
 protected:
+    virtual void input(std::string rCommand, sf::Packet rData);
+
     Health m_health;
 
 private:

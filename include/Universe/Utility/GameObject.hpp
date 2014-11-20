@@ -29,6 +29,8 @@ public:
     virtual void postPhysUpdate() = 0;//called just after physics step (do corrections, or graphics stuff)
 
 protected:
+    virtual void input(std::string rCommand, sf::Packet rData);
+
     IOComponent m_io;
     NetworkComponent m_nw;
 private:

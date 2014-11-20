@@ -29,6 +29,7 @@
 					<Add directory="include/Graphics/Utility" />
 					<Add directory="include/Basic" />
 					<Add directory="include/Universe/Module" />
+					<Add directory="include/Universe/ShipModule" />
 				</Compiler>
 				<Linker>
 					<Add library="lib\box2d_debug\libBox2D.dll.a" />
@@ -63,6 +64,7 @@
 					<Add directory="include/Graphics/Utility" />
 					<Add directory="include/Basic" />
 					<Add directory="include/Universe/Module" />
+					<Add directory="include/Universe/ShipModule" />
 				</Compiler>
 				<Linker>
 					<Add library="lib\box2d_release\libBox2D.dll.a" />
@@ -141,11 +143,12 @@
 		<Unit filename="include/Physics/BodyComponent.hpp" />
 		<Unit filename="include/Physics/FixtureComponent.hpp" />
 		<Unit filename="include/Universe/Chunk/Chunk.hpp" />
-		<Unit filename="include/Universe/Chunk/TestThing.hpp" />
 		<Unit filename="include/Universe/Module/Module.hpp" />
 		<Unit filename="include/Universe/Module/Sensor.hpp" />
 		<Unit filename="include/Universe/Module/ShipModule.hpp" />
 		<Unit filename="include/Universe/ShipModule/Capacitor.hpp" />
+		<Unit filename="include/Universe/ShipModule/Plating.hpp" />
+		<Unit filename="include/Universe/ShipModule/Radar.hpp" />
 		<Unit filename="include/Universe/ShipModule/Reactor.hpp" />
 		<Unit filename="include/Universe/ShipModule/Thruster.hpp" />
 		<Unit filename="include/Universe/Universe.hpp" />
@@ -154,6 +157,7 @@
 		<Unit filename="include/Universe/Utility/GameObject.hpp" />
 		<Unit filename="include/Universe/Utility/UniversalContactListener.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="srcUniverse/ShipModule/Plating.cpp" />
 		<Unit filename="src/Basic/Health.cpp" />
 		<Unit filename="src/Basic/Link.cpp" />
 		<Unit filename="src/Basic/Pool.cpp" />
@@ -195,6 +199,7 @@
 		<Unit filename="src/Universe/Module/Sensor.cpp" />
 		<Unit filename="src/Universe/Module/ShipModule.cpp" />
 		<Unit filename="src/Universe/ShipModule/Capacitor.cpp" />
+		<Unit filename="src/Universe/ShipModule/Radar.cpp" />
 		<Unit filename="src/Universe/ShipModule/Reactor.cpp" />
 		<Unit filename="src/Universe/ShipModule/Thruster.cpp" />
 		<Unit filename="src/Universe/Universe.cpp" />

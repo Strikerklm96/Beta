@@ -946,12 +946,12 @@
 	"GraphicsComponentUpdater.hpp"
 	"GraphicsComponent.hpp"
 
-1415682177 source:c:\users\leon\desktop\projects\beta\src\control\camera.cpp
+1416441221 source:c:\users\leon\desktop\projects\beta\src\control\camera.cpp
 	"Camera.hpp"
 	"Globals.hpp"
 	"Convert.hpp"
 
-1415682177 c:\users\leon\desktop\projects\beta\include\control\camera.hpp
+1416440554 c:\users\leon\desktop\projects\beta\include\control\camera.hpp
 	"stdafx.hpp"
 
 1416204888 source:c:\users\leon\desktop\projects\beta\src\control\intelligence.cpp
@@ -965,7 +965,7 @@
 	"Globals.hpp"
 	"Universe.hpp"
 
-1415849820 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
+1416441717 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
 	"Player.hpp"
 	"Globals.hpp"
 	"Overlay.hpp"
@@ -1014,7 +1014,7 @@
 	"Globals.hpp"
 	"IOComponent.hpp"
 
-1416437606 source:c:\users\leon\desktop\projects\beta\src\io\condition.cpp
+1416437786 source:c:\users\leon\desktop\projects\beta\src\io\condition.cpp
 	"Condition.hpp"
 	"stdafx.hpp"
 	"Globals.hpp"
@@ -1116,7 +1116,7 @@
 1415486334 source:c:\users\leon\desktop\projects\beta\src\io\message.cpp
 	"Message.hpp"
 
-1415470949 source:c:\users\leon\desktop\projects\beta\src\io\eventer.cpp
+1416437804 source:c:\users\leon\desktop\projects\beta\src\io\eventer.cpp
 	"Eventer.hpp"
 	"IOManager.hpp"
 
@@ -1177,7 +1177,7 @@
 1415679634 c:\users\leon\desktop\projects\beta\include\universe\utility\debugdraw.hpp
 	"stdafx.hpp"
 
-1415849820 c:\users\leon\desktop\projects\beta\include\universe\utility\gameobject.hpp
+1416443416 c:\users\leon\desktop\projects\beta\include\universe\utility\gameobject.hpp
 	"Globals.hpp"
 	"NetworkComponent.hpp"
 	"IOComponent.hpp"
@@ -1189,7 +1189,7 @@
 	"stdafx.hpp"
 	"Convert.hpp"
 
-1415497302 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobject.cpp
+1416443796 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobject.cpp
 	"GameObject.hpp"
 
 1415501911 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobjectfactory.cpp
@@ -1202,13 +1202,13 @@
 	"UniversalContactListener.hpp"
 	"FixtureComponent.hpp"
 
-1416291204 source:c:\users\leon\desktop\projects\beta\src\universe\chunk\chunk.cpp
+1416443778 source:c:\users\leon\desktop\projects\beta\src\universe\chunk\chunk.cpp
 	"Chunk.hpp"
 	"Module.hpp"
 	"SlaveLocator.hpp"
 	"Intelligence.hpp"
 
-1416353280 c:\users\leon\desktop\projects\beta\include\universe\chunk\chunk.hpp
+1416443421 c:\users\leon\desktop\projects\beta\include\universe\chunk\chunk.hpp
 	"GameObject.hpp"
 	"BodyComponent.hpp"
 	"Pool.hpp"
@@ -1341,7 +1341,7 @@
 1416349861 c:\users\leon\desktop\projects\beta\include\universe\module\capacitor.hpp
 	"ShipModule.hpp"
 
-1416437315 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
+1416442027 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
 	"BlueprintLoader.hpp"
 	"Module.hpp"
 	"ShipModule.hpp"
@@ -1350,6 +1350,8 @@
 	"Reactor.hpp"
 	"Chunk.hpp"
 	"Sensor.hpp"
+	"Radar.hpp"
+	"Plating.hpp"
 
 1416376207 c:\users\leon\desktop\projects\beta\include\universe\utility\blueprintloader.hpp
 	"stdafx.hpp"
@@ -1373,7 +1375,7 @@
 1416349143 c:\users\leon\desktop\projects\beta\include\universe\module\health.hpp
 	"Pool.hpp"
 
-1416349816 c:\users\leon\desktop\projects\beta\include\universe\module\module.hpp
+1416443436 c:\users\leon\desktop\projects\beta\include\universe\module\module.hpp
 	"Globals.hpp"
 	"IOComponent.hpp"
 	"NetworkComponent.hpp"
@@ -1381,7 +1383,7 @@
 	"Universe.hpp"
 	"Pool.hpp"
 
-1416349879 c:\users\leon\desktop\projects\beta\include\universe\module\shipmodule.hpp
+1416444312 c:\users\leon\desktop\projects\beta\include\universe\module\shipmodule.hpp
 	"Module.hpp"
 	"QuadComponent.hpp"
 	"Health.hpp"
@@ -1395,14 +1397,14 @@
 1416349977 c:\users\leon\desktop\projects\beta\include\universe\module\reactor.hpp
 	"ShipModule.hpp"
 
-1416291223 source:c:\users\leon\desktop\projects\beta\src\universe\module\module.cpp
+1416443821 source:c:\users\leon\desktop\projects\beta\src\universe\module\module.cpp
 	"Module.hpp"
 	"Intelligence.hpp"
 
 1416272799 source:c:\users\leon\desktop\projects\beta\src\universe\module\reactor.cpp
 	"Reactor.hpp"
 
-1416435571 source:c:\users\leon\desktop\projects\beta\src\universe\module\sensor.cpp
+1416437835 source:c:\users\leon\desktop\projects\beta\src\universe\module\sensor.cpp
 	"Sensor.hpp"
 
 1416347772 source:c:\users\leon\desktop\projects\beta\src\universe\module\shipmodule.cpp
@@ -1436,4 +1438,16 @@
 1416291213 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\thruster.cpp
 	"Thruster.hpp"
 	"Intelligence.hpp"
+
+1416440121 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\radar.cpp
+	"Radar.hpp"
+
+1416440150 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\radar.hpp
+	"ShipModule.hpp"
+
+1416441949 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\plating.hpp
+	"ShipModule.hpp"
+
+1416441963 source:c:\users\leon\desktop\projects\beta\srcuniverse\shipmodule\plating.cpp
+	"Plating.hpp"
 

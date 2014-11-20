@@ -31,6 +31,7 @@ public:
 
 
 protected:
+    virtual void input(std::string rCommand, sf::Packet rData);
 private:
 
     Pool<Ballistic> m_ballisticPool;

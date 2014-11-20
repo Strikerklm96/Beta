@@ -23,6 +23,7 @@ public:
 
 
 protected:
+    virtual void input(std::string rCommand, sf::Packet rData);
     virtual void startContactCB(FixtureComponent* pOther);
     virtual void endContactCB(FixtureComponent* pOther);
 

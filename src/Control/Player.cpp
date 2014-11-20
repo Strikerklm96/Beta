@@ -140,6 +140,17 @@ void Player::getWindowEvents(sf::RenderWindow& rWindow)//process window events
                     m_camera.setZoom(m_camera.getZoom()*0.8);
                 else
                     m_camera.setZoom(m_camera.getZoom()*1.2);
+
+                b2Body* pBody = getBodyPtr();
+                if(pBody != NULL)
+                {
+                    float zoomValue = get(Request::Zoom);
+                    if(zoomValue < m_camera.getZoom())
+                    {
+                        m_camera.setZoom(zoomValue);
+                    }
+                }
+
             }
             /**== DEVELOPER OPTIONS ==**/
             if(event.type == Event::KeyPressed)

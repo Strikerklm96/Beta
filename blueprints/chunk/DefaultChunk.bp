@@ -45,7 +45,7 @@
         "Value": 0
     },
     "Zoom": {
-        "Max": 32,
+        "Max": 64,
         "Value": 1
     },
     "Modules": [
