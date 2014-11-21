@@ -13,6 +13,7 @@ class GameObject;
 class Factory;
 class SlaveLocator;
 class BlueprintLoader;
+class Decoration;
 
 class Universe
 {
@@ -63,6 +64,7 @@ private:
     std::tr1::shared_ptr<IOManager> m_spUniverseIO;//manages IO for the game objects
 
     std::vector<std::tr1::shared_ptr<GameObject> > m_goList;//list of game objects that WE need to keep track of
+    std::vector<std::tr1::shared_ptr<Decoration> > m_decorList;
 
     IOComponent m_io;
     float m_lastTime;//used for update method//cant use timer because timer references us!

@@ -888,13 +888,13 @@
 1414974662 c:\users\leon\desktop\projects\beta\include\graphics\textureallocator.hpp
 	"stdafx.hpp"
 
-1416204888 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicscomponent.cpp
+1416532608 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicscomponent.cpp
 	"GraphicsComponent.hpp"
 	"convert.hpp"
 	"Universe.hpp"
 	"GraphicsComponentUpdater.hpp"
 
-1416204888 c:\users\leon\desktop\projects\beta\include\graphics\graphicscomponent.hpp
+1416532617 c:\users\leon\desktop\projects\beta\include\graphics\graphicscomponent.hpp
 	"stdafx.hpp"
 	"GraphicsLayer.hpp"
 	"Animator.hpp"
@@ -909,7 +909,7 @@
 1416270900 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
 	"GraphicsComponent.hpp"
 
-1416429186 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
+1416531553 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
 	"Game.hpp"
 	"Globals.hpp"
 	"TextureAllocator.hpp"
@@ -926,6 +926,8 @@
 	"Chunk.hpp"
 	"QuadComponent.hpp"
 	"Spinner.hpp"
+	"LinearMeter.hpp"
+	"DecorQuad.hpp"
 
 1416204888 c:\users\leon\desktop\projects\beta\include\game\game.hpp
 	"stdafx.hpp"
@@ -965,7 +967,7 @@
 	"Globals.hpp"
 	"Universe.hpp"
 
-1416441717 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
+1416530507 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
 	"Player.hpp"
 	"Globals.hpp"
 	"Overlay.hpp"
@@ -973,8 +975,10 @@
 	"Universe.hpp"
 	"IOManager.hpp"
 	"Convert.hpp"
+	"DecorQuad.hpp"
+	"LinearMeter.hpp"
 
-1415849820 c:\users\leon\desktop\projects\beta\include\control\player.hpp
+1416529939 c:\users\leon\desktop\projects\beta\include\control\player.hpp
 	"stdafx.hpp"
 	"Intelligence.hpp"
 	"Camera.hpp"
@@ -997,7 +1001,7 @@
 
 1416204888 c:\users\leon\desktop\projects\beta\include\basic\timer.hpp
 
-1416291111 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
+1416520166 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"UniversalContactListener.hpp"
@@ -1075,7 +1079,7 @@
 1415483750 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
 	"WidgetBase.hpp"
 
-1416376279 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
+1416531654 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
 	"Universe.hpp"
 	"BlueprintLoader.hpp"
 	"Globals.hpp"
@@ -1092,6 +1096,7 @@
 	"Thruster.hpp"
 	"Reactor.hpp"
 	"Capacitor.hpp"
+	"LinearMeter.hpp"
 
 1416286552 c:\users\leon\desktop\projects\beta\include\io\eventtypes.hpp
 	"stdafx.hpp"
@@ -1256,7 +1261,7 @@
 1416204888 c:\users\leon\desktop\projects\beta\include\graphics\utility\textureallocator.hpp
 	"stdafx.hpp"
 
-1416204888 c:\users\leon\desktop\projects\beta\include\graphics\utility\batchlayers.hpp
+1416519705 c:\users\leon\desktop\projects\beta\include\graphics\utility\batchlayers.hpp
 	"QuadBatchContainer.hpp"
 	"GraphicsLayer.hpp"
 
@@ -1264,20 +1269,20 @@
 	"stdafx.hpp"
 	"TextureAllocator.hpp"
 
-1416292572 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicslayer.hpp
+1416528873 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicslayer.hpp
 	"stdafx.hpp"
 
 1416204888 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicscomponentupdater.hpp
 	"stdafx.hpp"
 
-1416204888 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\batchlayers.cpp
+1416519694 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\batchlayers.cpp
 	"BatchLayers.hpp"
 
-1416204888 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\graphicscomponentupdater.cpp
+1416532756 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\graphicscomponentupdater.cpp
 	"GraphicsComponentUpdater.hpp"
 	"GraphicsComponent.hpp"
 
-1416204888 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\quadbatchcontainer.cpp
+1416527921 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\quadbatchcontainer.cpp
 	"QuadBatchContainer.hpp"
 	"Globals.hpp"
 
@@ -1366,7 +1371,7 @@
 1416286557 source:c:\users\leon\desktop\projects\beta\src\io\eventtypes.cpp
 	"EventTypes.hpp"
 
-1416292581 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicslayer.cpp
+1416528896 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicslayer.cpp
 	"GraphicsLayer.hpp"
 
 1416347259 source:c:\users\leon\desktop\projects\beta\src\universe\module\health.cpp
@@ -1407,7 +1412,7 @@
 1416437835 source:c:\users\leon\desktop\projects\beta\src\universe\module\sensor.cpp
 	"Sensor.hpp"
 
-1416347772 source:c:\users\leon\desktop\projects\beta\src\universe\module\shipmodule.cpp
+1416444931 source:c:\users\leon\desktop\projects\beta\src\universe\module\shipmodule.cpp
 	"ShipModule.hpp"
 
 1416291213 source:c:\users\leon\desktop\projects\beta\src\universe\module\thruster.cpp
@@ -1450,4 +1455,29 @@
 
 1416441963 source:c:\users\leon\desktop\projects\beta\srcuniverse\shipmodule\plating.cpp
 	"Plating.hpp"
+
+1416441963 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\plating.cpp
+	"Plating.hpp"
+
+1416517696 source:c:\users\leon\desktop\projects\beta\src\graphics\linearmeter.cpp
+	"LinearMeter.hpp"
+
+1416517957 c:\users\leon\desktop\projects\beta\include\graphics\linearmeter.hpp
+	"QuadComponent.hpp"
+
+1416524229 source:c:\users\leon\desktop\projects\beta\src\graphics\decoration.cpp
+	"Decoration.hpp"
+	"GraphicsComponent.hpp"
+
+1416530187 c:\users\leon\desktop\projects\beta\include\graphics\decoration.hpp
+	"IOComponent.hpp"
+	"Globals.hpp"
+	"Universe.hpp"
+
+1416524211 source:c:\users\leon\desktop\projects\beta\src\graphics\decorquad.cpp
+	"DecorQuad.hpp"
+
+1416530182 c:\users\leon\desktop\projects\beta\include\graphics\decorquad.hpp
+	"Decoration.hpp"
+	"QuadComponent.hpp"
 

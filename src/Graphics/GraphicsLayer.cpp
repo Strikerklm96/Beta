@@ -32,10 +32,10 @@ GraphicsLayer ChooseLayer(const std::string& rStr)
         return GraphicsLayer::Shield;
 
 
-    if(rStr == "HUD")
-        return GraphicsLayer::HUD;
-    if(rStr == "Menus")
-        return GraphicsLayer::Menus;
+    if(rStr == "Overlay")
+        return GraphicsLayer::Overlay;
+    if(rStr == "OverlayMiddle")
+        return GraphicsLayer::OverlayMiddle;
     if(rStr == "maxLayers")
         return GraphicsLayer::maxLayers;
 }

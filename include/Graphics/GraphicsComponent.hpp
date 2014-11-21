@@ -4,6 +4,7 @@
 #include "stdafx.hpp"
 #include "GraphicsLayer.hpp"
 #include "Animator.hpp"
+class GraphicsComponentUpdater;
 
 struct GraphicsComponentData
 {
@@ -65,6 +66,7 @@ protected:
     sf::VertexArray* m_pVerts;
     std::vector<sf::Vector2f> m_originPos;//positions of the vertices relative to 0,0 and no rot
     std::vector<sf::Vector2f> m_originTex;//positinos of vertices in texture relative to 0,0
+    GraphicsComponentUpdater& m_rUpdater;
 
     Animator m_animator;
 private:

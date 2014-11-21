@@ -6,7 +6,8 @@
 #include "Camera.hpp"
 
 
-
+class DecorQuad;
+class LinearMeter;
 
 struct InputConfig
 {
@@ -98,6 +99,9 @@ public:
     void getWindowEvents(sf::RenderWindow& rWindow);//process window events
     void updateView();
 
+    void loadOverlay(const std::string& rOverlay);
+    void universeDestroyed();
+
 protected:
     void input(std::string rCommand, sf::Packet rData);
 
@@ -105,6 +109,11 @@ private:
     IOComponent m_io;
     float m_desiredZoom;//for smooth zooming
     b2Vec2 m_desiredCameraPos;//for smooth zooming
+
+    ///TEMPORARY
+    std::tr1::shared_ptr<DecorQuad> m_energyMeter;
+    std::tr1::shared_ptr<DecorQuad> m_energyDanger;
+    std::tr1::shared_ptr<LinearMeter> m_energyMeterFill;
 
     Camera m_camera;//players camera
     InputConfig m_inCfg;

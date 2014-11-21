@@ -169,18 +169,20 @@
                             },
                             {
                                 "message": {
-                                    "target": "game",
-                                    "command": "printToConsole",
+                                    "target": "testDecor",
+                                    "command": "setAnimation",
                                     "data": [
                                         "string",
-                                        "Two objects!"
+                                        "Default",
+										"float",
+										10
                                     ],
                                     "delay": 0,
                                     "sendValue": false
                                 },
                                 "condition": {
                                     "event": "OnCount",
-                                    "value": 2,
+                                    "value": 1,
                                     "comparator": "=",
                                     "repeatable": true
                                 }

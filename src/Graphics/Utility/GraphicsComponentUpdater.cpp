@@ -2,6 +2,8 @@
 
 #include "GraphicsComponent.hpp"
 
+using namespace std;
+
 GraphicsComponentUpdater::GraphicsComponentUpdater()
 {
 
@@ -17,11 +19,13 @@ void GraphicsComponentUpdater::store(GraphicsComponent* pTarget)
 void GraphicsComponentUpdater::free(GraphicsComponent* pTarget)
 {
     auto it = m_targets.begin();
+
     for(; it!=m_targets.end(); ++it)
         if(pTarget == *it)
             break;
 
     m_targets.erase(it);
+
 }
 void GraphicsComponentUpdater::update()
 {

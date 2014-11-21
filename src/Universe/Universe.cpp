@@ -16,6 +16,8 @@
 #include "Reactor.hpp"
 #include "Capacitor.hpp"
 
+#include "LinearMeter.hpp"
+
 using namespace std;
 
 Universe::Universe(const IOComponentData& rData) : m_io(rData), m_physWorld(b2Vec2(0,0))
@@ -54,6 +56,8 @@ Universe::Universe(const IOComponentData& rData) : m_io(rData), m_physWorld(b2Ve
 Universe::~Universe()
 {
     cout << "\nUniverse Destroying...";
+    game.getLocalPlayer().universeDestroyed();
+    cout << "\nEnd.";
 }
 void Universe::toggleDebugDraw()
 {
@@ -196,7 +200,7 @@ void Universe::loadLevel(const std::string& levelDir)//loads a level using bluep
 
 
 
-
+    game.getLocalPlayer().loadOverlay("overlayconfig");
     game.getLocalPlayer().setSlave(localPlayerSlave);
 }
 void Universe::add(std::tr1::shared_ptr<GameObject> spGO)

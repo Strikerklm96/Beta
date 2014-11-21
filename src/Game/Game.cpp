@@ -16,7 +16,8 @@
 #include "Chunk.hpp"
 #include "QuadComponent.hpp"
 #include "Spinner.hpp"
-
+#include "LinearMeter.hpp"
+#include "DecorQuad.hpp"
 
 using namespace std;
 using namespace sf;
@@ -39,15 +40,14 @@ Game::Game()
     PlayerData playerData;
     m_spLocalPlayer = std::tr1::shared_ptr<Player>(new Player(playerData));
 
-
-    loadUniverse("THING");
-
     /**== GAME IO COMPONENT ==**/
     IOComponentData gameData(getCoreIO());
     gameData.name = "game";
     m_spIO = std::tr1::shared_ptr<IOComponent>(new IOComponent(gameData));
-    m_spUniverse->getUniverseIO().give(&*m_spIO);
     m_spIO->bindCallback(Game::input, this);
+
+    loadUniverse("THING");
+    m_spUniverse->togglePause(true);
 }
 Game::~Game()
 {
@@ -102,6 +102,8 @@ void Game::run()
 {
     /**===========================**/
     /**EVAN PUT STUFF TO DRAW HERE**/
+
+    /*
     QuadComponentData quadData;
     quadData.dimensions = sf::Vector2f(512,512);//this specifies how big the in game object is, to specify texture size, edit the animation configuration file
     quadData.layer = GraphicsLayer::BackgroundFar;
@@ -111,20 +113,7 @@ void Game::run()
     quadData.center = sf::Vector2f(0,0);//this will designate the center of the picture( 0,0 is center, -width/2, +height/2 would be top left corner)
     QuadComponent evansQuad(quadData);
     evansQuad.setPosition(b2Vec2(-3,-4));
-    evansQuad.setRotation(leon::degToRad(45));
-
-
-    SpinnerData spin;
-    spin.rate = 0;
-    Spinner thing(spin);
-    thing.setPosition(b2Vec2(0,5));
-
-    //animation functionality coming soon!
-
-    //to access data like mouse coordinates and zoom level
-    getLocalPlayer().getCamera().getZoom();
-    getLocalPlayer().getCamera().getPosition();
-    getLocalPlayer().getAim();
+    evansQuad.setRotation(leon::degToRad(45));*/
 
     /**EVAN PUT STUFF TO DRAW HERE**/
     /**===========================**/
@@ -149,9 +138,11 @@ void Game::run()
         //EVAN
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::N))
         {
-            cout << "\nPut stuff here.";
+            game.loadUniverse("hi");
+
+            m_spUniverse->loadBlueprints("blueprints/");
+            m_spUniverse->loadLevel("levels/level_1/");
         }
-        thing.setRotation(0);
 
         /**== FRAMERATE ==**/
         frameTime = m_clock.getElapsedTime().asSeconds()-lastTime;
@@ -182,7 +173,7 @@ void Game::run()
         getUniverse().getGfxUpdater().update();
 
         /**== DRAW UNIVERSE ==**/
-        rWindow.clear();
+        rWindow.clear(sf::Color::Black);
 
         getLocalPlayer().updateView();
         rWindow.setView(getLocalPlayer().getCamera().getView());
@@ -190,10 +181,12 @@ void Game::run()
         if(getUniverse().debugDraw())
             getUniverse().getWorld().DrawDebugData();
         else
-            getUniverse().getBatchLayers().draw(rWindow);
+            getUniverse().getBatchLayers().drawWorld(rWindow);
 
-        /**== DRAW GUI ==**/
+
+        /**== DRAW GUI/OVERLAYS ==**/
         rWindow.setView(defaultView);
+        getUniverse().getBatchLayers().drawOverlay(rWindow);
         m_spOverlay->getGui().draw();
 
         /**== DISPLAY ==**/
@@ -215,7 +208,7 @@ void Game::loadUniverse(const std::string& stuff)
     IOComponentData universeData(getCoreIO());
     universeData.name = "universe";
     m_spUniverse = std::tr1::shared_ptr<Universe>(new Universe(universeData));
-    m_spUniverse->togglePause(true);
+    m_spUniverse->getUniverseIO().give(&*m_spIO);
 }
 
 void Game::loadWindow(const std::string& windowFile)

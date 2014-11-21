@@ -5,6 +5,8 @@
 #include "Universe.hpp"
 #include "IOManager.hpp"
 #include "Convert.hpp"
+#include "DecorQuad.hpp"
+#include "LinearMeter.hpp"
 
 using namespace std;
 using namespace sf;
@@ -173,12 +175,64 @@ void Player::updateView()
         if(m_tracking)
             m_camera.setPosition(pBody->GetPosition());
 
-        ///UPDATE HUD
+        float val = get(Request::Energy);
+        float maxVal = get(Request::MaxEnergy);
+        m_energyMeterFill->setPercent(val/maxVal);
+
+        if(val/maxVal < 0.1f)
+        {
+            string com = "setAnimation";
+            sf::Packet dat;
+            dat << "Default";
+            dat << 2.f;
+            m_energyDanger->input(com, dat);
+        }
     }
 }
 
+void Player::loadOverlay(const std::string& rOverlay)
+{
+    b2Vec2 emeterPos = b2Vec2(0.2,-0.45);
+
+    LinearMeterData fillData;
+    fillData.dimensions = sf::Vector2f(30,124);
+    fillData.layer = GraphicsLayer::OverlayMiddle;
+    LinearMeter* pFill = new LinearMeter(fillData);
+    pFill->setPosition(emeterPos);
 
 
+    DecorQuadData data;
+    data.quadComp.dimensions = sf::Vector2f(32,128);
+    data.quadComp.texName = "overlay/meter.png";
+    data.quadComp.animSheetName = "overlay/meter.acfg";
+    data.quadComp.layer = GraphicsLayer::Overlay;
+    DecorQuad* pDQuad = new DecorQuad(data);
+    pDQuad->setPosition(emeterPos);
+
+
+    DecorQuadData datawarn;
+    datawarn.quadComp.dimensions = sf::Vector2f(86,73);
+    datawarn.quadComp.texName = "overlay/warning_energy.png";
+    datawarn.quadComp.animSheetName = "overlay/warning_energy.acfg";
+    datawarn.quadComp.layer = GraphicsLayer::Overlay;
+    DecorQuad* pDang = new DecorQuad(datawarn);
+    pDang->setPosition(emeterPos+b2Vec2(0, -0.4));
+
+
+
+
+    m_energyMeter = std::tr1::shared_ptr<DecorQuad>(pDQuad);
+    m_energyMeterFill = std::tr1::shared_ptr<LinearMeter>(pFill);
+    m_energyDanger = std::tr1::shared_ptr<DecorQuad>(pDang);
+
+
+}
+void Player::universeDestroyed()
+{
+    m_energyMeter.reset();
+    m_energyMeterFill.reset();
+    m_energyDanger.reset();
+}
 void Player::input(std::string rCommand, sf::Packet rData)
 {
     sf::Packet data(rData);

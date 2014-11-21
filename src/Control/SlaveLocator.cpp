@@ -34,7 +34,7 @@ int SlaveLocator::give(Chunk* pSlave)//we recieve a pointer to a component and w
 
     return position;
 }
-void SlaveLocator::free(int position)//don't adjust the list, just mark the node as null and offer it as a position to future customers
+void SlaveLocator::free(int position)//don't adjust the list, just mark the node as null and offer it as a position to future users
 {
     if(m_slavePtrs.size() > position)
     {

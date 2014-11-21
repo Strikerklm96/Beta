@@ -7,9 +7,9 @@
 using namespace std;
 using namespace sf;
 
-GraphicsComponent::GraphicsComponent(const GraphicsComponentData& rData) : m_animator(rData.animSheetName)
+GraphicsComponent::GraphicsComponent(const GraphicsComponentData& rData) : m_rUpdater(game.getUniverse().getGfxUpdater()), m_animator(rData.animSheetName)
 {
-    game.getUniverse().getGfxUpdater().store(this);
+    m_rUpdater.store(this);
     m_rotation = 0;
     m_offset = sf::Vector2f(0,0);
 
@@ -20,7 +20,8 @@ GraphicsComponent::GraphicsComponent(const GraphicsComponentData& rData) : m_ani
 }
 GraphicsComponent::~GraphicsComponent()
 {
-    game.getUniverse().getGfxUpdater().free(this);
+
+    m_rUpdater.free(this);
 
     for(int i=0; i<m_numVerts; ++i)
         (*m_pVerts)[i+m_startVert].color = sf::Color(0,0,0,0);//make them transparent so they can no longer be seen
@@ -39,7 +40,10 @@ void GraphicsComponent::setOffset(const sf::Vector2f pixels)//sets the origin of
 {
     m_offset = pixels;
 }
-
+Animator& GraphicsComponent::getAnimator()
+{
+    return m_animator;
+}
 
 
 const b2Vec2& GraphicsComponent::getPosition() const
