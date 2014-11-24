@@ -80,8 +80,6 @@ void Thruster::thrust(const b2Vec2& rDirection)
 
         m_fix.applyForce(forceVec);
     }
-
-    cout << "\nE:" << m_pEnergyPool->getValue();
 }
 void Thruster::torque(bool CCW)
 {

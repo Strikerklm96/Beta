@@ -93,6 +93,8 @@ public:
     const InputConfig& getInCfg() const;
     bool inGuiMode() const;//is the player in GUI mode?
     bool toggleGuiMode(bool isGuiModeOn);
+    bool toggleFocus(bool isWindowFocused);
+    bool hasFocus() const;
     bool isTracking() const;
 
     void getLiveInput();//get direct feed from keyboard and mouse, just gets their states though (up, down, position)
@@ -119,6 +121,7 @@ private:
     InputConfig m_inCfg;
     bool m_inGuiMode;//true if we are in GUI mode
     bool m_tracking;
+    bool m_hasFocus;
 };
 
 #endif // PLAYER_HPP

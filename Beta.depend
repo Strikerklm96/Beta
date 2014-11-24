@@ -967,7 +967,7 @@
 	"Globals.hpp"
 	"Universe.hpp"
 
-1416530507 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
+1416872033 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
 	"Player.hpp"
 	"Globals.hpp"
 	"Overlay.hpp"
@@ -978,7 +978,7 @@
 	"DecorQuad.hpp"
 	"LinearMeter.hpp"
 
-1416529939 c:\users\leon\desktop\projects\beta\include\control\player.hpp
+1416871757 c:\users\leon\desktop\projects\beta\include\control\player.hpp
 	"stdafx.hpp"
 	"Intelligence.hpp"
 	"Camera.hpp"

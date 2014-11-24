@@ -13,6 +13,7 @@ using namespace sf;
 
 Player::Player(const PlayerData& rData) : Intelligence(rData), m_io(rData.ioComp)
 {
+    m_hasFocus = true;
     m_inGuiMode = true;
     m_io.bindCallback(Player::input, this);
     m_tracking = rData.tracking;
@@ -47,7 +48,7 @@ bool Player::isTracking() const
 }
 void Player::getLiveInput()//get direct feed from keyboard and mouse, just gets their states though (up, down, position)
 {
-    if(not m_inGuiMode)
+    if(not m_inGuiMode && hasFocus())
     {
         /**== CAMERA ==**/
         const float speed = 0.04;
@@ -95,6 +96,11 @@ void Player::getWindowEvents(sf::RenderWindow& rWindow)//process window events
 
     while(rWindow.pollEvent(event))
     {
+        if(event.type == sf::Event::LostFocus)
+            toggleFocus(false);
+        if(event.type == sf::Event::GainedFocus)
+            toggleFocus(true);
+
         /** CLOSE **/
         if(event.type == sf::Event::Closed)
             rWindow.close();
@@ -232,6 +238,15 @@ void Player::universeDestroyed()
     m_energyMeter.reset();
     m_energyMeterFill.reset();
     m_energyDanger.reset();
+}
+bool Player::toggleFocus(bool isWindowFocused)
+{
+    m_hasFocus = isWindowFocused;
+    return m_hasFocus;
+}
+bool Player::hasFocus() const
+{
+    return m_hasFocus;
 }
 void Player::input(std::string rCommand, sf::Packet rData)
 {
