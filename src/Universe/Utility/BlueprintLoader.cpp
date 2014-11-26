@@ -309,6 +309,8 @@ void BlueprintLoader::inheritShipModule(const Json::Value& root, ShipModuleData*
         *static_cast<ShipModuleData*>(pSMod) = *static_cast<const ShipModuleData*>(getModuleSPtr(root["Inherits"].asString()).get());
 
     /**OVERWRITES**/
+    if(not root["Defense"].isNull())
+        pSMod->health = loadHealth(root["Defense"], pSMod->health);
     if(not root["IO"].isNull())
         pSMod->ioComp = loadIOComp(root["IO"], pSMod->ioComp);
     if(not root["Physics"].isNull())

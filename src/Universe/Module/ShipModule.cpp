@@ -1,5 +1,7 @@
 #include "ShipModule.hpp"
 
+using namespace std;
+
 ShipModule::ShipModule(const ShipModuleData& rData) : Module(rData), m_baseDecor(rData.baseDecor), m_health(rData.health)
 {
     m_baseDecor.setPosition(m_fix.getCenter());
@@ -27,8 +29,9 @@ void ShipModule::input(std::string rCommand, sf::Packet rData)
         rData >> val;
         m_health.damage(val);
         m_io.event(EventType::Health, m_health.getHealth(), voidPacket);
+        cout << "\n" << m_health.getHealth();
     }
-    if(rCommand == "heal")
+    else if(rCommand == "heal")
     {
         int val;
         rData >> val;

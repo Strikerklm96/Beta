@@ -1349,7 +1349,7 @@
 1416349861 c:\users\leon\desktop\projects\beta\include\universe\module\capacitor.hpp
 	"ShipModule.hpp"
 
-1416442027 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
+1417028688 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
 	"BlueprintLoader.hpp"
 	"Module.hpp"
 	"ShipModule.hpp"
@@ -1415,7 +1415,7 @@
 1416437835 source:c:\users\leon\desktop\projects\beta\src\universe\module\sensor.cpp
 	"Sensor.hpp"
 
-1416444931 source:c:\users\leon\desktop\projects\beta\src\universe\module\shipmodule.cpp
+1417028352 source:c:\users\leon\desktop\projects\beta\src\universe\module\shipmodule.cpp
 	"ShipModule.hpp"
 
 1416291213 source:c:\users\leon\desktop\projects\beta\src\universe\module\thruster.cpp
@@ -1431,8 +1431,9 @@
 1416349861 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\capacitor.hpp
 	"ShipModule.hpp"
 
-1416347259 source:c:\users\leon\desktop\projects\beta\src\basic\health.cpp
+1417028741 source:c:\users\leon\desktop\projects\beta\src\basic\health.cpp
 	"Health.hpp"
+	"stdafx.hpp"
 
 1416349143 c:\users\leon\desktop\projects\beta\include\basic\health.hpp
 	"Pool.hpp"
@@ -1497,12 +1498,22 @@
 1416983325 source:c:\users\leon\desktop\projects\beta\src\universe\utility\raycastcallback.cpp
 	"RayCastCallback.hpp"
 
-1416986883 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\laserturret.cpp
+1417028299 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\laserturret.cpp
 	"LaserTurret.hpp"
 	"Convert.hpp"
+	"Intelligence.hpp"
+	"IOManager.hpp"
 
-1416984709 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\laserturret.hpp
+1417028216 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\laserturret.hpp
 	"ShipModule.hpp"
 	"Beam.hpp"
 	"RayCastCallback.hpp"
+
+1417042715 source:c:\users\leon\desktop\projects\beta\src\basic\weapon.cpp
+	"Weapon.hpp"
+
+1417042829 c:\users\leon\desktop\projects\beta\include\basic\weapon.hpp
+	"stdafx.hpp"
+	"Pool.hpp"
+	"QuadComponent.hpp"
 

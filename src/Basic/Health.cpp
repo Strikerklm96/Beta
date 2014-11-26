@@ -1,4 +1,6 @@
 #include "Health.hpp"
+#include "stdafx.hpp"
+using namespace std;
 
 Health::Health(const HealthData& rData) : Pool(rData)
 {

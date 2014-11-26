@@ -98,9 +98,9 @@
                         "animSheetName": "plating/plating_base.acfg"
                     },
 					"Defense": {
-						"MaxHealth": 1000,
-						"Health": 1000,
-						"Armor": 50
+						"MaxHealth": 500,
+						"Health": 500,
+						"Armor": 10
 					},
                     "Physics": {
                         "offset": [
