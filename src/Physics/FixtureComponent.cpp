@@ -89,6 +89,10 @@ int FixtureComponent::getIOPos() const
 {
     return m_ioPos;
 }
+b2Body* FixtureComponent::getBodyPtr()
+{
+    return m_pFixture->GetBody();
+}
 void FixtureComponent::setIOPos(int ioPos)
 {
     m_ioPos = ioPos;

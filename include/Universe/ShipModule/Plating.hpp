@@ -13,21 +13,17 @@ public:
 
 protected:
 private:
-    float m_zoom;//zoom change
 };
 
 
 struct PlatingData : public ShipModuleData
 {
     PlatingData() :
-        ShipModuleData(),
-        zoomAddition(1)// J/s
+        ShipModuleData()
     {
         baseDecor.texName = "radar/radar_base.png";
         baseDecor.animSheetName = "radar/radar_base.acfg";
     }
-
-    float zoomAddition;//how much more we can zoom with this module active
 
     virtual Module* generate(b2Body* pBody, PoolCollection stuff) const
     {

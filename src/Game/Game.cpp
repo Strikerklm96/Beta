@@ -106,16 +106,6 @@ void Game::run()
     /**EVAN PUT STUFF TO DRAW HERE**/
 
     BeamData test;
-    test.texName = "beam/beam_mid.png";
-    test.animSheetName = "beam/beam_mid.acfg";
-    test.layer = GraphicsLayer::ShipModules;
-    test.start.texName = "beam/beam_start.png";
-    test.start.animSheetName = "beam/beam_start.acfg";
-    test.start.layer = GraphicsLayer::Projectiles;
-    test.end.texName = "beam/beam_end.png";
-    test.end.animSheetName = "beam/beam_end.acfg";
-    test.end.layer = GraphicsLayer::Projectiles;
-
     Beam aBeam(test);
 
     aBeam.setStart(b2Vec2(0,0));
@@ -159,10 +149,7 @@ void Game::run()
 
     while(rWindow.isOpen())
     {
-        inst.reset( b2Vec2(10,3));
-        getUniverse().getWorld().RayCast(&inst, b2Vec2(0,0), b2Vec2(10,3));
-        aBeam.setEnd(inst.getLatest().point);
-        aBeam.activate(60, 32);
+        aBeam.activate(60, 32, sf::Color::White);
 
 
         /**== TESTING ==**/
@@ -170,7 +157,7 @@ void Game::run()
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::N))
         {
             aBeam.setEnd(b2Vec2(10, x+=0.1));
-            aBeam.activate(60, 256);
+            aBeam.activate(60, 256, sf::Color::White);
            // game.loadUniverse("hi");
 
           //  m_spUniverse->loadBlueprints("blueprints/");

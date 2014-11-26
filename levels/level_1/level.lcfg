@@ -1,7 +1,7 @@
 {
     "com_BLUEPRINTS": "Additional directories to find more blueprints in. Default always loaded.",
     "AdditionalBlueprints": [],
-    "Player1Slave": "ship_1",
+    "Player1Slave": "chunk_99",
     "Chunks": [
         {
             "Title": "DefaultChunk",

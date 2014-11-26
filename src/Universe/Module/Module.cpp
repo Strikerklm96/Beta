@@ -29,6 +29,10 @@ void Module::directive(Directive issue)
 {
 
 }
+void Module::setAim(const b2Vec2& rTarget)
+{
+
+}
 void Module::startContactCB(FixtureComponent* pOther)
 {
 

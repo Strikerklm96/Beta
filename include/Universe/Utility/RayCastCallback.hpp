@@ -17,15 +17,15 @@ public:
     virtual ~RayCastCallback();
 
 	virtual float32 ReportFixture(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float32 fraction);
-    void setIgnoreBody(b2Body* pBody);
+	void setIgnoreBody(b2Body* pBody);
 
-    const RayData& getLatest() const;
-    void reset(const b2Vec2& rTarget);
+	const RayData& getLatest() const;
+	void reset();
 
 protected:
 private:
     b2Body* m_pIgnoreBody;
-
+    std::function<void(b2Fixture* fixture, const b2Vec2& point, const b2Vec2& normal, float32 fraction)> m_cbFunction;//the function we call when we get a receive call
     RayData m_latest;
 };
 

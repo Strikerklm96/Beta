@@ -22,7 +22,7 @@ float32 RayCastCallback::ReportFixture(b2Fixture* fixture, const b2Vec2& point, 
         return fraction;
     }
     else
-        return 1.f;
+        return m_latest.fraction;
 }
 void RayCastCallback::setIgnoreBody(b2Body* pBody)
 {
@@ -32,9 +32,9 @@ const RayData& RayCastCallback::getLatest() const
 {
     return m_latest;
 }
-void RayCastCallback::reset(const b2Vec2& rTarget)
+void RayCastCallback::reset()
 {
-    m_latest.point = rTarget;
+    m_latest.point = b2Vec2(0,0);
     m_latest.fixture = NULL;
     m_latest.fraction = 1.f;
 }

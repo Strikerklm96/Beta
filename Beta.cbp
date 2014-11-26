@@ -30,6 +30,7 @@
 					<Add directory="include/Basic" />
 					<Add directory="include/Universe/Module" />
 					<Add directory="include/Universe/ShipModule" />
+					<Add directory="include/Universe/ShipModules" />
 				</Compiler>
 				<Linker>
 					<Add library="lib\box2d_debug\libBox2D.dll.a" />
@@ -65,6 +66,7 @@
 					<Add directory="include/Basic" />
 					<Add directory="include/Universe/Module" />
 					<Add directory="include/Universe/ShipModule" />
+					<Add directory="include/Universe/ShipModules" />
 				</Compiler>
 				<Linker>
 					<Add library="lib\box2d_release\libBox2D.dll.a" />
@@ -111,6 +113,7 @@
 		<Unit filename="include/Control/SlaveLocator.hpp" />
 		<Unit filename="include/Game/Game.hpp" />
 		<Unit filename="include/Graphics/Animator.hpp" />
+		<Unit filename="include/Graphics/Beam.hpp" />
 		<Unit filename="include/Graphics/DecorQuad.hpp" />
 		<Unit filename="include/Graphics/Decoration.hpp" />
 		<Unit filename="include/Graphics/GraphicsComponent.hpp" />
@@ -150,6 +153,7 @@
 		<Unit filename="include/Universe/Module/Sensor.hpp" />
 		<Unit filename="include/Universe/Module/ShipModule.hpp" />
 		<Unit filename="include/Universe/ShipModule/Capacitor.hpp" />
+		<Unit filename="include/Universe/ShipModule/LaserTurret.hpp" />
 		<Unit filename="include/Universe/ShipModule/Plating.hpp" />
 		<Unit filename="include/Universe/ShipModule/Radar.hpp" />
 		<Unit filename="include/Universe/ShipModule/Reactor.hpp" />
@@ -158,6 +162,7 @@
 		<Unit filename="include/Universe/Utility/BlueprintLoader.hpp" />
 		<Unit filename="include/Universe/Utility/DebugDraw.hpp" />
 		<Unit filename="include/Universe/Utility/GameObject.hpp" />
+		<Unit filename="include/Universe/Utility/RayCastCallback.hpp" />
 		<Unit filename="include/Universe/Utility/UniversalContactListener.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Basic/Health.cpp" />
@@ -171,6 +176,7 @@
 		<Unit filename="src/Control/SlaveLocator.cpp" />
 		<Unit filename="src/Game/Game.cpp" />
 		<Unit filename="src/Graphics/Animator.cpp" />
+		<Unit filename="src/Graphics/Beam.cpp" />
 		<Unit filename="src/Graphics/DecorQuad.cpp" />
 		<Unit filename="src/Graphics/Decoration.cpp" />
 		<Unit filename="src/Graphics/GraphicsComponent.cpp" />
@@ -204,6 +210,7 @@
 		<Unit filename="src/Universe/Module/Sensor.cpp" />
 		<Unit filename="src/Universe/Module/ShipModule.cpp" />
 		<Unit filename="src/Universe/ShipModule/Capacitor.cpp" />
+		<Unit filename="src/Universe/ShipModule/LaserTurret.cpp" />
 		<Unit filename="src/Universe/ShipModule/Plating.cpp" />
 		<Unit filename="src/Universe/ShipModule/Radar.cpp" />
 		<Unit filename="src/Universe/ShipModule/Reactor.cpp" />
@@ -212,6 +219,7 @@
 		<Unit filename="src/Universe/Utility/BlueprintLoader.cpp" />
 		<Unit filename="src/Universe/Utility/DebugDraw.cpp" />
 		<Unit filename="src/Universe/Utility/GameObject.cpp" />
+		<Unit filename="src/Universe/Utility/RayCastCallback.cpp" />
 		<Unit filename="src/Universe/Utility/UniversalContactListener.cpp" />
 		<Extensions>
 			<code_completion />

@@ -40,7 +40,8 @@ const std::string& Chunk::getName() const
 
 void Chunk::setAim(const b2Vec2& world)//send our aim coordinates
 {
-
+    for(auto it = m_modules.begin(); it!=m_modules.end(); ++it)
+        (*it)->setAim(world);
 }
 void Chunk::directive(Directive issue)//send command to target
 {

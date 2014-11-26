@@ -29,8 +29,12 @@ void Beam::setEnd(const b2Vec2& rEnd)
 {
     m_endPos = rEnd;
 }
-void Beam::activate(float secs, int beamWidth)//seconds to be active, and then deactivate, beam width pixels
+void Beam::activate(float secs, int beamWidth, const sf::Color& color)//seconds to be active, and then deactivate, beam width pixels
 {
+    setColor(color);
+    m_start.setColor(color);
+    m_end.setColor(color);
+
     b2Vec2 midpoint;
     midpoint.x = (m_startPos.x+m_endPos.x)/2;
     midpoint.y = (m_startPos.y+m_endPos.y)/2;

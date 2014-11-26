@@ -20,7 +20,11 @@ inline float radToDeg(T value)
 {
     return (180.0f*value)/pi;
 }
-
+template<typename T>
+inline float Dist(const T& p1, const T& p2)
+{
+    return sqrtf((p2.x-p1.x)*(p2.x-p1.x)  +  (p2.y-p1.y)*(p2.y-p1.y));
+}
 
 
 /**=====TRIG FUNCTION LOOKUP=====**/

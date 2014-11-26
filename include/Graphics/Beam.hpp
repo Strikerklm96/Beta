@@ -10,7 +10,15 @@ struct BeamData : public QuadComponentData
         start(),
         end()
     {
-
+        texName = "beam/beam_mid.png";
+        animSheetName = "beam/beam_mid.acfg";
+        layer = GraphicsLayer::ShipModules;
+        start.texName = "beam/beam_start.png";
+        start.animSheetName = "beam/beam_start.acfg";
+        start.layer = GraphicsLayer::Projectiles;
+        end.texName = "beam/beam_end.png";
+        end.animSheetName = "beam/beam_end.acfg";
+        end.layer = GraphicsLayer::Projectiles;
     }
 
     QuadComponentData start;
@@ -26,7 +34,7 @@ public:
     void setStart(const b2Vec2& rStart);
     void setEnd(const b2Vec2& rEnd);
 
-    void activate(float secs, int beamWidth);//seconds to be active, and then deactivate
+    void activate(float secs, int beamWidth, const sf::Color& color);//seconds to be active, and then deactivate
     void deactivate();//regardless of our state, deactivate
     virtual void postUpdate();
 

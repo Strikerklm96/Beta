@@ -867,7 +867,7 @@
 	<vector>
 	<string>
 
-1414451791 c:\users\leon\desktop\projects\beta\include\headers\convert.hpp
+1416985471 c:\users\leon\desktop\projects\beta\include\headers\convert.hpp
 	"stdafx.hpp"
 	"Globals.hpp"
 
@@ -909,7 +909,7 @@
 1416270900 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
 	"GraphicsComponent.hpp"
 
-1416976942 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
+1416984812 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
 	"Game.hpp"
 	"Globals.hpp"
 	"TextureAllocator.hpp"
@@ -1081,7 +1081,7 @@
 1415483750 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
 	"WidgetBase.hpp"
 
-1416531654 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
+1416986982 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
 	"Universe.hpp"
 	"BlueprintLoader.hpp"
 	"Globals.hpp"
@@ -1098,6 +1098,7 @@
 	"Thruster.hpp"
 	"Reactor.hpp"
 	"Capacitor.hpp"
+	"LaserTurret.hpp"
 	"LinearMeter.hpp"
 
 1416286552 c:\users\leon\desktop\projects\beta\include\io\eventtypes.hpp
@@ -1130,11 +1131,11 @@
 1415469567 c:\users\leon\desktop\projects\beta\include\io\eventer.hpp
 	"Courier.hpp"
 
-1416259998 source:c:\users\leon\desktop\projects\beta\src\physics\fixturecomponent.cpp
+1416983813 source:c:\users\leon\desktop\projects\beta\src\physics\fixturecomponent.cpp
 	"FixtureComponent.hpp"
 	"Globals.hpp"
 
-1416276722 c:\users\leon\desktop\projects\beta\include\physics\fixturecomponent.hpp
+1416983768 c:\users\leon\desktop\projects\beta\include\physics\fixturecomponent.hpp
 	"stdafx.hpp"
 
 1416204888 source:c:\users\leon\desktop\projects\beta\src\physics\bodycomponent.cpp
@@ -1209,7 +1210,7 @@
 	"UniversalContactListener.hpp"
 	"FixtureComponent.hpp"
 
-1416443778 source:c:\users\leon\desktop\projects\beta\src\universe\chunk\chunk.cpp
+1416980197 source:c:\users\leon\desktop\projects\beta\src\universe\chunk\chunk.cpp
 	"Chunk.hpp"
 	"Module.hpp"
 	"SlaveLocator.hpp"
@@ -1382,7 +1383,7 @@
 1416349143 c:\users\leon\desktop\projects\beta\include\universe\module\health.hpp
 	"Pool.hpp"
 
-1416443436 c:\users\leon\desktop\projects\beta\include\universe\module\module.hpp
+1416981265 c:\users\leon\desktop\projects\beta\include\universe\module\module.hpp
 	"Globals.hpp"
 	"IOComponent.hpp"
 	"NetworkComponent.hpp"
@@ -1404,7 +1405,7 @@
 1416349977 c:\users\leon\desktop\projects\beta\include\universe\module\reactor.hpp
 	"ShipModule.hpp"
 
-1416443821 source:c:\users\leon\desktop\projects\beta\src\universe\module\module.cpp
+1416982589 source:c:\users\leon\desktop\projects\beta\src\universe\module\module.cpp
 	"Module.hpp"
 	"Intelligence.hpp"
 
@@ -1452,7 +1453,7 @@
 1416440150 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\radar.hpp
 	"ShipModule.hpp"
 
-1416441949 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\plating.hpp
+1416977453 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\plating.hpp
 	"ShipModule.hpp"
 
 1416441963 source:c:\users\leon\desktop\projects\beta\srcuniverse\shipmodule\plating.cpp
@@ -1483,16 +1484,25 @@
 	"Decoration.hpp"
 	"QuadComponent.hpp"
 
-1416976872 source:c:\users\leon\desktop\projects\beta\src\graphics\beam.cpp
+1416984448 source:c:\users\leon\desktop\projects\beta\src\graphics\beam.cpp
 	"Beam.hpp"
 	"Globals.hpp"
 
-1416967991 c:\users\leon\desktop\projects\beta\include\graphics\beam.hpp
+1416984460 c:\users\leon\desktop\projects\beta\include\graphics\beam.hpp
 	"QuadComponent.hpp"
 
-1416976113 c:\users\leon\desktop\projects\beta\include\universe\utility\raycastcallback.hpp
+1416983331 c:\users\leon\desktop\projects\beta\include\universe\utility\raycastcallback.hpp
 	"stdafx.hpp"
 
-1416976170 source:c:\users\leon\desktop\projects\beta\src\universe\utility\raycastcallback.cpp
+1416983325 source:c:\users\leon\desktop\projects\beta\src\universe\utility\raycastcallback.cpp
+	"RayCastCallback.hpp"
+
+1416986883 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\laserturret.cpp
+	"LaserTurret.hpp"
+	"Convert.hpp"
+
+1416984709 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\laserturret.hpp
+	"ShipModule.hpp"
+	"Beam.hpp"
 	"RayCastCallback.hpp"
 

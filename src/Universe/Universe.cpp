@@ -15,6 +15,7 @@
 #include "Thruster.hpp"
 #include "Reactor.hpp"
 #include "Capacitor.hpp"
+#include "LaserTurret.hpp"
 
 #include "LinearMeter.hpp"
 
@@ -193,7 +194,35 @@ void Universe::loadLevel(const std::string& levelDir)//loads a level using bluep
     }
 
 
-    //add(m_spBPLoader->getChunkSPtr("DefaultChunk")->generate());
+
+    ChunkData chunkdata_1;
+    chunkdata_1.bodyComp.coords = b2Vec2(-2,5);
+    chunkdata_1.ioComp.name = "chunk_99";
+
+    LaserTurretData lase;
+    lase.fixComp.offset = b2Vec2(0,1);
+    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new LaserTurretData(lase)));
+
+    ThrusterData thrust;
+    thrust.force = 40;
+    thrust.torque = 20;
+    thrust.energyConsumption = 0.1;
+    thrust.fixComp.offset = b2Vec2(0,0);
+    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ThrusterData(thrust)));
+
+    SensorData sens;
+    sens.fixComp.offset = b2Vec2(-1,0);
+    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new SensorData(sens)));
+
+    ReactorData data;
+    data.fixComp.offset = b2Vec2(1,0);
+    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ReactorData(data)));
+
+    CapacitorData data3;
+    data3.fixComp.offset = b2Vec2(-2,0);
+    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new CapacitorData(data3)));
+
+    add(chunkdata_1.generate());
 
 
 

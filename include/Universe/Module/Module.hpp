@@ -20,7 +20,7 @@ public:
     virtual void prePhysUpdate() = 0;
     virtual void postPhysUpdate();
     virtual void directive(Directive issue);
-
+    virtual void setAim(const b2Vec2& rTarget);
 
 protected:
     virtual void input(std::string rCommand, sf::Packet rData);
