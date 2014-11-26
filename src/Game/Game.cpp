@@ -18,6 +18,8 @@
 #include "Spinner.hpp"
 #include "LinearMeter.hpp"
 #include "DecorQuad.hpp"
+#include "Beam.hpp"
+#include "RayCastCallback.hpp"
 
 using namespace std;
 using namespace sf;
@@ -103,6 +105,26 @@ void Game::run()
     /**===========================**/
     /**EVAN PUT STUFF TO DRAW HERE**/
 
+    BeamData test;
+    test.texName = "beam/beam_mid.png";
+    test.animSheetName = "beam/beam_mid.acfg";
+    test.layer = GraphicsLayer::ShipModules;
+    test.start.texName = "beam/beam_start.png";
+    test.start.animSheetName = "beam/beam_start.acfg";
+    test.start.layer = GraphicsLayer::Projectiles;
+    test.end.texName = "beam/beam_end.png";
+    test.end.animSheetName = "beam/beam_end.acfg";
+    test.end.layer = GraphicsLayer::Projectiles;
+
+    Beam aBeam(test);
+
+    aBeam.setStart(b2Vec2(0,0));
+    aBeam.setEnd(b2Vec2(10,3));
+
+    RayCastCallback inst;
+
+    getUniverse().getWorld().RayCast(&inst, b2Vec2(0,0), b2Vec2(10,3));
+
     /*
     QuadComponentData quadData;
     quadData.dimensions = sf::Vector2f(512,512);//this specifies how big the in game object is, to specify texture size, edit the animation configuration file
@@ -127,21 +149,32 @@ void Game::run()
     defaultView.setCenter(rWindow.getSize().x/2, rWindow.getSize().y/2);
     defaultView.setSize(sf::Vector2f(rWindow.getSize()));
 
+    float x = 0;
     float lastTime = 0;
     float frameTime = 1;
     float timeRemaining = 0;
     float timeStep = 0;
 
+
+
     while(rWindow.isOpen())
     {
+        inst.reset( b2Vec2(10,3));
+        getUniverse().getWorld().RayCast(&inst, b2Vec2(0,0), b2Vec2(10,3));
+        aBeam.setEnd(inst.getLatest().point);
+        aBeam.activate(60, 32);
+
+
         /**== TESTING ==**/
         //EVAN
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::N))
         {
-            game.loadUniverse("hi");
+            aBeam.setEnd(b2Vec2(10, x+=0.1));
+            aBeam.activate(60, 256);
+           // game.loadUniverse("hi");
 
-            m_spUniverse->loadBlueprints("blueprints/");
-            m_spUniverse->loadLevel("levels/level_1/");
+          //  m_spUniverse->loadBlueprints("blueprints/");
+          //  m_spUniverse->loadLevel("levels/level_1/");
         }
 
         /**== FRAMERATE ==**/

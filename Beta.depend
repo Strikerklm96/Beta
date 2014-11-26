@@ -888,13 +888,13 @@
 1414974662 c:\users\leon\desktop\projects\beta\include\graphics\textureallocator.hpp
 	"stdafx.hpp"
 
-1416532608 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicscomponent.cpp
+1416967704 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicscomponent.cpp
 	"GraphicsComponent.hpp"
 	"convert.hpp"
 	"Universe.hpp"
 	"GraphicsComponentUpdater.hpp"
 
-1416532617 c:\users\leon\desktop\projects\beta\include\graphics\graphicscomponent.hpp
+1416967651 c:\users\leon\desktop\projects\beta\include\graphics\graphicscomponent.hpp
 	"stdafx.hpp"
 	"GraphicsLayer.hpp"
 	"Animator.hpp"
@@ -909,7 +909,7 @@
 1416270900 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
 	"GraphicsComponent.hpp"
 
-1416533080 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
+1416976942 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
 	"Game.hpp"
 	"Globals.hpp"
 	"TextureAllocator.hpp"
@@ -928,6 +928,8 @@
 	"Spinner.hpp"
 	"LinearMeter.hpp"
 	"DecorQuad.hpp"
+	"Beam.hpp"
+	"RayCastCallback.hpp"
 
 1416204888 c:\users\leon\desktop\projects\beta\include\game\game.hpp
 	"stdafx.hpp"
@@ -1440,7 +1442,7 @@
 1416272799 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\reactor.cpp
 	"Reactor.hpp"
 
-1416291213 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\thruster.cpp
+1416872096 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\thruster.cpp
 	"Thruster.hpp"
 	"Intelligence.hpp"
 
@@ -1480,4 +1482,17 @@
 1416530182 c:\users\leon\desktop\projects\beta\include\graphics\decorquad.hpp
 	"Decoration.hpp"
 	"QuadComponent.hpp"
+
+1416976872 source:c:\users\leon\desktop\projects\beta\src\graphics\beam.cpp
+	"Beam.hpp"
+	"Globals.hpp"
+
+1416967991 c:\users\leon\desktop\projects\beta\include\graphics\beam.hpp
+	"QuadComponent.hpp"
+
+1416976113 c:\users\leon\desktop\projects\beta\include\universe\utility\raycastcallback.hpp
+	"stdafx.hpp"
+
+1416976170 source:c:\users\leon\desktop\projects\beta\src\universe\utility\raycastcallback.cpp
+	"RayCastCallback.hpp"
 

@@ -40,6 +40,13 @@ void GraphicsComponent::setOffset(const sf::Vector2f pixels)//sets the origin of
 {
     m_offset = pixels;
 }
+void GraphicsComponent::setColor(sf::Color color)
+{
+    for(int i=0; i<m_numVerts; ++i)
+        (*m_pVerts)[i+m_startVert].color = color;//make them transparent so they can no longer be seen
+}
+
+
 Animator& GraphicsComponent::getAnimator()
 {
     return m_animator;

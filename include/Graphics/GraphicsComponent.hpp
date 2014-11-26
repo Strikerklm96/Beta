@@ -36,6 +36,7 @@ public:
     void setPosition(const b2Vec2& rWorldCoords);//set our position in the world (absolute)
     void setRotation(float radiansCCW);//set our rotation in radians CCW (absolute)
     void setOffset(const sf::Vector2f pixels);//offsets us in pixels (from center of us)
+    void setColor(sf::Color);
     Animator& getAnimator();
 
     /**GETTERS**/
