@@ -1,14 +1,18 @@
 {
     "com_1": "Specifies a list of blueprints and the order to load them in, order is important for inheritance.",
     "com_2": "Starts from this rosters directory.",
-    "BlueprintList": [
+    "ModuleList": [
         "DefaultModule.bp",
         "DefaultShipModule.bp",
         "thruster/DefaultThruster.bp",
         "capacitor/DefaultCapacitor.bp",
-        "reactor/DefaultReactor.bp"
+        "reactor/DefaultReactor.bp",
+		"turret/DefaultTurret.bp"
     ],
     "ChunkList": [
         "chunk/DefaultChunk.bp"
+    ],
+    "WeaponList": [
+        "weapon/DefaultWeapon.bp"
     ]
 }

@@ -11,19 +11,21 @@ struct GraphicsComponentData
     GraphicsComponentData()
     {
         dimensions = sf::Vector2f(256,256);
-        permanentRot = 0;
+        permanentRot = 0;//degrees CCW
         center = sf::Vector2f(0,0);
         texName = "default.png";
         animSheetName = "default.acfg";
         layer = GraphicsLayer::BackgroundFar;
+        color = sf::Color::White;
     }
 
     sf::Vector2f dimensions;//full x,y in pixels
-    float permanentRot;//default rotation when told to be 0
+    float permanentRot;//default rotation when told to be 0, degrees CCW
     sf::Vector2f center;//this is the center of us
     std::string texName;//name of our texture
     std::string animSheetName;//name of our animation sheet
     GraphicsLayer layer;
+    sf::Color color;
 };
 
 class GraphicsComponent
@@ -65,6 +67,7 @@ protected:
     int m_startVert;
     sf::Vector2f m_dimensions;
     sf::VertexArray* m_pVerts;
+    sf::Color m_color;
     std::vector<sf::Vector2f> m_originPos;//positions of the vertices relative to 0,0 and no rot
     std::vector<sf::Vector2f> m_originTex;//positinos of vertices in texture relative to 0,0
     GraphicsComponentUpdater& m_rUpdater;

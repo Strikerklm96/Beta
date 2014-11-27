@@ -15,9 +15,10 @@ enum class GraphicsLayer
     ShipHull,//ship skin
 
     ShipAppendagesLower,//appendages
-    ShipAppendagesUpper,//tippy top appendages
-
     Projectiles,//other
+    ShipAppendagesUpper,//tippy top appendages
+    Effects,
+
     Shield,//force fields
 
     Overlay,//HUD SPRITES LIKE HEALTH AND AMMO

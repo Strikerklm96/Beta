@@ -22,12 +22,13 @@ GraphicsLayer ChooseLayer(const std::string& rStr)
 
     if(rStr == "ShipAppendagesLower")
         return GraphicsLayer::ShipAppendagesLower;
-    if(rStr == "ShipAppendagesUpper")
-        return GraphicsLayer::ShipAppendagesUpper;
-
-
     if(rStr == "Projectiles")
         return GraphicsLayer::Projectiles;
+    if(rStr == "ShipAppendagesUpper")
+        return GraphicsLayer::ShipAppendagesUpper;
+    if(rStr == "Effects")
+        return GraphicsLayer::Effects;
+
     if(rStr == "Shield")
         return GraphicsLayer::Shield;
 

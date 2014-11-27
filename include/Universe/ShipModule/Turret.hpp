@@ -26,7 +26,6 @@ private:
     int m_shotsRemain;//shots remaining in this volley
 
     b2Vec2 m_lastAim;
-    bool m_hasWep;
 };
 
 
@@ -36,8 +35,8 @@ struct TurretData : public ShipModuleData
         ShipModuleData(),
         startEmpty(false)//should we start with no weapon
     {
-        baseDecor.texName = "radar/radar_base.png";
-        baseDecor.animSheetName = "radar/radar_base.acfg";
+        baseDecor.texName = "turret/turret_base.png";
+        baseDecor.animSheetName = "turret/turret_base.acfg";
     }
 
     bool startEmpty;

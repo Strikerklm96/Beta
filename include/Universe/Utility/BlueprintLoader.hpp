@@ -15,41 +15,63 @@
 struct ShipModuleData;
 struct ModuleData;
 struct ChunkData;
-
-
+struct WeaponData;
 
 class BlueprintLoader
 {
 public:
     BlueprintLoader();
     virtual ~BlueprintLoader();
-    std::tr1::shared_ptr<const ModuleData> getModuleSPtr(const std::string& rBPName) const;//find the blueprint
-    std::tr1::shared_ptr<const ChunkData> getChunkSPtr(const std::string& rBPName) const;//find the blueprint
+
+
+    /**GET A BLUEPRINT**/
+    /**===============**/
+    std::tr1::shared_ptr<const ModuleData> getModuleSPtr(const std::string& rBPName) const;
+    std::tr1::shared_ptr<const ChunkData> getChunkSPtr(const std::string& rBPName) const;
+    std::tr1::shared_ptr<const WeaponData> getWeaponSPtr(const std::string& rBPName) const;
+    /**===============**/
+    /**GET A BLUEPRINT**/
 
 
     void storeRoster(const std::string& rDir);//load the roster blueprints into memory
 
-    void storeModule(const std::string& rFile);//opens a file and stores the blueprint in our list
-    void storeChunk(const std::string& rFile);//opens a file and stores the blueprint in our list
+
+    /**LOAD SPECIFIC FILES**/
+    /**===================**/
+    void storeModule(const std::string& rFile);
+    void storeChunk(const std::string& rFile);
+    void storeWeapon(const std::string& rFile);
+    /**===================**/
+    /**LOAD SPECIFIC FILES**/
 
 
-    /**LOAD MULTI DATA**///data that has many parts
-    std::tr1::shared_ptr<const ChunkData> loadChunk(const Json::Value& root);//returns data based on the Json stuff you pass
+
+    /**LOAD MULTI PART DATA**/
+    /**====================**/
+    std::tr1::shared_ptr<const ChunkData> loadChunk(const Json::Value& root);
 protected:
 private:
+    std::tr1::shared_ptr<const ModuleData> loadModule(const Json::Value& root);
+    void inheritShipModule(const Json::Value& root, ShipModuleData* pSMod);
+
+    std::tr1::shared_ptr<const WeaponData> loadWeapon(const Json::Value& root);
+    void inheritWeapon(const Json::Value& root, WeaponData* pWep);
+    /**====================**/
+    /**LOAD MULTI PART DATA**/
 
 
-    std::tr1::shared_ptr<const ModuleData> loadModule(const Json::Value& root);//returns Data based on the Json stuff you pass it FOR ACTUAL MODULES
-    void inheritShipModule(const Json::Value& root, ShipModuleData* pSMod);//FOR LOADING DEFAULT INHERITANCE THING
 
 
-    /**CHUNK**/
+    /**UNNAMED THINGS**/
     void insertModData(const Json::Value& root, std::vector<std::tr1::shared_ptr<const ModuleData> >& rModData);
+    void insertWeaponData(const Json::Value& root, std::tr1::shared_ptr<const WeaponData>& rModData);
 
 
 
 
     /**LOAD SIMPLE DATA**///data that doesnt inherit or anything
+    /**================**/
+    sf::Color loadColor(const Json::Value& root);
     BodyComponentData loadBodyComp(const Json::Value& root, const BodyComponentData& orig);
     IOComponentData loadIOComp(const Json::Value& root, const IOComponentData& orig);
     FixtureComponentData loadFixComp(const Json::Value& root, const FixtureComponentData& orig);
@@ -69,10 +91,12 @@ private:
 
         return data;
     }
-
+    /**================**/
+    /**LOAD SIMPLE DATA**///data that doesnt inherit or anything
 
 
     std::map<std::string, std::tr1::shared_ptr<const ModuleData> > m_modBP;
+    std::map<std::string, std::tr1::shared_ptr<const WeaponData> > m_wepBP;
     std::map<std::string, std::tr1::shared_ptr<const ChunkData> > m_cnkBP;
 };
 

@@ -9,13 +9,14 @@ using namespace sf;
 
 GraphicsComponent::GraphicsComponent(const GraphicsComponentData& rData) : m_rUpdater(game.getUniverse().getGfxUpdater()), m_animator(rData.animSheetName)
 {
+    m_color = rData.color;
     m_rUpdater.store(this);
     m_rotation = 0;
     m_offset = sf::Vector2f(0,0);
 
     m_dimensions = rData.dimensions;
 
-    m_permanentRot = rData.permanentRot;
+    m_permanentRot = leon::degToRad(rData.permanentRot);
     m_center = rData.center;
 }
 GraphicsComponent::~GraphicsComponent()

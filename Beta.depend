@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1415681411 source:c:\users\leon\desktop\projects\beta\main.cpp
+1417056019 source:c:\users\leon\desktop\projects\beta\main.cpp
 	"Globals.hpp"
 
 1415682177 c:\users\leon\desktop\projects\beta\include\headers\stdafx.hpp
@@ -888,18 +888,18 @@
 1414974662 c:\users\leon\desktop\projects\beta\include\graphics\textureallocator.hpp
 	"stdafx.hpp"
 
-1416967704 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicscomponent.cpp
+1417055915 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicscomponent.cpp
 	"GraphicsComponent.hpp"
 	"convert.hpp"
 	"Universe.hpp"
 	"GraphicsComponentUpdater.hpp"
 
-1416967651 c:\users\leon\desktop\projects\beta\include\graphics\graphicscomponent.hpp
+1417054352 c:\users\leon\desktop\projects\beta\include\graphics\graphicscomponent.hpp
 	"stdafx.hpp"
 	"GraphicsLayer.hpp"
 	"Animator.hpp"
 
-1416204888 source:c:\users\leon\desktop\projects\beta\src\graphics\quadcomponent.cpp
+1417055127 source:c:\users\leon\desktop\projects\beta\src\graphics\quadcomponent.cpp
 	"QuadComponent.hpp"
 	"Convert.hpp"
 	"BatchLayers.hpp"
@@ -1081,7 +1081,7 @@
 1415483750 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
 	"WidgetBase.hpp"
 
-1416986982 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
+1417057053 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
 	"Universe.hpp"
 	"BlueprintLoader.hpp"
 	"Globals.hpp"
@@ -1098,7 +1098,8 @@
 	"Thruster.hpp"
 	"Reactor.hpp"
 	"Capacitor.hpp"
-	"LaserTurret.hpp"
+	"Turret.hpp"
+	"LaserWeapon.hpp"
 	"LinearMeter.hpp"
 
 1416286552 c:\users\leon\desktop\projects\beta\include\io\eventtypes.hpp
@@ -1272,7 +1273,7 @@
 	"stdafx.hpp"
 	"TextureAllocator.hpp"
 
-1416528873 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicslayer.hpp
+1417054833 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicslayer.hpp
 	"stdafx.hpp"
 
 1416204888 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicscomponentupdater.hpp
@@ -1349,7 +1350,7 @@
 1416349861 c:\users\leon\desktop\projects\beta\include\universe\module\capacitor.hpp
 	"ShipModule.hpp"
 
-1417028688 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
+1417070542 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
 	"BlueprintLoader.hpp"
 	"Module.hpp"
 	"ShipModule.hpp"
@@ -1360,8 +1361,10 @@
 	"Sensor.hpp"
 	"Radar.hpp"
 	"Plating.hpp"
+	"Turret.hpp"
+	"LaserWeapon.hpp"
 
-1416376207 c:\users\leon\desktop\projects\beta\include\universe\utility\blueprintloader.hpp
+1417070397 c:\users\leon\desktop\projects\beta\include\universe\utility\blueprintloader.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"QuadComponent.hpp"
@@ -1374,7 +1377,7 @@
 1416286557 source:c:\users\leon\desktop\projects\beta\src\io\eventtypes.cpp
 	"EventTypes.hpp"
 
-1416528896 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicslayer.cpp
+1417054854 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicslayer.cpp
 	"GraphicsLayer.hpp"
 
 1416347259 source:c:\users\leon\desktop\projects\beta\src\universe\module\health.cpp
@@ -1489,7 +1492,7 @@
 	"Beam.hpp"
 	"Globals.hpp"
 
-1416984460 c:\users\leon\desktop\projects\beta\include\graphics\beam.hpp
+1417054892 c:\users\leon\desktop\projects\beta\include\graphics\beam.hpp
 	"QuadComponent.hpp"
 
 1416983331 c:\users\leon\desktop\projects\beta\include\universe\utility\raycastcallback.hpp
@@ -1509,11 +1512,34 @@
 	"Beam.hpp"
 	"RayCastCallback.hpp"
 
-1417042715 source:c:\users\leon\desktop\projects\beta\src\basic\weapon.cpp
+1417056258 source:c:\users\leon\desktop\projects\beta\src\basic\weapon.cpp
 	"Weapon.hpp"
+	"FixtureComponent.hpp"
+	"Message.hpp"
+	"Universe.hpp"
+	"IOManager.hpp"
 
-1417042829 c:\users\leon\desktop\projects\beta\include\basic\weapon.hpp
+1417056306 c:\users\leon\desktop\projects\beta\include\basic\weapon.hpp
 	"stdafx.hpp"
 	"Pool.hpp"
 	"QuadComponent.hpp"
+	"Globals.hpp"
+
+1417056864 source:c:\users\leon\desktop\projects\beta\src\basic\laserweapon.cpp
+	"LaserWeapon.hpp"
+	"Convert.hpp"
+	"Universe.hpp"
+
+1417056848 c:\users\leon\desktop\projects\beta\include\basic\laserweapon.hpp
+	"Weapon.hpp"
+	"RayCastCallback.hpp"
+	"Beam.hpp"
+
+1417044710 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\turret.hpp
+	"ShipModule.hpp"
+	"Weapon.hpp"
+
+1417046405 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\turret.cpp
+	"Turret.hpp"
+	"Intelligence.hpp"
 

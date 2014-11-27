@@ -1,0 +1,13 @@
+{
+    "WeaponType": "Laser",
+    "Title": "DefaultWeapon",
+    "BeamColor": [
+        0,
+        255,
+        0,
+        255
+    ],
+    "EnergyConsumption": 20,
+    "Damage": 200,
+    "Shots": 2
+}

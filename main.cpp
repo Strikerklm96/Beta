@@ -1,6 +1,5 @@
 #include "Globals.hpp"
 using namespace std;
-
 Game game;
 
 int main()

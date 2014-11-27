@@ -9,6 +9,9 @@
 #include "Sensor.hpp"
 #include "Radar.hpp"
 #include "Plating.hpp"
+#include "Turret.hpp"
+
+#include "LaserWeapon.hpp"
 
 using namespace std;
 
@@ -20,6 +23,11 @@ BlueprintLoader::~BlueprintLoader()
 {
 
 }
+
+
+
+/**GET A BLUEPRINT**/
+/**===============**/
 std::tr1::shared_ptr<const ChunkData> BlueprintLoader::getChunkSPtr(const std::string& rBPName) const
 {
     auto it = m_cnkBP.find(rBPName);
@@ -46,8 +54,21 @@ std::tr1::shared_ptr<const ModuleData> BlueprintLoader::getModuleSPtr(const std:
         return m_modBP.begin()->second;
     }
 }
+std::tr1::shared_ptr<const WeaponData> BlueprintLoader::getWeaponSPtr(const std::string& rBPName) const
+{
+    auto it = m_wepBP.find(rBPName);
 
-
+    if(it != m_wepBP.end())
+        return it->second;
+    else
+    {
+        cout << "\nCouldnt find [" << rBPName << "]." << FILELINE;
+        ///ERROR LOG
+        return m_wepBP.begin()->second;
+    }
+}
+/**===============**/
+/**GET A BLUEPRINT**/
 
 
 
@@ -55,6 +76,7 @@ std::tr1::shared_ptr<const ModuleData> BlueprintLoader::getModuleSPtr(const std:
 
 
 /**=================ROSTER====================**/
+/**===========================================**/
 void BlueprintLoader::storeRoster(const std::string& rDir)
 {
     std::ifstream roster(rDir + "roster.rst", std::ifstream::binary);
@@ -64,7 +86,15 @@ void BlueprintLoader::storeRoster(const std::string& rDir)
 
     if(parsedSuccess)
     {
-        const Json::Value bpList = rootRoster["BlueprintList"];
+
+        const Json::Value weaponList = rootRoster["WeaponList"];
+        for(auto it = weaponList.begin(); it != weaponList.end(); ++it)
+        {
+            std::string file = (rDir+it->asString());
+            storeWeapon(file);
+        }
+
+        const Json::Value bpList = rootRoster["ModuleList"];
         for(auto it = bpList.begin(); it != bpList.end(); ++it)
         {
             std::string file = (rDir+it->asString());
@@ -77,6 +107,7 @@ void BlueprintLoader::storeRoster(const std::string& rDir)
             std::string file = (rDir+it->asString());
             storeChunk(file);
         }
+
     }
     else
     {
@@ -84,11 +115,17 @@ void BlueprintLoader::storeRoster(const std::string& rDir)
         ///ERRORLOG
     }
 }
+/**===========================================**/
+/**=================ROSTER====================**/
 
 
 
 
 
+
+
+/**LOAD SPECIFIC FILES**/
+/**===================**/
 void BlueprintLoader::storeModule(const std::string& rFile)//load that blueprint
 {
     std::ifstream stream(rFile, std::ifstream::binary);
@@ -123,9 +160,34 @@ void BlueprintLoader::storeChunk(const std::string& rFile)//load that blueprint
         ///ERROR LOG
     }
 }
+void BlueprintLoader::storeWeapon(const std::string& rFile)
+{
+    std::ifstream stream(rFile, std::ifstream::binary);
+    Json::Reader reader;
+    Json::Value root;
+    bool parsedSuccess = reader.parse(stream, root, false);
+
+    if(parsedSuccess)
+    {
+        m_wepBP[root["Title"].asString()] = loadWeapon(root);
+    }
+    else
+    {
+        cout << "\n" << FILELINE;
+        ///ERROR LOG
+    }
+}
+/**===================**/
+/**LOAD SPECIFIC FILES**/
 
 
 
+
+
+
+
+/**LOAD MULTI PART DATA**/
+/**====================**/
 std::tr1::shared_ptr<const ChunkData> BlueprintLoader::loadChunk(const Json::Value& root)//returns data based on the Json stuff you pass
 {
     std::tr1::shared_ptr<const ChunkData> spCnk;
@@ -164,6 +226,75 @@ std::tr1::shared_ptr<const ChunkData> BlueprintLoader::loadChunk(const Json::Val
         ///ERROR LOG
     }
     return spCnk;
+}
+
+
+
+
+
+
+
+std::tr1::shared_ptr<const WeaponData> BlueprintLoader::loadWeapon(const Json::Value& root)//returns a weapon
+{
+    std::tr1::shared_ptr<const WeaponData> spWep;
+
+    if(root["WeaponType"].asString() == "Laser")
+    {
+        LaserWeaponData* pWep = new LaserWeaponData;
+        if(not root["Copies"].isNull())
+            *pWep = *dynamic_cast<const LaserWeaponData*>(getWeaponSPtr(root["Copies"].asString()).get());
+
+        if(not root["BeamWidth"].isNull())
+            pWep->beamWidth = root["BeamWidth"].asInt();
+        if(not root["BeamColor"].isNull())
+            pWep->beamColor = loadColor(root["BeamColor"]);
+        if(not root["ShowTime"].isNull())
+            pWep->showTime = root["ShowTime"].asFloat();
+        if(not root["BeamStart"].isNull())
+            pWep->beamComp.start = loadQuad(root["BeamStart"], pWep->beamComp.start);
+        if(not root["BeamEnd"].isNull())
+            pWep->beamComp.end = loadQuad(root["BeamEnd"], pWep->beamComp.end);
+        if(not root["BeamMid"].isNull())
+            pWep->beamComp.end = loadQuad(root["BeamMid"], pWep->beamComp);
+
+        inheritWeapon(root, pWep);
+        spWep.reset(pWep);
+    }
+    else if(root["WeaponType"].asString() == "Ballistic")
+    {
+
+    }
+    else
+    {
+        cout << "\n" << FILELINE;
+        ///ERROR LOG
+    }
+
+    return spWep;
+}
+void BlueprintLoader::inheritWeapon(const Json::Value& root, WeaponData* pWep)
+{
+    if(not root["EnergyConsumption"].isNull())
+        pWep->ener = root["EnergyConsumption"].asFloat();
+    if(not root["BallisticConsumption"].isNull())
+        pWep->ball = root["BallisticConsumption"].asFloat();
+
+    if(not root["Shots"].isNull())
+        pWep->shots = root["Shots"].asInt();
+    if(not root["Damage"].isNull())
+        pWep->damage = root["Damage"].asInt();
+
+
+    if(not root["ShotDelay"].isNull())
+        pWep->shotDelay = root["ShotFrequency"].asFloat();
+    if(not root["ReloadTime"].isNull())
+        pWep->fireDelay = root["ReloadTime"].asFloat();
+
+    if(not root["Range"].isNull())
+        pWep->range = root["Range"].asFloat();
+
+    if(not root["WeaponSprite"].isNull())
+        pWep->weaponQuad = loadQuad(root["WeaponSprite"], pWep->weaponQuad);
 }
 
 
@@ -226,9 +357,28 @@ std::tr1::shared_ptr<const ModuleData> BlueprintLoader::loadModule(const Json::V
 
         spMod.reset(pSMod);
     }
+
+
+
+
+
     /**======================**/
     /**==== SHIP MODULES ====**/
     /**======================**/
+    else if(root["ClassName"].asString() == "Turret")
+    {
+        TurretData* pSMod = new TurretData;
+        if(not root["Copies"].isNull())
+            *pSMod = *dynamic_cast<const TurretData*>(getModuleSPtr(root["Copies"].asString()).get());
+
+        if(not root["StartEmpty"].isNull())
+            pSMod->startEmpty = root["StartEmpty"].asBool();
+        if(not root["Weapon"].isNull())
+            insertWeaponData(root["Weapon"], pSMod->startWep);
+
+        inheritShipModule(root, pSMod);
+        spMod.reset(pSMod);
+    }
     else if(root["ClassName"].asString() == "Plating")
     {
         PlatingData* pSMod = new PlatingData;
@@ -298,10 +448,6 @@ std::tr1::shared_ptr<const ModuleData> BlueprintLoader::loadModule(const Json::V
 
     return spMod;
 }
-
-
-
-
 void BlueprintLoader::inheritShipModule(const Json::Value& root, ShipModuleData* pSMod)
 {
     /**INHERIT**/
@@ -320,6 +466,20 @@ void BlueprintLoader::inheritShipModule(const Json::Value& root, ShipModuleData*
     if(not root["BaseSprite"].isNull())
         pSMod->baseDecor = loadQuad(root["BaseSprite"], pSMod->baseDecor);
 }
+/**====================**/
+/**LOAD MULTI PART DATA**/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 void BlueprintLoader::insertModData(const Json::Value& root, std::vector<std::tr1::shared_ptr<const ModuleData> >& rModData)
@@ -347,6 +507,26 @@ void BlueprintLoader::insertModData(const Json::Value& root, std::vector<std::tr
         rModData.push_back(spMod);
     }
 }
+void BlueprintLoader::insertWeaponData(const Json::Value& root, std::tr1::shared_ptr<const WeaponData>& rModData)
+{
+    std::tr1::shared_ptr<WeaponData> spWep;
+
+    if(not root["Title"].isNull() && root["WeaponType"].isNull())
+    {
+        spWep.reset(getWeaponSPtr(root["Title"].asString())->clone());
+    }
+    else if(not root["WeaponType"].isNull())
+    {
+        spWep.reset(loadWeapon(root)->clone());
+    }
+    else
+    {
+        cout << "\n" << FILELINE;
+        ///ERROR LOG
+    }
+
+    rModData = spWep;
+}
 
 
 
@@ -356,10 +536,17 @@ void BlueprintLoader::insertModData(const Json::Value& root, std::vector<std::tr
 
 
 
-
-
-
-
+/**LOAD SIMPLE DATA**///data that doesnt inherit or anything
+/**================**/
+sf::Color BlueprintLoader::loadColor(const Json::Value& root)
+{
+    sf::Color color;
+    color.r = root[0].asInt();
+    color.g = root[1].asInt();
+    color.b = root[2].asInt();
+    color.a = root[3].asInt();
+    return color;
+}
 BodyComponentData BlueprintLoader::loadBodyComp(const Json::Value& root, const BodyComponentData& orig)
 {
     BodyComponentData data(orig);

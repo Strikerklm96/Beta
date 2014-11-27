@@ -103,9 +103,11 @@
 			<Add directory="include/Graphics/Utility" />
 		</Compiler>
 		<Unit filename="include/Basic/Health.hpp" />
+		<Unit filename="include/Basic/LaserWeapon.hpp" />
 		<Unit filename="include/Basic/Link.hpp" />
 		<Unit filename="include/Basic/Pool.hpp" />
 		<Unit filename="include/Basic/Timer.hpp" />
+		<Unit filename="include/Basic/Weapon.hpp" />
 		<Unit filename="include/Control/Camera.hpp" />
 		<Unit filename="include/Control/Input.hpp" />
 		<Unit filename="include/Control/Intelligence.hpp" />
@@ -158,6 +160,7 @@
 		<Unit filename="include/Universe/ShipModule/Radar.hpp" />
 		<Unit filename="include/Universe/ShipModule/Reactor.hpp" />
 		<Unit filename="include/Universe/ShipModule/Thruster.hpp" />
+		<Unit filename="include/Universe/ShipModule/Turret.hpp" />
 		<Unit filename="include/Universe/Universe.hpp" />
 		<Unit filename="include/Universe/Utility/BlueprintLoader.hpp" />
 		<Unit filename="include/Universe/Utility/DebugDraw.hpp" />
@@ -166,9 +169,11 @@
 		<Unit filename="include/Universe/Utility/UniversalContactListener.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Basic/Health.cpp" />
+		<Unit filename="src/Basic/LaserWeapon.cpp" />
 		<Unit filename="src/Basic/Link.cpp" />
 		<Unit filename="src/Basic/Pool.cpp" />
 		<Unit filename="src/Basic/Timer.cpp" />
+		<Unit filename="src/Basic/Weapon.cpp" />
 		<Unit filename="src/Control/Camera.cpp" />
 		<Unit filename="src/Control/Input.cpp" />
 		<Unit filename="src/Control/Intelligence.cpp" />
@@ -215,6 +220,7 @@
 		<Unit filename="src/Universe/ShipModule/Radar.cpp" />
 		<Unit filename="src/Universe/ShipModule/Reactor.cpp" />
 		<Unit filename="src/Universe/ShipModule/Thruster.cpp" />
+		<Unit filename="src/Universe/ShipModule/Turret.cpp" />
 		<Unit filename="src/Universe/Universe.cpp" />
 		<Unit filename="src/Universe/Utility/BlueprintLoader.cpp" />
 		<Unit filename="src/Universe/Utility/DebugDraw.cpp" />

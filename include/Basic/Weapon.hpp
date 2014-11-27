@@ -16,26 +16,30 @@ public:
 
     bool fire(Pool<Energy>* pEnergy, Pool<Ballistic>* pBall);//returns true if we fire
 
-    void prePhysUpdate(const b2Vec2& center, const b2Vec2& aim);
-    void postPhysUpdate(const b2Vec2& center, const b2Vec2& aim);
+    void prePhysUpdate(const b2Vec2& center, const b2Vec2& aim, b2Body* pBody);
+    void postPhysUpdate(const b2Vec2& center, const b2Vec2& aim, b2Body* pBody);
 
     virtual void preShot(const b2Vec2& center, const b2Vec2& aim, float radCCW) = 0;
     virtual void postShot(const b2Vec2& center, const b2Vec2& aim, float radCCW) = 0;
 
 protected:
-    Timer m_shotTimer;
-    int m_shotsRemain;
+    void damage(b2Fixture* pFix, int damage);
+    b2Body* m_pBody;
 
     int m_damage;
-    int m_shots;
     float m_range;
 private:
     QuadComponent m_decor;//the weapon sprite
+
+    Timer m_shotTimer;
+    int m_shotsRemain;
+    int m_shots;
 
     Energy m_energy;
     Ballistic m_ballistic;
 
     Timer m_fireTimer;
+    float m_fireDelay;
     bool m_shotThisTick;
 };
 
@@ -43,18 +47,22 @@ private:
 struct WeaponData
 {
     WeaponData() :
-        ener(8),
+        ener(3),
         ball(0),
 
         shots(5),
-        damage(25),
+        damage(50),
 
         shotDelay(0.09),
-        fireDelay(1.f),
+        fireDelay(1.5f),
 
-        range(25)
+        range(45)
     {
-
+        weaponQuad.animSheetName = "weapons/laser1.acfg";
+        weaponQuad.texName = "weapons/laser1.png";
+        weaponQuad.layer = GraphicsLayer::ShipAppendagesUpper;
+        weaponQuad.dimensions = sf::Vector2f(128, 260);
+        weaponQuad.permanentRot = -90.f;
     }
     Energy ener;//energy consumed per fire
     Ballistic ball;//ballistics consumed per fire
