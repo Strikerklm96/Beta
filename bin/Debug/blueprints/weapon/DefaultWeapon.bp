@@ -1,6 +1,36 @@
 {
     "WeaponType": "Laser",
     "Title": "DefaultWeapon",
+    "BeamStart": {
+        "texName": "thruster/thruster_base.png",
+        "animSheetName": "thruster/thruster_base.acfg",
+        "layer": "Projectiles",
+        "permanentRot": 0,
+        "dimensions": [
+            256,
+            256
+        ]
+    },
+    "BeamEnd": {
+        "texName": "thruster/thruster_base.png",
+        "animSheetName": "thruster/thruster_base.acfg",
+        "layer": "Projectiles",
+        "permanentRot": 0,
+        "dimensions": [
+            256,
+            256
+        ]
+    },
+    "BeamMid": {
+        "texName": "thruster/thruster_base.png",
+        "animSheetName": "thruster/thruster_base.acfg",
+        "layer": "Projectiles",
+        "permanentRot": 0,
+        "dimensions": [
+            256,
+            256
+        ]
+    },
     "BeamColor": [
         0,
         255,

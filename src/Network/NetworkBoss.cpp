@@ -10,7 +10,7 @@ NetworkBoss::NetworkBoss(const NetworkBossData& rData) : m_io(rData.ioComp, Netw
     m_udp.setBlocking(false);
     m_joinIP = "";
     m_joinPort = 0;
-    m_joinTimeOut = 5;
+    m_joinTimeOut = 5.f;
 }
 NetworkBoss::~NetworkBoss()
 {
@@ -74,16 +74,19 @@ void NetworkBoss::updateConnections()//update connections
 }
 Connection* NetworkBoss::findConnection(const sf::IpAddress& rAdd)
 {
-    cout << "\nLooking For:" << rAdd.toString();
-    cout << "\nActiveConnections:";
+    cout << "\n\nLooking For:" << rAdd.toString();
+    cout << "\nWith Active Connections:";
 
     for(auto it = m_connections.begin(); it!= m_connections.end(); ++it)
     {
         cout << "\n" << (*it)->ip.toString();
         if((*it)->ip == rAdd)
+        {
+            cout << "\n";
             return it->get();
+        }
     }
-
+    cout << "\n";
     return NULL;
 }
 void NetworkBoss::update()
@@ -107,36 +110,44 @@ void NetworkBoss::update()
 
             if(pCon == NULL && (!m_isClient))/**WANT TO CONNECT?**/
             {
-                cout << "\nType:" << type;
                 if(type == "c")//if it wants to connect, add you to connections
                 {
                     cout << "\nNew Connection:[" << fromIP.toString() << "]";
-                    addConnection(fromIP.toString(), fromPort, 5.f);//PASSWORD HERE
+                    addConnection(fromIP.toString(), fromPort, m_joinTimeOut);//PASSWORD HERE
                 }
             }
 
 
-            else/**RECOGNIZED CONNECTION**/
+            else if(pCon != NULL)/**RECOGNIZED CONNECTION**/
             {
-                pCon->lastRecieve = sendID;
-                pCon->lastRecTime = game.getTime();
+
 
 
                 if(type == "h")
                 {
+                    pCon->lastRecieve = sendID;
+                    pCon->lastRecTime = game.getTime();
                     cout << "\nHandshake:[" << fromIP.toString() << "]";
                     pCon->valid = true;
                 }
                 else if(type == "d")
                 {
+                    pCon->lastRecieve = sendID;
+                    pCon->lastRecTime = game.getTime();
                     cout << "\nDisconnect:[" << fromIP.toString() << "]";
                     for(auto it = m_connections.begin(); it!=m_connections.end(); ++it)
                         if((*it)->ip == fromIP)
                         {
+                            (*it)->valid = false;
                             m_connections.erase(it);
                             break;
                         }
                 }
+            }
+            else
+            {
+                ///someone tried to send us data
+                cout << "\nGarbage From:[" << fromIP << "]::[" << fromPort << "]";
             }
         }
         else
@@ -153,9 +164,14 @@ void NetworkBoss::update()
 /**CLIENT**/
 bool NetworkBoss::connect(const std::string& address, unsigned short port, float timeout)//clear all connections and make a connection with this server
 {
-    cout << "\nCon: " << port;
     m_isClient = true;
-    setRecievePort(port);
+    if(not setRecievePort(port))
+    {
+        ///ERROR LOG
+        cout << FILELINE;
+        int i;
+        cin >> i;
+    }
     m_connections.clear();
     m_connections.push_back(std::tr1::shared_ptr<Connection>(new Connection(address, port, timeout, &m_udp, false)));
 }
@@ -210,82 +226,6 @@ void NetworkBoss::input(const std::string rCommand, sf::Packet rData)
     }
     else
     {
-        cout << "\nFILELINE";
+        cout << "\n" << FILELINE;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-latestNum = 0;
-m_ip = rData.sendIP;
-m_ipPort = rData.sendPort;
-m_receivePort = rData.receivePort;
-m_socket.setBlocking(false);
-
-m_socket.unbind();
-if(m_socket.bind(m_receivePort) != sf::Socket::Done)
-{
-    cout << "\nThere was an error binding to [" << m_receivePort << "]";
-    ///ERROR LOG
-}
-
-sf::UdpSocket& NetworkBoss::getSocket()
-{
-    return m_socket;
-}
-sf::Packet NetworkBoss::recieve()
-{
-    sf::Packet receivePacket;
-    if (m_socket.receive(receivePacket, m_receiveIP, m_receivePort) != sf::Socket::Done)
-    {
-        cout << "\nThere was an error receiving the packet from [" << m_receiveIP << "]::[" << m_receivePort << "]";
-        ///ERROR LOG
-    }
-    return receivePacket;
-}
-sf::Packet NetworkBoss::recieveLatest()
-{
-    sf::Packet receivePacket;
-    sf::Packet tempPack;
-    int tempNum;
-    if(m_socket.receive(receivePacket, m_receiveIP, m_receivePort) == sf::Socket::Done)
-    {
-        while(m_socket.receive(tempPack, m_receiveIP, m_receivePort) == sf::Socket::Done)
-        {
-            receivePacket = tempPack;
-        }
-        receivePacket >> tempNum;
-        if(tempNum > latestNum)
-        {
-            latestNum = tempNum;
-            return receivePacket;
-        }
-
-    }
-}
-void NetworkBoss::send(const sf::Packet& pack)
-{
-    sf::Packet copy(pack);
-    if (m_socket.send(copy, m_ip, m_ipPort) != sf::Socket::Done)
-    {
-        cout << "\nThere was an error sending the packet to [" << m_ip << "]::[" << m_ipPort << "]";
-        ///ERROR LOG
-    }
-}
-*/

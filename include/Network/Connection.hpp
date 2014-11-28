@@ -45,12 +45,16 @@ struct Connection
 
     ~Connection()
     {
-        sf::Packet data;
-        data << "d";
-        send(data);
-        send(data);
-        send(data);
-        send(data);
+        if(valid)
+        {
+            std::cout << "\nDropping:[" << ip.toString() << "]";
+            sf::Packet data;
+            data << "d";
+            send(data);
+            send(data);
+            send(data);
+            send(data);
+        }
     }
 };
 

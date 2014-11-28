@@ -255,7 +255,7 @@ std::tr1::shared_ptr<const WeaponData> BlueprintLoader::loadWeapon(const Json::V
         if(not root["BeamEnd"].isNull())
             pWep->beamComp.end = loadQuad(root["BeamEnd"], pWep->beamComp.end);
         if(not root["BeamMid"].isNull())
-            pWep->beamComp.end = loadQuad(root["BeamMid"], pWep->beamComp);
+            static_cast<QuadComponentData>(pWep->beamComp) = loadQuad(root["BeamMid"], pWep->beamComp);
 
         inheritWeapon(root, pWep);
         spWep.reset(pWep);
