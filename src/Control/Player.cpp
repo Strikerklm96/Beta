@@ -11,11 +11,10 @@
 using namespace std;
 using namespace sf;
 
-Player::Player(const PlayerData& rData) : Intelligence(rData), m_io(rData.ioComp)
+Player::Player(const PlayerData& rData) : Intelligence(rData), m_io(rData.ioComp, &Player::input, this)
 {
     m_hasFocus = true;
     m_inGuiMode = true;
-    m_io.bindCallback(Player::input, this);
     m_tracking = rData.tracking;
 }
 Player::~Player()

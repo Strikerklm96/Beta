@@ -29,14 +29,17 @@ using namespace leon;
 Game::Game()
 {
     srand(time(NULL));
-    NetworkBossData data;
-    data.sendIP = "127.0.0.1";
 
     loadWindow("window.ini");
 
+
+
+
     m_spAnimAlloc = std::tr1::shared_ptr<AnimAlloc>(new AnimAlloc);
     m_spCoreIO = std::tr1::shared_ptr<IOManager>(new IOManager(true));
-    m_spNetworkBoss = std::tr1::shared_ptr<NetworkBoss>(new NetworkBoss(data));
+
+    NetworkBossData nwData;
+    m_spNetworkBoss = std::tr1::shared_ptr<NetworkBoss>(new NetworkBoss(nwData));
     m_spOverlay = std::tr1::shared_ptr<Overlay>(new Overlay);
     m_spOverlay->loadMenus();
     PlayerData playerData;
@@ -45,8 +48,7 @@ Game::Game()
     /**== GAME IO COMPONENT ==**/
     IOComponentData gameData(getCoreIO());
     gameData.name = "game";
-    m_spIO = std::tr1::shared_ptr<IOComponent>(new IOComponent(gameData));
-    m_spIO->bindCallback(Game::input, this);
+    m_spIO = std::tr1::shared_ptr<IOComponent>(new IOComponent(gameData, Game::input, this));
 
     loadUniverse("THING");
     m_spUniverse->togglePause(true);
@@ -186,6 +188,7 @@ void Game::run()
             timeRemaining -= timeStep;
         }
 
+        m_spNetworkBoss->update();
 
 
         /**== WINDOW ==**/

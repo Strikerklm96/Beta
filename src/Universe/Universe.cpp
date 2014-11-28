@@ -21,7 +21,7 @@
 
 using namespace std;
 
-Universe::Universe(const IOComponentData& rData) : m_io(rData), m_physWorld(b2Vec2(0,0))
+Universe::Universe(const IOComponentData& rData) : m_io(rData, &Universe::input, this), m_physWorld(b2Vec2(0,0))
 {
     m_spBPLoader = std::tr1::shared_ptr<BlueprintLoader>(new BlueprintLoader);//MUST BE AFTER IO
     m_spSlaveLocator = std::tr1::shared_ptr<SlaveLocator>(new SlaveLocator);
@@ -30,7 +30,6 @@ Universe::Universe(const IOComponentData& rData) : m_io(rData), m_physWorld(b2Ve
 
     /**IO**/
     m_spUniverseIO = std::tr1::shared_ptr<IOManager>(new IOManager(true));
-    m_io.bindCallback(&Universe::input, this);
     m_spUniverseIO->give(&m_io);
     m_spUniverseIO->give(&game.getLocalPlayer().getIOComp());
     /**IO**/

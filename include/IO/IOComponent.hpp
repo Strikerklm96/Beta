@@ -5,8 +5,8 @@
 #include "stdafx.hpp"
 #include "Courier.hpp"
 #include "Eventer.hpp"
+#include "IOManager.hpp"
 
-class IOManager;
 
 struct IOComponentData
 {
@@ -26,7 +26,13 @@ class IOComponent
 {
 public:
 
-    IOComponent(const IOComponentData& rData);
+    template <typename T>
+    IOComponent(const IOComponentData& rData, void (T::*func)(std::string, sf::Packet), T* const classPtr) : m_rManager(*rData.pMyManager), m_name(rData.name), m_eventer(m_rManager)
+    {
+        m_cbFunction = std::bind(func, classPtr, std::placeholders::_1, std::placeholders::_2);
+        m_ioManPosition = m_rManager.give(this);
+        m_eventer.add(rData.courierList);
+    }
     virtual ~IOComponent();
 
     void event(EventType type, int value, const sf::Packet& rData);//EventType occurred, has value, and other data
@@ -34,11 +40,7 @@ public:
     const std::string& getName() const;
     int getPosition() const;
 
-    template <typename T>
-    void bindCallback(void (T::*func)(std::string, sf::Packet), T* const classPtr)//because C++
-    {
-        m_cbFunction = std::bind(func, classPtr, std::placeholders::_1, std::placeholders::_2);
-    }
+
 
 protected:
 private:

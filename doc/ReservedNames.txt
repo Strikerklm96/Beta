@@ -2,3 +2,4 @@ local_player
 game
 universe
 main_menu
+network_boss

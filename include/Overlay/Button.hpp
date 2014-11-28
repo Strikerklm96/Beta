@@ -33,6 +33,7 @@ protected:
     virtual void f_MouseEntered();
     virtual void f_MouseLeft();
     virtual void f_LeftMouseClicked();
+    virtual void f_trigger();
 
 private:
     virtual void f_initialize(const ButtonData& data);

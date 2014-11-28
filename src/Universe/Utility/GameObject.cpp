@@ -2,9 +2,9 @@
 
 using namespace std;
 
-GameObject::GameObject(const GameObjectData& rData) : m_io(rData.ioComp), m_nw(rData.nwComp)
+GameObject::GameObject(const GameObjectData& rData) : m_io(rData.ioComp, &GameObject::input, this), m_nw(rData.nwComp)
 {
-    m_io.bindCallback(&GameObject::input, this);
+
 }
 GameObject::~GameObject()
 {

@@ -31,6 +31,7 @@ protected:
     void f_LeftMouseClicked();
     void f_TextChanged();
     void f_ReturnKeyPressed();
+    virtual void f_trigger();
 
     void input(const std::string rCommand, sf::Packet rData);
 private:

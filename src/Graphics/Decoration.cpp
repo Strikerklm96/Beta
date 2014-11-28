@@ -4,10 +4,9 @@
 
 using namespace std;
 
-Decoration::Decoration(const DecorationData& rData, GraphicsComponent* pGfx) : m_io(rData.ioComp)
+Decoration::Decoration(const DecorationData& rData, GraphicsComponent* pGfx) : m_io(rData.ioComp, &Decoration::input, this)
 {
     m_gfx = pGfx;
-    m_io.bindCallback(&Decoration::input, this);
 }
 Decoration::~Decoration()
 {

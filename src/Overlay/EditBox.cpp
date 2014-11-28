@@ -1,7 +1,7 @@
 #include "EditBox.hpp"
 
 using namespace leon;
-
+using namespace std;
 
 EditBox::EditBox(tgui::Gui& gui, const EditBoxData& rData) : WidgetBase(rData), m_pEditBox(gui)
 {
@@ -60,32 +60,44 @@ void EditBox::f_callback(const tgui::Callback& callback)
 void EditBox::f_MouseEntered()
 {
     sf::Packet text;
-    text << m_pEditBox->getText();
+    std::string stuff = m_pEditBox->getText();
+    text << stuff;
     m_io.event(EventType::MouseEntered, 0, text);
 }
 void EditBox::f_LeftMouseClicked()
 {
     sf::Packet text;
-    text << m_pEditBox->getText();
+    std::string stuff = m_pEditBox->getText();
+    text << stuff;
     m_io.event(EventType::LeftMouseClicked, 0, text);
 }
 void EditBox::f_MouseLeft()
 {
     sf::Packet text;
-    text << m_pEditBox->getText();
+    std::string stuff = m_pEditBox->getText();
+    text << stuff;
     m_io.event(EventType::MouseLeft, 0, text);
 }
 void EditBox::f_TextChanged()
 {
     sf::Packet text;
-    text << m_pEditBox->getText();
+    std::string stuff = m_pEditBox->getText();
+    text << stuff;
     m_io.event(EventType::TextChanged, 0, text);
 }
 void EditBox::f_ReturnKeyPressed()
 {
     sf::Packet text;
-    text << m_pEditBox->getText();
+    std::string stuff = m_pEditBox->getText();
+    text << stuff;
     m_io.event(EventType::ReturnKeyPressed, 0, text);
+}
+void EditBox::f_trigger()
+{
+    sf::Packet text;
+    std::string stuff = m_pEditBox->getText();
+    text << stuff;
+    m_io.event(EventType::Triggered, 0, text);
 }
 void EditBox::input(const std::string rCommand, sf::Packet rData)
 {

@@ -2,22 +2,21 @@
 #define NETWORKBOSS_HPP
 
 #include "stdafx.hpp"
+#include "Globals.hpp"
+#include "Connection.hpp"
+#include "IOComponent.hpp"
 
 struct NetworkBossData
 {
     NetworkBossData() :
-        sendIP("127.0.0.1"),
-        sendPort(5000),
-        receivePort(5000)
-        {
+        ioComp(game.getCoreIO())
+    {
+        ioComp.name = "networkboss";
+    }
 
-        }
+    IOComponentData ioComp;
 
-    sf::IpAddress sendIP;
-    unsigned short sendPort;
-    unsigned short receivePort;
 };
-
 
 class NetworkBoss
 {
@@ -25,19 +24,41 @@ public:
     NetworkBoss(const NetworkBossData& rData);
     virtual ~NetworkBoss();
 
-    sf::UdpSocket& getSocket();
+    /**BOTH**/
+    bool setRecievePort(unsigned short port);//set receiving port, returns whether the bind was successful
+    void host(unsigned short port);
+    bool isClient() const;
 
-    sf::Packet recieve();
-    sf::Packet recieveLatest();
-    void send(const sf::Packet& pack);
+    void updateConnections();
+    Connection* findConnection(const sf::IpAddress& rAdd);
+
+    void update();
+    /**BOTH**/
+
+
+
+    /**CLIENT**/
+    bool connect(const std::string& address, unsigned short port, float timeout);//clear all connections and make a connection with this server
+    /**CLIENT**/
+
+
+
+    /**SERVER**/
+    void addConnection(const std::string& address, unsigned short port, float timeout);//adds a connection to our client list
+    /**SERVER**/
 
 protected:
+    void input(const std::string rCommand, sf::Packet rData);
 private:
-    int latestNum;
-    sf::IpAddress m_ip, m_receiveIP;
-    unsigned short m_ipPort, m_receivePort;
+    IOComponent m_io;
 
-    sf::UdpSocket m_socket;
+    std::string m_joinIP;
+    unsigned short m_joinPort;
+    float m_joinTimeOut;
+
+    bool m_isClient;//are we a client or a server
+    sf::UdpSocket m_udp;
+    std::vector<std::tr1::shared_ptr<Connection> > m_connections;
 };
 
 #endif // NETWORKBOSS_HPP

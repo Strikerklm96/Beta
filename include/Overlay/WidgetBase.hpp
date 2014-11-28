@@ -47,6 +47,7 @@ protected:
     virtual void f_MouseEntered();
     virtual void f_MouseLeft();
     virtual void f_LeftMouseClicked();
+    virtual void f_trigger();
 
     IOComponent m_io;
 private:

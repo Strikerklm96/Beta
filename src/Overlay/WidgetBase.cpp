@@ -3,10 +3,9 @@
 using namespace leon;
 using namespace std;
 
-WidgetBase::WidgetBase(const WidgetBaseData& rData) : m_io(rData.ioComp)
+WidgetBase::WidgetBase(const WidgetBaseData& rData) : m_io(rData.ioComp, &leon::WidgetBase::input, this)
 {
     m_startHidden = rData.startHidden;
-    m_io.bindCallback(&leon::WidgetBase::input, this);
 }
 void WidgetBase::f_assign(tgui::Widget* pWidget)
 {
@@ -57,7 +56,7 @@ void WidgetBase::input(std::string rCommand, sf::Packet rData)
 
     if(rCommand == "toggleHidden")
     {
-        toggleHidden(!m_pWidget->isVisible());
+        toggleHidden(m_pWidget->isVisible());
     }
     else if(rCommand == "setHidden")
     {
@@ -74,6 +73,10 @@ void WidgetBase::input(std::string rCommand, sf::Packet rData)
         bool mode = false;
         data >> mode;
         toggleEnabled(mode);
+    }
+    else if(rCommand == "trigger")
+    {
+        f_trigger();
     }
     else
     {
@@ -100,4 +103,8 @@ void WidgetBase::f_MouseLeft()
 void WidgetBase::f_LeftMouseClicked()
 {
     m_io.event(EventType::LeftMouseClicked, 0, sf::Packet());
+}
+void WidgetBase::f_trigger()
+{
+    m_io.event(EventType::Triggered, 0, sf::Packet());
 }

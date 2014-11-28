@@ -20,6 +20,7 @@ Widget
 	setHidden: (bool)
 	toggleEnabled:
 	setEnabled: (bool)
+	trigger:
 }
 Decoration
 {
@@ -29,4 +30,9 @@ Decoration
 DecorQuad
 {
 	setPercent: (float)-(0 to 100)
+}
+NetworkBoss
+{
+	joinIP: (string)
+	joinPort: (string)
 }

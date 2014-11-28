@@ -909,7 +909,7 @@
 1416270900 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
 	"GraphicsComponent.hpp"
 
-1416984812 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
+1417129290 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
 	"Game.hpp"
 	"Globals.hpp"
 	"TextureAllocator.hpp"
@@ -931,7 +931,7 @@
 	"Beam.hpp"
 	"RayCastCallback.hpp"
 
-1416204888 c:\users\leon\desktop\projects\beta\include\game\game.hpp
+1417128369 c:\users\leon\desktop\projects\beta\include\game\game.hpp
 	"stdafx.hpp"
 
 1415149801 source:c:\users\leon\desktop\projects\beta\src\graphics\batchlayers.cpp
@@ -969,7 +969,7 @@
 	"Globals.hpp"
 	"Universe.hpp"
 
-1416872033 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
+1417129447 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
 	"Player.hpp"
 	"Globals.hpp"
 	"Overlay.hpp"
@@ -1015,7 +1015,7 @@
 1415482152 c:\users\leon\desktop\projects\beta\include\overlay\panel.hpp
 	"WidgetBase.hpp"
 
-1415483750 c:\users\leon\desktop\projects\beta\include\overlay\widgetbase.hpp
+1417108398 c:\users\leon\desktop\projects\beta\include\overlay\widgetbase.hpp
 	"stdafx.hpp"
 	"Globals.hpp"
 	"IOComponent.hpp"
@@ -1030,15 +1030,15 @@
 
 1415345920 c:\users\leon\desktop\projects\beta\include\io\event.hpp
 
-1415679634 c:\users\leon\desktop\projects\beta\include\io\iocomponent.hpp
+1417129204 c:\users\leon\desktop\projects\beta\include\io\iocomponent.hpp
 	"EventTypes.hpp"
 	"stdafx.hpp"
 	"Courier.hpp"
 	"Eventer.hpp"
-
-1416291339 source:c:\users\leon\desktop\projects\beta\src\io\iocomponent.cpp
-	"IOComponent.hpp"
 	"IOManager.hpp"
+
+1417129207 source:c:\users\leon\desktop\projects\beta\src\io\iocomponent.cpp
+	"IOComponent.hpp"
 
 1415340582 source:c:\users\leon\desktop\projects\beta\src\io\iocomponentstore.cpp
 	"IOComponentStore.hpp"
@@ -1046,25 +1046,26 @@
 1415346345 c:\users\leon\desktop\projects\beta\include\io\iocomponentstore.hpp
 	"stdafx.hpp"
 
-1415388045 source:c:\users\leon\desktop\projects\beta\src\overlay\button.cpp
+1417116760 source:c:\users\leon\desktop\projects\beta\src\overlay\button.cpp
 	"Button.hpp"
 
-1415339854 c:\users\leon\desktop\projects\beta\include\overlay\button.hpp
+1417116773 c:\users\leon\desktop\projects\beta\include\overlay\button.hpp
 	"WidgetBase.hpp"
 
-1415483933 source:c:\users\leon\desktop\projects\beta\src\overlay\editbox.cpp
+1417130575 source:c:\users\leon\desktop\projects\beta\src\overlay\editbox.cpp
 	"EditBox.hpp"
 
-1415388390 c:\users\leon\desktop\projects\beta\include\overlay\editbox.hpp
+1417116467 c:\users\leon\desktop\projects\beta\include\overlay\editbox.hpp
 	"WidgetBase.hpp"
 
-1415495693 source:c:\users\leon\desktop\projects\beta\src\overlay\overlay.cpp
+1417139393 source:c:\users\leon\desktop\projects\beta\src\overlay\overlay.cpp
 	"Overlay.hpp"
 	"Globals.hpp"
 	"Panel.hpp"
 	"Picture.hpp"
 	"Button.hpp"
 	"Courier.hpp"
+	"EditBox.hpp"
 
 1415482106 source:c:\users\leon\desktop\projects\beta\src\overlay\panel.cpp
 	"Panel.hpp"
@@ -1078,10 +1079,10 @@
 1415477856 c:\users\leon\desktop\projects\beta\include\overlay\picture.hpp
 	"WidgetBase.hpp"
 
-1415483750 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
+1417129436 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
 	"WidgetBase.hpp"
 
-1417057053 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
+1417129563 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
 	"Universe.hpp"
 	"BlueprintLoader.hpp"
 	"Globals.hpp"
@@ -1198,7 +1199,7 @@
 	"stdafx.hpp"
 	"Convert.hpp"
 
-1416443796 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobject.cpp
+1417129607 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobject.cpp
 	"GameObject.hpp"
 
 1415501911 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobjectfactory.cpp
@@ -1256,11 +1257,14 @@
 	"QuadComponent.hpp"
 	"Health.hpp"
 
-1416204888 source:c:\users\leon\desktop\projects\beta\src\network\networkboss.cpp
+1417147114 source:c:\users\leon\desktop\projects\beta\src\network\networkboss.cpp
 	"NetworkBoss.hpp"
 
-1415679634 c:\users\leon\desktop\projects\beta\include\network\networkboss.hpp
+1417146339 c:\users\leon\desktop\projects\beta\include\network\networkboss.hpp
 	"stdafx.hpp"
+	"Globals.hpp"
+	"Connection.hpp"
+	"IOComponent.hpp"
 
 1416204888 c:\users\leon\desktop\projects\beta\include\graphics\utility\textureallocator.hpp
 	"stdafx.hpp"
@@ -1408,7 +1412,7 @@
 1416349977 c:\users\leon\desktop\projects\beta\include\universe\module\reactor.hpp
 	"ShipModule.hpp"
 
-1416982589 source:c:\users\leon\desktop\projects\beta\src\universe\module\module.cpp
+1417129523 source:c:\users\leon\desktop\projects\beta\src\universe\module\module.cpp
 	"Module.hpp"
 	"Intelligence.hpp"
 
@@ -1472,7 +1476,7 @@
 1416517957 c:\users\leon\desktop\projects\beta\include\graphics\linearmeter.hpp
 	"QuadComponent.hpp"
 
-1416524229 source:c:\users\leon\desktop\projects\beta\src\graphics\decoration.cpp
+1417129443 source:c:\users\leon\desktop\projects\beta\src\graphics\decoration.cpp
 	"Decoration.hpp"
 	"GraphicsComponent.hpp"
 
@@ -1542,4 +1546,7 @@
 1417046405 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\turret.cpp
 	"Turret.hpp"
 	"Intelligence.hpp"
+
+1417147402 c:\users\leon\desktop\projects\beta\include\network\connection.hpp
+	"stdafx.hpp"
 

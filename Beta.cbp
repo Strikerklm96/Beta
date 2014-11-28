@@ -140,6 +140,7 @@
 		<Unit filename="include/IO/IOComponent.hpp" />
 		<Unit filename="include/IO/IOManager.hpp" />
 		<Unit filename="include/IO/Message.hpp" />
+		<Unit filename="include/Network/Connection.hpp" />
 		<Unit filename="include/Network/NetworkBoss.hpp" />
 		<Unit filename="include/Network/NetworkComponent.hpp" />
 		<Unit filename="include/Overlay/Button.hpp" />
@@ -155,7 +156,6 @@
 		<Unit filename="include/Universe/Module/Sensor.hpp" />
 		<Unit filename="include/Universe/Module/ShipModule.hpp" />
 		<Unit filename="include/Universe/ShipModule/Capacitor.hpp" />
-		<Unit filename="include/Universe/ShipModule/LaserTurret.hpp" />
 		<Unit filename="include/Universe/ShipModule/Plating.hpp" />
 		<Unit filename="include/Universe/ShipModule/Radar.hpp" />
 		<Unit filename="include/Universe/ShipModule/Reactor.hpp" />
@@ -215,7 +215,6 @@
 		<Unit filename="src/Universe/Module/Sensor.cpp" />
 		<Unit filename="src/Universe/Module/ShipModule.cpp" />
 		<Unit filename="src/Universe/ShipModule/Capacitor.cpp" />
-		<Unit filename="src/Universe/ShipModule/LaserTurret.cpp" />
 		<Unit filename="src/Universe/ShipModule/Plating.cpp" />
 		<Unit filename="src/Universe/ShipModule/Radar.cpp" />
 		<Unit filename="src/Universe/ShipModule/Reactor.cpp" />
