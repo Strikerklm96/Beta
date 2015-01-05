@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Intelligence::Intelligence(const IntelligenceData& rData) : m_aim(0,0)//, m_io(rData.ioComp)
+Intelligence::Intelligence(const IntelligenceData& rData) : m_aim(0,0), m_io(rData.ioComp, &Intelligence::input, this)
 {
     m_slavePosition = -1;
     m_slaveName = rData.slaveName;
@@ -33,7 +33,10 @@ const std::string& Intelligence::getSlaveName() const
 
 
 
-
+IOComponent& Intelligence::getIOComp()
+{
+    return m_io;
+}
 void Intelligence::setAim(const b2Vec2& world)//send our aim coordinates
 {
     m_aim = world;
@@ -68,3 +71,22 @@ float Intelligence::get(Request value)//return the requested value
         return 0.f;
 }
 
+void Intelligence::setPlayerName(const std::string& rPlayerName)
+{
+    m_playerName = rPlayerName;
+}
+const std::string& Intelligence::getPlayerName() const
+{
+    return m_playerName;
+}
+
+void Intelligence::input(std::string rCommand, sf::Packet rData)
+{
+    sf::Packet data(rData);
+    if(rCommand == "setPlayerName")
+    {
+        std::string name;
+        data >> name;
+        setPlayerName(name);
+    }
+}

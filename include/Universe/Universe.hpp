@@ -37,12 +37,14 @@ public:
     void togglePause();
     void toggleDebugDraw();
 
-    void loadBlueprints(const std::string& bluePrints);//loads blueprints
-    void loadLevel(const std::string& level);//loads a level using blueprints
+
+    void loadLevel(const std::string& level, const std::string& localPlayerSlave, const std::string& bluePrints);//loads a level using blueprints
     void add(std::tr1::shared_ptr<GameObject> spGO);
     void add(GameObject* pGO);
 
 protected:
+    void loadBlueprints(const std::string& bluePrints);//loads blueprints
+
     void input(std::string rCommand, sf::Packet rData);
 
 private:

@@ -14,10 +14,11 @@ public:
     /**SEND/RECIEVE MESSAGES**/
     void recieve(const Message& rMessage);//called by a class to give the package to us
     void update(float dT);//iterate over the list of Packages, and if the time is up, call universe.send(Package); on that package
+    void toggleAcceptsLocal(bool acceptsLocal);
 
     /**STORE/FREE COMPONENTS**/
     int give(IOComponent* pComponent);//we recieve a pointer to a component and we store it and remember the name and position
-    void free(int position);//don't adjust the list, just mark the node as null and offer it as a position to future customers
+    void free(int position);//don't adjust the list, just mark the node as null and offer it as a position to future components
 
 protected:
 private:

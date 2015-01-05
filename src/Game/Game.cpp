@@ -74,6 +74,10 @@ IOManager& Game::getCoreIO()
 {
     return *m_spCoreIO;
 }
+NetworkBoss& Game::getNwBoss()
+{
+    return *m_spNetworkBoss;
+}
 TextureAllocator& Game::getTextureAllocator()
 {
     return *m_spTexAlloc;
@@ -133,8 +137,7 @@ void Game::run()
     /**===========================**/
 
 
-    m_spUniverse->loadBlueprints("blueprints/");
-    m_spUniverse->loadLevel("levels/level_1/");
+    m_spUniverse->loadLevel("levels/level_1/", "", "blueprints/");
 
     RenderWindow& rWindow = *m_spWindow;
     sf::View defaultView;
@@ -188,7 +191,9 @@ void Game::run()
             timeRemaining -= timeStep;
         }
 
-        m_spNetworkBoss->update();
+        /**NETWORK**/
+        if(m_spNetworkBoss->hasConnections())
+            m_spNetworkBoss->update();
 
 
         /**== WINDOW ==**/

@@ -69,14 +69,12 @@ struct PlayerData : public IntelligenceData
     PlayerData() :
         IntelligenceData(),
         keyConfig(),
-        ioComp(game.getCoreIO()),
         tracking(true)
     {
         ioComp.name = "local_player";
     }
 
     InputConfig keyConfig;
-    IOComponentData ioComp;
     bool tracking;
 };
 
@@ -89,7 +87,6 @@ public:
     virtual ~Player();
 
     Camera& getCamera();
-    IOComponent& getIOComp();
     const InputConfig& getInCfg() const;
     bool inGuiMode() const;//is the player in GUI mode?
     bool toggleGuiMode(bool isGuiModeOn);
@@ -105,10 +102,10 @@ public:
     void universeDestroyed();
 
 protected:
-    void input(std::string rCommand, sf::Packet rData);
+    virtual void input(std::string rCommand, sf::Packet rData);
 
 private:
-    IOComponent m_io;
+
     float m_desiredZoom;//for smooth zooming
     b2Vec2 m_desiredCameraPos;//for smooth zooming
 

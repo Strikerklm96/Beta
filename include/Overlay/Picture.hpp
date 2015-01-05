@@ -28,9 +28,6 @@ private:
     void f_initialize(const PictureData& data);
 
     virtual void f_callback(const tgui::Callback& callback);
-    virtual void f_MouseEntered();
-    virtual void f_MouseLeft();
-    virtual void f_LeftMouseClicked();
 
     tgui::Picture::Ptr m_pPicture;//pointer to our button in the gui
 };

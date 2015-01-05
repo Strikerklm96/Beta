@@ -136,9 +136,11 @@ void Universe::loadBlueprints(const std::string& bpDir)//loads blueprints
 {
     m_spBPLoader->storeRoster(bpDir);
 }
-void Universe::loadLevel(const std::string& levelDir)//loads a level using blueprints
+void Universe::loadLevel(const std::string& levelDir, const std::string& localPlayerSlave, const std::string& bluePrints)//loads a level using blueprints
 {
-    string localPlayerSlave = "BPCHUNKNAME";
+    loadBlueprints(bluePrints);
+
+    string slave = localPlayerSlave;
     string configFile = "level.lcfg";
     string modDir = "mods/";
 
@@ -157,42 +159,54 @@ void Universe::loadLevel(const std::string& levelDir)//loads a level using bluep
     else
     {
         /**ADDITIONAL BLUEPRINTS**/
-        const Json::Value bpList = root["AdditionalBlueprints"];
-        for(auto it = bpList.begin(); it != bpList.end(); ++it)
+        if(not root["AdditionalBlueprints"].isNull())
         {
-            m_spBPLoader->storeRoster(modDir+it->asString());
+            const Json::Value bpList = root["AdditionalBlueprints"];
+            for(auto it = bpList.begin(); it != bpList.end(); ++it)
+            {
+                m_spBPLoader->storeRoster(modDir+it->asString());
+            }
+        }
+        else
+        {
+            cout << FILELINE;
+            ///ERROR LOG
         }
 
         /**PLAYER SLAVE**/
-        localPlayerSlave = root["Player1Slave"].asString();
+        if(slave == "")
+            if(not root["Player1Slave"].isNull())
+                slave = root["Player1Slave"].asString();
 
         /**CHUNKS**/
         std::tr1::shared_ptr<ChunkData> spCnk;
-        const Json::Value chunks = root["Chunks"];
-        for(auto it = chunks.begin(); it != chunks.end(); ++it)
+        if(not root["Chunks"].isNull())
         {
-            if(not (*it)["Title"].isNull())
+            const Json::Value chunks = root["Chunks"];
+            for(auto it = chunks.begin(); it != chunks.end(); ++it)
             {
-                spCnk.reset(m_spBPLoader->getChunkSPtr((*it)["Title"].asString())->clone());
-                spCnk->bodyComp.coords.x = (*it)["Coordinates"][0].asFloat();
-                spCnk->bodyComp.coords.y = (*it)["Coordinates"][1].asFloat();
+                if(not (*it)["Title"].isNull())
+                {
+                    spCnk.reset(m_spBPLoader->getChunkSPtr((*it)["Title"].asString())->clone());
+                    spCnk->bodyComp.coords.x = (*it)["Coordinates"][0].asFloat();
+                    spCnk->bodyComp.coords.y = (*it)["Coordinates"][1].asFloat();
+                }
+                else if(not (*it)["ClassName"].isNull())
+                {
+                    spCnk.reset(m_spBPLoader->loadChunk(*it)->clone());
+                }
+                else
+                {
+                    cout << "\n" << FILELINE;
+                    ///ERROR LOG
+                }
+                add(spCnk->generate());
             }
-            else if(not (*it)["ClassName"].isNull())
-            {
-                spCnk.reset(m_spBPLoader->loadChunk(*it)->clone());
-            }
-            else
-            {
-                cout << "\n" << FILELINE;
-                ///ERROR LOG
-            }
-
-            add(spCnk->generate());
         }
-
     }
 
 
+    /**HARD CODED**/
 
     ChunkData chunkdata_1;
     chunkdata_1.bodyComp.coords = b2Vec2(-2,5);
@@ -231,14 +245,16 @@ void Universe::loadLevel(const std::string& levelDir)//loads a level using bluep
     chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new TurretData(*pData5)));
 
     add(chunkdata_1.generate());
-
-
+    /**HARD CODED**/
 
 
 
 
     game.getLocalPlayer().loadOverlay("overlayconfig");
-    game.getLocalPlayer().setSlave(localPlayerSlave);
+
+    if(slave == "")
+        slave = "BPCHUNKNAME";
+    game.getLocalPlayer().setSlave(slave);
 }
 void Universe::add(std::tr1::shared_ptr<GameObject> spGO)
 {
@@ -266,6 +282,6 @@ void Universe::input(std::string rCommand, sf::Packet rData)
     else
     {
         ///ERROR LOG
-        cout << m_io.getName() << ": [" << rCommand << "] not found." << FILELINE;
+        cout << m_io.getName() << ":[" << rCommand << "] not found." << FILELINE;
     }
 }

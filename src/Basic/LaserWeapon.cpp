@@ -1,6 +1,7 @@
 #include "LaserWeapon.hpp"
 #include "Convert.hpp"
 #include "Universe.hpp"
+#include "Globals.hpp"
 
 using namespace std;
 

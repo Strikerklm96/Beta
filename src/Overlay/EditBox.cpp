@@ -57,6 +57,10 @@ void EditBox::f_callback(const tgui::Callback& callback)
 
     }
 }
+void EditBox::setText(const std::string& rText)
+{
+    m_pEditBox->setText(rText);
+}
 void EditBox::f_MouseEntered()
 {
     sf::Packet text;
@@ -101,5 +105,12 @@ void EditBox::f_trigger()
 }
 void EditBox::input(const std::string rCommand, sf::Packet rData)
 {
-    WidgetBase::input(rCommand, rData);
+    if(rCommand == "setText")
+    {
+        std::string text;
+        rData >> text;
+        setText(text);
+    }
+    else
+        WidgetBase::input(rCommand, rData);
 }

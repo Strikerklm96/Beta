@@ -24,6 +24,8 @@ public:
     EditBox(tgui::Container& container, const EditBoxData& data);
     virtual ~EditBox();
 
+    void setText(const std::string& rText);//removes all text in editbox
+
 protected:
     virtual void f_callback(const tgui::Callback& callback);
     void f_MouseEntered();

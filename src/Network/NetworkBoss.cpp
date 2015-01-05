@@ -1,4 +1,7 @@
 #include "NetworkBoss.hpp"
+#include "Protocol.hpp"
+#include "IOManager.hpp"
+#include "Universe.hpp"
 
 using namespace std;
 using namespace sf;
@@ -11,12 +14,17 @@ NetworkBoss::NetworkBoss(const NetworkBossData& rData) : m_io(rData.ioComp, Netw
     m_joinIP = "";
     m_joinPort = 0;
     m_joinTimeOut = 5.f;
+    m_isOpen = false;
 }
 NetworkBoss::~NetworkBoss()
 {
     m_udp.unbind();
 }
 /**BOTH**/
+NetworkFactory& NetworkBoss::getNWFactory()
+{
+    return m_nwFactory;
+}
 bool NetworkBoss::setRecievePort(unsigned short port)//set receiving port, returns whether the bind was successful
 {
     cout << "\n" << port;
@@ -32,8 +40,10 @@ bool NetworkBoss::setRecievePort(unsigned short port)//set receiving port, retur
 void NetworkBoss::host(unsigned short port)
 {
     m_isClient = false;
+    game.getUniverse().getUniverseIO().toggleAcceptsLocal(true);
     setRecievePort(port);
     m_connections.clear();
+    m_isOpen = true;
     cout << "\nHosting.";
 }
 bool NetworkBoss::isClient() const
@@ -89,6 +99,10 @@ Connection* NetworkBoss::findConnection(const sf::IpAddress& rAdd)
     cout << "\n";
     return NULL;
 }
+bool NetworkBoss::hasConnections()
+{
+    return (m_connections.size()>0);
+}
 void NetworkBoss::update()
 {
     sf::Packet data;
@@ -102,15 +116,16 @@ void NetworkBoss::update()
         if(m_udp.receive(data, fromIP, fromPort) == sf::Socket::Done)/**FOR EACH PACKET**/
         {
             int sendID;
-            string type;
+            int typeInt;
             data >> sendID;
-            data >> type;
+            data >> typeInt;
+            Protocol type = static_cast<Protocol>(typeInt);
             Connection* pCon = findConnection(fromIP);
 
 
-            if(pCon == NULL && (!m_isClient))/**WANT TO CONNECT?**/
+            if(pCon == NULL && (!m_isClient) && m_isOpen)/**WANT TO CONNECT?**/
             {
-                if(type == "c")//if it wants to connect, add you to connections
+                if(type == Protocol::Connect)//if it wants to connect, add you to connections
                 {
                     cout << "\nNew Connection:[" << fromIP.toString() << "]";
                     addConnection(fromIP.toString(), fromPort, m_joinTimeOut);//PASSWORD HERE
@@ -122,15 +137,14 @@ void NetworkBoss::update()
             {
 
 
-
-                if(type == "h")
+                if(type == Protocol::Handshake)
                 {
                     pCon->lastRecieve = sendID;
                     pCon->lastRecTime = game.getTime();
                     cout << "\nHandshake:[" << fromIP.toString() << "]";
                     pCon->valid = true;
                 }
-                else if(type == "d")
+                else if(type == Protocol::Drop)
                 {
                     pCon->lastRecieve = sendID;
                     pCon->lastRecTime = game.getTime();
@@ -143,6 +157,26 @@ void NetworkBoss::update()
                             break;
                         }
                 }
+                else if(type == Protocol::Lobby)
+                {
+                    /**
+                    //Launch Game send:("universe", "level", "localPlayerSlave", "blueprints")
+                    //Update Slots send:("slotName", "playerName")
+                    //Update Chat send:("slotName", "chatString")
+                    **/
+
+                    ///SEND DATA TO NETWORK FACTORY TO BE DISPATCHED
+                }
+                else if(type == Protocol::LoadLevel)
+                {
+                    game.loadUniverse("stuff");
+                }
+                else if(type == Protocol::Data)
+                {
+                    ///SEND DATA TO NETWORK FACTORY TO BE DISPATCHED
+                }
+
+
             }
             else
             {
@@ -155,7 +189,10 @@ void NetworkBoss::update()
     }
 
 
+
+
     updateConnections();
+    m_nwFactory.update();
 }
 /**BOTH**/
 
@@ -165,6 +202,7 @@ void NetworkBoss::update()
 bool NetworkBoss::connect(const std::string& address, unsigned short port, float timeout)//clear all connections and make a connection with this server
 {
     m_isClient = true;
+    game.getUniverse().getUniverseIO().toggleAcceptsLocal(false);
     if(not setRecievePort(port))
     {
         ///ERROR LOG
@@ -172,6 +210,7 @@ bool NetworkBoss::connect(const std::string& address, unsigned short port, float
         int i;
         cin >> i;
     }
+    m_isOpen = false;
     m_connections.clear();
     m_connections.push_back(std::tr1::shared_ptr<Connection>(new Connection(address, port, timeout, &m_udp, false)));
 }
@@ -182,7 +221,7 @@ bool NetworkBoss::connect(const std::string& address, unsigned short port, float
 /**SERVER**/
 void NetworkBoss::addConnection(const std::string& address, unsigned short port, float timeout)
 {
-    m_isClient = false;
+    m_isClient = false;///WHY IS THIS HERE???
     m_connections.push_back(std::tr1::shared_ptr<Connection>(new Connection(address, port, timeout, &m_udp, true)));
 }
 /**SERVER**/

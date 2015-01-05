@@ -11,7 +11,7 @@
 using namespace std;
 using namespace sf;
 
-Player::Player(const PlayerData& rData) : Intelligence(rData), m_io(rData.ioComp, &Player::input, this)
+Player::Player(const PlayerData& rData) : Intelligence(rData)
 {
     m_hasFocus = true;
     m_inGuiMode = true;
@@ -24,10 +24,6 @@ Player::~Player()
 Camera& Player::getCamera()
 {
     return m_camera;
-}
-IOComponent& Player::getIOComp()
-{
-    return m_io;
 }
 const InputConfig& Player::getInCfg() const
 {

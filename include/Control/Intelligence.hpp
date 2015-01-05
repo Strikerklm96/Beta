@@ -52,10 +52,12 @@ enum class Request
 struct IntelligenceData
 {
     IntelligenceData() :
+        ioComp(game.getCoreIO()),
         slaveName("NOSLAVE")
     {
     }
 
+    IOComponentData ioComp;
     std::string slaveName;
 };
 
@@ -66,7 +68,9 @@ public:
     Intelligence(const IntelligenceData& rData);
     virtual ~Intelligence();
 
-
+    IOComponent& getIOComp();
+    void setPlayerName(const std::string& rPlayerName);
+    const std::string& getPlayerName() const;
 
 
     /**== CHUNK ==**/
@@ -82,13 +86,15 @@ public:
 
 
 protected:
+    virtual void input(std::string rCommand, sf::Packet rData);
+
     int m_slavePosition;
     std::string m_slaveName;
     b2Vec2 m_aim;//where we are aiming in the world ATM
 
 private:
-
-    ///IOComponent m_io;???
+    IOComponent m_io;
+    std::string m_playerName;//name of us in game, like BobbyLolcatz99
 };
 
 #endif // INTELLIGENCE_HPP

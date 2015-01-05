@@ -65,6 +65,8 @@ Chunk* SlaveLocator::find(int position)
 {
     if(m_slavePtrs.size() > position)
         return m_slavePtrs[position];
+    else
+        return NULL;
 }
 Chunk* SlaveLocator::findHack(const std::string& rName)
 {

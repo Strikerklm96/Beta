@@ -28,6 +28,7 @@ public:
     sf::RenderWindow& getWindow();
     Overlay& getOverlay();
     IOManager& getCoreIO();
+    NetworkBoss& getNwBoss();
     TextureAllocator& getTextureAllocator();
     AnimAlloc& getAnimAlloc();
 

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Module::Module(const ModuleData& rData) : m_io(rData.ioComp, &Module::input, this), m_nw(rData.nwComp), m_fix(rData.fixComp)
+Module::Module(const ModuleData& rData) : m_io(rData.ioComp, &Module::input, this), m_nw(rData.nwComp, &Module::pack, &Module::unpack, this), m_fix(rData.fixComp)
 {
     m_fix.setIOPos(m_io.getPosition());
     m_fix.bindStartCB(&Module::startContactCB, this);
@@ -36,6 +36,14 @@ void Module::startContactCB(FixtureComponent* pOther)
 
 }
 void Module::endContactCB(FixtureComponent* pOther)
+{
+
+}
+void Module::pack(sf::Packet& rPacket)
+{
+
+}
+void Module::unpack(const sf::Packet& rPacket)
 {
 
 }

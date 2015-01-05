@@ -29,18 +29,7 @@ void Picture::f_callback(const tgui::Callback& callback)
 {
 
 }
-void Picture::f_MouseEntered()
-{
-    m_io.event(EventType::MouseEntered, 0, sf::Packet());
-}
-void Picture::f_LeftMouseClicked()
-{
-    m_io.event(EventType::LeftMouseClicked, 0, sf::Packet());
-}
-void Picture::f_MouseLeft()
-{
-    m_io.event(EventType::MouseLeft, 0, sf::Packet());
-}
+
 
 
 

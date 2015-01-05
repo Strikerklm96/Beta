@@ -143,7 +143,10 @@
 		<Unit filename="include/Network/Connection.hpp" />
 		<Unit filename="include/Network/NetworkBoss.hpp" />
 		<Unit filename="include/Network/NetworkComponent.hpp" />
+		<Unit filename="include/Network/NetworkFactory.hpp" />
+		<Unit filename="include/Network/Protocol.hpp" />
 		<Unit filename="include/Overlay/Button.hpp" />
+		<Unit filename="include/Overlay/Chatbox.hpp" />
 		<Unit filename="include/Overlay/EditBox.hpp" />
 		<Unit filename="include/Overlay/Overlay.hpp" />
 		<Unit filename="include/Overlay/Panel.hpp" />
@@ -202,7 +205,9 @@
 		<Unit filename="src/IO/Message.cpp" />
 		<Unit filename="src/Network/NetworkBoss.cpp" />
 		<Unit filename="src/Network/NetworkComponent.cpp" />
+		<Unit filename="src/Network/NetworkFactory.cpp" />
 		<Unit filename="src/Overlay/Button.cpp" />
+		<Unit filename="src/Overlay/Chatbox.cpp" />
 		<Unit filename="src/Overlay/EditBox.cpp" />
 		<Unit filename="src/Overlay/Overlay.cpp" />
 		<Unit filename="src/Overlay/Panel.cpp" />

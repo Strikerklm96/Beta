@@ -27,12 +27,9 @@ public:
 
 
 protected:
-    void input(const std::string rCommand, sf::Packet rData);
+    virtual void input(const std::string rCommand, sf::Packet rData) final;
 
     virtual void f_callback(const tgui::Callback& callback);
-    virtual void f_MouseEntered();
-    virtual void f_MouseLeft();
-    virtual void f_LeftMouseClicked();
     virtual void f_trigger();
 
 private:

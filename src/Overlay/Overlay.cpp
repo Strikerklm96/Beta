@@ -6,6 +6,7 @@
 #include "Button.hpp"
 #include "Courier.hpp"
 #include "EditBox.hpp"
+#include "Chatbox.hpp"
 
 using namespace std;
 
@@ -164,6 +165,41 @@ void Overlay::loadMenus()
     ipAdd.ioComp.courierList.push_back(ipAddMess);
     pMultMenu->add(tr1::shared_ptr<leon::WidgetBase>(new leon::EditBox(*pMultMenu->getPanelPtr(), ipAdd)));
     /**MULTIPLAYER**/
+
+
+
+
+    /**LOBBY**/
+    sf::Vector2f lobbyPanelSize = sf::Vector2f(640,480);
+    leon::PanelData lobbyPanel;
+    lobbyPanel.ioComp.name = "lobby";
+    lobbyPanel.startHidden = false;
+    lobbyPanel.backgroundColor = sf::Color::Black;
+    lobbyPanel.screenCoords = sf::Vector2f(game.getWindow().getSize().x/2-lobbyPanelSize.x/2,game.getWindow().getSize().y/2-lobbyPanelSize.y/2);
+    lobbyPanel.size = sf::Vector2f(lobbyPanelSize.x,lobbyPanelSize.y);
+    leon::Panel* pLobby = new leon::Panel(*pMain_menu->getPanelPtr(), lobbyPanel);
+
+    /**DISCONNECT**/
+    leon::ButtonData disconnect;
+    disconnect.ioComp.name = "lobby_disconnect";
+    disconnect.size = sf::Vector2f(250,50);
+    disconnect.buttonText = "Disconnect";
+    disconnect.screenCoords = sf::Vector2f(lobbyPanelSize.x-(disconnect.size.x+5), lobbyPanelSize.y-(disconnect.size.y+5));
+    Courier disconnectMess1;
+    disconnectMess1.condition.reset(EventType::LeftMouseClicked, 0, 'd', true);
+    disconnectMess1.message.reset("lobby", "toggleHidden", voidPacket, 0, false);
+    disconnect.ioComp.courierList.push_back(disconnectMess1);
+    pLobby->add(tr1::shared_ptr<leon::WidgetBase>(new leon::Button(*pLobby->getPanelPtr(), disconnect)));
+
+    /**CHATBOX**/
+    leon::ChatboxData chatbox;
+    chatbox.ioComp.name = "lobby_chatbox";
+    chatbox.size = sf::Vector2f(250,200);
+    chatbox.screenCoords = sf::Vector2f(3,7);
+
+    pLobby->add(tr1::shared_ptr<leon::WidgetBase>(new leon::Chatbox(*pLobby->getPanelPtr(), chatbox)));
+    /**LOBBY**/
+
 
 
 

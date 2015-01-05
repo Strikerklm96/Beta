@@ -5,6 +5,7 @@
 #include "Globals.hpp"
 #include "Connection.hpp"
 #include "IOComponent.hpp"
+#include "NetworkFactory.hpp"
 
 struct NetworkBossData
 {
@@ -15,7 +16,6 @@ struct NetworkBossData
     }
 
     IOComponentData ioComp;
-
 };
 
 class NetworkBoss
@@ -25,12 +25,14 @@ public:
     virtual ~NetworkBoss();
 
     /**BOTH**/
+    NetworkFactory& getNWFactory();
     bool setRecievePort(unsigned short port);//set receiving port, returns whether the bind was successful
     void host(unsigned short port);
     bool isClient() const;
 
     void updateConnections();
     Connection* findConnection(const sf::IpAddress& rAdd);
+    bool hasConnections();//are we connected to anyone?
 
     void update();
     /**BOTH**/
@@ -56,9 +58,12 @@ private:
     unsigned short m_joinPort;
     float m_joinTimeOut;
 
+    bool m_isOpen;
     bool m_isClient;//are we a client or a server
     sf::UdpSocket m_udp;
     std::vector<std::tr1::shared_ptr<Connection> > m_connections;
+
+    NetworkFactory m_nwFactory;
 };
 
 #endif // NETWORKBOSS_HPP
