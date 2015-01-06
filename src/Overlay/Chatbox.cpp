@@ -73,10 +73,21 @@ void Chatbox::input(const std::string rCommand, sf::Packet rData)
         else//if we are a host, dispatch it and enter it
         {
             ///DISPATCH IT SOMEHOW USING NW COMPONENT m_nw.send(command, rData)
-            std::string line;
-            rData >> line;
-            addLine(line);
+            rData >> m_latest;
+            m_nw.toggleNewData(true);
+
+            addLine(m_latest);
         }
+    }
+    else if(rCommand == "addLineLocal")
+    {
+        std::string line;
+        rData >> line;
+        addLine(line);
+    }
+    else if(rCommand == "clear")
+    {
+        m_pChatBox->removeAllLines();
     }
     else
         WidgetBase::input(rCommand, rData);
@@ -86,11 +97,14 @@ void Chatbox::pack(sf::Packet& rPacket)//give us data to send to the twin in the
     rPacket << m_latest;
     m_latest = "";
 }
-void Chatbox::unpack(const sf::Packet& rPacket)//process data from our twin
+void Chatbox::unpack(sf::Packet& rPacket)//process data from our twin
 {
-    sf::Packet packet(rPacket);
-    std::string command;
-    packet >> command;
-
-    cout << "\nUnpacked: [" << command << "].";
+    std::string line;
+    rPacket >> line;
+    addLine(line);
+    if(not game.getNwBoss().isClient())
+    {
+        m_nw.toggleNewData(true);
+        m_latest = line;
+    }
 }

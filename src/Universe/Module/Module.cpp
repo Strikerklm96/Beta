@@ -43,7 +43,7 @@ void Module::pack(sf::Packet& rPacket)
 {
 
 }
-void Module::unpack(const sf::Packet& rPacket)
+void Module::unpack(sf::Packet& rPacket)
 {
 
 }

@@ -1,12 +1,14 @@
 #include "NetworkFactory.hpp"
 #include "Globals.hpp"
+#include "NetworkComponent.hpp"
+#include "Protocol.hpp"
 
 using namespace std;
 
 
 NetworkFactory::NetworkFactory()
 {
-
+    m_lastSendID = 0;
 }
 NetworkFactory::~NetworkFactory()
 {
@@ -44,7 +46,37 @@ void NetworkFactory::free(int position)//don't adjust the list, just mark the no
         ///ERROR LOG
     }
 }
-void NetworkFactory::update()
+void NetworkFactory::getData(sf::Packet& rPacket)
 {
-
+    std::vector<NetworkComponent*>& rPtr = m_componentPtrs;
+    for(int32_t i = 0; i < rPtr.size(); ++i)
+    {
+        if(rPtr[i] != NULL)
+        {
+            if(rPtr[i]->hasNewData())
+            {
+                rPacket << i;
+                rPtr[i]->pack(rPacket);
+                rPtr[i]->toggleNewData(false);
+            }
+        }
+    }
+}
+void NetworkFactory::process(sf::Packet& rPacket)
+{
+    int32_t id;
+    while(rPacket >> id)
+    {
+        if(id < m_componentPtrs.size())
+        {
+            if(m_componentPtrs[id] != NULL)
+            {
+                m_componentPtrs[id]->unpack(rPacket);
+            }
+        }
+        else
+        {
+            cout << "\n" << FILELINE;
+        }
+    }
 }

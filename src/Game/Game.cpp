@@ -192,7 +192,7 @@ void Game::run()
         }
 
         /**NETWORK**/
-        if(m_spNetworkBoss->hasConnections())
+        ///if(m_spNetworkBoss->hasConnections())
             m_spNetworkBoss->update();
 
 

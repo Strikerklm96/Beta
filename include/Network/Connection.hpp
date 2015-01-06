@@ -2,6 +2,7 @@
 #define CONNECTION_HPP
 
 #include "stdafx.hpp"
+#include "Protocol.hpp"
 
 struct Connection
 {
@@ -18,7 +19,7 @@ struct Connection
         if(pSocket != NULL)
         {
             sf::Packet data;
-            data << "c";
+            data << static_cast<int32_t>(Protocol::Connect);
             send(data);
         }
     }
@@ -49,7 +50,7 @@ struct Connection
         {
             std::cout << "\nDropping:[" << ip.toString() << "]";
             sf::Packet data;
-            data << "d";
+            data << static_cast<int32_t>(Protocol::Drop);
             send(data);
             send(data);
             send(data);

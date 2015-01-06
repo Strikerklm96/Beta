@@ -25,7 +25,7 @@ public:
 protected:
     virtual void input(std::string rCommand, sf::Packet rData);
     virtual void pack(sf::Packet& rPacket);
-    virtual void unpack(const sf::Packet& rPacket);
+    virtual void unpack(sf::Packet& rPacket);
     virtual void startContactCB(FixtureComponent* pOther);
     virtual void endContactCB(FixtureComponent* pOther);
 

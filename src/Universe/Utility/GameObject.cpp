@@ -18,7 +18,7 @@ void GameObject::pack(sf::Packet& rPacket)
 {
 
 }
-void GameObject::unpack(const sf::Packet& rPacket)
+void GameObject::unpack(sf::Packet& rPacket)
 {
 
 }

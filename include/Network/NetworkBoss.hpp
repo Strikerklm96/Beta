@@ -24,30 +24,28 @@ public:
     NetworkBoss(const NetworkBossData& rData);
     virtual ~NetworkBoss();
 
-    /**BOTH**/
+
+    /**UTILITY**/
     NetworkFactory& getNWFactory();
+    void messageLobbyLocal(const std::string& rMessage);
     bool setRecievePort(unsigned short port);//set receiving port, returns whether the bind was successful
-    void host(unsigned short port);
-    bool isClient() const;
-
-    void updateConnections();
-    Connection* findConnection(const sf::IpAddress& rAdd);
     bool hasConnections();//are we connected to anyone?
-
-    void update();
-    /**BOTH**/
-
-
-
-    /**CLIENT**/
-    bool connect(const std::string& address, unsigned short port, float timeout);//clear all connections and make a connection with this server
-    /**CLIENT**/
+    Connection* findConnection(const sf::IpAddress& rAdd);
+    bool isClient() const;
+    void addConnection(const std::string& address, unsigned short port, float timeout);//add this connection to our clients list and handshake it a few times (SERVER ONLY)
 
 
+    /**CHANGE STATE**/
+    void setClient(const std::string& address, unsigned short port, float timeout);//set us to client mode and connect to a host
+    void setLocalOnly();//set us to local mode and ignore nw activity
+    void setHost(unsigned short port, float timeout);//set us to host mode and listen for connections
 
-    /**SERVER**/
-    void addConnection(const std::string& address, unsigned short port, float timeout);//adds a connection to our client list
-    /**SERVER**/
+
+    /**UPDATE**/
+    void update();///get a better name!
+    void updateConnectionStatus();//drop connections if they timeout, or try and connect to invalid connections
+
+
 
 protected:
     void input(const std::string rCommand, sf::Packet rData);
@@ -56,7 +54,7 @@ private:
 
     std::string m_joinIP;
     unsigned short m_joinPort;
-    float m_joinTimeOut;
+    float m_joinTimeOut;//timeout we use for connections
 
     bool m_isOpen;
     bool m_isClient;//are we a client or a server

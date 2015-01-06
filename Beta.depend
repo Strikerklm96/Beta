@@ -475,7 +475,7 @@
 	<ostream>
 	<string>
 
-1415391205 c:\users\leon\desktop\projects\beta\include\api\sfml\network\packet.hpp
+1420428495 c:\users\leon\desktop\projects\beta\include\api\sfml\network\packet.hpp
 	<SFML/Network/Export.hpp>
 	<string>
 	<vector>
@@ -909,7 +909,7 @@
 1416270900 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
 	"GraphicsComponent.hpp"
 
-1420249897 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
+1420440229 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
 	"Game.hpp"
 	"Globals.hpp"
 	"TextureAllocator.hpp"
@@ -1058,7 +1058,7 @@
 1420246863 c:\users\leon\desktop\projects\beta\include\overlay\editbox.hpp
 	"WidgetBase.hpp"
 
-1420246514 source:c:\users\leon\desktop\projects\beta\src\overlay\overlay.cpp
+1420523365 source:c:\users\leon\desktop\projects\beta\src\overlay\overlay.cpp
 	"Overlay.hpp"
 	"Globals.hpp"
 	"Panel.hpp"
@@ -1150,10 +1150,10 @@
 1415679634 c:\users\leon\desktop\projects\beta\include\physics\bodycomponent.hpp
 	"stdafx.hpp"
 
-1420329387 source:c:\users\leon\desktop\projects\beta\src\network\networkcomponent.cpp
+1420484081 source:c:\users\leon\desktop\projects\beta\src\network\networkcomponent.cpp
 	"NetworkComponent.hpp"
 
-1420329286 c:\users\leon\desktop\projects\beta\include\network\networkcomponent.hpp
+1420430756 c:\users\leon\desktop\projects\beta\include\network\networkcomponent.hpp
 	"stdafx.hpp"
 	"NetworkBoss.hpp"
 
@@ -1190,7 +1190,7 @@
 1415679634 c:\users\leon\desktop\projects\beta\include\universe\utility\debugdraw.hpp
 	"stdafx.hpp"
 
-1420420443 c:\users\leon\desktop\projects\beta\include\universe\utility\gameobject.hpp
+1420437167 c:\users\leon\desktop\projects\beta\include\universe\utility\gameobject.hpp
 	"Globals.hpp"
 	"NetworkComponent.hpp"
 	"IOComponent.hpp"
@@ -1202,7 +1202,7 @@
 	"stdafx.hpp"
 	"Convert.hpp"
 
-1420420424 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobject.cpp
+1420437161 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobject.cpp
 	"GameObject.hpp"
 
 1415501911 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobjectfactory.cpp
@@ -1260,13 +1260,13 @@
 	"QuadComponent.hpp"
 	"Health.hpp"
 
-1420251061 source:c:\users\leon\desktop\projects\beta\src\network\networkboss.cpp
+1420567739 source:c:\users\leon\desktop\projects\beta\src\network\networkboss.cpp
 	"NetworkBoss.hpp"
 	"Protocol.hpp"
 	"IOManager.hpp"
 	"Universe.hpp"
 
-1417370619 c:\users\leon\desktop\projects\beta\include\network\networkboss.hpp
+1420522024 c:\users\leon\desktop\projects\beta\include\network\networkboss.hpp
 	"stdafx.hpp"
 	"Globals.hpp"
 	"Connection.hpp"
@@ -1397,7 +1397,7 @@
 1416349143 c:\users\leon\desktop\projects\beta\include\universe\module\health.hpp
 	"Pool.hpp"
 
-1420345037 c:\users\leon\desktop\projects\beta\include\universe\module\module.hpp
+1420437074 c:\users\leon\desktop\projects\beta\include\universe\module\module.hpp
 	"Globals.hpp"
 	"IOComponent.hpp"
 	"NetworkComponent.hpp"
@@ -1419,7 +1419,7 @@
 1416349977 c:\users\leon\desktop\projects\beta\include\universe\module\reactor.hpp
 	"ShipModule.hpp"
 
-1420345062 source:c:\users\leon\desktop\projects\beta\src\universe\module\module.cpp
+1420437063 source:c:\users\leon\desktop\projects\beta\src\universe\module\module.cpp
 	"Module.hpp"
 	"Intelligence.hpp"
 
@@ -1555,23 +1555,26 @@
 	"Turret.hpp"
 	"Intelligence.hpp"
 
-1417152049 c:\users\leon\desktop\projects\beta\include\network\connection.hpp
+1420488085 c:\users\leon\desktop\projects\beta\include\network\connection.hpp
 	"stdafx.hpp"
+	"Protocol.hpp"
 
-1420329428 c:\users\leon\desktop\projects\beta\include\network\networkfactory.hpp
+1420484291 c:\users\leon\desktop\projects\beta\include\network\networkfactory.hpp
 	"stdafx.hpp"
 
 1417371293 c:\users\leon\desktop\projects\beta\include\network\protocol.hpp
 
-1420329549 source:c:\users\leon\desktop\projects\beta\src\network\networkfactory.cpp
+1420491262 source:c:\users\leon\desktop\projects\beta\src\network\networkfactory.cpp
 	"NetworkFactory.hpp"
 	"Globals.hpp"
+	"NetworkComponent.hpp"
+	"Protocol.hpp"
 
-1420420357 source:c:\users\leon\desktop\projects\beta\src\overlay\chatbox.cpp
+1420505540 source:c:\users\leon\desktop\projects\beta\src\overlay\chatbox.cpp
 	"Chatbox.hpp"
 	"NetworkBoss.hpp"
 
-1420420308 c:\users\leon\desktop\projects\beta\include\overlay\chatbox.hpp
+1420437553 c:\users\leon\desktop\projects\beta\include\overlay\chatbox.hpp
 	"WidgetBase.hpp"
 	"EditBox.hpp"
 	"Universe.hpp"

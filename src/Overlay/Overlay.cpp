@@ -146,7 +146,7 @@ void Overlay::loadMenus()
     /**PORT**/
     leon::EditBoxData port;
     port.size = sf::Vector2f(125,50);
-    port.startingText = "Port";
+    port.startingText = "5050";
     port.screenCoords = sf::Vector2f(215,5);
     Courier portMess;
     portMess.condition.reset(EventType::TextChanged, 0, 'd', true);
@@ -173,7 +173,7 @@ void Overlay::loadMenus()
     sf::Vector2f lobbyPanelSize = sf::Vector2f(640,480);
     leon::PanelData lobbyPanel;
     lobbyPanel.ioComp.name = "lobby";
-    lobbyPanel.startHidden = false;
+    lobbyPanel.startHidden = true;
     lobbyPanel.backgroundColor = sf::Color::Black;
     lobbyPanel.screenCoords = sf::Vector2f(game.getWindow().getSize().x/2-lobbyPanelSize.x/2,game.getWindow().getSize().y/2-lobbyPanelSize.y/2);
     lobbyPanel.size = sf::Vector2f(lobbyPanelSize.x,lobbyPanelSize.y);
@@ -188,7 +188,14 @@ void Overlay::loadMenus()
     Courier disconnectMess1;
     disconnectMess1.condition.reset(EventType::LeftMouseClicked, 0, 'd', true);
     disconnectMess1.message.reset("lobby", "toggleHidden", voidPacket, 0, false);
+    Courier disconnectMess2;
+    disconnectMess2.condition.reset(EventType::LeftMouseClicked, 0, 'd', true);
+    disconnectMess2.message.reset("networkboss", "localOnly", voidPacket, 0, false);
+
     disconnect.ioComp.courierList.push_back(disconnectMess1);
+    disconnect.ioComp.courierList.push_back(disconnectMess2);
+
+
     pLobby->add(tr1::shared_ptr<leon::WidgetBase>(new leon::Button(*pLobby->getPanelPtr(), disconnect)));
 
     /**CHATBOX**/

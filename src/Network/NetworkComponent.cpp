@@ -10,7 +10,15 @@ bool NetworkComponent::toggleNewData(bool newData)//set new data
 {
     m_newData = newData;
 }
-bool NetworkComponent::isNewData()//do we have new data
+bool NetworkComponent::hasNewData()//do we have new data
 {
     return m_newData;
+}
+void NetworkComponent::pack(sf::Packet& rPacket)
+{
+    m_packFunction(rPacket);
+}
+void NetworkComponent::unpack(sf::Packet& rPacket)
+{
+    m_unpackFunction(rPacket);
 }

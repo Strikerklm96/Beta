@@ -17,7 +17,7 @@ class NetworkComponent // for syncing data between objects on different computer
 {
 public:
     template <typename T>
-    NetworkComponent(const NetworkComponentData& rData, void (T::*pack)(sf::Packet&), void (T::*unpack)(const sf::Packet&), T* const classPtr) : m_rFactory(game.getNwBoss().getNWFactory())
+    NetworkComponent(const NetworkComponentData& rData, void (T::*pack)(sf::Packet&), void (T::*unpack)(sf::Packet&), T* const classPtr) : m_rFactory(game.getNwBoss().getNWFactory())
     {
         m_packFunction = std::bind(pack, classPtr, std::placeholders::_1);
         m_unpackFunction = std::bind(unpack, classPtr, std::placeholders::_1);
@@ -27,13 +27,16 @@ public:
     }
     virtual ~NetworkComponent();
 
+    void pack(sf::Packet& rPacket);
+    void unpack(sf::Packet& rPacket);
+
     bool toggleNewData(bool newData);//set new data
-    bool isNewData();//do we have new data
+    bool hasNewData();//do we have new data
 
 protected:
 private:
     std::function<void(sf::Packet&)> m_packFunction;//the function we call when we get a receive call
-    std::function<void(const sf::Packet&)> m_unpackFunction;//the function we call when we get a receive call
+    std::function<void(sf::Packet&)> m_unpackFunction;//the function we call when we get a receive call
 
     NetworkFactory& m_rFactory;
     int m_factoryID;
