@@ -21,6 +21,15 @@ void ShipModule::postPhysUpdate()
     m_baseDecor.setPosition(m_fix.getCenter());
     m_baseDecor.setRotation(m_fix.getAngle());
 }
+
+void ShipModule::pack(sf::Packet& rPacket)
+{
+
+}
+void ShipModule::unpack(sf::Packet& rPacket)
+{
+
+}
 void ShipModule::input(std::string rCommand, sf::Packet rData)
 {
     if(rCommand == "damage")

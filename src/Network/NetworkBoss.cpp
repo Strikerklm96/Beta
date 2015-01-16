@@ -12,7 +12,7 @@ NetworkBoss::NetworkBoss(const NetworkBossData& rData) : m_io(rData.ioComp, Netw
     m_udp.unbind();
     m_udp.setBlocking(false);
     m_joinIP = "";
-    m_joinPort = 0;
+    m_joinPort = 5050;
     m_joinTimeOut = 5.f;
     m_isOpen = false;
 }
@@ -380,7 +380,7 @@ void NetworkBoss::input(const std::string rCommand, sf::Packet rData)
     }
     else if(rCommand == "host")
     {
-        if(!(m_joinPort==0))
+        if(not (m_joinPort<1024))
         {
             setHost(m_joinPort, m_joinTimeOut);
         }

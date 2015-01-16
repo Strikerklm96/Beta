@@ -909,7 +909,7 @@
 1416270900 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
 	"GraphicsComponent.hpp"
 
-1420440229 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
+1421386155 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
 	"Game.hpp"
 	"Globals.hpp"
 	"TextureAllocator.hpp"
@@ -931,7 +931,7 @@
 	"Beam.hpp"
 	"RayCastCallback.hpp"
 
-1420249861 c:\users\leon\desktop\projects\beta\include\game\game.hpp
+1421380763 c:\users\leon\desktop\projects\beta\include\game\game.hpp
 	"stdafx.hpp"
 
 1415149801 source:c:\users\leon\desktop\projects\beta\src\graphics\batchlayers.cpp
@@ -958,18 +958,19 @@
 1416440554 c:\users\leon\desktop\projects\beta\include\control\camera.hpp
 	"stdafx.hpp"
 
-1419448590 source:c:\users\leon\desktop\projects\beta\src\control\intelligence.cpp
+1421381151 source:c:\users\leon\desktop\projects\beta\src\control\intelligence.cpp
 	"Intelligence.hpp"
 	"SlaveLocator.hpp"
 	"Chunk.hpp"
 
-1419448637 c:\users\leon\desktop\projects\beta\include\control\intelligence.hpp
+1421381165 c:\users\leon\desktop\projects\beta\include\control\intelligence.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"Globals.hpp"
 	"Universe.hpp"
+	"NetworkComponent.hpp"
 
-1419448575 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
+1421381251 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
 	"Player.hpp"
 	"Globals.hpp"
 	"Overlay.hpp"
@@ -980,7 +981,7 @@
 	"DecorQuad.hpp"
 	"LinearMeter.hpp"
 
-1419448609 c:\users\leon\desktop\projects\beta\include\control\player.hpp
+1420934631 c:\users\leon\desktop\projects\beta\include\control\player.hpp
 	"stdafx.hpp"
 	"Intelligence.hpp"
 	"Camera.hpp"
@@ -1003,7 +1004,7 @@
 
 1416204888 c:\users\leon\desktop\projects\beta\include\basic\timer.hpp
 
-1417488416 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
+1421384685 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"UniversalContactListener.hpp"
@@ -1083,7 +1084,7 @@
 1417129436 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
 	"WidgetBase.hpp"
 
-1417489096 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
+1421384672 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
 	"Universe.hpp"
 	"BlueprintLoader.hpp"
 	"Globals.hpp"
@@ -1260,7 +1261,7 @@
 	"QuadComponent.hpp"
 	"Health.hpp"
 
-1420567739 source:c:\users\leon\desktop\projects\beta\src\network\networkboss.cpp
+1421378197 source:c:\users\leon\desktop\projects\beta\src\network\networkboss.cpp
 	"NetworkBoss.hpp"
 	"Protocol.hpp"
 	"IOManager.hpp"
@@ -1405,7 +1406,7 @@
 	"Universe.hpp"
 	"Pool.hpp"
 
-1416444312 c:\users\leon\desktop\projects\beta\include\universe\module\shipmodule.hpp
+1420934618 c:\users\leon\desktop\projects\beta\include\universe\module\shipmodule.hpp
 	"Module.hpp"
 	"QuadComponent.hpp"
 	"Health.hpp"
@@ -1429,7 +1430,7 @@
 1416437835 source:c:\users\leon\desktop\projects\beta\src\universe\module\sensor.cpp
 	"Sensor.hpp"
 
-1417028352 source:c:\users\leon\desktop\projects\beta\src\universe\module\shipmodule.cpp
+1420934623 source:c:\users\leon\desktop\projects\beta\src\universe\module\shipmodule.cpp
 	"ShipModule.hpp"
 
 1416291213 source:c:\users\leon\desktop\projects\beta\src\universe\module\thruster.cpp
@@ -1562,7 +1563,7 @@
 1420484291 c:\users\leon\desktop\projects\beta\include\network\networkfactory.hpp
 	"stdafx.hpp"
 
-1417371293 c:\users\leon\desktop\projects\beta\include\network\protocol.hpp
+1421379156 c:\users\leon\desktop\projects\beta\include\network\protocol.hpp
 
 1420491262 source:c:\users\leon\desktop\projects\beta\src\network\networkfactory.cpp
 	"NetworkFactory.hpp"
@@ -1579,4 +1580,10 @@
 	"EditBox.hpp"
 	"Universe.hpp"
 	"NetworkComponent.hpp"
+
+1421380722 source:c:\users\leon\desktop\projects\beta\src\control\sifactory.cpp
+	"SIFactory.hpp"
+
+1421384088 c:\users\leon\desktop\projects\beta\include\control\sifactory.hpp
+	"stdafx.hpp"
 

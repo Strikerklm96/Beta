@@ -111,11 +111,6 @@ void Game::run()
     /**===========================**/
     /**EVAN PUT STUFF TO DRAW HERE**/
 
-    BeamData test;
-    Beam aBeam(test);
-
-    aBeam.setStart(b2Vec2(0,0));
-    aBeam.setEnd(b2Vec2(10,3));
 
     RayCastCallback inst;
 
@@ -137,7 +132,7 @@ void Game::run()
     /**===========================**/
 
 
-    m_spUniverse->loadLevel("levels/level_1/", "", "blueprints/");
+    m_spUniverse->loadLevel("levels/level_1/", "", "blueprints/", map<string, string>());
 
     RenderWindow& rWindow = *m_spWindow;
     sf::View defaultView;
@@ -154,19 +149,14 @@ void Game::run()
 
     while(rWindow.isOpen())
     {
-        aBeam.activate(60, 32, sf::Color::White);
 
 
         /**== TESTING ==**/
         //EVAN
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::N))
         {
-            aBeam.setEnd(b2Vec2(10, x+=0.1));
-            aBeam.activate(60, 256, sf::Color::White);
-           // game.loadUniverse("hi");
-
-          //  m_spUniverse->loadBlueprints("blueprints/");
-          //  m_spUniverse->loadLevel("levels/level_1/");
+            game.loadUniverse("hi");
+            m_spUniverse->loadLevel("levels/level_1/", "", "blueprints/", map<string, string>());
         }
 
         /**== FRAMERATE ==**/
@@ -187,6 +177,10 @@ void Game::run()
         while(timeRemaining >= timeStep)
         {
             getLocalPlayer().getLiveInput();
+            getLocalPlayer().processDirectives();
+
+
+
             getUniverse().physUpdate();
             timeRemaining -= timeStep;
         }

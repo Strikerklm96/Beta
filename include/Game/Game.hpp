@@ -52,6 +52,8 @@ private:
 
     std::tr1::shared_ptr<NetworkBoss> m_spNetworkBoss;
     std::tr1::shared_ptr<Player> m_spLocalPlayer;
+
+
     std::tr1::shared_ptr<sf::RenderWindow> m_spWindow;
     std::tr1::shared_ptr<Overlay> m_spOverlay;
 

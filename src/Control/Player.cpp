@@ -62,19 +62,35 @@ void Player::getLiveInput()//get direct feed from keyboard and mouse, just gets 
         {
             /**== KEYBOARD ==**/
             if(Keyboard::isKeyPressed(m_inCfg.up))
-                directive(Directive::Up);
+                m_directives[Directive::Up] = true;
+            else
+                m_directives[Directive::Up] = false;
+
             if(Keyboard::isKeyPressed(m_inCfg.down))
-                directive(Directive::Down);
+                m_directives[Directive::Down] = true;
+            else
+                m_directives[Directive::Down] = false;
+
             if(Keyboard::isKeyPressed(m_inCfg.rollCCW))
-                directive(Directive::RollCCW);
+                m_directives[Directive::RollCCW] = true;
+            else
+                m_directives[Directive::RollCCW] = false;
+
             if(Keyboard::isKeyPressed(m_inCfg.rollCW))
-                directive(Directive::RollCW);
+                m_directives[Directive::RollCW] = true;
+            else
+                m_directives[Directive::RollCW] = false;
 
             /**== MOUSE **/
             if(Mouse::isButtonPressed(m_inCfg.primary))
-                directive(Directive::FirePrimary);
+                m_directives[Directive::FirePrimary] = true;
+            else
+                m_directives[Directive::FirePrimary] = false;
+
             if(Mouse::isButtonPressed(m_inCfg.secondary))
-                directive(Directive::FireSecondary);
+                m_directives[Directive::FireSecondary] = true;
+            else
+                m_directives[Directive::FireSecondary] = false;
 
             b2Vec2 worldAim = leon::sfTob2(game.getWindow().mapPixelToCoords(Mouse::getPosition(game.getWindow()), m_camera.getView()));
             setAim(worldAim);
@@ -242,6 +258,14 @@ bool Player::toggleFocus(bool isWindowFocused)
 bool Player::hasFocus() const
 {
     return m_hasFocus;
+}
+void Player::pack(sf::Packet& rPacket)
+{
+
+}
+void Player::unpack(sf::Packet& rPacket)
+{
+
 }
 void Player::input(std::string rCommand, sf::Packet rData)
 {

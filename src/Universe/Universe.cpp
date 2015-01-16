@@ -136,7 +136,7 @@ void Universe::loadBlueprints(const std::string& bpDir)//loads blueprints
 {
     m_spBPLoader->storeRoster(bpDir);
 }
-void Universe::loadLevel(const std::string& levelDir, const std::string& localPlayerSlave, const std::string& bluePrints)//loads a level using blueprints
+void Universe::loadLevel(const std::string& levelDir, const std::string& localPlayerSlave, const std::string& bluePrints, const std::map<std::string, std::string> siList)//loads a level using blueprints
 {
     loadBlueprints(bluePrints);
 
@@ -255,6 +255,11 @@ void Universe::loadLevel(const std::string& levelDir, const std::string& localPl
     if(slave == "")
         slave = "BPCHUNKNAME";
     game.getLocalPlayer().setSlave(slave);
+
+
+    ///SET UP SI
+
+
 }
 void Universe::add(std::tr1::shared_ptr<GameObject> spGO)
 {

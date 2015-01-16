@@ -38,7 +38,7 @@ public:
     void toggleDebugDraw();
 
 
-    void loadLevel(const std::string& level, const std::string& localPlayerSlave, const std::string& bluePrints);//loads a level using blueprints
+    void loadLevel(const std::string& level, const std::string& localPlayerSlave, const std::string& bluePrints, const std::map<std::string, std::string> siList);//loads a level using blueprints
     void add(std::tr1::shared_ptr<GameObject> spGO);
     void add(GameObject* pGO);
 

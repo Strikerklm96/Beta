@@ -16,8 +16,12 @@ public:
     virtual void prePhysUpdate();
     virtual void postPhysUpdate();
 
+
+
 protected:
     virtual void input(std::string rCommand, sf::Packet rData);
+    virtual void pack(sf::Packet& rPacket);
+    virtual void unpack(sf::Packet& rPacket);
 
     Health m_health;
 

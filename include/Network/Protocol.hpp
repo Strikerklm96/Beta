@@ -9,6 +9,7 @@ enum class Protocol//indicate which type of message it is
     Lobby,//a message regarding chat or the players in lobby
     LoadLevel,//the server wants us to load a game
     Data,//a message regarding the game
+    PlayerInput,//what the player is doing in terms of actions, aim, ect
 };
 
 #endif // PROTOCOL_HPP
