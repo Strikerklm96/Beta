@@ -52,6 +52,7 @@ struct ChunkData : public GameObjectData
         bodyComp()
     {
         zoomData.startMin = 1;
+        zoomData.startValue = 1;
         zoomData.startMax = 128;
     }
 

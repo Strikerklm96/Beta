@@ -69,7 +69,7 @@ private:
 
 
 
-    /**LOAD SIMPLE DATA**///data that doesnt inherit or anything
+    /**LOAD ControlMPLE DATA**///data that doesnt inherit or anything
     /**================**/
     sf::Color loadColor(const Json::Value& root);
     BodyComponentData loadBodyComp(const Json::Value& root, const BodyComponentData& orig);
@@ -92,7 +92,7 @@ private:
         return data;
     }
     /**================**/
-    /**LOAD SIMPLE DATA**///data that doesnt inherit or anything
+    /**LOAD ControlMPLE DATA**///data that doesnt inherit or anything
 
 
     std::map<std::string, std::tr1::shared_ptr<const ModuleData> > m_modBP;

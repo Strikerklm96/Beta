@@ -5,6 +5,7 @@
 #include "IOComponent.hpp"
 #include "UniversalContactListener.hpp"
 #include "DebugDraw.hpp"
+#include "ControlFactory.hpp"
 
 class BatchLayers;
 class GraphicsComponentUpdater;
@@ -14,6 +15,7 @@ class Factory;
 class SlaveLocator;
 class BlueprintLoader;
 class Decoration;
+class ControlFactory;
 
 class Universe
 {
@@ -21,6 +23,7 @@ public:
     Universe(const IOComponentData& rData);
     virtual ~Universe();
 
+    ControlFactory& getControllerFactory();
     SlaveLocator& getSlaveLocator();
     BatchLayers& getBatchLayers();
     GraphicsComponentUpdater& getGfxUpdater();
@@ -38,7 +41,7 @@ public:
     void toggleDebugDraw();
 
 
-    void loadLevel(const std::string& level, const std::string& localPlayerSlave, const std::string& bluePrints, const std::map<std::string, std::string> siList);//loads a level using blueprints
+    void loadLevel(const std::string& level, int localController, const std::string& bluePrints, const std::vector<std::string>& rControllerList);//loads a level using blueprints
     void add(std::tr1::shared_ptr<GameObject> spGO);
     void add(GameObject* pGO);
 
@@ -48,7 +51,7 @@ protected:
     void input(std::string rCommand, sf::Packet rData);
 
 private:
-    /**PHYSICS**/
+    /**PHYControlCS**/
     float m_timeStep;
     int m_velocityIterations;
     int m_positionIterations;
@@ -57,8 +60,9 @@ private:
     DebugDraw m_debugDraw;
 
     b2World m_physWorld;
-    /**PHYSICS**/
+    /**PHYControlCS**/
 
+    std::tr1::shared_ptr<ControlFactory> m_spControlFactory;
     std::tr1::shared_ptr<BlueprintLoader> m_spBPLoader;
     std::tr1::shared_ptr<SlaveLocator> m_spSlaveLocator;//list of all slaves
     std::tr1::shared_ptr<BatchLayers> m_spBatchLayers;

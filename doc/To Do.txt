@@ -1,3 +1,5 @@
+Redesign Control
+Multiplayer
 Finish and test the ability of messages via JSON (data still needs inning)
 Design FSM for modules
 Have an else for (if(parsedSuccess)) and JSON checking and parse fail messages

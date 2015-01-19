@@ -1,6 +1,6 @@
 #include "Turret.hpp"
 
-#include "Intelligence.hpp"
+#include "Controller.hpp"
 
 Turret::Turret(const TurretData& rData) : ShipModule(rData)
 {

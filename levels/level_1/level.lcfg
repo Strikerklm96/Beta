@@ -1,7 +1,7 @@
 {
     "com_BLUEPRINTS": "Additional directories to find more blueprints in. Default always loaded.",
     "AdditionalBlueprints": [],
-    "Player1Slave": "chunk_99",
+    "Player1Slave": "ship_11",
     "Chunks": [
         {
             "Title": "DefaultChunk",
@@ -17,6 +17,69 @@
                 0
             ]
         },
+        {
+            "Title": "CombatShip",
+            "Coordinates": [
+                -4,
+                0
+            ]
+        },
+        {
+            "ClassName": "Chunk",
+            "Copies": "CombatShip",
+            "IO": {
+                "name": "ship_11"
+            },
+            "Body": {
+                "coords": [
+                    -5,
+                    -5
+                ]
+            }
+        },
+        {
+            "ClassName": "Chunk",
+            "Copies": "CombatShip",
+            "IO": {
+                "name": "ship_12"
+            },
+            "Body": {
+                "coords": [
+                    -10,
+                    -5
+                ]
+            }
+        },
+        {
+            "ClassName": "Chunk",
+            "Copies": "CombatShip",
+            "IO": {
+                "name": "ship_13"
+            },
+            "Body": {
+                "coords": [
+                    -15,
+                    -5
+                ]
+            }
+        },
+        {
+            "ClassName": "Chunk",
+            "Copies": "CombatShip",
+            "IO": {
+                "name": "ship_14"
+            },
+            "Body": {
+                "coords": [
+                    -20,
+                    -5
+                ]
+            }
+        },
+		
+		
+		
+		
         {
             "ClassName": "Chunk",
             "Copies": null,
@@ -45,7 +108,7 @@
                     20,
                     10
                 ],
-                "rotation": 25,
+                "rotation": 0,
                 "isDynamic": true,
                 "isBullet": false,
                 "startAwake": true

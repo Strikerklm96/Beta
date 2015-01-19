@@ -10,9 +10,10 @@
 
 using namespace std;
 
-Overlay::Overlay() : m_gui(game.getWindow())
+Overlay::Overlay(const IOComponentData& rData) : m_gui(game.getWindow()), m_io(rData, &Overlay::input, this)
 {
     m_gui.setGlobalFont("TGUI/fonts/DejaVuSans.ttf");
+    m_menuShowing = true;
     /**If we call loadMenus now, we try and access this very Overlay object before it has been returned to game**/
 }
 Overlay::~Overlay()
@@ -64,24 +65,12 @@ void Overlay::loadMenus()
     resumeButtonData.size = sf::Vector2f(150,50);
     resumeButtonData.buttonText = "Resume";
     resumeButtonData.screenCoords = sf::Vector2f(20, 300);
-    sf::Packet falsePacket;
-    falsePacket << false;
-    sf::Packet truePacket;
-    truePacket << true;
+
     Courier resumeMessage1;
     resumeMessage1.condition.reset(EventType::LeftMouseClicked, 0, 'd', true);
-    resumeMessage1.message.reset("main_menu", "setHidden", truePacket, 0, false);
-    Courier resumeMessage2;
-    resumeMessage2.condition.reset(EventType::LeftMouseClicked, 0, 'd', true);
-    sf::Packet statePacket;
-    statePacket << false;
-    resumeMessage2.message.reset("local_player", "setGuiMode", falsePacket, 0, false);
-    Courier resumeMessage3;
-    resumeMessage3.condition.reset(EventType::LeftMouseClicked, 0, 'd', true);
-    resumeMessage3.message.reset("universe", "setPause", falsePacket, 0, false);
+    resumeMessage1.message.reset("overlay", "toggleMenu", voidPacket, 0, false);
+
     resumeButtonData.ioComp.courierList.push_back(resumeMessage1);
-    resumeButtonData.ioComp.courierList.push_back(resumeMessage2);
-    resumeButtonData.ioComp.courierList.push_back(resumeMessage3);
     leon::WidgetBase* pResume = new leon::Button(*pMain_menu->getPanelPtr(), resumeButtonData);
     pMain_menu->add(tr1::shared_ptr<leon::WidgetBase>(pResume));
     /**====HOW TO PLAY====**/
@@ -198,6 +187,29 @@ void Overlay::loadMenus()
 
     pLobby->add(tr1::shared_ptr<leon::WidgetBase>(new leon::Button(*pLobby->getPanelPtr(), disconnect)));
 
+    /**Launch**/
+    leon::ButtonData launch;
+    launch.ioComp.name = "lobby_launch";
+    launch.size = sf::Vector2f(150,50);
+    launch.buttonText = "Launch";
+    launch.screenCoords = sf::Vector2f(5, lobbyPanelSize.y-(launch.size.y+5));
+    Courier launchMess1;
+    launchMess1.condition.reset(EventType::LeftMouseClicked, 0, 'd', true);
+    launchMess1.message.reset("lobby", "toggleHidden", voidPacket, 0, false);
+    Courier launchMess2;
+    launchMess2.condition.reset(EventType::LeftMouseClicked, 0, 'd', true);
+    launchMess2.message.reset("networkboss", "localOnly", voidPacket, 0, false);
+
+    ///close menu
+    ///launch game
+    ///send data to clients
+
+    launch.ioComp.courierList.push_back(launchMess1);
+    launch.ioComp.courierList.push_back(launchMess2);
+
+
+    pLobby->add(tr1::shared_ptr<leon::WidgetBase>(new leon::Button(*pLobby->getPanelPtr(), launch)));
+
     /**CHATBOX**/
     leon::ChatboxData chatbox;
     chatbox.ioComp.name = "lobby_chatbox";
@@ -233,4 +245,40 @@ void Overlay::loadMenus()
     pMessBox->add(tr1::shared_ptr<leon::WidgetBase>(pClose));
     game.getOverlay().addPanel(tr1::shared_ptr<leon::Panel>(pMessBox));
 
+}
+void Overlay::toggleMenu(bool show)//display menu, assume gui control, send pause game command
+{
+    m_menuShowing = show;
+
+    sf::Packet guiMode;
+    guiMode << (show);
+    sf::Packet hideMenu;
+    hideMenu << (!show);
+    sf::Packet pause;
+    pause << (show);
+
+    Message mes1("main_menu", "setHidden", hideMenu, 0, false);
+    Message mes2("local_player", "setGuiMode", guiMode, 0, false);
+    Message mes3("universe", "setPause", pause, 0, false);
+
+    game.getCoreIO().recieve(mes1);
+    game.getCoreIO().recieve(mes2);
+    game.getCoreIO().recieve(mes3);
+}
+void Overlay::input(const std::string rCommand, sf::Packet rData)
+{
+    if(rCommand == "toggleMenu")
+    {
+        toggleMenu(!m_menuShowing);
+    }
+    else if(rCommand == "setMenu")
+    {
+        bool show;
+        rData >> show;
+        toggleMenu(show);
+    }
+    else
+    {
+        cout << "\n" << FILELINE;
+    }
 }

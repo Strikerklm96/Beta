@@ -16,7 +16,7 @@ public:
     int findPos(const std::string& slaveTarget);
     Chunk* find(int position);
 
-    Chunk* findHack(const std::string& rName);
+    Chunk* findHack(const std::string& rName);///what is this???
 
 protected:
 private:

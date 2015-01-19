@@ -5,11 +5,11 @@
 using namespace leon;
 using namespace std;
 
-Chatbox::Chatbox(tgui::Gui& gui, const ChatboxData& rData) : WidgetBase(rData), m_pChatBox(gui), m_nw(rData.nwCompData, &Chatbox::pack, &Chatbox::unpack, this)
+Chatbox::Chatbox(tgui::Gui& gui, const ChatboxData& rData) : WidgetBase(rData), m_pChatBox(gui), m_nw(rData.nwCompData, &Chatbox::pack, &Chatbox::unpack, this, game.getNwBoss().getNWFactory())
 {
     f_initialize(rData);
 }
-Chatbox::Chatbox(tgui::Container& container, const ChatboxData& rData = ChatboxData()) : WidgetBase(rData), m_pChatBox(container), m_nw(rData.nwCompData, &Chatbox::pack, &Chatbox::unpack, this)
+Chatbox::Chatbox(tgui::Container& container, const ChatboxData& rData = ChatboxData()) : WidgetBase(rData), m_pChatBox(container), m_nw(rData.nwCompData, &Chatbox::pack, &Chatbox::unpack, this, game.getNwBoss().getNWFactory())
 {
     f_initialize(rData);
 }
@@ -72,7 +72,7 @@ void Chatbox::input(const std::string rCommand, sf::Packet rData)
         }
         else//if we are a host, dispatch it and enter it
         {
-            ///DISPATCH IT SOMEHOW USING NW COMPONENT m_nw.send(command, rData)
+            ///DISPATCH IT SOMEHOW UControlNG NW COMPONENT m_nw.send(command, rData)
             rData >> m_latest;
             m_nw.toggleNewData(true);
 

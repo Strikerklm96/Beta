@@ -109,8 +109,8 @@
 		<Unit filename="include/Basic/Timer.hpp" />
 		<Unit filename="include/Basic/Weapon.hpp" />
 		<Unit filename="include/Control/Camera.hpp" />
-		<Unit filename="include/Control/Input.hpp" />
-		<Unit filename="include/Control/Intelligence.hpp" />
+		<Unit filename="include/Control/ControlFactory.hpp" />
+		<Unit filename="include/Control/Controller.hpp" />
 		<Unit filename="include/Control/Player.hpp" />
 		<Unit filename="include/Control/SlaveLocator.hpp" />
 		<Unit filename="include/Game/Game.hpp" />
@@ -178,8 +178,8 @@
 		<Unit filename="src/Basic/Timer.cpp" />
 		<Unit filename="src/Basic/Weapon.cpp" />
 		<Unit filename="src/Control/Camera.cpp" />
-		<Unit filename="src/Control/Input.cpp" />
-		<Unit filename="src/Control/Intelligence.cpp" />
+		<Unit filename="src/Control/ControlFactory.cpp" />
+		<Unit filename="src/Control/Controller.cpp" />
 		<Unit filename="src/Control/Player.cpp" />
 		<Unit filename="src/Control/SlaveLocator.cpp" />
 		<Unit filename="src/Game/Game.cpp" />

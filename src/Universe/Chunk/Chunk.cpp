@@ -1,7 +1,7 @@
 #include "Chunk.hpp"
 #include "Module.hpp"
 #include "SlaveLocator.hpp"
-#include "Intelligence.hpp"
+#include "Controller.hpp"
 
 using namespace std;
 

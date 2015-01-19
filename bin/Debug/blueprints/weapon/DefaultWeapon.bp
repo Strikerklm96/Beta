@@ -2,8 +2,8 @@
     "WeaponType": "Laser",
     "Title": "DefaultWeapon",
     "BeamStart": {
-        "texName": "thruster/thruster_base.png",
-        "animSheetName": "thruster/thruster_base.acfg",
+        "texName": "beam/beam_start.png",
+        "animSheetName": "beam/beam_start.acfg",
         "layer": "Projectiles",
         "permanentRot": 0,
         "dimensions": [
@@ -12,8 +12,8 @@
         ]
     },
     "BeamEnd": {
-        "texName": "thruster/thruster_base.png",
-        "animSheetName": "thruster/thruster_base.acfg",
+        "texName": "beam/beam_end.png",
+        "animSheetName": "beam/beam_end.acfg",
         "layer": "Projectiles",
         "permanentRot": 0,
         "dimensions": [
@@ -22,8 +22,8 @@
         ]
     },
     "BeamMid": {
-        "texName": "thruster/thruster_base.png",
-        "animSheetName": "thruster/thruster_base.acfg",
+        "texName": "beam/beam_mid.png",
+        "animSheetName": "beam/beam_mid.acfg",
         "layer": "Projectiles",
         "permanentRot": 0,
         "dimensions": [
@@ -34,7 +34,7 @@
     "BeamColor": [
         0,
         255,
-        0,
+        255,
         255
     ],
     "EnergyConsumption": 20,

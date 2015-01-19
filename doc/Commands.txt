@@ -9,6 +9,11 @@ Game	///TODO
 	exit:
 	printToConsole: (string)
 }
+Overlay
+{
+	setMenu: (bool)
+	toggleMenu:
+}
 Universe
 {
 	togglePause:

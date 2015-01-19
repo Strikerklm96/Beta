@@ -19,7 +19,7 @@ struct Connection
         if(pSocket != NULL)
         {
             sf::Packet data;
-            data << static_cast<int32_t>(Protocol::Connect);
+            data << static_cast<int>(Protocol::Connect);
             send(data);
         }
     }
@@ -50,7 +50,7 @@ struct Connection
         {
             std::cout << "\nDropping:[" << ip.toString() << "]";
             sf::Packet data;
-            data << static_cast<int32_t>(Protocol::Drop);
+            data << static_cast<int>(Protocol::Drop);
             send(data);
             send(data);
             send(data);

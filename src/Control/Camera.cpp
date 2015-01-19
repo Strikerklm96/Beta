@@ -3,7 +3,7 @@
 #include "Globals.hpp"
 #include "Convert.hpp"
 
-const float Camera::m_maxZoom = 128;
+const float Camera::m_maxZoom = 256;
 const float Camera::m_minZoom = 1;
 Camera::Camera()
 {

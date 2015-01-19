@@ -19,7 +19,7 @@ protected:
 private:
     std::vector<NetworkComponent*> m_componentPtrs;//where we store all of them
     std::vector<int> m_freeIndexes;//spots where the ptr is null and we can give a position out!
-    uint32_t m_lastSendID;
+    int m_lastSendID;
 };
 
 #endif // NETWORKFACTORY_HPP

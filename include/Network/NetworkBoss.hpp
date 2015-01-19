@@ -27,6 +27,7 @@ public:
 
     /**UTILITY**/
     NetworkFactory& getNWFactory();
+
     void messageLobbyLocal(const std::string& rMessage);
     bool setRecievePort(unsigned short port);//set receiving port, returns whether the bind was successful
     bool hasConnections();//are we connected to anyone?
@@ -45,10 +46,14 @@ public:
     void update();///get a better name!
     void updateConnectionStatus();//drop connections if they timeout, or try and connect to invalid connections
 
-
+    /**Reduction**/
+    void loadLevel(sf::Packet& data);
+    void handshake(sf::Packet& data, Connection* pCon);
+    void drop(sf::Packet& data, sf::IpAddress fromIP);
 
 protected:
     void input(const std::string rCommand, sf::Packet rData);
+
 private:
     IOComponent m_io;
 

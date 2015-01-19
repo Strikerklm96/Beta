@@ -27,7 +27,7 @@ FixtureComponent::FixtureComponent(const FixtureComponentData& rData)
     m_fixtureDef.density = rData.density;
     m_fixtureDef.friction = rData.friction;
     m_fixtureDef.restitution = rData.restitution;//setting our fixture data
-    ///m_fixtureDef.filter.maskBits = 0xffffffff;///COLLISION
+    ///m_fixtureDef.filter.maskBits = 0xffffffff;///COLLIControlON
     ///m_fixtureDef.filter.categoryBits = 0xffffffff;///collision
 
     if(rData.pBody != NULL)

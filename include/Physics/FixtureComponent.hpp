@@ -13,7 +13,7 @@ struct FixtureComponentData
 {
     FixtureComponentData() :
     offset(0,0),
-    ///COLLISION MASK AND CATEGORY
+    ///COLLIControlON MASK AND CATEGORY
            pBody(NULL),
            shape(Shape::Rectangle),
            size(1,1),
@@ -25,7 +25,7 @@ struct FixtureComponentData
 
     }
     b2Vec2 offset;//offset from center of body
-    ///COLLISION MASK AND CATEGORY
+    ///COLLIControlON MASK AND CATEGORY
     b2Body* pBody;//who owns us
     Shape shape;
 

@@ -10,6 +10,7 @@
 		"turret/DefaultTurret.bp"
     ],
     "ChunkList": [
+		"chunk/CombatShip.bp",
         "chunk/DefaultChunk.bp"
     ],
     "WeaponList": [

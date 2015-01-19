@@ -2,7 +2,7 @@
 #define PLAYER_HPP
 
 #include "stdafx.hpp"
-#include "Intelligence.hpp"
+#include "Controller.hpp"
 #include "Camera.hpp"
 
 
@@ -64,23 +64,24 @@ struct InputConfig
     sf::Keyboard::Key cameraLeft;
     sf::Keyboard::Key cameraRight;
 };
-struct PlayerData : public IntelligenceData
+struct PlayerData
 {
     PlayerData() :
-        IntelligenceData(),
+        ioComp(game.getCoreIO()),
         keyConfig(),
         tracking(true)
     {
         ioComp.name = "local_player";
     }
 
+    IOComponentData ioComp;
     InputConfig keyConfig;
     bool tracking;
 };
 
 
 /**This class is exclusively for 1 local player**/
-class Player : public Intelligence
+class Player
 {
 public:
     Player(const PlayerData& rData);
@@ -88,25 +89,31 @@ public:
 
     Camera& getCamera();
     const InputConfig& getInCfg() const;
+    IOComponent& getIOComp();
     bool inGuiMode() const;//is the player in GUI mode?
     bool toggleGuiMode(bool isGuiModeOn);
     bool toggleFocus(bool isWindowFocused);
     bool hasFocus() const;
     bool isTracking() const;
+    void setController(int index);
 
+    /**INPUT**/
     void getLiveInput();//get direct feed from keyboard and mouse, just gets their states though (up, down, position)
     void getWindowEvents(sf::RenderWindow& rWindow);//process window events
-    void updateView();
 
+
+    void updateView();
     void loadOverlay(const std::string& rOverlay);
-    void universeDestroyed();
+
+    void universeDestroyed();///this is messed up!, this is not how this should be!
 
 protected:
-    virtual void input(std::string rCommand, sf::Packet rData);
-    virtual void pack(sf::Packet& rPacket);
-    virtual void unpack(sf::Packet& rPacket);
+    void input(std::string rCommand, sf::Packet rData);
 
 private:
+    int m_controller;//which controller do we have, 0, 1, 2, ect.(points to a controller in the list)
+    b2Vec2 m_aim;//where we are aiming in the world ATM
+    std::map<Directive, bool> m_directives;//up, down, rollCW, roll CCW, ect.
 
     float m_desiredZoom;//for smooth zooming
     b2Vec2 m_desiredCameraPos;//for smooth zooming
@@ -121,6 +128,8 @@ private:
     bool m_inGuiMode;//true if we are in GUI mode
     bool m_tracking;
     bool m_hasFocus;
+
+    IOComponent m_io;
 };
 
 #endif // PLAYER_HPP

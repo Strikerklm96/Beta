@@ -11,8 +11,9 @@
 using namespace std;
 using namespace sf;
 
-Player::Player(const PlayerData& rData) : Intelligence(rData)
+Player::Player(const PlayerData& rData) : m_io(rData.ioComp, &Player::input, this)
 {
+    m_controller = 0;//by default they have the 0 controller
     m_hasFocus = true;
     m_inGuiMode = true;
     m_tracking = rData.tracking;
@@ -41,12 +42,16 @@ bool Player::isTracking() const
 {
     return m_tracking;
 }
+void Player::setController(int index)
+{
+    m_controller = index;
+}
 void Player::getLiveInput()//get direct feed from keyboard and mouse, just gets their states though (up, down, position)
 {
     if(not m_inGuiMode && hasFocus())
     {
         /**== CAMERA ==**/
-        const float speed = 0.04;
+        const float speed = 0.05;
         if(Keyboard::isKeyPressed(m_inCfg.cameraUp))
             m_camera.move(b2Vec2(0,speed));
         if(Keyboard::isKeyPressed(m_inCfg.cameraDown))
@@ -56,54 +61,50 @@ void Player::getLiveInput()//get direct feed from keyboard and mouse, just gets 
         if(Keyboard::isKeyPressed(m_inCfg.cameraRight))
             m_camera.move(b2Vec2(speed,0));
 
-        /**== CHUNK ==**/
-        b2Body* pBody = getBodyPtr();
-        if(pBody != NULL)
-        {
-            /**== KEYBOARD ==**/
-            if(Keyboard::isKeyPressed(m_inCfg.up))
-                m_directives[Directive::Up] = true;
-            else
-                m_directives[Directive::Up] = false;
 
-            if(Keyboard::isKeyPressed(m_inCfg.down))
-                m_directives[Directive::Down] = true;
-            else
-                m_directives[Directive::Down] = false;
+        /**== KEYBOARD ==**/
+        if(Keyboard::isKeyPressed(m_inCfg.up))
+            m_directives[Directive::Up] = true;
+        else
+            m_directives[Directive::Up] = false;
+        if(Keyboard::isKeyPressed(m_inCfg.down))
+            m_directives[Directive::Down] = true;
+        else
+            m_directives[Directive::Down] = false;
+        if(Keyboard::isKeyPressed(m_inCfg.rollCCW))
+            m_directives[Directive::RollCCW] = true;
+        else
+            m_directives[Directive::RollCCW] = false;
+        if(Keyboard::isKeyPressed(m_inCfg.rollCW))
+            m_directives[Directive::RollCW] = true;
+        else
+            m_directives[Directive::RollCW] = false;
 
-            if(Keyboard::isKeyPressed(m_inCfg.rollCCW))
-                m_directives[Directive::RollCCW] = true;
-            else
-                m_directives[Directive::RollCCW] = false;
+        /**== MOUSE **/
+        if(Mouse::isButtonPressed(m_inCfg.primary))
+            m_directives[Directive::FirePrimary] = true;
+        else
+            m_directives[Directive::FirePrimary] = false;
+        if(Mouse::isButtonPressed(m_inCfg.secondary))
+            m_directives[Directive::FireSecondary] = true;
+        else
+            m_directives[Directive::FireSecondary] = false;
 
-            if(Keyboard::isKeyPressed(m_inCfg.rollCW))
-                m_directives[Directive::RollCW] = true;
-            else
-                m_directives[Directive::RollCW] = false;
+        m_aim = leon::sfTob2(game.getWindow().mapPixelToCoords(Mouse::getPosition(game.getWindow()), m_camera.getView()));
 
-            /**== MOUSE **/
-            if(Mouse::isButtonPressed(m_inCfg.primary))
-                m_directives[Directive::FirePrimary] = true;
-            else
-                m_directives[Directive::FirePrimary] = false;
+        /**== DEVELOPER ==**/
+        if(Keyboard::isKeyPressed(Keyboard::G))
+            cout << "\n(" << m_aim.x << ",\t" << m_aim.y << ")";
 
-            if(Mouse::isButtonPressed(m_inCfg.secondary))
-                m_directives[Directive::FireSecondary] = true;
-            else
-                m_directives[Directive::FireSecondary] = false;
-
-            b2Vec2 worldAim = leon::sfTob2(game.getWindow().mapPixelToCoords(Mouse::getPosition(game.getWindow()), m_camera.getView()));
-            setAim(worldAim);
-
-            /**== DEVELOPER ==**/
-            if(Keyboard::isKeyPressed(Keyboard::G))
-                cout << "\n(" << pBody->GetPosition().x << ",\t" << pBody->GetPosition().y << ")";
-        }
+        Controller& rController = game.getUniverse().getControllerFactory().getController(m_controller);
+        rController.updateDirectives(m_directives);
+        rController.setAim(m_aim);
     }
 }
 void Player::getWindowEvents(sf::RenderWindow& rWindow)//process window events
 {
     sf::Event event;
+    Controller& rController = game.getUniverse().getControllerFactory().getController(m_controller);
 
     while(rWindow.pollEvent(event))
     {
@@ -120,28 +121,8 @@ void Player::getWindowEvents(sf::RenderWindow& rWindow)//process window events
             /**== MAIN MENU ==**/
             if(event.key.code == Keyboard::Escape)
             {
-                sf::Packet falsePacket;
-                falsePacket << false;
-                sf::Packet truePacket;
-                truePacket << true;
-                if(not m_inGuiMode)
-                {
-                    Message guiModeOn("local_player", "setGuiMode", truePacket, 0, false);
-                    Message show("main_menu", "setHidden", falsePacket, 0, false);
-                    Message pause("universe", "setPause", truePacket, 0, false);
-                    game.getCoreIO().recieve(guiModeOn);
-                    game.getCoreIO().recieve(show);
-                    game.getCoreIO().recieve(pause);
-                }
-                else
-                {
-                    Message guiModeOff("local_player", "setGuiMode", falsePacket, 0, false);
-                    Message hide("main_menu", "setHidden", truePacket, 0, false);
-                    Message unpause("universe", "setPause", falsePacket, 0, false);
-                    game.getCoreIO().recieve(guiModeOff);
-                    game.getCoreIO().recieve(hide);
-                    game.getCoreIO().recieve(unpause);
-                }
+                Message menu("overlay", "toggleMenu", voidPacket, 0, false);
+                game.getCoreIO().recieve(menu);
             }
         }
 
@@ -160,10 +141,11 @@ void Player::getWindowEvents(sf::RenderWindow& rWindow)//process window events
                 else
                     m_camera.setZoom(m_camera.getZoom()*1.2);
 
-                b2Body* pBody = getBodyPtr();
+                b2Body* pBody = rController.getBodyPtr();
                 if(pBody != NULL)
                 {
-                    float zoomValue = get(Request::Zoom);
+                    float zoomValue = rController.get(Request::Zoom);
+                    cout << "\n" << zoomValue;
                     if(zoomValue < m_camera.getZoom())
                     {
                         m_camera.setZoom(zoomValue);
@@ -186,14 +168,15 @@ void Player::getWindowEvents(sf::RenderWindow& rWindow)//process window events
 }
 void Player::updateView()
 {
-    b2Body* pBody = getBodyPtr();
+    Controller& rController = game.getUniverse().getControllerFactory().getController(m_controller);
+    b2Body* pBody = rController.getBodyPtr();
     if(!m_inGuiMode && pBody != NULL)
     {
         if(m_tracking)
             m_camera.setPosition(pBody->GetPosition());
 
-        float val = get(Request::Energy);
-        float maxVal = get(Request::MaxEnergy);
+        float val = rController.get(Request::Energy);
+        float maxVal = rController.get(Request::MaxEnergy);
         m_energyMeterFill->setPercent(val/maxVal);
 
         if(val/maxVal < 0.1f)
@@ -206,7 +189,10 @@ void Player::updateView()
         }
     }
 }
-
+IOComponent& Player::getIOComp()
+{
+    return m_io;
+}
 void Player::loadOverlay(const std::string& rOverlay)
 {
     b2Vec2 emeterPos = b2Vec2(0.2,-0.45);
@@ -258,14 +244,6 @@ bool Player::toggleFocus(bool isWindowFocused)
 bool Player::hasFocus() const
 {
     return m_hasFocus;
-}
-void Player::pack(sf::Packet& rPacket)
-{
-
-}
-void Player::unpack(sf::Packet& rPacket)
-{
-
 }
 void Player::input(std::string rCommand, sf::Packet rData)
 {

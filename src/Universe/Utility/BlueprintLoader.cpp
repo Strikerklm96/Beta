@@ -536,7 +536,7 @@ void BlueprintLoader::insertWeaponData(const Json::Value& root, std::tr1::shared
 
 
 
-/**LOAD SIMPLE DATA**///data that doesnt inherit or anything
+/**LOAD ControlMPLE DATA**///data that doesnt inherit or anything
 /**================**/
 sf::Color BlueprintLoader::loadColor(const Json::Value& root)
 {

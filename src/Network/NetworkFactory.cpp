@@ -49,7 +49,7 @@ void NetworkFactory::free(int position)//don't adjust the list, just mark the no
 void NetworkFactory::getData(sf::Packet& rPacket)
 {
     std::vector<NetworkComponent*>& rPtr = m_componentPtrs;
-    for(int32_t i = 0; i < rPtr.size(); ++i)
+    for(int i = 0; i < rPtr.size(); ++i)
     {
         if(rPtr[i] != NULL)
         {
@@ -64,7 +64,7 @@ void NetworkFactory::getData(sf::Packet& rPacket)
 }
 void NetworkFactory::process(sf::Packet& rPacket)
 {
-    int32_t id;
+    int id;
     while(rPacket >> id)
     {
         if(id < m_componentPtrs.size())

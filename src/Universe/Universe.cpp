@@ -27,6 +27,7 @@ Universe::Universe(const IOComponentData& rData) : m_io(rData, &Universe::input,
     m_spSlaveLocator = std::tr1::shared_ptr<SlaveLocator>(new SlaveLocator);
     m_spBatchLayers = std::tr1::shared_ptr<BatchLayers>(new BatchLayers);
     m_spGfxUpdater = std::tr1::shared_ptr<GraphicsComponentUpdater>(new GraphicsComponentUpdater);
+    m_spControlFactory = std::tr1::shared_ptr<ControlFactory>(new ControlFactory);
 
     /**IO**/
     m_spUniverseIO = std::tr1::shared_ptr<IOManager>(new IOManager(true));
@@ -37,7 +38,7 @@ Universe::Universe(const IOComponentData& rData) : m_io(rData, &Universe::input,
 
 
 
-    /**PHYSICS**/
+    /**PHYControlCS**/
     m_paused = false;
     m_skippedTime = 0;
     m_pauseTime = game.getTime();
@@ -49,7 +50,7 @@ Universe::Universe(const IOComponentData& rData) : m_io(rData, &Universe::input,
     m_physWorld.SetContactListener(&m_contactListener);
     m_physWorld.SetDebugDraw(&m_debugDraw);
     m_debugDraw.SetFlags(b2Draw::e_shapeBit);
-    /**PHYSICS**/
+    /**PHYControlCS**/
 
     m_debugDrawEnabled = false;
 }
@@ -63,7 +64,10 @@ void Universe::toggleDebugDraw()
 {
     m_debugDrawEnabled = !m_debugDrawEnabled;
 }
-
+ControlFactory& Universe::getControllerFactory()
+{
+    return *m_spControlFactory;
+}
 SlaveLocator& Universe::getSlaveLocator()
 {
     return *m_spSlaveLocator;
@@ -136,11 +140,10 @@ void Universe::loadBlueprints(const std::string& bpDir)//loads blueprints
 {
     m_spBPLoader->storeRoster(bpDir);
 }
-void Universe::loadLevel(const std::string& levelDir, const std::string& localPlayerSlave, const std::string& bluePrints, const std::map<std::string, std::string> siList)//loads a level using blueprints
+void Universe::loadLevel(const std::string& levelDir, int localController, const std::string& bluePrints, const std::vector<std::string>& rControllerList)//loads a level using blueprints
 {
     loadBlueprints(bluePrints);
 
-    string slave = localPlayerSlave;
     string configFile = "level.lcfg";
     string modDir = "mods/";
 
@@ -172,11 +175,6 @@ void Universe::loadLevel(const std::string& levelDir, const std::string& localPl
             cout << FILELINE;
             ///ERROR LOG
         }
-
-        /**PLAYER SLAVE**/
-        if(slave == "")
-            if(not root["Player1Slave"].isNull())
-                slave = root["Player1Slave"].asString();
 
         /**CHUNKS**/
         std::tr1::shared_ptr<ChunkData> spCnk;
@@ -220,7 +218,7 @@ void Universe::loadLevel(const std::string& levelDir, const std::string& localPl
     chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new ThrusterData(thrust)));
 
     SensorData sens;
-    sens.fixComp.offset = b2Vec2(-1,0);
+    sens.fixComp.offset = b2Vec2(3,3);
     chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new SensorData(sens)));
 
     ReactorData data;
@@ -252,14 +250,11 @@ void Universe::loadLevel(const std::string& levelDir, const std::string& localPl
 
     game.getLocalPlayer().loadOverlay("overlayconfig");
 
-    if(slave == "")
-        slave = "BPCHUNKNAME";
-    game.getLocalPlayer().setSlave(slave);
 
 
-    ///SET UP SI
-
-
+    /**CONTROL**/
+    game.getLocalPlayer().setController(localController);
+    m_spControlFactory->resetControllers(rControllerList);
 }
 void Universe::add(std::tr1::shared_ptr<GameObject> spGO)
 {

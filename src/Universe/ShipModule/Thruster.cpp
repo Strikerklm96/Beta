@@ -1,5 +1,5 @@
 #include "Thruster.hpp"
-#include "Intelligence.hpp"
+#include "Controller.hpp"
 
 using namespace std;
 

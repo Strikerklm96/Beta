@@ -40,7 +40,9 @@ Game::Game()
 
     NetworkBossData nwData;
     m_spNetworkBoss = std::tr1::shared_ptr<NetworkBoss>(new NetworkBoss(nwData));
-    m_spOverlay = std::tr1::shared_ptr<Overlay>(new Overlay);
+    IOComponentData overlayData(*m_spCoreIO);
+    overlayData.name = "overlay";
+    m_spOverlay = std::tr1::shared_ptr<Overlay>(new Overlay(overlayData));
     m_spOverlay->loadMenus();
     PlayerData playerData;
     m_spLocalPlayer = std::tr1::shared_ptr<Player>(new Player(playerData));
@@ -131,8 +133,9 @@ void Game::run()
     /**EVAN PUT STUFF TO DRAW HERE**/
     /**===========================**/
 
-
-    m_spUniverse->loadLevel("levels/level_1/", "", "blueprints/", map<string, string>());
+    std::vector<std::string> controllerList;
+    controllerList.push_back("ship_1");
+    m_spUniverse->loadLevel("levels/level_1/", 0, "blueprints/", controllerList);
 
     RenderWindow& rWindow = *m_spWindow;
     sf::View defaultView;
@@ -156,7 +159,7 @@ void Game::run()
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::N))
         {
             game.loadUniverse("hi");
-            m_spUniverse->loadLevel("levels/level_1/", "", "blueprints/", map<string, string>());
+            m_spUniverse->loadLevel("levels/level_1/", 0, "blueprints/", std::vector<std::string>());
         }
 
         /**== FRAMERATE ==**/
@@ -171,15 +174,13 @@ void Game::run()
         getUniverse().getUniverseIO().update(frameTime);
 
 
-        /**== PHYSICS ==**/
+        /**== PHYControlCS ==**/
         timeRemaining += frameTime;
         timeStep = getUniverse().getTimeStep();
         while(timeRemaining >= timeStep)
         {
             getLocalPlayer().getLiveInput();
-            getLocalPlayer().processDirectives();
-
-
+            getUniverse().getControllerFactory().processAllDirectives();
 
             getUniverse().physUpdate();
             timeRemaining -= timeStep;

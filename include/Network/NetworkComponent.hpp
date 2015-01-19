@@ -17,7 +17,7 @@ class NetworkComponent // for syncing data between objects on different computer
 {
 public:
     template <typename T>
-    NetworkComponent(const NetworkComponentData& rData, void (T::*pack)(sf::Packet&), void (T::*unpack)(sf::Packet&), T* const classPtr) : m_rFactory(game.getNwBoss().getNWFactory())
+    NetworkComponent(const NetworkComponentData& rData, void (T::*pack)(sf::Packet&), void (T::*unpack)(sf::Packet&), T* const classPtr, NetworkFactory& factory) : m_rFactory(factory)
     {
         m_packFunction = std::bind(pack, classPtr, std::placeholders::_1);
         m_unpackFunction = std::bind(unpack, classPtr, std::placeholders::_1);
