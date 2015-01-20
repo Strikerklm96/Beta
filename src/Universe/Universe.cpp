@@ -253,8 +253,8 @@ void Universe::loadLevel(const std::string& levelDir, int localController, const
 
 
     /**CONTROL**/
-    game.getLocalPlayer().setController(localController);
     m_spControlFactory->resetControllers(rControllerList);
+    game.getLocalPlayer().setController(localController);
 }
 void Universe::add(std::tr1::shared_ptr<GameObject> spGO)
 {

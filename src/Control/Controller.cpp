@@ -91,6 +91,10 @@ void Controller::processDirectives()//use our stored directives to send commands
     if(m_directives[Directive::FireSecondary])
         directive(Directive::FireSecondary);
 }
+void Controller::toggleLocal(bool local)
+{
+    m_local = local;
+}
 void Controller::updateDirectives(const std::map<Directive, bool>& rDirs)
 {
     m_directives = rDirs;
@@ -109,7 +113,6 @@ NetworkComponent& Controller::getNWComp()
 }
 void Controller::pack(sf::Packet& rPacket)
 {
-
     for(int i=0; i<static_cast<int>(Directive::End); ++i)
     {
         rPacket << m_directives[static_cast<Directive>(i)];
@@ -117,11 +120,14 @@ void Controller::pack(sf::Packet& rPacket)
 }
 void Controller::unpack(sf::Packet& rPacket)
 {
-    bool dir;
-    for(int i = 0; i<static_cast<int>(Directive::End); ++i)
+    if(not m_local)
     {
-        rPacket >> dir;
-        m_directives[static_cast<Directive>(i)] = dir;
+        bool dir;
+        for(int i = 0; i<static_cast<int>(Directive::End); ++i)
+        {
+            rPacket >> dir;
+            m_directives[static_cast<Directive>(i)] = dir;
+        }
     }
 }
 void Controller::input(std::string rCommand, sf::Packet rData)

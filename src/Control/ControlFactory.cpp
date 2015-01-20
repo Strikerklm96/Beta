@@ -30,16 +30,16 @@ void ControlFactory::resetControllers(const std::vector<std::string>& slaves)
 }
 Controller& ControlFactory::getController(int index)
 {
-    if(m_spControlList.size() >= index)
+    if(m_spControlList.size() > index)
         return *m_spControlList[index];
     else
     {
-        if(m_spBackupController)
+        if(!m_spBackupController)
         {
+
             m_spBackupController.reset(new Controller(ControllerData()));
-            std::cout << FILELINE;
-            return *m_spBackupController;
         }
+        return *m_spBackupController;
     }
 }
 NetworkFactory& ControlFactory::getNWFactory()

@@ -135,6 +135,7 @@ void Game::run()
 
     std::vector<std::string> controllerList;
     controllerList.push_back("ship_1");
+    controllerList.push_back("ship_11");
     m_spUniverse->loadLevel("levels/level_1/", 0, "blueprints/", controllerList);
 
     RenderWindow& rWindow = *m_spWindow;

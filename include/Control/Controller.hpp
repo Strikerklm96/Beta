@@ -79,6 +79,7 @@ public:
     void updateDirectives(const std::map<Directive, bool>& rDirs);
     void directive(Directive issue);//send a command to our slave
     void processDirectives();//use our stored directives to send commands
+    void toggleLocal(bool local);
 
     /**GETTERS**/
     const std::string& getPlayerName() const;
@@ -102,6 +103,7 @@ protected:
     NetworkComponent m_nw;
 
 private:
+    bool m_local;//true if this is controlled by a local player and shouldn't be unpacked(NW) into
     IOComponent m_io;
     std::string m_playerName;//name of us in game, like BobbyLolcatz99, not used for anything but player reading
 };

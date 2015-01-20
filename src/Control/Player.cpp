@@ -13,7 +13,7 @@ using namespace sf;
 
 Player::Player(const PlayerData& rData) : m_io(rData.ioComp, &Player::input, this)
 {
-    m_controller = 0;//by default they have the 0 controller
+    m_controller = 999999;//by default they have the 0 controller
     m_hasFocus = true;
     m_inGuiMode = true;
     m_tracking = rData.tracking;
@@ -44,7 +44,12 @@ bool Player::isTracking() const
 }
 void Player::setController(int index)
 {
+    cout << "\n" << index;
+    Controller& rController = game.getUniverse().getControllerFactory().getController(m_controller);
+    rController.toggleLocal(false);
     m_controller = index;
+    Controller& rController2 = game.getUniverse().getControllerFactory().getController(m_controller);
+    rController2.toggleLocal(true);
 }
 void Player::getLiveInput()//get direct feed from keyboard and mouse, just gets their states though (up, down, position)
 {
