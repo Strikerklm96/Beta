@@ -90,6 +90,9 @@ void Controller::processDirectives()//use our stored directives to send commands
         directive(Directive::FirePrimary);
     if(m_directives[Directive::FireSecondary])
         directive(Directive::FireSecondary);
+
+    if(game.getNwBoss().isClient())//always say there is new data in this to be sent to clients
+        m_nw.toggleNewData(true);
 }
 void Controller::toggleLocal(bool local)
 {

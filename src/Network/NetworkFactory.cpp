@@ -35,6 +35,7 @@ int NetworkFactory::give(NetworkComponent* pComponent)//we recieve a pointer to 
 }
 void NetworkFactory::free(int position)//don't adjust the list, just mark the node as null and offer it as a position to future customers
 {
+
     if(m_componentPtrs.size() > position)
     {
         m_componentPtrs[position] = NULL;
@@ -42,6 +43,8 @@ void NetworkFactory::free(int position)//don't adjust the list, just mark the no
     }
     else
     {
+    cout << position;
+        cout << m_componentPtrs.size();
         cout << FILELINE;
         ///ERROR LOG
     }
