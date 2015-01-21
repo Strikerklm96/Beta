@@ -6,8 +6,9 @@
 using namespace std;
 
 
-NetworkFactory::NetworkFactory()
+NetworkFactory::NetworkFactory(std::string name)
 {
+    nname = name;
     m_lastSendID = 0;
 }
 NetworkFactory::~NetworkFactory()
@@ -43,7 +44,8 @@ void NetworkFactory::free(int position)//don't adjust the list, just mark the no
     }
     else
     {
-    cout << position;
+
+    cout << position << nname;
         cout << m_componentPtrs.size();
         cout << FILELINE;
         ///ERROR LOG

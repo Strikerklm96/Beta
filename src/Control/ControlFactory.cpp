@@ -5,7 +5,7 @@ using namespace std;
 
 ControlFactory::ControlFactory()
 {
-    m_spNWFactory.reset(new NetworkFactory());//this has to happen before we create any controllers!
+    m_spNWFactory.reset(new NetworkFactory("control"));//this has to happen before we create any controllers!
 }
 ControlFactory::~ControlFactory()
 {

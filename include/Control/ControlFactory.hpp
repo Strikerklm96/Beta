@@ -21,9 +21,9 @@ public:
 
 protected:
 private:
+    std::tr1::shared_ptr<NetworkFactory> m_spNWFactory;
     std::vector<std::tr1::shared_ptr<Controller> > m_spControlList;
     std::tr1::shared_ptr<Controller> m_spBackupController;
-    std::tr1::shared_ptr<NetworkFactory> m_spNWFactory;
 };
 
 #endif // ControlFACTORY_HPP

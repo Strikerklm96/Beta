@@ -7,7 +7,7 @@
 using namespace std;
 using namespace sf;
 
-NetworkBoss::NetworkBoss(const NetworkBossData& rData) : m_io(rData.ioComp, NetworkBoss::input, this)
+NetworkBoss::NetworkBoss(const NetworkBossData& rData) : m_io(rData.ioComp, NetworkBoss::input, this), m_nwFactory("standard")
 {
     m_isClient = false;
     m_udp.unbind();

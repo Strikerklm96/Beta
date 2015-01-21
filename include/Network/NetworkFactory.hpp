@@ -7,7 +7,7 @@ class NetworkComponent;
 class NetworkFactory
 {
 public:
-    NetworkFactory();
+    NetworkFactory(std::string name);
     virtual ~NetworkFactory();
 
     int give(NetworkComponent* pComponent);
@@ -20,6 +20,8 @@ private:
     std::vector<NetworkComponent*> m_componentPtrs;//where we store all of them
     std::vector<int> m_freeIndexes;//spots where the ptr is null and we can give a position out!
     int m_lastSendID;
+
+    std::string nname;
 };
 
 #endif // NETWORKFACTORY_HPP
