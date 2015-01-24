@@ -1,6 +1,6 @@
 {
     "ClassName": "Chunk",
-    "Title": "DefaultChunk",
+    "Title": "CombatShip",
 	"Copies": null,
     "IO": {
         "name": "BPCHUNKNAME",
@@ -43,17 +43,32 @@
         {
             "Title": "DefaultTurret",
             "Position": [
-                1,
+                0,
                 0
             ]
         },
         {
             "Title": "DefaultCapacitor",
             "Position": [
-                0,
+                1,
                 0
             ]
         },
+		{
+			"ClassName": "Radar",
+			"RadarStrength": 10,
+			"BaseSprite": {
+				"texName": "radar/radar_base.png",
+				"animSheetName": "radar/radar_base.acfg"
+			},
+			"Physics": {
+				"offset": [
+					0,
+					1
+				],
+				"density": 1.0
+			}
+		},
         {
             "Title": "DefaultThruster",
             "Position": [

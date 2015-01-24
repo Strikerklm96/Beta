@@ -77,7 +77,8 @@ public:
     void setSlave(const std::string& rSlaveName);
     void setAim(const b2Vec2& world);//send our aim coordinates
     void updateDirectives(const std::map<Directive, bool>& rDirs);
-    void directive(Directive issue);//send a command to our slave
+    void directive(Directive issue) const;//send a command to our slave
+    void processAim() const;
     void processDirectives();//use our stored directives to send commands
     void toggleLocal(bool local);
 

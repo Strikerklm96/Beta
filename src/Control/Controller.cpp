@@ -46,10 +46,8 @@ IOComponent& Controller::getIOComp()
 void Controller::setAim(const b2Vec2& world)//send our aim coordinates
 {
     m_aim = world;
-    Chunk* temp = game.getUniverse().getSlaveLocator().find(m_slavePosition);
-    if(temp != NULL)
-        temp->setAim(m_aim);
 }
+
 const b2Vec2& Controller::getAim() const
 {
     return m_aim;
@@ -62,7 +60,13 @@ b2Body* Controller::getBodyPtr()//return position
     else
         return NULL;
 }
-void Controller::directive(Directive issue)//send command to target
+void Controller::processAim() const
+{
+    Chunk* temp = game.getUniverse().getSlaveLocator().find(m_slavePosition);
+    if(temp != NULL)
+        temp->setAim(m_aim);
+}
+void Controller::directive(Directive issue) const//send command to target
 {
     Chunk* temp = game.getUniverse().getSlaveLocator().find(m_slavePosition);
     if(temp != NULL)
@@ -78,6 +82,7 @@ float Controller::get(Request value)//return the requested value
 }
 void Controller::processDirectives()//use our stored directives to send commands
 {
+    processAim();
     if(m_directives[Directive::Up])
         directive(Directive::Up);
     if(m_directives[Directive::Down])
@@ -90,9 +95,6 @@ void Controller::processDirectives()//use our stored directives to send commands
         directive(Directive::FirePrimary);
     if(m_directives[Directive::FireSecondary])
         directive(Directive::FireSecondary);
-
-    if(game.getNwBoss().isClient())//always say there is new data in this to be sent to clients
-        m_nw.toggleNewData(true);
 }
 void Controller::toggleLocal(bool local)
 {
@@ -100,6 +102,7 @@ void Controller::toggleLocal(bool local)
 }
 void Controller::updateDirectives(const std::map<Directive, bool>& rDirs)
 {
+    m_nw.toggleNewData(true);
     m_directives = rDirs;
 }
 void Controller::setPlayerName(const std::string& rPlayerName)

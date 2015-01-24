@@ -194,7 +194,7 @@ void NetworkBoss::update()
         if(m_udp.receive(data, fromIP, fromPort) == sf::Socket::Done)/**FOR EACH PACKET**/
         {
             int sendID;
-            int typeInt;
+            int32_t typeInt;
             data >> sendID;
             data >> typeInt;
             Protocol type = static_cast<Protocol>(typeInt);
@@ -290,27 +290,67 @@ void NetworkBoss::update()
         }
     }
 }
+void NetworkBoss::launch()
+{
+    sf::Packet data;
+
+    data << static_cast<int32_t>(Protocol::LoadLevel);
+    std::string level = "levels/level_1/";
+    std::string blueprints = "blueprints/";
+
+    data << level;
+    data << blueprints;
+    data << static_cast<int32_t>(m_connections.size()+1);//number of controllers
+    for(int32_t i = 0; i<=m_connections.size(); ++i)
+    {
+        std::string name = ("ship_1"+std::to_string(i+1));
+        cout << endl << name;
+        data << name;
+    }
+
+    int32_t controller = 0;
+    sf::Packet hostData(data);
+    hostData << controller++;
+
+    for(auto it = m_connections.begin(); it!=m_connections.end(); ++it)
+    {
+        sf::Packet launchData(data);
+        launchData << controller++;
+        (*it)->send(launchData);
+    }
+
+    int32_t protocol;
+    hostData >> protocol;//remove the protocol that wont get removed otherwise
+    loadLevel(hostData);
+}
 void NetworkBoss::loadLevel(sf::Packet& data)//we are anyone being told to load the game
 {
     std::string level;
     std::string blueprints;
-    int localController;
-    data >> level;
-    data >> blueprints;
-    data >> localController;
-
+    int32_t numControllers;
     std::string slave;
     std::vector<std::string> controllerList;
-    while(data >> slave)
+    int32_t localController;
+
+
+    data >> level;
+    data >> blueprints;
+    data >> numControllers;
+    for(int i=0; i<numControllers; ++i)
     {
+        data >> slave;
+        cout << "\n[" << slave << "]";
         controllerList.push_back(slave);
     }
+    data >> localController;
+    cout << "\nCont" << localController;
 
-    ///
 
-
-    game.loadUniverse("meangingless");
+    game.loadUniverse("meanginglessString");
     game.getUniverse().loadLevel(level, localController, blueprints, controllerList);
+
+    Message closeMenu("overlay", "toggleMenu", voidPacket, 0, false);
+    game.getCoreIO().recieve(closeMenu);
 }
 void NetworkBoss::handshake(sf::Packet& data, Connection* pCon)//we are client witnessing ourselves finish connecting
 {
@@ -377,6 +417,11 @@ void NetworkBoss::input(const std::string rCommand, sf::Packet rData)
     else if(rCommand == "localOnly")
     {
         setLocalOnly();
+    }
+    else if(rCommand == "launch")
+    {
+        if(not m_isClient)
+            launch();
     }
     else
     {

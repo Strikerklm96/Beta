@@ -195,17 +195,12 @@ void Overlay::loadMenus()
     launch.screenCoords = sf::Vector2f(5, lobbyPanelSize.y-(launch.size.y+5));
     Courier launchMess1;
     launchMess1.condition.reset(EventType::LeftMouseClicked, 0, 'd', true);
-    launchMess1.message.reset("lobby", "toggleHidden", voidPacket, 0, false);
-    Courier launchMess2;
-    launchMess2.condition.reset(EventType::LeftMouseClicked, 0, 'd', true);
-    launchMess2.message.reset("networkboss", "localOnly", voidPacket, 0, false);
+    launchMess1.message.reset("networkboss", "launch", voidPacket, 0, false);
 
-    ///close menu
     ///launch game
     ///send data to clients
 
     launch.ioComp.courierList.push_back(launchMess1);
-    launch.ioComp.courierList.push_back(launchMess2);
 
 
     pLobby->add(tr1::shared_ptr<leon::WidgetBase>(new leon::Button(*pLobby->getPanelPtr(), launch)));

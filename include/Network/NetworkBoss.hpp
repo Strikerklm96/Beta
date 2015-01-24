@@ -48,6 +48,7 @@ public:
 
     /**Reduction**/
     void loadLevel(sf::Packet& data);
+    void launch();
     void handshake(sf::Packet& data, Connection* pCon);
     void drop(sf::Packet& data, sf::IpAddress fromIP);
 
