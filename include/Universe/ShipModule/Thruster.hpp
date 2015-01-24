@@ -31,10 +31,6 @@ private:
 
     b2Vec2 m_forceVec;//the force vector this tick?
     bool m_isCCW;//do we go CCW this tick?
-
-    bool m_tickForce;//will we force this tick?
-    bool m_tickTorque;
-
 };
 
 

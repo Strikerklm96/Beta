@@ -7,30 +7,48 @@
 using namespace std;
 using namespace sf;
 
-NetworkBoss::NetworkBoss(const NetworkBossData& rData) : m_io(rData.ioComp, NetworkBoss::input, this), m_nwFactory("standard")
+NetworkBoss::NetworkBoss(const NetworkBossData& rData) : m_io(rData.ioComp, NetworkBoss::input, this), m_nwFactory("standard"), m_nwFactoryTcp("tcp")
 {
-    m_isClient = false;
+    m_state = NWState::Local;
     m_udp.unbind();
     m_udp.setBlocking(false);
+
     m_joinIP = "";
-    m_joinPort = 5050;
-    m_joinTimeOut = 5.f;
-    m_isOpen = false;
+    m_joinPort = 5050;//port used for TCP, m_joinPort+1 used for udp
+
+    m_timeOut = 10.f;//how long the timeout is
+    m_isOpen = false;//are we accepting connections
+
+    m_listener.listen(m_joinPort);
+    m_listener.setBlocking(false);
 }
 NetworkBoss::~NetworkBoss()
 {
     m_udp.unbind();
 }
+
+
+
+
 /**UTILITY**/
 NetworkFactory& NetworkBoss::getNWFactory()
 {
     return m_nwFactory;
 }
+NetworkFactory& NetworkBoss::getNWFactoryTcp()
+{
+    return m_nwFactoryTcp;
+}
 
 bool NetworkBoss::setRecievePort(unsigned short port)//set receiving port, returns whether the bind was successful
 {
     m_udp.unbind();
-    if(m_udp.bind(port) != sf::Socket::Done)
+    m_listener.close();
+
+    m_listener.listen(port);
+
+
+    if(m_udp.bind(port+1) != sf::Socket::Done)
     {
         cout << "\nThere was an error binding to port [" << port << "]";
         ///ERROR LOG
@@ -47,141 +65,111 @@ void NetworkBoss::messageLobbyLocal(const std::string& rMessage)
 }
 bool NetworkBoss::isClient() const
 {
-    return m_isClient;
+    return (m_state == NWState::Client);
 }
-Connection* NetworkBoss::findConnection(const sf::IpAddress& rAdd)
+NWState NetworkBoss::getNWState() const
+{
+    return m_state;
+}
+Connection* NetworkBoss::findConnection(const sf::IpAddress& rAdd)/**FIND A CONNECTION IF WE HAVE ONE**/
 {
     for(auto it = m_connections.begin(); it!= m_connections.end(); ++it)
-        if((*it)->ip == rAdd)
+        if((*it)->getTcpSocket().getRemoteAddress() == rAdd)
             return it->get();
 
     return NULL;
 }
-bool NetworkBoss::hasConnections()
+bool NetworkBoss::hasConnections()/**DO WE HAVE CONNECTIONS?**/
 {
     return (m_connections.size()>0);
 }
-void NetworkBoss::addConnection(const std::string& address, unsigned short port, float timeout)//a server adding a connection
+void NetworkBoss::addConnection(std::tr1::shared_ptr<sf::TcpSocket> spTcpSocket)/**SERVER ADDING CONNECTION**/
 {
-    m_connections.push_back(std::tr1::shared_ptr<Connection>(new Connection(address, port, timeout, &m_udp, true)));
-    sf::Packet hand;
-    hand << static_cast<int>(Protocol::Handshake);
-    hand << address;//this will be their name
-    m_connections.back()->send(hand);
-    m_connections.back()->send(hand);
-    m_connections.back()->send(hand);
-    m_connections.back()->send(hand);
+    m_connections.push_back(std::tr1::shared_ptr<Connection>(new Connection(&m_udp, spTcpSocket)));
 }
 /**UTILITY**/
 
 
 
-void NetworkBoss::setClient(const std::string& address, unsigned short port, float timeout)//we decide to try to join a host
+
+
+
+/**====STATE====**/
+void NetworkBoss::setClient(const std::string& address, unsigned short port, float timeout)/**JOIN HOST**/
 {
-    m_isClient = true;
-    m_isOpen = false;
-    m_connections.clear();
-    game.getUniverse().getUniverseIO().toggleAcceptsLocal(false);
 
-    m_connections.push_back(std::tr1::shared_ptr<Connection>(new Connection(address, port, timeout, &m_udp, false)));
+    setState(NWState::Client, false, false, false, true);
 
-    m_joinTimeOut = timeout;
+    m_timeOut = timeout;
     setRecievePort(port);
+
+    messageLobbyLocal("Connecting to [" + address + "]");  //message connecting
+
+    sptr<sf::TcpSocket> spSocket(new sf::TcpSocket());
+    spSocket->setBlocking(false);
+    spSocket->connect(sf::IpAddress(address), port, sf::seconds(timeout));
+
+
+    addConnection(spSocket);
+
+}
+void NetworkBoss::setLocal()//we decide to be antisocial
+{
+    setState(NWState::Local, false, true, true, false);
+}
+void NetworkBoss::setServer(unsigned short port, float timeout)//we decide to try and host
+{
+    setState(NWState::Server, true, true, false, true);
+
+    m_timeOut = timeout;
+    setRecievePort(port);
+
+    std::ostringstream oss;
+    oss << port;
+    messageLobbyLocal("Hosting on port[" + oss.str() + "]");  //message "Hosting on port"
+}
+void NetworkBoss::setState(NWState state, bool open, bool acceptsLocal, bool hideLobby, bool hideConnectScreen)
+{
+    m_state = state;
+    m_isOpen = open;
+    m_connections.clear();
+    game.getUniverse().getUniverseIO().toggleAcceptsLocal(acceptsLocal);
 
     Message clearChat("lobby_chatbox", "clear", voidPacket, 0, true);    //clear chat
     game.getCoreIO().recieve(clearChat);
 
-    messageLobbyLocal("Connecting to [" + m_connections.front()->ip.toString() +"]");  //message connecting
-
-    sf::Packet falsePacket;
-    falsePacket << false;
-    Message hideLobby("lobby", "setHidden", falsePacket, 0, true);          //show lobby
-    game.getCoreIO().recieve(hideLobby);
-
-    sf::Packet truePacket;
-    truePacket << true;
-    Message hideMult("multiplayer_connect", "setHidden", truePacket, 0, true); //hide multiplayer panel
-    game.getCoreIO().recieve(hideMult);
-}
-void NetworkBoss::setLocalOnly()//we decide to be antisocial
-{
-    m_isClient = false;
-    m_isOpen = false;
-    m_connections.clear();
-    game.getUniverse().getUniverseIO().toggleAcceptsLocal(true);
-
     sf::Packet pack1;
-    pack1 << true;
-    Message hideLobby("lobby", "setHidden", pack1, 0, true);          //show lobby
-    game.getCoreIO().recieve(hideLobby);
+    pack1 << hideLobby;
+    Message hideLobbyMes("lobby", "setHidden", pack1, 0, true);          //show lobby
+    game.getCoreIO().recieve(hideLobbyMes);
 
     sf::Packet pack2;
-    pack2 << false;
+    pack2 << hideConnectScreen;
     Message hideMult("multiplayer_connect", "setHidden", pack2, 0, true); //hide multiplayer panel
     game.getCoreIO().recieve(hideMult);
 }
-void NetworkBoss::setHost(unsigned short port, float timeout)//we decide to try and host
-{
-    m_isClient = false;
-    m_isOpen = true;
-    m_connections.clear();
-    game.getUniverse().getUniverseIO().toggleAcceptsLocal(true);
-
-    m_joinTimeOut = timeout;
-    setRecievePort(port);
-
-
-    Message clearChat("lobby_chatbox", "clear", voidPacket, 0, true);    //clear chat
-    game.getCoreIO().recieve(clearChat);
-
-    std::ostringstream oss;
-    oss << m_udp.getLocalPort();
-    messageLobbyLocal("Hosting on port[" + oss.str() + "]");  //message "Hosting on port"
-
-    sf::Packet falsePacket;
-    falsePacket << false;
-    Message hideLobby("lobby", "setHidden", falsePacket, 0, true);          //show lobby
-    game.getCoreIO().recieve(hideLobby);
-
-    sf::Packet truePacket;
-    truePacket << true;
-    Message hideMult("multiplayer_connect", "setHidden", truePacket, 0, true); //hide multiplayer panel
-    game.getCoreIO().recieve(hideMult);
-}
+/**====STATE====**/
 
 
 
 
-
-
-void NetworkBoss::updateConnectionStatus()
-{
-    for(int i=0; i<m_connections.size(); ++i)
-    {
-        if(game.getTime()-m_connections[i]->lastRecTime > m_connections[i]->timeout)//check if this connection will timeout
-        {
-            if(m_isClient)
-                setLocalOnly();//if we were a client, set us to local control
-            else
-            {
-                m_connections.erase(m_connections.begin()+i);
-                --i;
-            }
-        }
-        else
-        {
-            if(not m_connections[i]->valid)
-            {
-                sf::Packet con;
-                con << static_cast<int>(Protocol::Connect);
-                m_connections[i]->send(con);
-            }
-        }
-    }
-}
 
 
 void NetworkBoss::update()
+{
+
+    tcpListen();
+    updateConnections();
+
+    udpRecieve();
+    tcpRecieve();
+
+    sendUdp();
+    sendTcp();
+
+}
+
+void NetworkBoss::udpRecieve()
 {
     sf::Packet data;
     sf::IpAddress fromIP;
@@ -193,108 +181,140 @@ void NetworkBoss::update()
         data.clear();
         if(m_udp.receive(data, fromIP, fromPort) == sf::Socket::Done)/**FOR EACH PACKET**/
         {
-            int sendID;
-            int32_t typeInt;
-            data >> sendID;
-            data >> typeInt;
-            Protocol type = static_cast<Protocol>(typeInt);
             Connection* pCon = findConnection(fromIP);
-
-
-            if(pCon == NULL && (!m_isClient) && m_isOpen)/**WANT TO CONNECT?**/
+            if(pCon != NULL)/**RECOGNIZED CONNECTION**/
             {
-                if(type == Protocol::Connect)//if it wants to connect, add you to connections
+                Protocol proto = pCon->recievePacket(data);
+
+                if(proto != Protocol::End)
                 {
-                    addConnection(fromIP.toString(), fromPort, m_joinTimeOut);///PASSWORD CHECK HERE
-
-                    sf::Packet ip;
-                    ip << (fromIP.toString() + ": joined.");
-                    Message someoneJoined("lobby_chatbox", "addLine", ip, 0, true);     //we are host witnessing a client connect
-                    game.getCoreIO().recieve(someoneJoined);
-                }
-                else
-                {
-                    cout << "\nConnection already made with this client.";
-                }
-            }
-
-
-            else if(pCon != NULL)/**RECOGNIZED CONNECTION**/
-            {
-
-                if(pCon->lastRecieve <= sendID)
-                {
-                    pCon->lastRecieve = sendID;
-                    pCon->lastRecTime = game.getTime();
-
-
-                    if(type == Protocol::Handshake)
-                    {
-                        handshake(data, pCon);//we are client witnessing ourselves finish connecting
-                    }
-                    else if(type == Protocol::Drop)
-                    {
-                        drop(data, fromIP);//we are host witnessing a client disconnect
-                    }
-                    else if(type == Protocol::LoadLevel)
-                    {
-                        loadLevel(data);//we are anyone being told to load the game
-                    }
-                    else if(type == Protocol::Data)
-                    {
-                        m_nwFactory.process(data);//we are anyone receiving game state data
-                    }
-                    else if(type == Protocol::Control)
-                    {
-                        game.getUniverse().getControllerFactory().getNWFactory().process(data);//we are anyone receiving control state data
-                    }
+                    if(proto == Protocol::Control)
+                        game.getUniverse().getControllerFactory().getNWFactory().process(data);
+                    else if(proto == Protocol::Data)
+                        m_nwFactory.process(data);
                     else
-                    {
-                        cout << "\nMessage with unrecognized protocol!";
-                    }
+                        cout << "\n" << FILELINE << " [" << static_cast<int32_t>(proto) << "]";
                 }
-            }
-            else
-            {
-                ///someone tried to send us data
             }
         }
         else
             done = true;
     }
-
-
-
-    /**DROP BAD CONNECTIONS**/
-    updateConnectionStatus();
-
-
-
-    /**NW COMPONENTS**/
-    sf::Packet outData;
-    outData << static_cast<int>(Protocol::Data);
-    m_nwFactory.getData(outData);//WE NEED TO SEND OUR NW game DATA
-
-    /**CONTROL**/
-    sf::Packet outData2;
-    outData2 << static_cast<int>(Protocol::Control);
-    game.getUniverse().getControllerFactory().getNWFactory().getData(outData2);///we need to send our nw controller data
-
-
-    for(int i = 0; i<m_connections.size(); ++i)
+}
+void NetworkBoss::tcpRecieve()//receive data from each TcpPort (tcp)
+{
+    sf::Packet data;
+    for(int32_t i=0; i<m_connections.size(); ++i)
     {
-        if(m_connections[i]->valid)
+        bool done = false;
+        while(not done)
         {
-            m_connections[i]->send(outData);
-            m_connections[i]->send(outData2);
+            data.clear();
+            if(m_connections[i]->getTcpSocket().receive(data) == sf::Socket::Done)/**FOR EACH PACKET**/
+            {
+                Protocol proto = m_connections[i]->recievePacket(data);
+
+                if(proto != Protocol::End)
+                {
+                    if(proto == Protocol::Tcp)
+                        m_nwFactoryTcp.process(data);
+                    else if(proto == Protocol::LoadLevel)
+                        loadLevel(data);
+                    else
+                        cout << "\n" << FILELINE << " [" << static_cast<int32_t>(proto) << "]";
+                }
+            }
+            else
+                done = true;
         }
     }
 }
-void NetworkBoss::launch()
+void NetworkBoss::sendUdp()
+{
+    sf::Packet udpPacket;
+    m_nwFactoryTcp.getData(udpPacket);//WE NEED TO SEND OUR NW game DATA
+    for(int32_t i=0; i<m_connections.size(); ++i)
+        m_connections[i]->sendUdp(Protocol::Data, udpPacket);
+
+    udpPacket.clear();
+    game.getUniverse().getControllerFactory().getNWFactory().getData(udpPacket);//WE NEED TO SEND OUR NW game DATA
+    for(int32_t i=0; i<m_connections.size(); ++i)
+        m_connections[i]->sendUdp(Protocol::Control, udpPacket);
+}
+void NetworkBoss::sendTcp()
+{
+    sf::Packet tcpPacket;
+    m_nwFactoryTcp.getData(tcpPacket);//WE NEED TO SEND OUR NW game DATA
+    for(int32_t i=0; i<m_connections.size(); ++i)
+        m_connections[i]->sendTcp(Protocol::Tcp, tcpPacket);
+}
+void NetworkBoss::tcpListen()//check for new connections
+{
+    sptr<sf::TcpSocket> spSocket(new sf::TcpSocket());
+    spSocket->setBlocking(false);
+    if(m_listener.accept(*spSocket) == sf::Socket::Done)
+    {
+        std::cout << "\nNew connection received from [" << spSocket->getRemoteAddress() << "].";
+        addConnection(spSocket);
+    }
+}
+void NetworkBoss::updateConnections()
+{
+    for(int32_t i=0; i<m_connections.size(); ++i)
+    {
+        if(m_connections[i]->getStatus() == sf::Socket::Status::Disconnected)//check if this connection is still working
+        {
+            if(m_state == NWState::Client)
+                setLocal();//if we were a client, set us to local control
+            else
+            {
+                m_connections.erase(m_connections.begin()+i);
+                --i;
+                cout << "\nConnection Dropped From Timeout";
+            }
+        }
+    }
+}
+
+
+
+
+
+
+/**REDUCTION**/
+void NetworkBoss::loadLevel(sf::Packet& data)//we are anyone being told to load the game
+{
+    std::string level;
+    std::string blueprints;
+    int32_t numControllers;
+    std::string slave;
+    std::vector<std::string> controllerList;
+    int32_t localController;
+
+
+    data >> level;
+    data >> blueprints;
+    data >> numControllers;
+    for(int32_t i=0; i<numControllers; ++i)
+    {
+        data >> slave;
+        cout << "\n[" << slave << "]";
+        controllerList.push_back(slave);
+    }
+    data >> localController;
+    cout << "\nCont" << localController;
+
+
+    game.loadUniverse("meanginglessString");
+    game.getUniverse().loadLevel(level, localController, blueprints, controllerList);
+
+    Message closeMenu("overlay", "toggleMenu", voidPacket, 0, false);
+    game.getCoreIO().recieve(closeMenu);
+}
+void NetworkBoss::launchMultiplayerGame()
 {
     sf::Packet data;
 
-    data << static_cast<int32_t>(Protocol::LoadLevel);
     std::string level = "levels/level_1/";
     std::string blueprints = "blueprints/";
 
@@ -316,70 +336,14 @@ void NetworkBoss::launch()
     {
         sf::Packet launchData(data);
         launchData << controller++;
-        (*it)->send(launchData);
+        (*it)->sendTcp(Protocol::LoadLevel, launchData);
     }
 
-    int32_t protocol;
-    hostData >> protocol;//remove the protocol that wont get removed otherwise
     loadLevel(hostData);
 }
-void NetworkBoss::loadLevel(sf::Packet& data)//we are anyone being told to load the game
-{
-    std::string level;
-    std::string blueprints;
-    int32_t numControllers;
-    std::string slave;
-    std::vector<std::string> controllerList;
-    int32_t localController;
+/**REDUCTION**/
 
 
-    data >> level;
-    data >> blueprints;
-    data >> numControllers;
-    for(int i=0; i<numControllers; ++i)
-    {
-        data >> slave;
-        cout << "\n[" << slave << "]";
-        controllerList.push_back(slave);
-    }
-    data >> localController;
-    cout << "\nCont" << localController;
-
-
-    game.loadUniverse("meanginglessString");
-    game.getUniverse().loadLevel(level, localController, blueprints, controllerList);
-
-    Message closeMenu("overlay", "toggleMenu", voidPacket, 0, false);
-    game.getCoreIO().recieve(closeMenu);
-}
-void NetworkBoss::handshake(sf::Packet& data, Connection* pCon)//we are client witnessing ourselves finish connecting
-{
-    if(pCon->valid == false)
-    {
-        pCon->valid = true;
-        sf::Packet ip;
-        ip << ("Connection successful!");
-        Message conMade("lobby_chatbox", "addLineLocal", ip, 0, true);
-        game.getCoreIO().recieve(conMade);
-    }
-}
-void NetworkBoss::drop(sf::Packet& data, sf::IpAddress fromIP)//we are host witnessing a client disconnect
-{
-    cout << "\nDisconnecting:[" << fromIP.toString() << "]";
-    for(auto it = m_connections.begin(); it!=m_connections.end(); ++it)
-        if((*it)->ip == fromIP)
-        {
-            (*it)->valid = false;
-            m_connections.erase(it);
-
-            sf::Packet ip;
-            ip << (fromIP.toString() + ": disconnected.");
-            Message someoneDiscon("lobby_chatbox", "addLine", ip, 0, true);
-            game.getCoreIO().recieve(someoneDiscon);
-
-            break;
-        }
-}
 void NetworkBoss::input(const std::string rCommand, sf::Packet rData)
 {
     if(rCommand == "joinIP")
@@ -398,30 +362,26 @@ void NetworkBoss::input(const std::string rCommand, sf::Packet rData)
         std::string time;
         rData >> time;
         std::stringstream sstream(time);
-        sstream >> m_joinTimeOut;
+        sstream >> m_timeOut;
     }
     else if(rCommand == "join")
     {
-        if(!(m_joinIP=="") && !(m_joinPort==0))
-        {
-            setClient(m_joinIP, m_joinPort, m_joinTimeOut);
-        }
+        if(m_joinIP != "" && m_joinPort > 1024)
+            setClient(m_joinIP, m_joinPort, m_timeOut);
     }
     else if(rCommand == "host")
     {
-        if(not (m_joinPort<1024))
-        {
-            setHost(m_joinPort, m_joinTimeOut);
-        }
+        if(m_joinPort>1024)
+            setServer(m_joinPort, m_timeOut);
     }
     else if(rCommand == "localOnly")
     {
-        setLocalOnly();
+        setLocal();
     }
     else if(rCommand == "launch")
     {
-        if(not m_isClient)
-            launch();
+        if(m_state != NWState::Client)
+            launchMultiplayerGame();
     }
     else
     {
@@ -430,7 +390,30 @@ void NetworkBoss::input(const std::string rCommand, sf::Packet rData)
 }
 
 
+/**DROP BAD CONNECTIONS
+updateConnectionStatus();
 
+
+
+
+sf::Packet outData;
+outData << static_cast<int>(Protocol::Data);
+m_nwFactory.getData(outData);//WE NEED TO SEND OUR NW game DATA
+
+
+sf::Packet outData2;
+outData2 << static_cast<int>(Protocol::Control);
+game.getUniverse().getControllerFactory().getNWFactory().getData(outData2);///we need to send our nw controller data
+
+
+for(int32_t i = 0; i<m_connections.size(); ++i)
+{
+    if(m_connections[i]->valid)
+    {
+        m_connections[i]->send(outData);
+        m_connections[i]->send(outData2);
+    }
+}**/
 
 
 /*

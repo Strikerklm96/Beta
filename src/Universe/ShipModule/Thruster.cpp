@@ -11,9 +11,6 @@ Thruster::Thruster(const ThrusterData& rData) : ShipModule(rData)
 
     m_forceVec = b2Vec2(0,1);
     m_isCCW = true;
-
-    m_tickForce = false;
-    m_tickTorque = false;
 }
 Thruster::~Thruster()
 {
@@ -22,40 +19,26 @@ Thruster::~Thruster()
 void Thruster::prePhysUpdate()
 {
     ShipModule::prePhysUpdate();
-    if(m_tickForce)
-    {
-        thrust(m_forceVec);
-    }
-    if(m_tickTorque)
-    {
-        torque(m_isCCW);
-    }
 }
 void Thruster::postPhysUpdate()
 {
     ShipModule::postPhysUpdate();
-    m_tickForce = false;
-    m_tickTorque = false;
 }
 void Thruster::directive(Directive issue)
 {
     switch(issue)
     {
     case Directive::Up:
-        m_tickForce = true;
-        m_forceVec = b2Vec2(0,1);
+        thrust(b2Vec2(0,1));
         break;
     case Directive::Down:
-        m_tickForce = true;
-        m_forceVec = b2Vec2(0,-1);
+        thrust(b2Vec2(0,-1));
         break;
     case Directive::RollCCW:
-        m_tickTorque = true;
-        m_isCCW = true;
+        torque(true);
         break;
     case Directive::RollCW:
-        m_tickTorque = true;
-        m_isCCW = false;
+        torque(false);
         break;
     default:
         break;

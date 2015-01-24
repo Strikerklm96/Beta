@@ -2,7 +2,7 @@
 1421872596 source:c:\users\leon\desktop\projects\beta\main.cpp
 	"Globals.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\headers\stdafx.hpp
+1422121087 c:\users\leon\desktop\projects\beta\include\headers\stdafx.hpp
 	<iostream>
 	<stdio.h>
 	<vector>
@@ -909,7 +909,7 @@
 1421872596 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
 	"GraphicsComponent.hpp"
 
-1421876127 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
+1422137179 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
 	"Game.hpp"
 	"Globals.hpp"
 	"TextureAllocator.hpp"
@@ -1004,7 +1004,7 @@
 
 1416204888 c:\users\leon\desktop\projects\beta\include\basic\timer.hpp
 
-1421872596 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
+1422124433 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"UniversalContactListener.hpp"
@@ -1086,7 +1086,7 @@
 1421872597 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
 	"WidgetBase.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
+1422124404 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
 	"Universe.hpp"
 	"BlueprintLoader.hpp"
 	"Globals.hpp"
@@ -1263,14 +1263,14 @@
 	"QuadComponent.hpp"
 	"Health.hpp"
 
-1421948381 source:c:\users\leon\desktop\projects\beta\src\network\networkboss.cpp
+1422138475 source:c:\users\leon\desktop\projects\beta\src\network\networkboss.cpp
 	"NetworkBoss.hpp"
 	"Protocol.hpp"
 	"IOManager.hpp"
 	"Universe.hpp"
 	"Player.hpp"
 
-1421876760 c:\users\leon\desktop\projects\beta\include\network\networkboss.hpp
+1422136983 c:\users\leon\desktop\projects\beta\include\network\networkboss.hpp
 	"stdafx.hpp"
 	"Globals.hpp"
 	"Connection.hpp"
@@ -1440,7 +1440,7 @@
 	"Thruster.hpp"
 	"Intelligence.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\thruster.hpp
+1422127030 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\thruster.hpp
 	"ShipModule.hpp"
 
 1421872596 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\reactor.hpp
@@ -1462,7 +1462,7 @@
 1421872597 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\reactor.cpp
 	"Reactor.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\thruster.cpp
+1422127042 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\thruster.cpp
 	"Thruster.hpp"
 	"Controller.hpp"
 
@@ -1559,22 +1559,22 @@
 	"Turret.hpp"
 	"Controller.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\network\connection.hpp
+1422120968 c:\users\leon\desktop\projects\beta\include\network\connection.hpp
 	"stdafx.hpp"
 	"Protocol.hpp"
 
 1421872596 c:\users\leon\desktop\projects\beta\include\network\networkfactory.hpp
 	"stdafx.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\network\protocol.hpp
+1422135171 c:\users\leon\desktop\projects\beta\include\network\protocol.hpp
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\network\networkfactory.cpp
+1422080976 source:c:\users\leon\desktop\projects\beta\src\network\networkfactory.cpp
 	"NetworkFactory.hpp"
 	"Globals.hpp"
 	"NetworkComponent.hpp"
 	"Protocol.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\overlay\chatbox.cpp
+1422134020 source:c:\users\leon\desktop\projects\beta\src\overlay\chatbox.cpp
 	"Chatbox.hpp"
 	"NetworkBoss.hpp"
 
@@ -1606,7 +1606,7 @@
 	"Universe.hpp"
 	"NetworkComponent.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\control\controller.cpp
+1422050558 source:c:\users\leon\desktop\projects\beta\src\control\controller.cpp
 	"Controller.hpp"
 	"SlaveLocator.hpp"
 	"Chunk.hpp"
@@ -1614,4 +1614,7 @@
 1421872597 source:c:\users\leon\desktop\projects\beta\src\control\controlfactory.cpp
 	"ControlFactory.hpp"
 	"Controller.hpp"
+
+1422121272 source:c:\users\leon\desktop\projects\beta\src\network\connection.cpp
+	"Connection.hpp"
 

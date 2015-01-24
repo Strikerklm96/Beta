@@ -31,7 +31,9 @@ public:
     b2World& getWorld();
 
     float getTimeStep() const;
+    void prePhysUpdate();
     void physUpdate();
+    void postPhysUpdate();
 
 
     bool debugDraw() const;//should we draw debug or normal?

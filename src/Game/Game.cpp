@@ -182,27 +182,31 @@ void Game::run()
         timeStep = getUniverse().getTimeStep();
         while(timeRemaining >= timeStep)
         {
+            getUniverse().prePhysUpdate();
+            getUniverse().physUpdate();
+
+            getLocalPlayer().updateView();
+            rWindow.setView(getLocalPlayer().getCamera().getView());
             getLocalPlayer().getLiveInput();
             getUniverse().getControllerFactory().processAllDirectives();
 
-            getUniverse().physUpdate();
+            getUniverse().postPhysUpdate();
             timeRemaining -= timeStep;
         }
 
+
         /**NETWORK**/
-        ///if(m_spNetworkBoss->hasConnections())
+        if(m_spNetworkBoss->hasConnections())
             m_spNetworkBoss->update();
 
 
         /**== WINDOW ==**/
+
         getLocalPlayer().getWindowEvents(rWindow);
         getUniverse().getGfxUpdater().update();
 
         /**== DRAW UNIVERSE ==**/
         rWindow.clear(sf::Color::Black);
-
-        getLocalPlayer().updateView();
-        rWindow.setView(getLocalPlayer().getCamera().getView());
 
         if(getUniverse().debugDraw())
             getUniverse().getWorld().DrawDebugData();

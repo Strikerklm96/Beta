@@ -205,6 +205,7 @@
 		<Unit filename="src/IO/IOComponent.cpp" />
 		<Unit filename="src/IO/IOManager.cpp" />
 		<Unit filename="src/IO/Message.cpp" />
+		<Unit filename="src/Network/Connection.cpp" />
 		<Unit filename="src/Network/NetworkBoss.cpp" />
 		<Unit filename="src/Network/NetworkComponent.cpp" />
 		<Unit filename="src/Network/NetworkFactory.cpp" />

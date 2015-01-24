@@ -81,6 +81,7 @@ void NetworkFactory::process(sf::Packet& rPacket)
         }
         else
         {
+            cout << "\n[" << id << "]";
             cout << "\n" << FILELINE;
         }
     }

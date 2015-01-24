@@ -31,7 +31,8 @@
 
 #include "JSON/json.h"/**JSON**/
 
-
+template<typename T>
+using sptr = std::tr1::shared_ptr<T>;
 
 #endif // STFAFX_H
 

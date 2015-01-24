@@ -94,20 +94,26 @@ float Universe::getTimeStep() const
 {
     return m_timeStep;
 }
+void Universe::prePhysUpdate()
+{
+    if(not m_paused)
+        for(auto it = m_goList.begin(); it != m_goList.end(); ++it)
+            (*it)->prePhysUpdate();
+}
 void Universe::physUpdate()
 {
     if(not m_paused)
     {
-        for(auto it = m_goList.begin(); it != m_goList.end(); ++it)
-            (*it)->prePhysUpdate();
         m_physWorld.Step(m_timeStep, m_velocityIterations, m_positionIterations);
-        for(auto it = m_goList.begin(); it != m_goList.end(); ++it)
-            (*it)->postPhysUpdate();
-
         ///m_projAlloc.recoverProjectiles();
     }
 }
-
+void Universe::postPhysUpdate()
+{
+    if(not m_paused)
+        for(auto it = m_goList.begin(); it != m_goList.end(); ++it)
+            (*it)->postPhysUpdate();
+}
 
 
 
