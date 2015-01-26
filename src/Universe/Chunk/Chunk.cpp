@@ -31,6 +31,12 @@ void Chunk::postPhysUpdate()
 {
     for(auto it = m_modules.begin(); it!=m_modules.end(); ++it)
         (*it)->postPhysUpdate();
+
+    if(game.getNwBoss().getNWState() == NWState::Server)
+    {
+        m_nw.toggleNewData(true);
+        m_body.getNWComp().toggleNewData(true);
+    }
 }
 const std::string& Chunk::getName() const
 {

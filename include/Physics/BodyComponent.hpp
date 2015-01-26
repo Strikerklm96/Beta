@@ -37,6 +37,7 @@ public:
 
     const b2Vec2& getPosition() const;
     b2Body* getBodyPtr();
+    NetworkComponent& getNWComp();
 
     bool isAwake() const;
     void sleep();

@@ -2,8 +2,9 @@
 
 using namespace std;
 
-Connection::Connection(sf::UdpSocket* pSocket, std::tr1::shared_ptr<sf::TcpSocket> spTCPSocket)
+Connection::Connection(sf::UdpSocket* pSocket, std::tr1::shared_ptr<sf::TcpSocket> spTCPSocket, bool valid)
 {
+    m_valid = valid;
     m_pUdpSocket = pSocket;
     m_spTcpSocket = spTCPSocket;
 
@@ -37,8 +38,6 @@ void Connection::prepSend(Protocol proto, const sf::Packet& rData, sf::Packet& d
 }
 Protocol Connection::recievePacket(sf::Packet& rData)//what do we do with this packet?, if End, then the packet should be ignored
 {
-    cout << "\nPacket Recieved.";
-
     Protocol proto;
 
     int32_t proto32;
@@ -57,8 +56,15 @@ sf::TcpSocket& Connection::getTcpSocket()
 {
     return *m_spTcpSocket;
 }
-
 sf::Socket::Status Connection::getStatus() const
 {
     return m_status;
+}
+bool Connection::validated() const
+{
+    return m_valid;
+}
+void Connection::setValid()
+{
+    m_valid = true;
 }

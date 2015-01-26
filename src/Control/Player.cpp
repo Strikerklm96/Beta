@@ -144,19 +144,16 @@ void Player::getWindowEvents(sf::RenderWindow& rWindow)//process window events
                     m_camera.setZoom(m_camera.getZoom()*0.8);
                 else
                     m_camera.setZoom(m_camera.getZoom()*1.2);
-
-                b2Body* pBody = rController.getBodyPtr();
-                if(pBody != NULL)
-                {
-                    float zoomValue = rController.get(Request::Zoom);
-                    cout << "\n" << zoomValue;
-                    if(zoomValue < m_camera.getZoom())
-                    {
-                        m_camera.setZoom(zoomValue);
-                    }
-                }
-
             }
+            b2Body* pBody = rController.getBodyPtr();//make sure we arent over zoomed!
+            if(pBody != NULL)
+            {
+                float zoomValue = rController.get(Request::Zoom);
+                if(zoomValue < m_camera.getZoom())
+                    m_camera.setZoom(zoomValue);
+            }
+
+
             /**== DEVELOPER OPTIONS ==**/
             if(event.type == Event::KeyPressed)
             {
@@ -181,8 +178,13 @@ void Player::updateView()
 
         float val = rController.get(Request::Energy);
         float maxVal = rController.get(Request::MaxEnergy);
-        m_energyMeterFill->setPercent(val/maxVal);
+        if(maxVal <= 0.f)
+        {
+            maxVal = 1.f;
+            val = 0.f;
+        }
 
+        m_energyMeterFill->setPercent(val/maxVal);
         if(val/maxVal < 0.1f)
         {
             string com = "setAnimation";
@@ -191,6 +193,8 @@ void Player::updateView()
             dat << 2.f;
             m_energyDanger->input(com, dat);
         }
+
+
     }
 }
 IOComponent& Player::getIOComp()

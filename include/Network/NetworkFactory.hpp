@@ -21,7 +21,7 @@ private:
     std::vector<int> m_freeIndexes;//spots where the ptr is null and we can give a position out!
     int m_lastSendID;
 
-    std::string nname;
+    std::string m_name;
 };
 
 #endif // NETWORKFACTORY_HPP

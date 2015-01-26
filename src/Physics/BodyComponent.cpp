@@ -34,34 +34,43 @@ b2Body* BodyComponent::getBodyPtr()
 {
     return m_pBody;
 }
+NetworkComponent& BodyComponent::getNWComp()
+{
+    return m_nw;
+}
 void BodyComponent::pack(sf::Packet& rPacket)
 {
-    rPacket << m_pBody->GetPosition().x;
-    rPacket << m_pBody->GetPosition().y;
-    rPacket << m_pBody->GetLinearVelocity().x;
-    rPacket << m_pBody->GetLinearVelocity().y;
-    rPacket << m_pBody->GetAngle();
-    rPacket << m_pBody->GetAngularVelocity();
+    rPacket << static_cast<float32>(m_pBody->GetPosition().x);
+    rPacket << static_cast<float32>(m_pBody->GetPosition().y);
+    rPacket << static_cast<float32>(m_pBody->GetLinearVelocity().x);
+    rPacket << static_cast<float32>(m_pBody->GetLinearVelocity().y);
+    rPacket << static_cast<float32>(m_pBody->GetAngle());
+    rPacket << static_cast<float32>(m_pBody->GetAngularVelocity());
 }
 void BodyComponent::unpack(sf::Packet& rPacket)
 {
     b2Vec2 pos;
     b2Vec2 vel;
+    float32 posX, posY, velX, velY;
     float32 angle;
     float32 angleVel;
 
-    rPacket >> pos.x;
-    rPacket >> pos.x;
-    rPacket >> vel.x;
-    rPacket >> vel.y;
+    rPacket >> posX;
+    rPacket >> posY;
+    rPacket >> velX;
+    rPacket >> velY;
     rPacket >> angle;
     rPacket >> angleVel;
+
+    pos.x = posX;
+    pos.y = posY;
+    vel.x = velX;
+    vel.y = velY;
 
     m_pBody->SetTransform(pos, angle);
     m_pBody->SetLinearVelocity(vel);
     m_pBody->SetAngularVelocity(angleVel);
 }
-
 bool BodyComponent::isAwake() const
 {
     return m_awake;

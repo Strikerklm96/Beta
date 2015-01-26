@@ -13,14 +13,12 @@ NetworkBoss::NetworkBoss(const NetworkBossData& rData) : m_io(rData.ioComp, Netw
     m_udp.unbind();
     m_udp.setBlocking(false);
 
-    m_joinIP = "";
+    m_joinIP = "127.0.0.1";
     m_joinPort = 5050;//port used for TCP, m_joinPort+1 used for udp
 
     m_timeOut = 10.f;//how long the timeout is
     m_isOpen = false;//are we accepting connections
 
-    if(m_listener.listen(m_joinPort) != sf::Socket::Done)
-        cout << "\nCouldn't Listen here.";
     m_listener.setBlocking(false);
 }
 NetworkBoss::~NetworkBoss()
@@ -43,20 +41,24 @@ NetworkFactory& NetworkBoss::getNWFactoryTcp()
 
 bool NetworkBoss::setRecievePort(unsigned short port)//set receiving port, returns whether the bind was successful
 {
+    int port2;///delete
+
     m_udp.unbind();
     m_listener.close();
 
-    if(m_listener.listen(port) != sf::Socket::Done)
-    {
-        cout << "\nThere was an error binding to port [" << port << "]";
-        ///ERROR LOG
-        messageLobbyLocal("There was a problem binding to the port.");
-    }
+    if(m_state == NWState::Server)
+        if(m_listener.listen(port) != sf::Socket::Done)
+        {
+            cout << "\nListener There was an error binding to port [" << port << "]";
+            ///ERROR LOG
+            messageLobbyLocal("There was a problem binding to the port.");
+        }
     if(m_udp.bind(port+1) != sf::Socket::Done)
     {
-        cout << "\nThere was an error binding to port [" << port << "]";
+        cout << "\nUDP There was an error binding to port [" << port << "]";
         ///ERROR LOG
         messageLobbyLocal("There was a problem binding to the port.");
+        cin >> port2;
         return false;
     }
     return true;
@@ -83,10 +85,10 @@ NWState NetworkBoss::getNWState() const
 {
     return m_state;
 }
-Connection* NetworkBoss::findConnection(const sf::IpAddress& rAdd)/**FIND A CONNECTION IF WE HAVE ONE**/
+Connection* NetworkBoss::findConnection(const sf::IpAddress& rAdd, unsigned short fromUDPPort)/**FIND A CONNECTION IF WE HAVE ONE**/
 {
     for(auto it = m_connections.begin(); it!= m_connections.end(); ++it)
-        if((*it)->getTcpSocket().getRemoteAddress() == rAdd)
+        if((*it)->getTcpSocket().getRemoteAddress() == rAdd && ((*it)->getTcpSocket().getRemotePort()+1) == fromUDPPort)
             return it->get();
 
     return NULL;
@@ -95,9 +97,12 @@ bool NetworkBoss::hasConnections()/**DO WE HAVE CONNECTIONS?**/
 {
     return (m_connections.size()>0);
 }
-void NetworkBoss::addConnection(std::tr1::shared_ptr<sf::TcpSocket> spTcpSocket)/**SERVER ADDING CONNECTION**/
+void NetworkBoss::addConnection(std::tr1::shared_ptr<sf::TcpSocket> spTcpSocket, bool valid)/**SERVER ADDING CONNECTION**/
 {
-    m_connections.push_back(std::tr1::shared_ptr<Connection>(new Connection(&m_udp, spTcpSocket)));
+    m_connections.push_back(std::tr1::shared_ptr<Connection>(new Connection(&m_udp, spTcpSocket, valid)));
+
+    if(m_connections.back()->validated())
+        m_connections.back()->sendTcp(Protocol::Handshake, voidPacket);
 }
 /**UTILITY**/
 
@@ -113,7 +118,7 @@ void NetworkBoss::setClient(const std::string& address, unsigned short port, flo
     setState(NWState::Client, false, false, false, true);
 
     m_timeOut = timeout;
-    setRecievePort(port);
+
 
     messageLobbyLocal("Connecting to [" + address + "]");  //message connecting
 
@@ -121,9 +126,9 @@ void NetworkBoss::setClient(const std::string& address, unsigned short port, flo
     spSocket->setBlocking(false);
 
     spSocket->connect(sf::IpAddress(address), port);
+    setRecievePort(spSocket->getLocalPort());
 
-
-    addConnection(spSocket);
+    addConnection(spSocket, false);
     m_listener.close();
 }
 void NetworkBoss::setLocal()//we decide to be antisocial
@@ -195,7 +200,7 @@ void NetworkBoss::udpRecieve()
         data.clear();
         if(m_udp.receive(data, fromIP, fromPort) == sf::Socket::Done)/**FOR EACH PACKET**/
         {
-            Connection* pCon = findConnection(fromIP);
+            Connection* pCon = findConnection(fromIP, fromPort);
             if(pCon != NULL)/**RECOGNIZED CONNECTION**/
             {
                 Protocol proto = pCon->recievePacket(data);
@@ -238,6 +243,8 @@ void NetworkBoss::tcpRecieve()//receive data from each TcpPort (tcp)
                         m_nwFactoryTcp.process(data);
                     else if(proto == Protocol::LoadLevel)
                         loadLevel(data);
+                    else if(proto == Protocol::Handshake)
+                        m_connections.back()->setValid();
                     else
                         cout << "\n" << FILELINE << " [" << static_cast<int32_t>(proto) << "]";
                 }
@@ -259,7 +266,7 @@ void NetworkBoss::sendUdp()
         m_connections[i]->sendUdp(Protocol::Data, udpPacket);
 
     udpPacket.clear();
-    game.getUniverse().getControllerFactory().getNWFactory().getData(udpPacket);//WE NEED TO SEND OUR NW game DATA
+    game.getUniverse().getControllerFactory().getNWFactory().getData(udpPacket);//WE NEED TO SEND OUR CONTROLLER DATA
     for(int32_t i=0; i<m_connections.size(); ++i)
         m_connections[i]->sendUdp(Protocol::Control, udpPacket);
 }
@@ -281,7 +288,7 @@ void NetworkBoss::tcpListen()//check for new connections
         {
             messageLobbyLocal("New Player Connected.");
             std::cout << "\nNew connection received from [" << spSocket->getRemoteAddress() << "].";
-            addConnection(spSocket);
+            addConnection(spSocket, true);
         }
     }
 }
@@ -289,11 +296,11 @@ void NetworkBoss::updateConnections()
 {
     for(int32_t i=0; i<m_connections.size(); ++i)
     {
-        if(m_connections[i]->getStatus() == sf::Socket::Status::Disconnected)//check if this connection is still working
+        if(m_connections[i]->getStatus() == sf::Socket::Status::Disconnected && m_connections[i]->validated())//check if this connection is still working
         {
             if(m_state == NWState::Client)
             {
-                setLocal();//if we were a client, set us to local control
+                setState(NWState::Local, false, true, true, false);//if we were a client, set us to local control
                 cout << "\nDisconnected.";
             }
             else
@@ -301,6 +308,7 @@ void NetworkBoss::updateConnections()
                 m_connections.erase(m_connections.begin()+i);
                 --i;
                 cout << "\nConnection Dropped From Timeout";
+                messageLobby("Player Disconnected");
             }
         }
     }

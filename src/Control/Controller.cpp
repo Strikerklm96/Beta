@@ -120,6 +120,8 @@ NetworkComponent& Controller::getNWComp()
 }
 void Controller::pack(sf::Packet& rPacket)
 {
+    rPacket << static_cast<float32>(m_aim.x);
+    rPacket << static_cast<float32>(m_aim.y);
     for(int i=0; i<static_cast<int>(Directive::End); ++i)
     {
         rPacket << m_directives[static_cast<Directive>(i)];
@@ -127,14 +129,16 @@ void Controller::pack(sf::Packet& rPacket)
 }
 void Controller::unpack(sf::Packet& rPacket)
 {
-    if(not m_local)
+    bool dir;
+    float32 aimX, aimY;
+    rPacket >> aimX;
+    rPacket >> aimY;
+    setAim(b2Vec2(aimX, aimY));
+    for(int i = 0; i<static_cast<int>(Directive::End); ++i)
     {
-        bool dir;
-        for(int i = 0; i<static_cast<int>(Directive::End); ++i)
-        {
-            rPacket >> dir;
+        rPacket >> dir;
+        if(not m_local)
             m_directives[static_cast<Directive>(i)] = dir;
-        }
     }
 }
 void Controller::input(std::string rCommand, sf::Packet rData)

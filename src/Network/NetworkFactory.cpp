@@ -8,7 +8,7 @@ using namespace std;
 
 NetworkFactory::NetworkFactory(std::string name)
 {
-    nname = name;
+    m_name = name;
     m_lastSendID = 0;
 }
 NetworkFactory::~NetworkFactory()
@@ -45,7 +45,7 @@ void NetworkFactory::free(int position)//don't adjust the list, just mark the no
     else
     {
 
-    cout << position << nname;
+    cout << position << m_name;
         cout << m_componentPtrs.size();
         cout << FILELINE;
         ///ERROR LOG
@@ -54,7 +54,7 @@ void NetworkFactory::free(int position)//don't adjust the list, just mark the no
 void NetworkFactory::getData(sf::Packet& rPacket)
 {
     std::vector<NetworkComponent*>& rPtr = m_componentPtrs;
-    for(int i = 0; i < rPtr.size(); ++i)
+    for(int32_t i = 0; i < rPtr.size(); ++i)
     {
         if(rPtr[i] != NULL)
         {
@@ -69,7 +69,7 @@ void NetworkFactory::getData(sf::Packet& rPacket)
 }
 void NetworkFactory::process(sf::Packet& rPacket)
 {
-    int id;
+    int32_t id;
     while(rPacket >> id)
     {
         if(id < m_componentPtrs.size())
@@ -81,8 +81,14 @@ void NetworkFactory::process(sf::Packet& rPacket)
         }
         else
         {
-            cout << "\n[" << id << "]";
-            cout << "\n" << FILELINE;
+            cout << "\n[" << id << "]" << FILELINE;
+            ///ERROR LOG
         }
+    }
+
+    if(not rPacket.endOfPacket())
+    {
+        cout << "\n" << FILELINE;
+        ///ERROG LOG
     }
 }

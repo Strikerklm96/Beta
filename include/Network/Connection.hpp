@@ -7,7 +7,7 @@
 class Connection
 {
 public:
-    Connection(sf::UdpSocket* pSocket, std::tr1::shared_ptr<sf::TcpSocket> spTcpSocket);
+    Connection(sf::UdpSocket* pSocket, std::tr1::shared_ptr<sf::TcpSocket> spTcpSocket, bool valid);
     ~Connection();
 
     void sendUdp(Protocol proto, const sf::Packet& rData);//send data via a udp packet
@@ -16,11 +16,14 @@ public:
 
     sf::TcpSocket& getTcpSocket();
     sf::Socket::Status getStatus() const;
+    bool validated() const;//did we get validated
+    void setValid();
 protected:
 private:
     void prepSend(Protocol proto, const sf::Packet& rData, sf::Packet& data);
 
     sf::Socket::Status m_status;//last status returned to us
+    bool m_valid;//has this connection been established?
 
     sf::UdpSocket* m_pUdpSocket;
     sptr<sf::TcpSocket> m_spTcpSocket;//each connection has a TCP port

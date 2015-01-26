@@ -152,18 +152,10 @@ void Game::run()
     float timeStep = 0;
 
 
-
     while(rWindow.isOpen())
     {
-
-
         /**== TESTING ==**/
-        //EVAN
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::N))
-        {
-            game.loadUniverse("hi");
-            m_spUniverse->loadLevel("levels/level_1/", 0, "blueprints/", std::vector<std::string>());
-        }
+
 
         /**== FRAMERATE ==**/
         frameTime = m_clock.getElapsedTime().asSeconds()-lastTime;

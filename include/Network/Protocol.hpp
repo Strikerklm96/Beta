@@ -10,6 +10,7 @@ enum class Protocol//indicate which type of message it is
     /**TCP**/
     Tcp,
     LoadLevel,//the server wants us to load a game
+    Handshake,
 
     End,
 };

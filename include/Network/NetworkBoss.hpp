@@ -40,8 +40,8 @@ public:
     void messageLobby(const std::string& rMessage);
     bool setRecievePort(unsigned short port);//set receiving port, returns whether the bind was successful
     bool hasConnections();//are we connected to anyone?
-    Connection* findConnection(const sf::IpAddress& rAdd);
-    void addConnection(std::tr1::shared_ptr<sf::TcpSocket> spTcpSocket);//add this connection to our clients list and handshake it a few times (SERVER ONLY)
+    Connection* findConnection(const sf::IpAddress& rAdd, unsigned short fromUDPPort);
+    void addConnection(std::tr1::shared_ptr<sf::TcpSocket> spTcpSocket, bool valid);//add this connection to our clients list and handshake it a few times (SERVER ONLY)
 
     bool isClient() const;
     NWState getNWState() const;
