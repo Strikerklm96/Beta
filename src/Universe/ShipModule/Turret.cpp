@@ -6,6 +6,7 @@ Turret::Turret(const TurretData& rData) : ShipModule(rData)
 {
     if(not rData.startEmpty)
         setWep(rData.startWep);
+    m_lastAngle = 0;
 }
 Turret::~Turret()
 {
@@ -13,12 +14,22 @@ Turret::~Turret()
 }
 void Turret::prePhysUpdate()
 {
-    m_spWep->prePhysUpdate(m_fix.getCenter(), m_lastAim, m_fix.getBodyPtr());
+    if(functioning())
+    {
+        m_lastAngle = atan2(m_lastAim.y-m_fix.getCenter().y, m_lastAim.x-m_fix.getCenter().x);
+        m_lastAngle -= m_fix.getAngle();
+    }
+    m_spWep->prePhysUpdate(m_fix.getCenter(), m_lastAim, m_lastAngle+m_fix.getAngle(), m_fix.getBodyPtr());
     ShipModule::prePhysUpdate();
 }
 void Turret::postPhysUpdate()
 {
-    m_spWep->postPhysUpdate(m_fix.getCenter(), m_lastAim, m_fix.getBodyPtr());
+    if(functioning())
+    {
+        m_lastAngle = atan2(m_lastAim.y-m_fix.getCenter().y, m_lastAim.x-m_fix.getCenter().x);
+        m_lastAngle -= m_fix.getAngle();
+    }
+    m_spWep->postPhysUpdate(m_fix.getCenter(), m_lastAim, m_lastAngle+m_fix.getAngle(), m_fix.getBodyPtr());
     ShipModule::postPhysUpdate();
 }
 void Turret::directive(Directive issue)
@@ -26,7 +37,7 @@ void Turret::directive(Directive issue)
     switch(issue)
     {
     case Directive::FirePrimary:
-        if(m_spWep)//if we have a weapon
+        if(m_spWep && functioning())//if we have a weapon
             if(m_spWep->fire(m_pEnergyPool, m_pBallisticPool))
             {
 

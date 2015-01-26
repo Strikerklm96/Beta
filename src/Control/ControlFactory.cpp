@@ -28,6 +28,11 @@ void ControlFactory::resetControllers(const std::vector<std::string>& slaves)
     for(auto it = slaves.begin(); it != slaves.end(); ++it)
         addController(*it);
 }
+void ControlFactory::unsetLocal()
+{
+    for(auto it = m_spControlList.begin(); it != m_spControlList.end(); ++it)
+        (*it)->toggleLocal(false);
+}
 Controller& ControlFactory::getController(int index)
 {
     if(m_spControlList.size() > index)

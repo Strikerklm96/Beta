@@ -26,6 +26,7 @@ private:
     int m_shotsRemain;//shots remaining in this volley
 
     b2Vec2 m_lastAim;
+    float32 m_lastAngle;
 };
 
 

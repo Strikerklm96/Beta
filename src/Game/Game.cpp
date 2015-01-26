@@ -196,7 +196,7 @@ void Game::run()
 
 
         /**NETWORK**/
-        if(m_spNetworkBoss->hasConnections())
+        if(m_spNetworkBoss->getNWState() != NWState::Local)
             m_spNetworkBoss->update();
 
 

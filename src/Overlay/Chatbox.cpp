@@ -102,7 +102,7 @@ void Chatbox::unpack(sf::Packet& rPacket)//process data from our twin
     std::string line;
     rPacket >> line;
     addLine(line);
-    if(not game.getNwBoss().isClient())
+    if(game.getNwBoss().getNWState() == NWState::Server)
     {
         m_nw.toggleNewData(true);
         m_latest = line;

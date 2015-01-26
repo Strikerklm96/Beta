@@ -16,8 +16,8 @@ public:
 
     bool fire(Pool<Energy>* pEnergy, Pool<Ballistic>* pBall);//returns true if we fire
 
-    void prePhysUpdate(const b2Vec2& center, const b2Vec2& aim, b2Body* pBody);
-    void postPhysUpdate(const b2Vec2& center, const b2Vec2& aim, b2Body* pBody);
+    void prePhysUpdate(const b2Vec2& center, const b2Vec2& aim, float32 angle, b2Body* pBody);
+    void postPhysUpdate(const b2Vec2& center, const b2Vec2& aim, float32 angle, b2Body* pBody);
 
     virtual void preShot(const b2Vec2& center, const b2Vec2& aim, float radCCW) = 0;
     virtual void postShot(const b2Vec2& center, const b2Vec2& aim, float radCCW) = 0;

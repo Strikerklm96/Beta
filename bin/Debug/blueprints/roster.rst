@@ -7,7 +7,8 @@
         "thruster/DefaultThruster.bp",
         "capacitor/DefaultCapacitor.bp",
         "reactor/DefaultReactor.bp",
-		"turret/DefaultTurret.bp"
+		"turret/DefaultTurret.bp",
+		"plating/DefaultPlating.bp"
     ],
     "ChunkList": [
 		"chunk/CombatShip.bp",

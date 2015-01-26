@@ -44,9 +44,8 @@ bool Player::isTracking() const
 }
 void Player::setController(int index)
 {
-    cout << "\n" << index;
-    Controller& rController = game.getUniverse().getControllerFactory().getController(m_controller);
-    rController.toggleLocal(false);
+    game.getUniverse().getControllerFactory().unsetLocal();
+
     m_controller = index;
     Controller& rController2 = game.getUniverse().getControllerFactory().getController(m_controller);
     rController2.toggleLocal(true);

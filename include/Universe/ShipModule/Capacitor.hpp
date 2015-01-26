@@ -11,10 +11,12 @@ public:
     Capacitor(const CapacitorData& rData);
     virtual ~Capacitor();
 
+    virtual void setHealthStateHook(HealthState newState);
 
 protected:
 private:
 
+    bool m_hasContributed;
     float m_storage;
 };
 

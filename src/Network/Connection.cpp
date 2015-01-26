@@ -37,6 +37,8 @@ void Connection::prepSend(Protocol proto, const sf::Packet& rData, sf::Packet& d
 }
 Protocol Connection::recievePacket(sf::Packet& rData)//what do we do with this packet?, if End, then the packet should be ignored
 {
+    cout << "\nPacket Recieved.";
+
     Protocol proto;
 
     int32_t proto32;

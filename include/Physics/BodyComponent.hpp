@@ -2,6 +2,7 @@
 #define BODYCOMPONENT_HPP
 
 #include "stdafx.hpp"
+#include "NetworkComponent.hpp"
 
 struct BodyComponentData
 {
@@ -10,7 +11,10 @@ struct BodyComponentData
         rotation(0),
         isDynamic(true),
         isBullet(false),
-        startAwake(true)
+        startAwake(true),
+        linearDampening(0.5),
+        angularDampening(0.5),
+        nwComp()
     {
 
     }
@@ -19,6 +23,9 @@ struct BodyComponentData
     bool isDynamic;
     bool isBullet;
     bool startAwake;
+    float linearDampening;
+    float angularDampening;
+    NetworkComponentData nwComp;
 };
 
 
@@ -38,7 +45,11 @@ public:
 
 
 protected:
+    virtual void pack(sf::Packet& rPacket);
+    virtual void unpack(sf::Packet& rPacket);
+
 private:
+    NetworkComponent m_nw;
     b2Body* m_pBody;
     b2BodyDef m_bodyDef;
 

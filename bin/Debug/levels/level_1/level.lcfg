@@ -18,13 +18,6 @@
             ]
         },
         {
-            "Title": "CombatShip",
-            "Coordinates": [
-                -4,
-                0
-            ]
-        },
-        {
             "ClassName": "Chunk",
             "Copies": "CombatShip",
             "IO": {

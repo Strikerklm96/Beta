@@ -14,6 +14,7 @@ void Reactor::prePhysUpdate()
 }
 void Reactor::postPhysUpdate()
 {
-    m_pEnergyPool->changeValue(game.getUniverse().getTimeStep()*m_rate);
+    if(functioning())
+        m_pEnergyPool->changeValue(game.getUniverse().getTimeStep()*m_rate);
     ShipModule::postPhysUpdate();
 }

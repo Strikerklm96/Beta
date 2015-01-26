@@ -7,6 +7,7 @@ using namespace std;
 
 Controller::Controller(const ControllerData& rData) : m_aim(0,0), m_io(rData.ioComp, &Controller::input, this), m_nw(rData.nwComp, &Controller::pack, &Controller::unpack, this, game.getUniverse().getControllerFactory().getNWFactory())
 {
+    m_local = false;
     m_slavePosition = -1;
 
     if(rData.slaveName != "NOSLAVE")

@@ -37,6 +37,7 @@ public:
     NetworkFactory& getNWFactoryTcp();
 
     void messageLobbyLocal(const std::string& rMessage);
+    void messageLobby(const std::string& rMessage);
     bool setRecievePort(unsigned short port);//set receiving port, returns whether the bind was successful
     bool hasConnections();//are we connected to anyone?
     Connection* findConnection(const sf::IpAddress& rAdd);

@@ -11,8 +11,11 @@ public:
     Radar(const RadarData& rData);
     virtual ~Radar();
 
+    virtual void setHealthStateHook(HealthState newState);
+
 protected:
 private:
+    bool m_hasContributed;//
     float m_zoom;//zoom change
 };
 

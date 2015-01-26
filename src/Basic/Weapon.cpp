@@ -44,10 +44,9 @@ bool Weapon::fire(Pool<Energy>* pEnergy, Pool<Ballistic>* pBall)
     else
         return false;
 }
-void Weapon::prePhysUpdate(const b2Vec2& center, const b2Vec2& aim, b2Body* pBody)
+void Weapon::prePhysUpdate(const b2Vec2& center, const b2Vec2& aim, float32 angle, b2Body* pBody)
 {
     m_pBody = pBody;
-    float angle = atan2(aim.y-center.y, aim.x-center.x);
 
     if(m_shotsRemain>0 && m_shotTimer.isTimeUp())
     {
@@ -58,10 +57,9 @@ void Weapon::prePhysUpdate(const b2Vec2& center, const b2Vec2& aim, b2Body* pBod
         preShot(center, aim, angle);
     }
 }
-void Weapon::postPhysUpdate(const b2Vec2& center, const b2Vec2& aim, b2Body* pBody)
+void Weapon::postPhysUpdate(const b2Vec2& center, const b2Vec2& aim, float32 angle, b2Body* pBody)
 {
     m_pBody = pBody;
-    float angle = atan2(aim.y-center.y, aim.x-center.x);
 
     m_decor.setRotation(angle);
     m_decor.setPosition(center);

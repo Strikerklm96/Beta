@@ -46,34 +46,40 @@ void Thruster::directive(Directive issue)
 }
 void Thruster::thrust(const b2Vec2& rDirection)
 {
-    float eThisStep = m_eConsump*game.getUniverse().getTimeStep();
-
-    if(eThisStep <= m_pEnergyPool->getValue())
+    if(functioning())
     {
-        m_pEnergyPool->changeValue(-eThisStep);
+        float eThisStep = m_eConsump*game.getUniverse().getTimeStep();
 
-        float angle = m_fix.getAngle();
+        if(eThisStep <= m_pEnergyPool->getValue())
+        {
+            m_pEnergyPool->changeValue(-eThisStep);
 
-        b2Vec2 forceVec;
-        forceVec.x = cos(-angle)*rDirection.x + sin(-angle)*rDirection.y;//negative because THAT IS CORRECT, go lookup the equation!
-        forceVec.y = -sin(-angle)*rDirection.x + cos(-angle)*rDirection.y;
+            float angle = m_fix.getAngle();
 
-        forceVec.x *= m_force;
-        forceVec.y *= m_force;
+            b2Vec2 forceVec;
+            forceVec.x = cos(-angle)*rDirection.x + sin(-angle)*rDirection.y;//negative because THAT IS CORRECT, go lookup the equation!
+            forceVec.y = -sin(-angle)*rDirection.x + cos(-angle)*rDirection.y;
 
-        m_fix.applyForce(forceVec);
+            forceVec.x *= m_force;
+            forceVec.y *= m_force;
+
+            m_fix.applyForce(forceVec);
+        }
     }
 }
 void Thruster::torque(bool CCW)
 {
-    float eThisStep = m_eConsump*game.getUniverse().getTimeStep();
-
-    if(eThisStep <= m_pEnergyPool->getValue())
+    if(functioning())
     {
-        m_pEnergyPool->changeValue(-eThisStep);
-        if(CCW)
-            m_fix.applyTorque(m_torque);
-        else
-            m_fix.applyTorque(-m_torque);
+        float eThisStep = m_eConsump*game.getUniverse().getTimeStep();
+
+        if(eThisStep <= m_pEnergyPool->getValue())
+        {
+            m_pEnergyPool->changeValue(-eThisStep);
+            if(CCW)
+                m_fix.applyTorque(m_torque);
+            else
+                m_fix.applyTorque(-m_torque);
+        }
     }
 }
