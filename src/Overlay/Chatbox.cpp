@@ -99,6 +99,7 @@ void Chatbox::pack(sf::Packet& rPacket)//give us data to send to the twin in the
 }
 void Chatbox::unpack(sf::Packet& rPacket)//process data from our twin
 {
+    cout << "\nChatbox unpack.";
     std::string line;
     rPacket >> line;
     addLine(line);

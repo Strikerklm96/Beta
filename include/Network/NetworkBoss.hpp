@@ -43,6 +43,7 @@ public:
     Connection* findConnection(const sf::IpAddress& rAdd, unsigned short fromUDPPort);
     void addConnection(std::tr1::shared_ptr<sf::TcpSocket> spTcpSocket, bool valid);//add this connection to our clients list and handshake it a few times (SERVER ONLY)
 
+    bool gameHasStarted() const;
     bool isClient() const;
     NWState getNWState() const;
 
@@ -84,6 +85,7 @@ private:
     unsigned short m_joinPort;//the port we will try to join
     float m_timeOut;//timeout we use for connections
 
+    bool m_nwGameStarted;//has the game started for us yet?
     bool m_isOpen;//are we accepting connections
     NWState m_state;//are we Client, Server, Local
 

@@ -25,11 +25,15 @@ void ShipModule::postPhysUpdate()
 
 void ShipModule::pack(sf::Packet& rPacket)
 {
-
+    int32_t bytes = 0;
+    rPacket << bytes;
+    cout << "\nB:" << bytes;
 }
 void ShipModule::unpack(sf::Packet& rPacket)
 {
-
+    int32_t size;
+    rPacket >> size;
+    cout << "\n0," << size << "shipmod";
 }
 void ShipModule::input(std::string rCommand, sf::Packet rData)
 {

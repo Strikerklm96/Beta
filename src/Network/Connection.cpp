@@ -16,6 +16,7 @@ Connection::Connection(sf::UdpSocket* pSocket, std::tr1::shared_ptr<sf::TcpSocke
 }
 Connection::~Connection()
 {
+    cout << "\nConnection Destroyed!";
     m_spTcpSocket->disconnect();
 }
 void Connection::sendUdp(Protocol proto, const sf::Packet& rData)

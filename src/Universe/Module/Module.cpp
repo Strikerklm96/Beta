@@ -41,11 +41,16 @@ void Module::endContactCB(FixtureComponent* pOther)
 }
 void Module::pack(sf::Packet& rPacket)
 {
-
+    int32_t size = 0;
+    rPacket << size;
 }
 void Module::unpack(sf::Packet& rPacket)
 {
+    int32_t bytes;
+    rPacket >> bytes;
+    cout << "\nB:" << bytes;
 
+    cout << "\n0," << bytes << "module";
 }
 void Module::input(std::string rCommand, sf::Packet rData)
 {

@@ -120,21 +120,35 @@ NetworkComponent& Controller::getNWComp()
 }
 void Controller::pack(sf::Packet& rPacket)
 {
+    int32_t bytes = 2*sizeof(float32)+static_cast<int32_t>(Directive::End)*sizeof(bool);
+    rPacket << bytes;
+    cout << "\nB:" << bytes;
+
     rPacket << static_cast<float32>(m_aim.x);
     rPacket << static_cast<float32>(m_aim.y);
-    for(int i=0; i<static_cast<int>(Directive::End); ++i)
+    for(int32_t i=0; i<static_cast<int32_t>(Directive::End); ++i)
     {
         rPacket << m_directives[static_cast<Directive>(i)];
     }
 }
 void Controller::unpack(sf::Packet& rPacket)
 {
+    int32_t bytes = 2*sizeof(float32)+static_cast<int32_t>(Directive::End)*sizeof(bool);
+
+    int32_t size;
+    rPacket >> size;
+    cout << "\n" << bytes << "," << size << " controller.";
+
+
+    if(game.getNwBoss().getNWState() == NWState::Server)
+        m_nw.toggleNewData(true);//if we are the server and we got new data from a client about his control we need to tell the other clients
+
     bool dir;
     float32 aimX, aimY;
     rPacket >> aimX;
     rPacket >> aimY;
     setAim(b2Vec2(aimX, aimY));
-    for(int i = 0; i<static_cast<int>(Directive::End); ++i)
+    for(int32_t i = 0; i<static_cast<int32_t>(Directive::End); ++i)
     {
         rPacket >> dir;
         if(not m_local)

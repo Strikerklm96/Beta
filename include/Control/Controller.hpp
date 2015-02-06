@@ -93,8 +93,8 @@ public:
 
 protected:
     virtual void input(std::string rCommand, sf::Packet rData);
-    virtual void pack(sf::Packet& rPacket);
-    virtual void unpack(sf::Packet& rPacket);
+    virtual void pack(sf::Packet& rPacket) final;
+    virtual void unpack(sf::Packet& rPacket) final;
 
     int m_slavePosition;//position of our slave in the list
     std::string m_slaveName;//name of the game thing we sends commands to

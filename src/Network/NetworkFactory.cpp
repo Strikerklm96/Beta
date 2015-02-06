@@ -53,6 +53,27 @@ void NetworkFactory::free(int position)//don't adjust the list, just mark the no
 }
 void NetworkFactory::getData(sf::Packet& rPacket)
 {
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num9) && m_name == "standard")
+    {
+        int i;
+
+        sf::Packet test;
+        std::vector<NetworkComponent*>& rPtr = m_componentPtrs;
+        cout << "\nSize: " <<  rPtr.size();
+        for(int32_t i = 0; i < rPtr.size(); ++i)
+        {
+            if(rPtr[i] != NULL)
+            {
+                rPtr[i]->pack(rPacket);
+            }
+            else
+                cout << "\nNULL";
+        }
+
+
+        cin >> i;
+    }
+
     std::vector<NetworkComponent*>& rPtr = m_componentPtrs;
     for(int32_t i = 0; i < rPtr.size(); ++i)
     {
@@ -69,11 +90,20 @@ void NetworkFactory::getData(sf::Packet& rPacket)
 }
 void NetworkFactory::process(sf::Packet& rPacket)
 {
+    //if(m_name == "standard")
+        //cout << "\n" << m_componentPtrs.size();
+
+
+
+
+
     int32_t id;
-    while(rPacket >> id)
+    int32_t old_id;
+    while(rPacket >> id && not rPacket.endOfPacket())
     {
         if(id < m_componentPtrs.size())
         {
+            old_id = id;
             if(m_componentPtrs[id] != NULL)
             {
                 m_componentPtrs[id]->unpack(rPacket);
@@ -81,14 +111,9 @@ void NetworkFactory::process(sf::Packet& rPacket)
         }
         else
         {
-            cout << "\n[" << id << "]" << FILELINE;
+            cout << "\n[" << id << "][" << old_id << "]" << FILELINE << m_name;
             ///ERROR LOG
+            break;
         }
-    }
-
-    if(not rPacket.endOfPacket())
-    {
-        cout << "\n" << FILELINE;
-        ///ERROG LOG
     }
 }

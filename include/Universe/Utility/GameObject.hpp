@@ -30,8 +30,8 @@ public:
 
 protected:
     virtual void input(std::string rCommand, sf::Packet rData);
-    virtual void pack(sf::Packet& rPacket);
-    virtual void unpack(sf::Packet& rPacket);
+    virtual void pack(sf::Packet& rPacket) final;
+    virtual void unpack(sf::Packet& rPacket) final;
 
     IOComponent m_io;
     NetworkComponent m_nw;

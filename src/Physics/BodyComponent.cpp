@@ -3,6 +3,8 @@
 #include "Globals.hpp"
 #include "Universe.hpp"
 
+using namespace std;
+
 BodyComponent::BodyComponent(const BodyComponentData& rData) : m_nw(rData.nwComp, &BodyComponent::pack, &BodyComponent::unpack, this, game.getNwBoss().getNWFactory())
 {
     if(rData.isDynamic)
@@ -40,6 +42,10 @@ NetworkComponent& BodyComponent::getNWComp()
 }
 void BodyComponent::pack(sf::Packet& rPacket)
 {
+    int32_t bytes = 6*sizeof(float32);
+    rPacket << bytes;
+    cout << "\nB:" << bytes;
+
     rPacket << static_cast<float32>(m_pBody->GetPosition().x);
     rPacket << static_cast<float32>(m_pBody->GetPosition().y);
     rPacket << static_cast<float32>(m_pBody->GetLinearVelocity().x);
@@ -49,6 +55,12 @@ void BodyComponent::pack(sf::Packet& rPacket)
 }
 void BodyComponent::unpack(sf::Packet& rPacket)
 {
+    int32_t bytes = 6*sizeof(float32);
+
+    int32_t size;
+    rPacket >> size;
+    cout << "\n" << bytes << "," << size << " body.";
+
     b2Vec2 pos;
     b2Vec2 vel;
     float32 posX, posY, velX, velY;

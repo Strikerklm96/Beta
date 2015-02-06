@@ -16,9 +16,13 @@ void GameObject::input(std::string rCommand, sf::Packet rData)
 }
 void GameObject::pack(sf::Packet& rPacket)
 {
-
+    int32_t bytes = 0;
+    rPacket << bytes;
+    cout << "\nB:" << bytes;
 }
 void GameObject::unpack(sf::Packet& rPacket)
 {
-
+    int32_t size;
+    rPacket >> size;
+    cout << "\n0," << size << "gameObject";
 }
