@@ -15,6 +15,12 @@ public:
 
     void preShot(const b2Vec2& center, const b2Vec2& aim, float radCCW);
     void postShot(const b2Vec2& center, const b2Vec2& aim, float radCCW);
+
+    //Evan - laser weapon sound vars
+    sf::SoundBuffer buffer;
+    sf::Sound sound;
+    //
+
 protected:
     RayCastCallback m_ray;
     int m_beamWidth;

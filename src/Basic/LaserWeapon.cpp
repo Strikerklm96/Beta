@@ -10,6 +10,12 @@ LaserWeapon::LaserWeapon(const LaserWeaponData& rData) : Weapon(rData), m_beam(r
     m_beamColor = rData.beamColor;
     m_beamWidth = rData.beamWidth;
     m_showTime = rData.showTime;
+
+    //Evan - set up sound
+    buffer.loadFromFile("textures/laser1.ogg");
+    sound.setBuffer(buffer);
+    sound.setLoop(false);
+    //
 }
 LaserWeapon::~LaserWeapon()
 {
@@ -17,6 +23,11 @@ LaserWeapon::~LaserWeapon()
 }
 void LaserWeapon::preShot(const b2Vec2& center, const b2Vec2& aim, float radCCW)
 {
+
+    //Evan - play sound when fired
+    this->sound.play();
+    //
+
     m_ray.setIgnoreBody(m_pBody);
     float mult = m_range/leon::Dist(aim, center);
     b2Vec2 end = b2Vec2(center.x+(aim.x-center.x)*mult, center.y+(aim.y-center.y)*mult);

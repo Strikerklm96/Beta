@@ -31,6 +31,8 @@ Weapon::~Weapon()
 bool Weapon::fire(Pool<Energy>* pEnergy, Pool<Ballistic>* pBall)
 {
 
+
+
     if(m_fireTimer.isTimeUp() && pEnergy->getValue()>=m_energy && pBall->getValue()>=m_ballistic)
     {
         m_decor.getAnimator().setAnimation("Fire", m_fireDelay);
