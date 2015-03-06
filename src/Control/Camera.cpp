@@ -21,7 +21,6 @@ Camera::~Camera()
 void Camera::setPosition(const b2Vec2& rPos)//world position
 {
     sf::Listener::setPosition(rPos.x, rPos.y, 0);///HOW DO WE SET Z OF LISTENER
-    sf::Listener::setDirection(0,0,-1);
     m_view.setCenter(leon::b2Tosf<float>(rPos));
 }
 void Camera::move(const b2Vec2& change)

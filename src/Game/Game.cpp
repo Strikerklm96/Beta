@@ -118,7 +118,7 @@ void Game::run()
     /**===========================**/
     /**EVAN PUT STUFF TO DRAW HERE**/
 
-
+    sf::Listener::setDirection(0,0,-1);//sound
     RayCastCallback inst;
 
     getUniverse().getWorld().RayCast(&inst, b2Vec2(0,0), b2Vec2(10,3));

@@ -18,7 +18,7 @@ struct SoundData
         minDist = leon::dist;
         dropOff = leon::drop;
         pos = leon::dPos;
-        relative = true;
+        relative = false;
     }
 
     std::string name;

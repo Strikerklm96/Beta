@@ -23,7 +23,7 @@ public:
     virtual ~SoundManager();
 
     void playSound(const SoundData& rSound);
-    void playSound(const std::string& rSoundName, int volume = leon::volume, float minDist = leon::dist, float dropOff = leon::drop, const b2Vec2& rPos = leon::dPos, bool relative = false);
+    void playSound(const std::string& rSoundName, int volume = leon::volume, float minDist = leon::dist, float dropOff = leon::drop, const b2Vec2& rPos = leon::dPos, bool relative = true);
 
 
 protected:
