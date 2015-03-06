@@ -909,7 +909,7 @@
 1421872596 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
 	"GraphicsComponent.hpp"
 
-1425509132 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
+1425606603 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
 	"Game.hpp"
 	"Globals.hpp"
 	"TextureAllocator.hpp"
@@ -951,7 +951,7 @@
 	"GraphicsComponentUpdater.hpp"
 	"GraphicsComponent.hpp"
 
-1425605645 source:c:\users\leon\desktop\projects\beta\src\control\camera.cpp
+1425606557 source:c:\users\leon\desktop\projects\beta\src\control\camera.cpp
 	"Camera.hpp"
 	"Globals.hpp"
 	"Convert.hpp"
@@ -1637,7 +1637,7 @@
 	"stdafx.hpp"
 	"SoundData.hpp"
 
-1425605690 source:c:\users\leon\desktop\projects\beta\src\audio\soundmanager.cpp
+1425606701 source:c:\users\leon\desktop\projects\beta\src\audio\soundmanager.cpp
 	"SoundManager.hpp"
 	"globals.hpp"
 

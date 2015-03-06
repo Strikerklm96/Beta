@@ -42,21 +42,21 @@
         "vol": 100,
         "dropOff": 15,
         "minDist": 5,
-        "relative": true
+        "relative": false
     },
     "ShotSound": {
         "name": "laser1.wav",
         "vol": 100,
         "dropOff": 15,
         "minDist": 5,
-        "relative": true
+        "relative": false
     },
     "EndSound": {
         "name": "",
         "vol": 100,
         "dropOff": 15,
         "minDist": 5,
-        "relative": true
+        "relative": false
     },
     "EnergyConsumption": 20,
     "Damage": 200,
