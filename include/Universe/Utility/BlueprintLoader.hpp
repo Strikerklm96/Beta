@@ -10,6 +10,7 @@
 #include "NetworkComponent.hpp"
 #include "BodyComponent.hpp"
 #include "Health.hpp"
+#include "SoundData.hpp"
 
 
 struct ShipModuleData;
@@ -78,7 +79,8 @@ private:
     NetworkComponentData loadNWComp(const Json::Value& root, const NetworkComponentData& orig);
     HealthData loadHealth(const Json::Value& root, const HealthData& orig);
     QuadComponentData loadQuad(const Json::Value& root, const QuadComponentData& orig);
-    SpinnerData loadSpinner(const Json::Value& root, const SpinnerData& orig);
+    SoundData loadSound(const Json::Value& root, const SoundData& orig);
+
     template <typename T>
     PoolData<T> loadPool(const Json::Value& root, const PoolData<T>& orig)
     {

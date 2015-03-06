@@ -3,6 +3,8 @@
 #include "Globals.hpp"
 #include "Convert.hpp"
 
+using namespace std;
+
 const float Camera::m_maxZoom = 256;
 const float Camera::m_minZoom = 1;
 Camera::Camera()
@@ -18,6 +20,8 @@ Camera::~Camera()
 }
 void Camera::setPosition(const b2Vec2& rPos)//world position
 {
+    sf::Listener::setPosition(rPos.x, rPos.y, 0);///HOW DO WE SET Z OF LISTENER
+    sf::Listener::setDirection(0,0,-1);
     m_view.setCenter(leon::b2Tosf<float>(rPos));
 }
 void Camera::move(const b2Vec2& change)
@@ -26,6 +30,9 @@ void Camera::move(const b2Vec2& change)
     bob.x *= m_zoomLevel;
     bob.y *= m_zoomLevel;
     m_view.move(bob);
+
+    b2Vec2 rPos = leon::sfTob2(m_view.getCenter());
+    sf::Listener::setPosition(rPos.x, rPos.y, 0);///HOW DO WE SET Z OF LISTENER
 }
 void Camera::setZoom(float level)//multiple of each dimension to find new
 {

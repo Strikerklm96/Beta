@@ -5,6 +5,7 @@
 #include "Pool.hpp"
 #include "QuadComponent.hpp"
 #include "Globals.hpp"
+#include "SoundData.hpp"
 
 struct WeaponData;
 
@@ -14,7 +15,7 @@ public:
     Weapon(const WeaponData& rData);
     virtual ~Weapon();
 
-    bool fire(Pool<Energy>* pEnergy, Pool<Ballistic>* pBall);//returns true if we fire
+    bool fire(Pool<Energy>* pEnergy, Pool<Ballistic>* pBall, Pool<Missiles>* pMis);//returns true if we fire
 
     void prePhysUpdate(const b2Vec2& center, const b2Vec2& aim, float32 angle, b2Body* pBody);
     void postPhysUpdate(const b2Vec2& center, const b2Vec2& aim, float32 angle, b2Body* pBody);
@@ -31,12 +32,17 @@ protected:
 private:
     QuadComponent m_decor;//the weapon sprite
 
+    SoundData m_startSound;
+    SoundData m_shotSound;
+    SoundData m_endSound;
+
     Timer m_shotTimer;
     int m_shotsRemain;
     int m_shots;
 
     Energy m_energy;
     Ballistic m_ballistic;
+    Missiles m_missiles;
 
     Timer m_fireTimer;
     float m_fireDelay;
@@ -49,6 +55,7 @@ struct WeaponData
     WeaponData() :
         ener(3),
         ball(0),
+        mis(0),
 
         shots(5),
         damage(50),
@@ -66,6 +73,9 @@ struct WeaponData
     }
     Energy ener;//energy consumed per fire
     Ballistic ball;//ballistics consumed per fire
+    Missiles mis;
+
+    SoundData startSound, shotSound, endSound;
 
     int shots;//how many shots per fire
     int damage;//damage we do total

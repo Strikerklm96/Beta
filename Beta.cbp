@@ -103,7 +103,10 @@
 			<Add directory="include/Universe/Utility" />
 			<Add directory="include/Universe/Weapon" />
 			<Add directory="include/Graphics/Utility" />
+			<Add directory="include/Audio" />
 		</Compiler>
+		<Unit filename="include/Audio/SoundData.hpp" />
+		<Unit filename="include/Audio/SoundManager.hpp" />
 		<Unit filename="include/Basic/Health.hpp" />
 		<Unit filename="include/Basic/LaserWeapon.hpp" />
 		<Unit filename="include/Basic/Link.hpp" />
@@ -173,6 +176,7 @@
 		<Unit filename="include/Universe/Utility/RayCastCallback.hpp" />
 		<Unit filename="include/Universe/Utility/UniversalContactListener.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Audio/SoundManager.cpp" />
 		<Unit filename="src/Basic/Health.cpp" />
 		<Unit filename="src/Basic/LaserWeapon.cpp" />
 		<Unit filename="src/Basic/Link.cpp" />

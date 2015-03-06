@@ -37,6 +37,27 @@
         255,
         255
     ],
+    "StartSound": {
+        "name": "",
+        "vol": 100,
+        "dropOff": 15,
+        "minDist": 5,
+        "relative": true
+    },
+    "ShotSound": {
+        "name": "laser1.wav",
+        "vol": 100,
+        "dropOff": 15,
+        "minDist": 5,
+        "relative": true
+    },
+    "EndSound": {
+        "name": "",
+        "vol": 100,
+        "dropOff": 15,
+        "minDist": 5,
+        "relative": true
+    },
     "EnergyConsumption": 20,
     "Damage": 200,
     "Shots": 2

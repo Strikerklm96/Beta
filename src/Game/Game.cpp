@@ -3,6 +3,7 @@
 #include "Globals.hpp"
 #include "TextureAllocator.hpp"
 #include "AnimAlloc.hpp"
+#include "SoundManager.hpp"
 
 #include "BatchLayers.hpp"
 #include "GraphicsComponentUpdater.hpp"
@@ -34,7 +35,7 @@ Game::Game()
 
 
 
-
+    m_spSound = std::tr1::shared_ptr<SoundManager>(new SoundManager);
     m_spAnimAlloc = std::tr1::shared_ptr<AnimAlloc>(new AnimAlloc);
     m_spCoreIO = std::tr1::shared_ptr<IOManager>(new IOManager(true));
 
@@ -52,12 +53,13 @@ Game::Game()
     gameData.name = "game";
     m_spIO = std::tr1::shared_ptr<IOComponent>(new IOComponent(gameData, Game::input, this));
 
-    loadUniverse("THING");
+    loadUniverse("RANDOMTEXT");
     m_spUniverse->togglePause(true);
 }
 Game::~Game()
 {
     cout << "\nGame Destroying...";
+    cout << "\nExpect to see (0x8000FFFF) upon exit due to SFML audio.";
 }
 
 Player& Game::getLocalPlayer()
@@ -92,7 +94,10 @@ Universe& Game::getUniverse()
 {
     return *m_spUniverse;
 }
-
+SoundManager& Game::getSound()
+{
+    return *m_spSound;
+}
 
 
 

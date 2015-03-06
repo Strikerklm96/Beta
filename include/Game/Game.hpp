@@ -14,6 +14,7 @@ class AnimAlloc;
 class BatchLayers;
 class GraphicsComponentUpdater;
 class NetworkBoss;
+class SoundManager;
 
 
 class Game
@@ -31,6 +32,7 @@ public:
     NetworkBoss& getNwBoss();
     TextureAllocator& getTextureAllocator();
     AnimAlloc& getAnimAlloc();
+    SoundManager& getSound();
 
 
     Universe& getUniverse();
@@ -49,6 +51,7 @@ protected:
 
 private:
     std::tr1::shared_ptr<IOManager> m_spCoreIO;//manages IO just for the GUI
+    std::tr1::shared_ptr<SoundManager> m_spSound;
 
     std::tr1::shared_ptr<NetworkBoss> m_spNetworkBoss;
     std::tr1::shared_ptr<Player> m_spLocalPlayer;

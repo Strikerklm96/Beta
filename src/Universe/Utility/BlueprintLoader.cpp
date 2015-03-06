@@ -173,6 +173,7 @@ void BlueprintLoader::storeWeapon(const std::string& rFile)
     }
     else
     {
+        cout << "\nParse Failure on file [" << rFile << "]";
         cout << "\n" << FILELINE;
         ///ERROR LOG
     }
@@ -256,6 +257,12 @@ std::tr1::shared_ptr<const WeaponData> BlueprintLoader::loadWeapon(const Json::V
             pWep->beamComp.end = loadQuad(root["BeamEnd"], pWep->beamComp.end);
         if(not root["BeamMid"].isNull())
             static_cast<QuadComponentData>(pWep->beamComp) = loadQuad(root["BeamMid"], pWep->beamComp);
+        if(not root["StartSound"].isNull())
+           pWep->startSound = loadSound(root["StartSound"], pWep->startSound);
+        if(not root["ShotSound"].isNull())
+           pWep->shotSound = loadSound(root["ShotSound"], pWep->shotSound);
+        if(not root["EndSound"].isNull())
+           pWep->endSound = loadSound(root["EndSound"], pWep->endSound);
 
         inheritWeapon(root, pWep);
         spWep.reset(pWep);
@@ -711,9 +718,20 @@ QuadComponentData BlueprintLoader::loadQuad(const Json::Value& root, const QuadC
 
     return data;
 }
-SpinnerData BlueprintLoader::loadSpinner(const Json::Value& root, const SpinnerData& orig)
+SoundData BlueprintLoader::loadSound(const Json::Value& root, const SoundData& orig)
 {
-    SpinnerData data(orig);
+    SoundData data(orig);
+
+    if(not root["name"].isNull())
+        data.name = root["name"].asString();
+    if(not root["vol"].isNull())
+        data.vol = root["vol"].asInt();
+    if(not root["dropOff"].isNull())
+        data.dropOff = root["dropOff"].asFloat();
+    if(not root["minDist"].isNull())
+        data.minDist = root["minDist"].asFloat();
+    if(not root["relative"].isNull())
+        data.relative = root["relative"].asBool();
 
     return data;
 }

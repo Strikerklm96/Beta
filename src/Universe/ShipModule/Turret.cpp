@@ -38,7 +38,7 @@ void Turret::directive(Directive issue)
     {
     case Directive::FirePrimary:
         if(m_spWep && functioning())//if we have a weapon
-            if(m_spWep->fire(m_pEnergyPool, m_pBallisticPool))
+            if(m_spWep->fire(m_pEnergyPool, m_pBallisticPool, m_pMissilePool))//if we successfully fired
             {
 
             }

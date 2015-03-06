@@ -909,11 +909,12 @@
 1421872596 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
 	"GraphicsComponent.hpp"
 
-1422311251 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
+1425509132 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
 	"Game.hpp"
 	"Globals.hpp"
 	"TextureAllocator.hpp"
 	"AnimAlloc.hpp"
+	"SoundManager.hpp"
 	"BatchLayers.hpp"
 	"GraphicsComponentUpdater.hpp"
 	"Overlay.hpp"
@@ -931,7 +932,7 @@
 	"Beam.hpp"
 	"RayCastCallback.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\game\game.hpp
+1425505336 c:\users\leon\desktop\projects\beta\include\game\game.hpp
 	"stdafx.hpp"
 
 1415149801 source:c:\users\leon\desktop\projects\beta\src\graphics\batchlayers.cpp
@@ -950,7 +951,7 @@
 	"GraphicsComponentUpdater.hpp"
 	"GraphicsComponent.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\control\camera.cpp
+1425605645 source:c:\users\leon\desktop\projects\beta\src\control\camera.cpp
 	"Camera.hpp"
 	"Globals.hpp"
 	"Convert.hpp"
@@ -970,7 +971,7 @@
 	"Universe.hpp"
 	"NetworkComponent.hpp"
 
-1422304122 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
+1425602615 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
 	"Player.hpp"
 	"Globals.hpp"
 	"Overlay.hpp"
@@ -1366,7 +1367,7 @@
 1416349861 c:\users\leon\desktop\projects\beta\include\universe\module\capacitor.hpp
 	"ShipModule.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
+1425601378 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
 	"BlueprintLoader.hpp"
 	"Module.hpp"
 	"ShipModule.hpp"
@@ -1380,7 +1381,7 @@
 	"Turret.hpp"
 	"LaserWeapon.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\universe\utility\blueprintloader.hpp
+1425601205 c:\users\leon\desktop\projects\beta\include\universe\utility\blueprintloader.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"QuadComponent.hpp"
@@ -1389,6 +1390,7 @@
 	"NetworkComponent.hpp"
 	"BodyComponent.hpp"
 	"Health.hpp"
+	"SoundData.hpp"
 
 1421872597 source:c:\users\leon\desktop\projects\beta\src\io\eventtypes.cpp
 	"EventTypes.hpp"
@@ -1528,26 +1530,28 @@
 	"Beam.hpp"
 	"RayCastCallback.hpp"
 
-1422244744 source:c:\users\leon\desktop\projects\beta\src\basic\weapon.cpp
+1425602467 source:c:\users\leon\desktop\projects\beta\src\basic\weapon.cpp
 	"Weapon.hpp"
 	"FixtureComponent.hpp"
 	"Message.hpp"
 	"Universe.hpp"
 	"IOManager.hpp"
+	"SoundManager.hpp"
 
-1422245051 c:\users\leon\desktop\projects\beta\include\basic\weapon.hpp
+1425594195 c:\users\leon\desktop\projects\beta\include\basic\weapon.hpp
 	"stdafx.hpp"
 	"Pool.hpp"
 	"QuadComponent.hpp"
 	"Globals.hpp"
+	"SoundData.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\basic\laserweapon.cpp
+1424565856 source:c:\users\leon\desktop\projects\beta\src\basic\laserweapon.cpp
 	"LaserWeapon.hpp"
 	"Convert.hpp"
 	"Universe.hpp"
 	"Globals.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\basic\laserweapon.hpp
+1424565856 c:\users\leon\desktop\projects\beta\include\basic\laserweapon.hpp
 	"Weapon.hpp"
 	"RayCastCallback.hpp"
 	"Beam.hpp"
@@ -1556,7 +1560,7 @@
 	"ShipModule.hpp"
 	"Weapon.hpp"
 
-1422245018 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\turret.cpp
+1425514785 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\turret.cpp
 	"Turret.hpp"
 	"Controller.hpp"
 
@@ -1564,12 +1568,12 @@
 	"stdafx.hpp"
 	"Protocol.hpp"
 
-1424233507 c:\users\leon\desktop\projects\beta\include\network\networkfactory.hpp
+1424565856 c:\users\leon\desktop\projects\beta\include\network\networkfactory.hpp
 	"stdafx.hpp"
 
 1422289510 c:\users\leon\desktop\projects\beta\include\network\protocol.hpp
 
-1424233955 source:c:\users\leon\desktop\projects\beta\src\network\networkfactory.cpp
+1424565856 source:c:\users\leon\desktop\projects\beta\src\network\networkfactory.cpp
 	"NetworkFactory.hpp"
 	"Globals.hpp"
 	"NetworkComponent.hpp"
@@ -1618,4 +1622,22 @@
 
 1422465756 source:c:\users\leon\desktop\projects\beta\src\network\connection.cpp
 	"Connection.hpp"
+
+1425511540 source:c:\users\leon\desktop\projects\beta\src\game\soundmanager.cpp
+	"SoundManager.hpp"
+	"globals.hpp"
+
+1425514232 c:\users\leon\desktop\projects\beta\include\game\soundmanager.hpp
+	"stdafx.hpp"
+	"SoundData.hpp"
+
+1425594989 c:\users\leon\desktop\projects\beta\include\audio\sounddata.hpp
+
+1425514232 c:\users\leon\desktop\projects\beta\include\audio\soundmanager.hpp
+	"stdafx.hpp"
+	"SoundData.hpp"
+
+1425605690 source:c:\users\leon\desktop\projects\beta\src\audio\soundmanager.cpp
+	"SoundManager.hpp"
+	"globals.hpp"
 
