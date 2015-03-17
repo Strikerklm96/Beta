@@ -50,6 +50,7 @@ void NetworkFactory::clean()
 }
 void NetworkFactory::getData(sf::Packet& rPacket)
 {
+    /*
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num9) && m_name == "standard")
     {
         int i;
@@ -67,7 +68,7 @@ void NetworkFactory::getData(sf::Packet& rPacket)
                 cout << "\nNULL";
         }
         cin >> i;
-    }
+    }*/
 
     std::vector<NetworkComponent*>& rPtr = m_componentPtrs;
     for(int32_t i = 0; i < rPtr.size(); ++i)

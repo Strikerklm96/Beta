@@ -1,9 +1,8 @@
-Redesign Control
-Multiplayer
-Finish and test the ability of messages via JSON (data still needs inning)
+shoot through destroyed modules
+modules correct sprite on death
+pause multiplayer
+pause and thrust bug
+
 Design FSM for modules
 Have an else for (if(parsedSuccess)) and JSON checking and parse fail messages
-Health for modules
-Sound
-Network
 ///ERROR LOG

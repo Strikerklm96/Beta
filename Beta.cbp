@@ -158,6 +158,7 @@
 		<Unit filename="include/Overlay/Picture.hpp" />
 		<Unit filename="include/Overlay/WidgetBase.hpp" />
 		<Unit filename="include/Physics/BodyComponent.hpp" />
+		<Unit filename="include/Physics/CollisionCategory.hpp" />
 		<Unit filename="include/Physics/FixtureComponent.hpp" />
 		<Unit filename="include/Universe/Chunk/Chunk.hpp" />
 		<Unit filename="include/Universe/Module/Module.hpp" />

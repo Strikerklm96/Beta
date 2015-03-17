@@ -2,6 +2,7 @@
 #define FIXTURECOMPONENT_HPP
 
 #include "stdafx.hpp"
+#include "CollisionCategory.hpp"
 
 enum class Shape
 {
@@ -12,20 +13,20 @@ enum class Shape
 struct FixtureComponentData
 {
     FixtureComponentData() :
-    offset(0,0),
-    ///COLLIControlON MASK AND CATEGORY
-           pBody(NULL),
-           shape(Shape::Rectangle),
-           size(1,1),
-           density(1.f),
-           friction(0.3f),
-           restitution(0.3f),
-           isSensor(false)
+        offset(0,0),
+        pBody(NULL),
+        shape(Shape::Circle),
+        size(1,1),
+        density(1.f),
+        friction(0.3f),
+        restitution(0.3f),
+        isSensor(false),
+        colCategory(Category::ShipModule),
+        colMask(Mask::ShipModule)
     {
 
     }
     b2Vec2 offset;//offset from center of body
-    ///COLLIControlON MASK AND CATEGORY
     b2Body* pBody;//who owns us
     Shape shape;
 
@@ -34,6 +35,9 @@ struct FixtureComponentData
     float friction;
     float restitution;//how bouncy are we?
     bool isSensor;//are we a sensor
+
+    Category colCategory;//what are we?
+    Mask colMask;//what do we collide with
 };
 
 

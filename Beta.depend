@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1422310415 source:c:\users\leon\desktop\projects\beta\main.cpp
+1422314015 source:c:\users\leon\desktop\projects\beta\main.cpp
 	"Globals.hpp"
 
-1422121087 c:\users\leon\desktop\projects\beta\include\headers\stdafx.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\headers\stdafx.hpp
 	<iostream>
 	<stdio.h>
 	<vector>
@@ -28,7 +28,7 @@
 	<Box2D/Box2D.h>
 	"JSON/json.h"
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system.hpp
 	<SFML/Config.hpp>
 	<SFML/System/Clock.hpp>
 	<SFML/System/Err.hpp>
@@ -44,65 +44,65 @@
 	<SFML/System/Vector2.hpp>
 	<SFML/System/Vector3.hpp>
 
-1421648773 c:\users\leon\desktop\projects\beta\include\api\sfml\config.hpp
+1421652373 c:\users\leon\desktop\projects\beta\include\api\sfml\config.hpp
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\clock.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\clock.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/Time.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\export.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\export.hpp
 	<SFML/Config.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\time.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\time.hpp
 	<SFML/System/Export.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\err.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\err.hpp
 	<SFML/System/Export.hpp>
 	<ostream>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\inputstream.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\inputstream.hpp
 	<SFML/Config.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\lock.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\lock.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\noncopyable.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\noncopyable.hpp
 	<SFML/System/Export.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\mutex.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\mutex.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\sleep.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\sleep.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/Time.hpp>
 
-1421648790 c:\users\leon\desktop\projects\beta\include\api\sfml\system\string.hpp
+1421652390 c:\users\leon\desktop\projects\beta\include\api\sfml\system\string.hpp
 	<SFML/System/Export.hpp>
 	<locale>
 	<string>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\thread.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\thread.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
 	<cstdlib>
 	<SFML/System/Thread.inl>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\thread.inl
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\thread.inl
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\threadlocal.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\threadlocal.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
 	<cstdlib>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\threadlocalptr.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\threadlocalptr.hpp
 	<SFML/System/ThreadLocal.hpp>
 	<SFML/System/ThreadLocalPtr.inl>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\threadlocalptr.inl
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\threadlocalptr.inl
 
-1421648792 c:\users\leon\desktop\projects\beta\include\api\sfml\system\utf.hpp
+1421652392 c:\users\leon\desktop\projects\beta\include\api\sfml\system\utf.hpp
 	<SFML/Config.hpp>
 	<algorithm>
 	<locale>
@@ -110,19 +110,19 @@
 	<cstdlib>
 	<SFML/System/Utf.inl>
 
-1421648793 c:\users\leon\desktop\projects\beta\include\api\sfml\system\utf.inl
+1421652393 c:\users\leon\desktop\projects\beta\include\api\sfml\system\utf.inl
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\vector2.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\vector2.hpp
 	<SFML/System/Vector2.inl>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\vector2.inl
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\vector2.inl
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\vector3.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\vector3.hpp
 	<SFML/System/Vector3.inl>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\system\vector3.inl
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\system\vector3.inl
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\window.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\window.hpp
 	<SFML/System.hpp>
 	<SFML/Window/Context.hpp>
 	<SFML/Window/ContextSettings.hpp>
@@ -134,41 +134,41 @@
 	<SFML/Window/Window.hpp>
 	<SFML/Window/WindowStyle.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\window\context.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\window\context.hpp
 	<SFML/Window/Export.hpp>
 	<SFML/Window/GlResource.hpp>
 	<SFML/Window/ContextSettings.hpp>
 	<SFML/System/NonCopyable.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\window\export.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\window\export.hpp
 	<SFML/Config.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\window\glresource.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\window\glresource.hpp
 	<SFML/Window/Export.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\window\contextsettings.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\window\contextsettings.hpp
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\window\event.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\window\event.hpp
 	<SFML/Config.hpp>
 	<SFML/Window/Joystick.hpp>
 	<SFML/Window/Keyboard.hpp>
 	<SFML/Window/Mouse.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\window\joystick.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\window\joystick.hpp
 	<SFML/Window/Export.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\window\keyboard.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\window\keyboard.hpp
 	<SFML/Window/Export.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\window\mouse.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\window\mouse.hpp
 	<SFML/Window/Export.hpp>
 	<SFML/System/Vector2.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\window\videomode.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\window\videomode.hpp
 	<SFML/Window/Export.hpp>
 	<vector>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\window\window.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\window\window.hpp
 	<SFML/Window/Export.hpp>
 	<SFML/Window/ContextSettings.hpp>
 	<SFML/Window/VideoMode.hpp>
@@ -180,12 +180,12 @@
 	<SFML/System/NonCopyable.hpp>
 	<SFML/System/String.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\window\windowhandle.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\window\windowhandle.hpp
 	<SFML/Config.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\window\windowstyle.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\window\windowstyle.hpp
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics.hpp
 	<SFML/Window.hpp>
 	<SFML/Graphics/BlendMode.hpp>
 	<SFML/Graphics/Color.hpp>
@@ -208,15 +208,15 @@
 	<SFML/Graphics/VertexArray.hpp>
 	<SFML/Graphics/View.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\blendmode.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\blendmode.hpp
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\color.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\color.hpp
 	<SFML/Graphics/Export.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\export.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\export.hpp
 	<SFML/Config.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\font.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\font.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Glyph.hpp>
 	<SFML/Graphics/Texture.hpp>
@@ -227,45 +227,45 @@
 	<string>
 	<vector>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\glyph.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\glyph.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Rect.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\rect.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\rect.hpp
 	<SFML/System/Vector2.hpp>
 	<algorithm>
 	<SFML/Graphics/Rect.inl>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\rect.inl
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\rect.inl
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\texture.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\texture.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Image.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\image.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\image.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Color.hpp>
 	<SFML/Graphics/Rect.hpp>
 	<string>
 	<vector>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\renderstates.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\renderstates.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/BlendMode.hpp>
 	<SFML/Graphics/Transform.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\transform.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\transform.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Rect.hpp>
 	<SFML/System/Vector2.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\rendertexture.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\rendertexture.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Texture.hpp>
 	<SFML/Graphics/RenderTarget.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\rendertarget.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\rendertarget.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Color.hpp>
 	<SFML/Graphics/Rect.hpp>
@@ -277,27 +277,27 @@
 	<SFML/Graphics/Vertex.hpp>
 	<SFML/System/NonCopyable.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\view.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\view.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Rect.hpp>
 	<SFML/Graphics/Transform.hpp>
 	<SFML/System/Vector2.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\primitivetype.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\primitivetype.hpp
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\vertex.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\vertex.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Color.hpp>
 	<SFML/System/Vector2.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\renderwindow.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\renderwindow.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/RenderTarget.hpp>
 	<SFML/Graphics/Image.hpp>
 	<SFML/Window/Window.hpp>
 	<string>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\shader.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\shader.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Transform.hpp>
 	<SFML/Graphics/Color.hpp>
@@ -308,22 +308,22 @@
 	<map>
 	<string>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\shape.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\shape.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Graphics/Transformable.hpp>
 	<SFML/Graphics/VertexArray.hpp>
 	<SFML/System/Vector2.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\drawable.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\drawable.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/RenderStates.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\transformable.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\transformable.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Transform.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\vertexarray.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\vertexarray.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Vertex.hpp>
 	<SFML/Graphics/PrimitiveType.hpp>
@@ -331,27 +331,27 @@
 	<SFML/Graphics/Drawable.hpp>
 	<vector>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\circleshape.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\circleshape.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Shape.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\rectangleshape.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\rectangleshape.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Shape.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\convexshape.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\convexshape.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Shape.hpp>
 	<vector>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\sprite.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\sprite.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Graphics/Transformable.hpp>
 	<SFML/Graphics/Vertex.hpp>
 	<SFML/Graphics/Rect.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\text.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\graphics\text.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Graphics/Transformable.hpp>
@@ -362,7 +362,7 @@
 	<string>
 	<vector>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\audio.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\audio.hpp
 	<SFML/System.hpp>
 	<SFML/Audio/Listener.hpp>
 	<SFML/Audio/Music.hpp>
@@ -372,14 +372,14 @@
 	<SFML/Audio/SoundRecorder.hpp>
 	<SFML/Audio/SoundStream.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\listener.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\listener.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/System/Vector3.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\export.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\export.hpp
 	<SFML/Config.hpp>
 
-1421648789 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\music.hpp
+1421652389 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\music.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/Audio/SoundStream.hpp>
 	<SFML/System/Mutex.hpp>
@@ -387,42 +387,42 @@
 	<string>
 	<vector>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\soundstream.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\soundstream.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/Audio/SoundSource.hpp>
 	<SFML/System/Thread.hpp>
 	<SFML/System/Time.hpp>
 	<cstdlib>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\soundsource.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\soundsource.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/System/Vector3.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\sound.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\sound.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/Audio/SoundSource.hpp>
 	<SFML/System/Time.hpp>
 	<cstdlib>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\soundbuffer.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\soundbuffer.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/System/Time.hpp>
 	<string>
 	<vector>
 	<set>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\soundbufferrecorder.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\soundbufferrecorder.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/Audio/SoundBuffer.hpp>
 	<SFML/Audio/SoundRecorder.hpp>
 	<vector>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\soundrecorder.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\audio\soundrecorder.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/System/Thread.hpp>
 	<vector>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\network.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\network.hpp
 	<SFML/System.hpp>
 	<SFML/Network/Ftp.hpp>
 	<SFML/Network/Http.hpp>
@@ -433,7 +433,7 @@
 	<SFML/Network/TcpSocket.hpp>
 	<SFML/Network/UdpSocket.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\network\ftp.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\network\ftp.hpp
 	<SFML/Network/Export.hpp>
 	<SFML/Network/TcpSocket.hpp>
 	<SFML/System/NonCopyable.hpp>
@@ -441,25 +441,25 @@
 	<string>
 	<vector>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\network\export.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\network\export.hpp
 	<SFML/Config.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\network\tcpsocket.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\network\tcpsocket.hpp
 	<SFML/Network/Export.hpp>
 	<SFML/Network/Socket.hpp>
 	<SFML/System/Time.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\network\socket.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\network\socket.hpp
 	<SFML/Network/Export.hpp>
 	<SFML/Network/SocketHandle.hpp>
 	<SFML/System/NonCopyable.hpp>
 	<vector>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\network\sockethandle.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\network\sockethandle.hpp
 	<SFML/Config.hpp>
 	<basetsd.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\network\http.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\network\http.hpp
 	<SFML/Network/Export.hpp>
 	<SFML/Network/IpAddress.hpp>
 	<SFML/Network/TcpSocket.hpp>
@@ -468,32 +468,32 @@
 	<map>
 	<string>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\network\ipaddress.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\network\ipaddress.hpp
 	<SFML/Network/Export.hpp>
 	<SFML/System/Time.hpp>
 	<istream>
 	<ostream>
 	<string>
 
-1420428495 c:\users\leon\desktop\projects\beta\include\api\sfml\network\packet.hpp
+1420432095 c:\users\leon\desktop\projects\beta\include\api\sfml\network\packet.hpp
 	<SFML/Network/Export.hpp>
 	<string>
 	<vector>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\network\socketselector.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\network\socketselector.hpp
 	<SFML/Network/Export.hpp>
 	<SFML/System/Time.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\network\tcplistener.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\network\tcplistener.hpp
 	<SFML/Network/Export.hpp>
 	<SFML/Network/Socket.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\sfml\network\udpsocket.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\sfml\network\udpsocket.hpp
 	<SFML/Network/Export.hpp>
 	<SFML/Network/Socket.hpp>
 	<vector>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\tgui.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\tgui.hpp
 	<TGUI/Widget.hpp>
 	<TGUI/ClickableWidget.hpp>
 	<TGUI/Clipboard.hpp>
@@ -526,14 +526,14 @@
 	<TGUI/Gui.hpp>
 	<TGUI/SharedWidgetPtr.inl>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\widget.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\widget.hpp
 	<TGUI/Global.hpp>
 	<TGUI/ConfigFile.hpp>
 	<TGUI/Callback.hpp>
 	<TGUI/Transformable.hpp>
 	<TGUI/SharedWidgetPtr.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\global.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\global.hpp
 	<iostream>
 	<string>
 	<sstream>
@@ -542,128 +542,128 @@
 	<TGUI/Borders.hpp>
 	<TGUI/TextureManager.hpp>
 
-1421648794 c:\users\leon\desktop\projects\beta\include\api\tgui\config.hpp
+1421652394 c:\users\leon\desktop\projects\beta\include\api\tgui\config.hpp
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\tgui\borders.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\tgui\borders.hpp
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\texturemanager.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\texturemanager.hpp
 	<list>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\tgui\configfile.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\tgui\configfile.hpp
 	<TGUI/Global.hpp>
 	<fstream>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\tgui\callback.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\tgui\callback.hpp
 	<map>
 	<list>
 	<functional>
 	<TGUI/Global.hpp>
 	<TGUI/SharedWidgetPtr.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\sharedwidgetptr.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\sharedwidgetptr.hpp
 	<SFML/System/String.hpp>
 	<cstddef>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\transformable.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\transformable.hpp
 	<TGUI/Global.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\tgui\clickablewidget.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\tgui\clickablewidget.hpp
 	<TGUI/Widget.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\tgui\clipboard.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\tgui\clipboard.hpp
 	<TGUI/Global.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\label.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\label.hpp
 	<TGUI/ClickableWidget.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\picture.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\picture.hpp
 	<TGUI/ClickableWidget.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\tgui\button.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\tgui\button.hpp
 	<TGUI/ClickableWidget.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\tgui\checkbox.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\tgui\checkbox.hpp
 	<TGUI/RadioButton.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\radiobutton.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\radiobutton.hpp
 	<TGUI/ClickableWidget.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\tgui\editbox.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\tgui\editbox.hpp
 	<TGUI/ClickableWidget.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\slider.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\slider.hpp
 	<TGUI/Widget.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\scrollbar.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\scrollbar.hpp
 	<TGUI/Slider.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\listbox.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\listbox.hpp
 	<TGUI/Widget.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\loadingbar.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\loadingbar.hpp
 	<TGUI/ClickableWidget.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\tgui\combobox.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\tgui\combobox.hpp
 	<TGUI/ListBox.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\textbox.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\textbox.hpp
 	<TGUI/Widget.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\spritesheet.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\spritesheet.hpp
 	<TGUI/Picture.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\tgui\animatedpicture.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\tgui\animatedpicture.hpp
 	<TGUI/ClickableWidget.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\spinbutton.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\spinbutton.hpp
 	<TGUI/ClickableWidget.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\slider2d.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\slider2d.hpp
 	<TGUI/ClickableWidget.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\tab.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\tab.hpp
 	<TGUI/Widget.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\menubar.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\menubar.hpp
 	<TGUI/Widget.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\tgui\chatbox.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\tgui\chatbox.hpp
 	<TGUI/Widget.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\knob.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\knob.hpp
 	<TGUI/Widget.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\tgui\canvas.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\tgui\canvas.hpp
 	<TGUI/ClickableWidget.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\tgui\container.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\tgui\container.hpp
 	<list>
 	<TGUI/Widget.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\panel.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\panel.hpp
 	<TGUI/Container.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\tgui\childwindow.hpp
+1413690117 c:\users\leon\desktop\projects\beta\include\api\tgui\childwindow.hpp
 	<TGUI/Container.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\messagebox.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\messagebox.hpp
 	<TGUI/Label.hpp>
 	<TGUI/Button.hpp>
 	<TGUI/ChildWindow.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\grid.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\grid.hpp
 	<TGUI/Container.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\gui.hpp
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\gui.hpp
 	<queue>
 	<TGUI/Container.hpp>
 
-1413686518 c:\users\leon\desktop\projects\beta\include\api\tgui\sharedwidgetptr.inl
+1413690118 c:\users\leon\desktop\projects\beta\include\api\tgui\sharedwidgetptr.inl
 	<cassert>
 	<TGUI/Container.hpp>
 	<TGUI/Gui.hpp>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\box2d.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\box2d.h
 	<Box2D/Common/b2Settings.h>
 	<Box2D/Common/b2Draw.h>
 	<Box2D/Common/b2Timer.h>
@@ -693,83 +693,83 @@
 	<Box2D/Dynamics/Joints/b2WeldJoint.h>
 	<Box2D/Dynamics/Joints/b2WheelJoint.h>
 
-1421609197 c:\users\leon\desktop\projects\beta\include\api\box2d\common\b2settings.h
+1421612797 c:\users\leon\desktop\projects\beta\include\api\box2d\common\b2settings.h
 	<stddef.h>
 	<assert.h>
 	<float.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\common\b2draw.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\common\b2draw.h
 	<Box2D/Common/b2Math.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\common\b2math.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\common\b2math.h
 	<Box2D/Common/b2Settings.h>
 	<math.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\common\b2timer.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\common\b2timer.h
 	<Box2D/Common/b2Settings.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\shapes\b2circleshape.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\shapes\b2circleshape.h
 	<Box2D/Collision/Shapes/b2Shape.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\shapes\b2shape.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\shapes\b2shape.h
 	<Box2D/Common/b2BlockAllocator.h>
 	<Box2D/Common/b2Math.h>
 	<Box2D/Collision/b2Collision.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\common\b2blockallocator.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\common\b2blockallocator.h
 	<Box2D/Common/b2Settings.h>
 
-1421648785 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\b2collision.h
+1421652385 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\b2collision.h
 	<Box2D/Common/b2Math.h>
 	<limits.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\shapes\b2edgeshape.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\shapes\b2edgeshape.h
 	<Box2D/Collision/Shapes/b2Shape.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\shapes\b2chainshape.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\shapes\b2chainshape.h
 	<Box2D/Collision/Shapes/b2Shape.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\shapes\b2polygonshape.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\shapes\b2polygonshape.h
 	<Box2D/Collision/Shapes/b2Shape.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\b2broadphase.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\b2broadphase.h
 	<Box2D/Common/b2Settings.h>
 	<Box2D/Collision/b2Collision.h>
 	<Box2D/Collision/b2DynamicTree.h>
 	<algorithm>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\b2dynamictree.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\b2dynamictree.h
 	<Box2D/Collision/b2Collision.h>
 	<Box2D/Common/b2GrowableStack.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\common\b2growablestack.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\common\b2growablestack.h
 	<Box2D/Common/b2Settings.h>
 	<memory.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\b2distance.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\b2distance.h
 	<Box2D/Common/b2Math.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\b2timeofimpact.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\collision\b2timeofimpact.h
 	<Box2D/Common/b2Math.h>
 	<Box2D/Collision/b2Distance.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\b2body.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\b2body.h
 	<Box2D/Common/b2Math.h>
 	<Box2D/Collision/Shapes/b2Shape.h>
 	<memory>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\b2fixture.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\b2fixture.h
 	<Box2D/Dynamics/b2Body.h>
 	<Box2D/Collision/b2Collision.h>
 	<Box2D/Collision/Shapes/b2Shape.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\b2worldcallbacks.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\b2worldcallbacks.h
 	<Box2D/Common/b2Settings.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\b2timestep.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\b2timestep.h
 	<Box2D/Common/b2Math.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\b2world.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\b2world.h
 	<Box2D/Common/b2Math.h>
 	<Box2D/Common/b2BlockAllocator.h>
 	<Box2D/Common/b2StackAllocator.h>
@@ -777,70 +777,70 @@
 	<Box2D/Dynamics/b2WorldCallbacks.h>
 	<Box2D/Dynamics/b2TimeStep.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\common\b2stackallocator.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\common\b2stackallocator.h
 	<Box2D/Common/b2Settings.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\b2contactmanager.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\b2contactmanager.h
 	<Box2D/Collision/b2BroadPhase.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\contacts\b2contact.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\contacts\b2contact.h
 	<Box2D/Common/b2Math.h>
 	<Box2D/Collision/b2Collision.h>
 	<Box2D/Collision/Shapes/b2Shape.h>
 	<Box2D/Dynamics/b2Fixture.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2distancejoint.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2distancejoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2joint.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2joint.h
 	<Box2D/Common/b2Math.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2frictionjoint.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2frictionjoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2gearjoint.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2gearjoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2motorjoint.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2motorjoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2mousejoint.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2mousejoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2prismaticjoint.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2prismaticjoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2pulleyjoint.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2pulleyjoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2revolutejoint.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2revolutejoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2ropejoint.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2ropejoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2weldjoint.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2weldjoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2wheeljoint.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\json\json.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\json\json.h
 	"autolink.h"
 	"value.h"
 	"reader.h"
 	"writer.h"
 	"features.h"
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\json\autolink.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\json\autolink.h
 	"config.h"
 	<cpptl/cpptl_autolink.h>
 	"autolink.h"
 
-1421648786 c:\users\leon\desktop\projects\beta\include\api\json\config.h
+1421652386 c:\users\leon\desktop\projects\beta\include\api\json\config.h
 	<cpptl/config.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\json\value.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\json\value.h
 	"forwards.h"
 	<string>
 	<vector>
@@ -848,10 +848,10 @@
 	<cpptl/smallmap.h>
 	<cpptl/forwards.h>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\json\forwards.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\json\forwards.h
 	"config.h"
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\json\reader.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\json\reader.h
 	"features.h"
 	"value.h"
 	<deque>
@@ -859,19 +859,19 @@
 	<stack>
 	<string>
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\json\features.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\json\features.h
 	"forwards.h"
 
-1413686517 c:\users\leon\desktop\projects\beta\include\api\json\writer.h
+1413690117 c:\users\leon\desktop\projects\beta\include\api\json\writer.h
 	"value.h"
 	<vector>
 	<string>
 
-1421872596 c:\users\leon\desktop\projects\beta\include\headers\convert.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\headers\convert.hpp
 	"stdafx.hpp"
 	"Globals.hpp"
 
-1415397063 c:\users\leon\desktop\projects\beta\include\headers\globals.hpp
+1415400663 c:\users\leon\desktop\projects\beta\include\headers\globals.hpp
 	"Game.hpp"
 
 1415340518 source:c:\users\leon\desktop\projects\beta\src\graphics\quadbatchcontainer.cpp
@@ -888,28 +888,28 @@
 1414974662 c:\users\leon\desktop\projects\beta\include\graphics\textureallocator.hpp
 	"stdafx.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicscomponent.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicscomponent.cpp
 	"GraphicsComponent.hpp"
 	"convert.hpp"
 	"Universe.hpp"
 	"GraphicsComponentUpdater.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\graphics\graphicscomponent.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\graphics\graphicscomponent.hpp
 	"stdafx.hpp"
 	"GraphicsLayer.hpp"
 	"Animator.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\graphics\quadcomponent.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\graphics\quadcomponent.cpp
 	"QuadComponent.hpp"
 	"Convert.hpp"
 	"BatchLayers.hpp"
 	"Globals.hpp"
 	"Universe.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\graphics\quadcomponent.hpp
 	"GraphicsComponent.hpp"
 
-1425606603 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\game\game.cpp
 	"Game.hpp"
 	"Globals.hpp"
 	"TextureAllocator.hpp"
@@ -932,7 +932,7 @@
 	"Beam.hpp"
 	"RayCastCallback.hpp"
 
-1425505336 c:\users\leon\desktop\projects\beta\include\game\game.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\game\game.hpp
 	"stdafx.hpp"
 
 1415149801 source:c:\users\leon\desktop\projects\beta\src\graphics\batchlayers.cpp
@@ -951,12 +951,12 @@
 	"GraphicsComponentUpdater.hpp"
 	"GraphicsComponent.hpp"
 
-1425606557 source:c:\users\leon\desktop\projects\beta\src\control\camera.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\control\camera.cpp
 	"Camera.hpp"
 	"Globals.hpp"
 	"Convert.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\control\camera.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\control\camera.hpp
 	"stdafx.hpp"
 
 1421601158 source:c:\users\leon\desktop\projects\beta\src\control\intelligence.cpp
@@ -971,7 +971,7 @@
 	"Universe.hpp"
 	"NetworkComponent.hpp"
 
-1425602615 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\control\player.cpp
 	"Player.hpp"
 	"Globals.hpp"
 	"Overlay.hpp"
@@ -982,7 +982,7 @@
 	"DecorQuad.hpp"
 	"LinearMeter.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\control\player.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\control\player.hpp
 	"stdafx.hpp"
 	"Controller.hpp"
 	"Camera.hpp"
@@ -992,56 +992,56 @@
 
 1415324812 c:\users\leon\desktop\projects\beta\include\control\input.hpp
 
-1407456649 source:c:\users\leon\desktop\projects\beta\src\basic\link.cpp
+1407460249 source:c:\users\leon\desktop\projects\beta\src\basic\link.cpp
 	"Link.hpp"
 
-1415323345 c:\users\leon\desktop\projects\beta\include\basic\link.hpp
+1415326945 c:\users\leon\desktop\projects\beta\include\basic\link.hpp
 	"stdafx.hpp"
 
-1415327747 source:c:\users\leon\desktop\projects\beta\src\basic\timer.cpp
+1415331347 source:c:\users\leon\desktop\projects\beta\src\basic\timer.cpp
 	"Timer.hpp"
 	"globals.hpp"
 	"Universe.hpp"
 
-1416204888 c:\users\leon\desktop\projects\beta\include\basic\timer.hpp
+1416208488 c:\users\leon\desktop\projects\beta\include\basic\timer.hpp
 
-1422124433 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"UniversalContactListener.hpp"
 	"DebugDraw.hpp"
 	"ControlFactory.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\overlay\overlay.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\overlay\overlay.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 
-1415482152 c:\users\leon\desktop\projects\beta\include\overlay\panel.hpp
+1415485752 c:\users\leon\desktop\projects\beta\include\overlay\panel.hpp
 	"WidgetBase.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\overlay\widgetbase.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\overlay\widgetbase.hpp
 	"stdafx.hpp"
 	"Globals.hpp"
 	"IOComponent.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\io\condition.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\io\condition.cpp
 	"Condition.hpp"
 	"stdafx.hpp"
 	"Globals.hpp"
 
-1415392166 c:\users\leon\desktop\projects\beta\include\io\condition.hpp
+1415395766 c:\users\leon\desktop\projects\beta\include\io\condition.hpp
 	"EventTypes.hpp"
 
 1415345920 c:\users\leon\desktop\projects\beta\include\io\event.hpp
 
-1421872596 c:\users\leon\desktop\projects\beta\include\io\iocomponent.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\io\iocomponent.hpp
 	"EventTypes.hpp"
 	"stdafx.hpp"
 	"Courier.hpp"
 	"Eventer.hpp"
 	"IOManager.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\io\iocomponent.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\io\iocomponent.cpp
 	"IOComponent.hpp"
 
 1415340582 source:c:\users\leon\desktop\projects\beta\src\io\iocomponentstore.cpp
@@ -1050,19 +1050,19 @@
 1415346345 c:\users\leon\desktop\projects\beta\include\io\iocomponentstore.hpp
 	"stdafx.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\overlay\button.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\overlay\button.cpp
 	"Button.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\overlay\button.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\overlay\button.hpp
 	"WidgetBase.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\overlay\editbox.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\overlay\editbox.cpp
 	"EditBox.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\overlay\editbox.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\overlay\editbox.hpp
 	"WidgetBase.hpp"
 
-1421878184 source:c:\users\leon\desktop\projects\beta\src\overlay\overlay.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\overlay\overlay.cpp
 	"Overlay.hpp"
 	"Globals.hpp"
 	"Panel.hpp"
@@ -1072,22 +1072,22 @@
 	"EditBox.hpp"
 	"Chatbox.hpp"
 
-1415482106 source:c:\users\leon\desktop\projects\beta\src\overlay\panel.cpp
+1415485706 source:c:\users\leon\desktop\projects\beta\src\overlay\panel.cpp
 	"Panel.hpp"
 	"globals.hpp"
 	"TextureAllocator.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\overlay\picture.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\overlay\picture.cpp
 	"Picture.hpp"
 	"globals.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\overlay\picture.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\overlay\picture.hpp
 	"WidgetBase.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
 	"WidgetBase.hpp"
 
-1422124404 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
 	"Universe.hpp"
 	"BlueprintLoader.hpp"
 	"Globals.hpp"
@@ -1108,57 +1108,58 @@
 	"LaserWeapon.hpp"
 	"LinearMeter.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\io\eventtypes.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\io\eventtypes.hpp
 	"stdafx.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\io\iomanager.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\io\iomanager.cpp
 	"IOManager.hpp"
 	"stdafx.hpp"
 	"Globals.hpp"
 	"IOComponent.hpp"
 	"NetworkBoss.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\io\iomanager.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\io\iomanager.hpp
 	"Timer.hpp"
 	"Courier.hpp"
 
-1415392156 c:\users\leon\desktop\projects\beta\include\io\courier.hpp
+1415395756 c:\users\leon\desktop\projects\beta\include\io\courier.hpp
 	"Message.hpp"
 	"Condition.hpp"
 
-1415486355 c:\users\leon\desktop\projects\beta\include\io\message.hpp
+1415489955 c:\users\leon\desktop\projects\beta\include\io\message.hpp
 	"stdafx.hpp"
 
-1415486334 source:c:\users\leon\desktop\projects\beta\src\io\message.cpp
+1415489934 source:c:\users\leon\desktop\projects\beta\src\io\message.cpp
 	"Message.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\io\eventer.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\io\eventer.cpp
 	"Eventer.hpp"
 	"IOManager.hpp"
 
-1415469567 c:\users\leon\desktop\projects\beta\include\io\eventer.hpp
+1415473167 c:\users\leon\desktop\projects\beta\include\io\eventer.hpp
 	"Courier.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\physics\fixturecomponent.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\physics\fixturecomponent.cpp
 	"FixtureComponent.hpp"
 	"Globals.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\physics\fixturecomponent.hpp
+1425687663 c:\users\leon\desktop\projects\beta\include\physics\fixturecomponent.hpp
 	"stdafx.hpp"
+	"CollisionCategory.hpp"
 
-1423198737 source:c:\users\leon\desktop\projects\beta\src\physics\bodycomponent.cpp
+1426551154 source:c:\users\leon\desktop\projects\beta\src\physics\bodycomponent.cpp
 	"BodyComponent.hpp"
 	"Globals.hpp"
 	"Universe.hpp"
 
-1422311134 c:\users\leon\desktop\projects\beta\include\physics\bodycomponent.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\physics\bodycomponent.hpp
 	"stdafx.hpp"
 	"NetworkComponent.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\network\networkcomponent.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\network\networkcomponent.cpp
 	"NetworkComponent.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\network\networkcomponent.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\network\networkcomponent.hpp
 	"stdafx.hpp"
 	"NetworkBoss.hpp"
 
@@ -1189,25 +1190,25 @@
 1415498963 c:\users\leon\desktop\projects\beta\include\universe\gameobjectfactory.hpp
 	"stdafx.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\universe\utility\universalcontactlistener.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\universe\utility\universalcontactlistener.hpp
 	"stdafx.hpp"
 
-1415679634 c:\users\leon\desktop\projects\beta\include\universe\utility\debugdraw.hpp
+1415683234 c:\users\leon\desktop\projects\beta\include\universe\utility\debugdraw.hpp
 	"stdafx.hpp"
 
-1422466879 c:\users\leon\desktop\projects\beta\include\universe\utility\gameobject.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\universe\utility\gameobject.hpp
 	"Globals.hpp"
 	"NetworkComponent.hpp"
 	"IOComponent.hpp"
 	"Universe.hpp"
 
-1415679635 source:c:\users\leon\desktop\projects\beta\src\universe\utility\debugdraw.cpp
+1415683235 source:c:\users\leon\desktop\projects\beta\src\universe\utility\debugdraw.cpp
 	"DebugDraw.hpp"
 	"globals.hpp"
 	"stdafx.hpp"
 	"Convert.hpp"
 
-1423198801 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobject.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobject.cpp
 	"GameObject.hpp"
 
 1415501911 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobjectfactory.cpp
@@ -1216,17 +1217,17 @@
 1415514631 c:\users\leon\desktop\projects\beta\include\universe\utility\gameobjectfactory.hpp
 	"stdafx.hpp"
 
-1415679635 source:c:\users\leon\desktop\projects\beta\src\universe\utility\universalcontactlistener.cpp
+1415683235 source:c:\users\leon\desktop\projects\beta\src\universe\utility\universalcontactlistener.cpp
 	"UniversalContactListener.hpp"
 	"FixtureComponent.hpp"
 
-1422311187 source:c:\users\leon\desktop\projects\beta\src\universe\chunk\chunk.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\universe\chunk\chunk.cpp
 	"Chunk.hpp"
 	"Module.hpp"
 	"SlaveLocator.hpp"
 	"Controller.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\universe\chunk\chunk.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\universe\chunk\chunk.hpp
 	"GameObject.hpp"
 	"BodyComponent.hpp"
 	"Pool.hpp"
@@ -1249,10 +1250,10 @@
 1415589901 c:\users\leon\desktop\projects\beta\include\control\slave.hpp
 	"stdafx.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\control\slavelocator.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\control\slavelocator.hpp
 	"stdafx.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\control\slavelocator.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\control\slavelocator.cpp
 	"SlaveLocator.hpp"
 	"Globals.hpp"
 	"Chunk.hpp"
@@ -1265,75 +1266,75 @@
 	"QuadComponent.hpp"
 	"Health.hpp"
 
-1422464838 source:c:\users\leon\desktop\projects\beta\src\network\networkboss.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\network\networkboss.cpp
 	"NetworkBoss.hpp"
 	"Protocol.hpp"
 	"IOManager.hpp"
 	"Universe.hpp"
 	"Player.hpp"
 
-1422464784 c:\users\leon\desktop\projects\beta\include\network\networkboss.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\network\networkboss.hpp
 	"stdafx.hpp"
 	"Globals.hpp"
 	"Connection.hpp"
 	"IOComponent.hpp"
 	"NetworkFactory.hpp"
 
-1416204888 c:\users\leon\desktop\projects\beta\include\graphics\utility\textureallocator.hpp
+1416208488 c:\users\leon\desktop\projects\beta\include\graphics\utility\textureallocator.hpp
 	"stdafx.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\graphics\utility\batchlayers.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\graphics\utility\batchlayers.hpp
 	"QuadBatchContainer.hpp"
 	"GraphicsLayer.hpp"
 
-1416204888 c:\users\leon\desktop\projects\beta\include\graphics\utility\quadbatchcontainer.hpp
+1416208488 c:\users\leon\desktop\projects\beta\include\graphics\utility\quadbatchcontainer.hpp
 	"stdafx.hpp"
 	"TextureAllocator.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicslayer.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicslayer.hpp
 	"stdafx.hpp"
 
-1416204888 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicscomponentupdater.hpp
+1416208488 c:\users\leon\desktop\projects\beta\include\graphics\utility\graphicscomponentupdater.hpp
 	"stdafx.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\batchlayers.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\batchlayers.cpp
 	"BatchLayers.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\graphicscomponentupdater.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\graphicscomponentupdater.cpp
 	"GraphicsComponentUpdater.hpp"
 	"GraphicsComponent.hpp"
 
-1416527921 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\quadbatchcontainer.cpp
+1416531521 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\quadbatchcontainer.cpp
 	"QuadBatchContainer.hpp"
 	"Globals.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\textureallocator.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\textureallocator.cpp
 	"TextureAllocator.hpp"
 
-1416204888 source:c:\users\leon\desktop\projects\beta\src\graphics\animator.cpp
+1416208488 source:c:\users\leon\desktop\projects\beta\src\graphics\animator.cpp
 	"Animator.hpp"
 	"Globals.hpp"
 	"AnimAlloc.hpp"
 	"Animation.hpp"
 
-1416204888 c:\users\leon\desktop\projects\beta\include\graphics\animator.hpp
+1416208488 c:\users\leon\desktop\projects\beta\include\graphics\animator.hpp
 	"stdafx.hpp"
 	"Timer.hpp"
 
-1417210740 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\animalloc.cpp
+1417214340 source:c:\users\leon\desktop\projects\beta\src\graphics\utility\animalloc.cpp
 	"AnimAlloc.hpp"
 	"Animation.hpp"
 	"Globals.hpp"
 
-1416204888 c:\users\leon\desktop\projects\beta\include\graphics\utility\animalloc.hpp
+1416208488 c:\users\leon\desktop\projects\beta\include\graphics\utility\animalloc.hpp
 	"stdafx.hpp"
 
-1416204888 c:\users\leon\desktop\projects\beta\include\graphics\utility\animation.hpp
+1416208488 c:\users\leon\desktop\projects\beta\include\graphics\utility\animation.hpp
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\basic\pool.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\basic\pool.cpp
 	"Pool.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\basic\pool.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\basic\pool.hpp
 
 1416255010 source:c:\users\leon\desktop\projects\beta\src\universe\modules\sensor.cpp
 	"Sensor.hpp"
@@ -1348,11 +1349,11 @@
 1416291422 c:\users\leon\desktop\projects\beta\include\universe\modules\thruster.hpp
 	"ShipModule.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\graphics\spinner.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\graphics\spinner.cpp
 	"Spinner.hpp"
 	"Convert.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\graphics\spinner.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\graphics\spinner.hpp
 	"QuadComponent.hpp"
 
 1416272799 source:c:\users\leon\desktop\projects\beta\src\universe\modules\reactor.cpp
@@ -1367,7 +1368,7 @@
 1416349861 c:\users\leon\desktop\projects\beta\include\universe\module\capacitor.hpp
 	"ShipModule.hpp"
 
-1425601378 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
 	"BlueprintLoader.hpp"
 	"Module.hpp"
 	"ShipModule.hpp"
@@ -1381,7 +1382,7 @@
 	"Turret.hpp"
 	"LaserWeapon.hpp"
 
-1425601205 c:\users\leon\desktop\projects\beta\include\universe\utility\blueprintloader.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\universe\utility\blueprintloader.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"QuadComponent.hpp"
@@ -1392,10 +1393,10 @@
 	"Health.hpp"
 	"SoundData.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\io\eventtypes.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\io\eventtypes.cpp
 	"EventTypes.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicslayer.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\graphics\graphicslayer.cpp
 	"GraphicsLayer.hpp"
 
 1416347259 source:c:\users\leon\desktop\projects\beta\src\universe\module\health.cpp
@@ -1404,7 +1405,7 @@
 1416349143 c:\users\leon\desktop\projects\beta\include\universe\module\health.hpp
 	"Pool.hpp"
 
-1422469738 c:\users\leon\desktop\projects\beta\include\universe\module\module.hpp
+1422473338 c:\users\leon\desktop\projects\beta\include\universe\module\module.hpp
 	"Globals.hpp"
 	"IOComponent.hpp"
 	"NetworkComponent.hpp"
@@ -1412,12 +1413,12 @@
 	"Universe.hpp"
 	"Pool.hpp"
 
-1422244082 c:\users\leon\desktop\projects\beta\include\universe\module\shipmodule.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\universe\module\shipmodule.hpp
 	"Module.hpp"
 	"QuadComponent.hpp"
 	"Health.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\universe\module\sensor.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\universe\module\sensor.hpp
 	"Module.hpp"
 
 1416377712 c:\users\leon\desktop\projects\beta\include\universe\module\thruster.hpp
@@ -1426,97 +1427,97 @@
 1416349977 c:\users\leon\desktop\projects\beta\include\universe\module\reactor.hpp
 	"ShipModule.hpp"
 
-1423198761 source:c:\users\leon\desktop\projects\beta\src\universe\module\module.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\universe\module\module.cpp
 	"Module.hpp"
 	"Controller.hpp"
 
 1416272799 source:c:\users\leon\desktop\projects\beta\src\universe\module\reactor.cpp
 	"Reactor.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\universe\module\sensor.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\universe\module\sensor.cpp
 	"Sensor.hpp"
 
-1423198788 source:c:\users\leon\desktop\projects\beta\src\universe\module\shipmodule.cpp
+1426551090 source:c:\users\leon\desktop\projects\beta\src\universe\module\shipmodule.cpp
 	"ShipModule.hpp"
 
 1416291213 source:c:\users\leon\desktop\projects\beta\src\universe\module\thruster.cpp
 	"Thruster.hpp"
 	"Intelligence.hpp"
 
-1422127030 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\thruster.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\thruster.hpp
 	"ShipModule.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\reactor.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\reactor.hpp
 	"ShipModule.hpp"
 
-1422244144 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\capacitor.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\capacitor.hpp
 	"ShipModule.hpp"
 
-1421872596 source:c:\users\leon\desktop\projects\beta\src\basic\health.cpp
+1421876196 source:c:\users\leon\desktop\projects\beta\src\basic\health.cpp
 	"Health.hpp"
 	"stdafx.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\basic\health.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\basic\health.hpp
 	"Pool.hpp"
 
-1422243243 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\capacitor.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\capacitor.cpp
 	"Capacitor.hpp"
 
-1422245290 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\reactor.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\reactor.cpp
 	"Reactor.hpp"
 
-1422245346 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\thruster.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\thruster.cpp
 	"Thruster.hpp"
 	"Controller.hpp"
 
-1422244221 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\radar.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\radar.cpp
 	"Radar.hpp"
 
-1422244168 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\radar.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\radar.hpp
 	"ShipModule.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\plating.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\plating.hpp
 	"ShipModule.hpp"
 
 1416441963 source:c:\users\leon\desktop\projects\beta\srcuniverse\shipmodule\plating.cpp
 	"Plating.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\plating.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\plating.cpp
 	"Plating.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\graphics\linearmeter.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\graphics\linearmeter.cpp
 	"LinearMeter.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\graphics\linearmeter.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\graphics\linearmeter.hpp
 	"QuadComponent.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\graphics\decoration.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\graphics\decoration.cpp
 	"Decoration.hpp"
 	"GraphicsComponent.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\graphics\decoration.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\graphics\decoration.hpp
 	"IOComponent.hpp"
 	"Globals.hpp"
 	"Universe.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\graphics\decorquad.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\graphics\decorquad.cpp
 	"DecorQuad.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\graphics\decorquad.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\graphics\decorquad.hpp
 	"Decoration.hpp"
 	"QuadComponent.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\graphics\beam.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\graphics\beam.cpp
 	"Beam.hpp"
 	"Globals.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\graphics\beam.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\graphics\beam.hpp
 	"QuadComponent.hpp"
 
-1421872596 c:\users\leon\desktop\projects\beta\include\universe\utility\raycastcallback.hpp
+1421876196 c:\users\leon\desktop\projects\beta\include\universe\utility\raycastcallback.hpp
 	"stdafx.hpp"
 
-1421872597 source:c:\users\leon\desktop\projects\beta\src\universe\utility\raycastcallback.cpp
+1421876197 source:c:\users\leon\desktop\projects\beta\src\universe\utility\raycastcallback.cpp
 	"RayCastCallback.hpp"
 
 1417028299 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\laserturret.cpp
@@ -1530,7 +1531,7 @@
 	"Beam.hpp"
 	"RayCastCallback.hpp"
 
-1425602467 source:c:\users\leon\desktop\projects\beta\src\basic\weapon.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\basic\weapon.cpp
 	"Weapon.hpp"
 	"FixtureComponent.hpp"
 	"Message.hpp"
@@ -1538,52 +1539,52 @@
 	"IOManager.hpp"
 	"SoundManager.hpp"
 
-1425594195 c:\users\leon\desktop\projects\beta\include\basic\weapon.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\basic\weapon.hpp
 	"stdafx.hpp"
 	"Pool.hpp"
 	"QuadComponent.hpp"
 	"Globals.hpp"
 	"SoundData.hpp"
 
-1424565856 source:c:\users\leon\desktop\projects\beta\src\basic\laserweapon.cpp
+1424569456 source:c:\users\leon\desktop\projects\beta\src\basic\laserweapon.cpp
 	"LaserWeapon.hpp"
 	"Convert.hpp"
 	"Universe.hpp"
 	"Globals.hpp"
 
-1424565856 c:\users\leon\desktop\projects\beta\include\basic\laserweapon.hpp
+1424569456 c:\users\leon\desktop\projects\beta\include\basic\laserweapon.hpp
 	"Weapon.hpp"
 	"RayCastCallback.hpp"
 	"Beam.hpp"
 
-1422244901 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\turret.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\turret.hpp
 	"ShipModule.hpp"
 	"Weapon.hpp"
 
-1425514785 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\turret.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\turret.cpp
 	"Turret.hpp"
 	"Controller.hpp"
 
-1422290022 c:\users\leon\desktop\projects\beta\include\network\connection.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\network\connection.hpp
 	"stdafx.hpp"
 	"Protocol.hpp"
 
-1424565856 c:\users\leon\desktop\projects\beta\include\network\networkfactory.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\network\networkfactory.hpp
 	"stdafx.hpp"
 
-1422289510 c:\users\leon\desktop\projects\beta\include\network\protocol.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\network\protocol.hpp
 
-1424565856 source:c:\users\leon\desktop\projects\beta\src\network\networkfactory.cpp
+1426550998 source:c:\users\leon\desktop\projects\beta\src\network\networkfactory.cpp
 	"NetworkFactory.hpp"
 	"Globals.hpp"
 	"NetworkComponent.hpp"
 	"Protocol.hpp"
 
-1423154277 source:c:\users\leon\desktop\projects\beta\src\overlay\chatbox.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\overlay\chatbox.cpp
 	"Chatbox.hpp"
 	"NetworkBoss.hpp"
 
-1422157373 c:\users\leon\desktop\projects\beta\include\overlay\chatbox.hpp
+1422160973 c:\users\leon\desktop\projects\beta\include\overlay\chatbox.hpp
 	"WidgetBase.hpp"
 	"EditBox.hpp"
 	"Universe.hpp"
@@ -1601,26 +1602,26 @@
 
 1421435879 c:\users\leon\desktop\projects\beta\include\control\sinwclone.hpp
 
-1422227497 c:\users\leon\desktop\projects\beta\include\control\controlfactory.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\control\controlfactory.hpp
 	"stdafx.hpp"
 
-1422466950 c:\users\leon\desktop\projects\beta\include\control\controller.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\control\controller.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"Globals.hpp"
 	"Universe.hpp"
 	"NetworkComponent.hpp"
 
-1423198696 source:c:\users\leon\desktop\projects\beta\src\control\controller.cpp
+1426551467 source:c:\users\leon\desktop\projects\beta\src\control\controller.cpp
 	"Controller.hpp"
 	"SlaveLocator.hpp"
 	"Chunk.hpp"
 
-1422313068 source:c:\users\leon\desktop\projects\beta\src\control\controlfactory.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\control\controlfactory.cpp
 	"ControlFactory.hpp"
 	"Controller.hpp"
 
-1422465756 source:c:\users\leon\desktop\projects\beta\src\network\connection.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\network\connection.cpp
 	"Connection.hpp"
 
 1425511540 source:c:\users\leon\desktop\projects\beta\src\game\soundmanager.cpp
@@ -1631,13 +1632,15 @@
 	"stdafx.hpp"
 	"SoundData.hpp"
 
-1425606684 c:\users\leon\desktop\projects\beta\include\audio\sounddata.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\audio\sounddata.hpp
 
-1425606695 c:\users\leon\desktop\projects\beta\include\audio\soundmanager.hpp
+1425610656 c:\users\leon\desktop\projects\beta\include\audio\soundmanager.hpp
 	"stdafx.hpp"
 	"SoundData.hpp"
 
-1425606701 source:c:\users\leon\desktop\projects\beta\src\audio\soundmanager.cpp
+1425610657 source:c:\users\leon\desktop\projects\beta\src\audio\soundmanager.cpp
 	"SoundManager.hpp"
 	"globals.hpp"
+
+1425687683 c:\users\leon\desktop\projects\beta\include\physics\collisioncategory.hpp
 
