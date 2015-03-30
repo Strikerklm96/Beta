@@ -1,7 +1,10 @@
 shoot through destroyed modules
-modules correct sprite on death
+modules show correct sprite on death
+modules make explosion noise
+effects
 pause multiplayer
 pause and thrust bug
+Design simple lightmap implementation using sf::BlendMode::BlendMultiply
 
 Design FSM for modules
 Have an else for (if(parsedSuccess)) and JSON checking and parse fail messages

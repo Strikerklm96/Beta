@@ -1005,7 +1005,7 @@
 
 1416208488 c:\users\leon\desktop\projects\beta\include\basic\timer.hpp
 
-1425610656 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
+1427735718 c:\users\leon\desktop\projects\beta\include\universe\universe.hpp
 	"stdafx.hpp"
 	"IOComponent.hpp"
 	"UniversalContactListener.hpp"
@@ -1087,7 +1087,7 @@
 1421876197 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
 	"WidgetBase.hpp"
 
-1425610657 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
+1427735739 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
 	"Universe.hpp"
 	"BlueprintLoader.hpp"
 	"Globals.hpp"
@@ -1139,11 +1139,12 @@
 1415473167 c:\users\leon\desktop\projects\beta\include\io\eventer.hpp
 	"Courier.hpp"
 
-1421876197 source:c:\users\leon\desktop\projects\beta\src\physics\fixturecomponent.cpp
+1427738257 source:c:\users\leon\desktop\projects\beta\src\physics\fixturecomponent.cpp
 	"FixtureComponent.hpp"
 	"Globals.hpp"
+	"Universe.hpp"
 
-1425687663 c:\users\leon\desktop\projects\beta\include\physics\fixturecomponent.hpp
+1427738029 c:\users\leon\desktop\projects\beta\include\physics\fixturecomponent.hpp
 	"stdafx.hpp"
 	"CollisionCategory.hpp"
 
@@ -1208,7 +1209,7 @@
 	"stdafx.hpp"
 	"Convert.hpp"
 
-1425610657 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobject.cpp
+1426551652 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobject.cpp
 	"GameObject.hpp"
 
 1415501911 source:c:\users\leon\desktop\projects\beta\src\universe\utility\gameobjectfactory.cpp
@@ -1427,7 +1428,7 @@
 1416349977 c:\users\leon\desktop\projects\beta\include\universe\module\reactor.hpp
 	"ShipModule.hpp"
 
-1425610657 source:c:\users\leon\desktop\projects\beta\src\universe\module\module.cpp
+1426551638 source:c:\users\leon\desktop\projects\beta\src\universe\module\module.cpp
 	"Module.hpp"
 	"Controller.hpp"
 
@@ -1453,11 +1454,11 @@
 1425610656 c:\users\leon\desktop\projects\beta\include\universe\shipmodule\capacitor.hpp
 	"ShipModule.hpp"
 
-1421876196 source:c:\users\leon\desktop\projects\beta\src\basic\health.cpp
+1427741532 source:c:\users\leon\desktop\projects\beta\src\basic\health.cpp
 	"Health.hpp"
 	"stdafx.hpp"
 
-1421876196 c:\users\leon\desktop\projects\beta\include\basic\health.hpp
+1427738693 c:\users\leon\desktop\projects\beta\include\basic\health.hpp
 	"Pool.hpp"
 
 1425610657 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\capacitor.cpp
@@ -1514,10 +1515,11 @@
 1421876196 c:\users\leon\desktop\projects\beta\include\graphics\beam.hpp
 	"QuadComponent.hpp"
 
-1421876196 c:\users\leon\desktop\projects\beta\include\universe\utility\raycastcallback.hpp
+1427736639 c:\users\leon\desktop\projects\beta\include\universe\utility\raycastcallback.hpp
 	"stdafx.hpp"
+	"CollisionCategory.hpp"
 
-1421876197 source:c:\users\leon\desktop\projects\beta\src\universe\utility\raycastcallback.cpp
+1427736772 source:c:\users\leon\desktop\projects\beta\src\universe\utility\raycastcallback.cpp
 	"RayCastCallback.hpp"
 
 1417028299 source:c:\users\leon\desktop\projects\beta\src\universe\shipmodule\laserturret.cpp
@@ -1546,7 +1548,7 @@
 	"Globals.hpp"
 	"SoundData.hpp"
 
-1424569456 source:c:\users\leon\desktop\projects\beta\src\basic\laserweapon.cpp
+1427736502 source:c:\users\leon\desktop\projects\beta\src\basic\laserweapon.cpp
 	"LaserWeapon.hpp"
 	"Convert.hpp"
 	"Universe.hpp"
@@ -1642,5 +1644,5 @@
 	"SoundManager.hpp"
 	"globals.hpp"
 
-1425687683 c:\users\leon\desktop\projects\beta\include\physics\collisioncategory.hpp
+1427737482 c:\users\leon\desktop\projects\beta\include\physics\collisioncategory.hpp
 

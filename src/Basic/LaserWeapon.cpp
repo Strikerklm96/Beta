@@ -10,6 +10,7 @@ LaserWeapon::LaserWeapon(const LaserWeaponData& rData) : Weapon(rData), m_beam(r
     m_beamColor = rData.beamColor;
     m_beamWidth = rData.beamWidth;
     m_showTime = rData.showTime;
+    m_ray.addMask(Mask::Laser);
 }
 LaserWeapon::~LaserWeapon()
 {
@@ -18,6 +19,7 @@ LaserWeapon::~LaserWeapon()
 void LaserWeapon::preShot(const b2Vec2& center, const b2Vec2& aim, float radCCW)
 {
     m_ray.setIgnoreBody(m_pBody);
+
     float mult = m_range/leon::Dist(aim, center);
     b2Vec2 end = b2Vec2(center.x+(aim.x-center.x)*mult, center.y+(aim.y-center.y)*mult);
     game.getUniverse().getWorld().RayCast(&m_ray, center, end);
@@ -28,10 +30,10 @@ void LaserWeapon::postShot(const b2Vec2& center, const b2Vec2& aim, float radCCW
     m_ray.reset();
     b2Vec2 end;
 
-    if(data.fixture != NULL)
+    if(data.pFixture != NULL)
     {
         end = data.point;
-        damage(data.fixture, m_damage);
+        damage(data.pFixture, m_damage);
     }
     else
     {

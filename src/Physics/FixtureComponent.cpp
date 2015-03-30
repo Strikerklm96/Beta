@@ -1,5 +1,6 @@
 #include "FixtureComponent.hpp"
 #include "Globals.hpp"
+#include "Universe.hpp"
 
 using namespace std;
 
@@ -27,8 +28,8 @@ FixtureComponent::FixtureComponent(const FixtureComponentData& rData)
     m_fixtureDef.density = rData.density;
     m_fixtureDef.friction = rData.friction;
     m_fixtureDef.restitution = rData.restitution;//setting our fixture data
-    ///m_fixtureDef.filter.maskBits = 0xffffffff;///COLLIControlON
-    ///m_fixtureDef.filter.categoryBits = 0xffffffff;///collision
+    m_fixtureDef.filter.maskBits = static_cast<uint16_t>(rData.colMask);
+    m_fixtureDef.filter.categoryBits = static_cast<uint16_t>(rData.colCategory);
 
     if(rData.pBody != NULL)
     {
@@ -105,13 +106,33 @@ void FixtureComponent::setIOPos(int ioPos)
 
 void FixtureComponent::applyForce(const b2Vec2& rForce)//applies force to center of body(Newtons)
 {
-    m_pFixture->GetBody()->ApplyForceToCenter(rForce, true);
+    if(not game.getUniverse().isPaused())
+        m_pFixture->GetBody()->ApplyForceToCenter(rForce, true);
 }
 void FixtureComponent::applyForceFixture(const b2Vec2& rForce)//applies force at the center of fixture(Newtons)
 {
-    m_pFixture->GetBody()->ApplyForce(rForce, getCenter(), true);
+    if(not game.getUniverse().isPaused())
+        m_pFixture->GetBody()->ApplyForce(rForce, getCenter(), true);
 }
 void FixtureComponent::applyTorque(float radiansCCW)//applies torque to body(Newton Meters)
 {
-    m_pFixture->GetBody()->ApplyTorque(radiansCCW, true);
+    if(not game.getUniverse().isPaused())
+        m_pFixture->GetBody()->ApplyTorque(radiansCCW, true);
+}
+
+
+
+
+
+void FixtureComponent::setCategory(Category cat)
+{
+    b2Filter filter = m_pFixture->GetFilterData();
+    filter.categoryBits = static_cast<uint16_t>(cat);
+    m_pFixture->SetFilterData(filter);
+}
+void FixtureComponent::setMask(Mask mask)
+{
+    b2Filter filter = m_pFixture->GetFilterData();
+    filter.maskBits = static_cast<uint16_t>(mask);
+    m_pFixture->SetFilterData(filter);
 }

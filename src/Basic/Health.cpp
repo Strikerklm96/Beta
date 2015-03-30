@@ -25,13 +25,24 @@ void Health::changeArmor(int change)
     m_armor += change;
 }
 
-bool Health::isDead()
+bool Health::isDead() const
 {
     return (getValue() == getMin());
 }
 int Health::getHealth() const
 {
     return getValue();
+}
+int Health::getMaxHealth() const
+{
+    return getMax();
+}
+float Health::getHealthPercent() const
+{
+    if(getMaxHealth() > 0)
+        return (getHealth()/getMaxHealth());
+    else
+        return 0;
 }
 int Health::getArmor() const
 {

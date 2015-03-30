@@ -40,6 +40,7 @@ public:
     float getTime() const;
     void togglePause(bool pause);
     void togglePause();
+    bool isPaused();
     void toggleDebugDraw();
 
 

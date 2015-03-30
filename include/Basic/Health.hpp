@@ -27,8 +27,10 @@ public:
     void heal(int health);
     void changeArmor(int change);
 
-    bool isDead();
+    bool isDead() const;
     int getHealth() const;
+    int getMaxHealth() const;
+    float getHealthPercent() const;
     int getArmor() const;
 
 

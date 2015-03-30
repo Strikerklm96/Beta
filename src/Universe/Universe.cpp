@@ -134,6 +134,10 @@ void Universe::togglePause()
 {
     togglePause(!m_paused);
 }
+bool Universe::isPaused()
+{
+    return m_paused;
+}
 float Universe::getTime() const
 {
     if(m_paused)
