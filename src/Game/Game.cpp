@@ -22,6 +22,7 @@
 #include "Beam.hpp"
 #include "RayCastCallback.hpp"
 
+
 using namespace std;
 using namespace sf;
 using namespace leon;
@@ -118,10 +119,7 @@ void Game::run()
     /**===========================**/
     /**EVAN PUT STUFF TO DRAW HERE**/
 
-    sf::Listener::setDirection(0,0,-1);//sound
-    RayCastCallback inst;
-
-    getUniverse().getWorld().RayCast(&inst, b2Vec2(0,0), b2Vec2(10,3));
+    sf::Listener::setDirection(0,0,-1);//make sure all sounds are heard with the listener looking at the screen
 
     /*
     QuadComponentData quadData;
@@ -155,6 +153,8 @@ void Game::run()
     float frameTime = 1;
     float timeRemaining = 0;
     float timeStep = 0;
+
+
 
 
     while(rWindow.isOpen())

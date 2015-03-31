@@ -15,7 +15,7 @@ struct FixtureComponentData
     FixtureComponentData() :
         offset(0,0),
         pBody(NULL),
-        shape(Shape::Circle),
+        shape(Shape::Rectangle),
         size(1,1),
         density(1.f),
         friction(0.3f),

@@ -40,7 +40,7 @@ int Health::getMaxHealth() const
 float Health::getHealthPercent() const
 {
     if(getMaxHealth() > 0)
-        return (getHealth()/getMaxHealth());
+        return (static_cast<float>(getHealth())/static_cast<float>(getMaxHealth()));
     else
         return 0;
 }

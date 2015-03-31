@@ -2,6 +2,7 @@
 #define RADAR_HPP
 
 #include "ShipModule.hpp"
+#include "Spinner.hpp"
 
 struct RadarData;
 
@@ -17,6 +18,8 @@ protected:
 private:
     bool m_hasContributed;//
     float m_zoom;//zoom change
+
+    int m_dishIndex;//the index of our dish in our list
 };
 
 
@@ -24,11 +27,19 @@ struct RadarData : public ShipModuleData
 {
     RadarData() :
         ShipModuleData(),
-        zoomAddition(1)// J/s
+        zoomAddition(1)///units?
     {
         baseDecor.texName = "radar/radar_base.png";
         baseDecor.animSheetName = "radar/radar_base.acfg";
+
+        dish.texName = "radar/dish.png";
+        dish.animSheetName = "radar/dish.acfg";
+        dish.randomRot = true;
+        dish.rate = 90;//deg/s
+        dish.layer = GraphicsLayer::ShipAppendagesLower;
     }
+
+    SpinnerData dish;
 
     float zoomAddition;//how much more we can zoom with this module active
 

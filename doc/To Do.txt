@@ -1,9 +1,10 @@
-shoot through destroyed modules
+add decorations to a list in modules and stuff
+add radar dishes and fancy stuff
+explosion damage and effects
 modules show correct sprite on death
 modules make explosion noise
 effects
 pause multiplayer
-pause and thrust bug
 Design simple lightmap implementation using sf::BlendMode::BlendMultiply
 
 Design FSM for modules

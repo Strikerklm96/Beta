@@ -17,6 +17,7 @@
 #include <random>
 #include <conio.h>
 #include <stdlib.h>
+#include <assert.h>
 
 
 #include <SFML/System.hpp>/**SFML**/

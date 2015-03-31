@@ -2,12 +2,15 @@
 
 using namespace std;
 
-ShipModule::ShipModule(const ShipModuleData& rData) : Module(rData), m_baseDecor(rData.baseDecor), m_health(rData.health)
+ShipModule::ShipModule(const ShipModuleData& rData) : Module(rData), m_health(rData.health)
 {
+    m_decors.resize(1);
+    m_decors[0] = sptr<GraphicsComponent>(new QuadComponent(rData.baseDecor));
+
     m_healthState = rData.initHealthState;
     m_functionsDamaged = rData.functionsDamaged;
-    m_baseDecor.setPosition(m_fix.getCenter());
-    m_baseDecor.setRotation(m_fix.getAngle());
+    m_decors[0]->setPosition(m_fix.getCenter());
+    m_decors[0]->setRotation(m_fix.getAngle());
 }
 ShipModule::~ShipModule()
 {
@@ -19,8 +22,11 @@ void ShipModule::prePhysUpdate()
 }
 void ShipModule::postPhysUpdate()
 {
-    m_baseDecor.setPosition(m_fix.getCenter());
-    m_baseDecor.setRotation(m_fix.getAngle());
+    for(int i=0; i<m_decors.size(); ++i)
+    {
+        m_decors[i]->setPosition(m_fix.getCenter());
+        m_decors[i]->setRotation(m_fix.getAngle());
+    }
 }
 
 void ShipModule::pack(sf::Packet& rPacket)
@@ -45,8 +51,6 @@ void ShipModule::input(std::string rCommand, sf::Packet rData)
             setHealthState(HealthState::Broken);
         else if(m_health.getHealthPercent() <= damagedPercent)//damaged percent
             setHealthState(HealthState::Damaged);
-
-        cout << "\n" << m_health.getHealth();
     }
     else if(rCommand == "heal")
     {
@@ -103,9 +107,9 @@ void ShipModule::setHealthState(HealthState newState)
     if(newState == HealthState::Broken)
     {
         m_fix.setCategory(Category::ShipModuleBroke);
-        cout << "\nBroken.";
+        m_decors[0]->setColor(sf::Color(255,0,0,255));///makes the sprite red when destroyed
+        ///WE SHOULD SET ALL SPRITES TO BE DAMAGED STATE
     }
-    ///MODIFY COLLISION CATEGORY so this module can be shot past!
 
 
     setHealthStateHook(newState);

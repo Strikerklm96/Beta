@@ -13,8 +13,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-Wfatal-errors" />
-					<Add option="-g" />
+					<Add option="-pg" />
 					<Add directory="include/Graphics/Wrapper" />
 					<Add directory="include/Graphics" />
 					<Add directory="include/Game" />
@@ -34,6 +33,7 @@
 					<Add directory="include/Universe/ShipModules" />
 				</Compiler>
 				<Linker>
+					<Add option="-pg -lgmon" />
 					<Add library="lib\box2d_debug\libBox2D.dll.a" />
 					<Add library="lib\jsoncpp_debug\libjsoncpp.dll.a" />
 					<Add library="lib\sfml_debug\libsfml-audio-d.a" />
@@ -51,7 +51,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-O" />
+					<Add option="-O3" />
 					<Add directory="include/Graphics/Wrapper" />
 					<Add directory="include/Graphics" />
 					<Add directory="include/Game" />

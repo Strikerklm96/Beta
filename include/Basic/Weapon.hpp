@@ -73,7 +73,7 @@ struct WeaponData
     }
     Energy ener;//energy consumed per fire
     Ballistic ball;//ballistics consumed per fire
-    Missiles mis;
+    Missiles mis;//missiles consumed per fire
 
     SoundData startSound, shotSound, endSound;
 

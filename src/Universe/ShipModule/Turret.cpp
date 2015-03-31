@@ -19,7 +19,8 @@ void Turret::prePhysUpdate()
         m_lastAngle = atan2(m_lastAim.y-m_fix.getCenter().y, m_lastAim.x-m_fix.getCenter().x);
         m_lastAngle -= m_fix.getAngle();
     }
-    m_spWep->prePhysUpdate(m_fix.getCenter(), m_lastAim, m_lastAngle+m_fix.getAngle(), m_fix.getBodyPtr());
+    if(m_spWep)
+        m_spWep->prePhysUpdate(m_fix.getCenter(), m_lastAim, m_lastAngle+m_fix.getAngle(), m_fix.getBodyPtr());
     ShipModule::prePhysUpdate();
 }
 void Turret::postPhysUpdate()
@@ -29,7 +30,8 @@ void Turret::postPhysUpdate()
         m_lastAngle = atan2(m_lastAim.y-m_fix.getCenter().y, m_lastAim.x-m_fix.getCenter().x);
         m_lastAngle -= m_fix.getAngle();
     }
-    m_spWep->postPhysUpdate(m_fix.getCenter(), m_lastAim, m_lastAngle+m_fix.getAngle(), m_fix.getBodyPtr());
+    if(m_spWep)
+        m_spWep->postPhysUpdate(m_fix.getCenter(), m_lastAim, m_lastAngle+m_fix.getAngle(), m_fix.getBodyPtr());
     ShipModule::postPhysUpdate();
 }
 void Turret::directive(Directive issue)
@@ -49,6 +51,7 @@ void Turret::directive(Directive issue)
 }
 void Turret::setWep(std::tr1::shared_ptr<const WeaponData> spWep)
 {
+    assert(spWep.get());
     m_spWep.reset(spWep->generate());
 }
 void Turret::removeWep()

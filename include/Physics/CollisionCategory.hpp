@@ -42,7 +42,7 @@ enum class Mask
     ProjectileOff = Category::ShipHullSensor,
     Laser = Category::ShipModule,
 
-    ShipModule = Category::Projectile | Category::Trigger | Category::ShipModule,
+    ShipModule = Category::Projectile | Category::Trigger | Category::ShipModule | Category::ShipModuleBroke,
 
     ShipForceField = Category::Projectile,
 

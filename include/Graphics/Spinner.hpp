@@ -6,14 +6,15 @@
 struct SpinnerData : public QuadComponentData
 {
     SpinnerData() :
-        rate(45),//degrees CCW/s
-        randomRot(true)
+        rate(90),//degrees CCW/s
+        randomRot(true),
+        startOn(true)
     {
 
     }
     float rate;//degrees CCW/s
     bool randomRot;//will we spawn with a random rotation?
-
+    bool startOn;
 };
 
 
@@ -23,15 +24,15 @@ public:
     Spinner(const SpinnerData& rData);
     virtual ~Spinner();
 
-    void setRotation(float radiansCCW);//set our rotation in radians CCW (absolute)
-
-    void setRotationRate(float rate);//degrees CCW per second
+    void toggleOn(bool on);//send true to make it spin, defaults on
+    void setRotationRate(float degCCW);//degrees CCW per second
+    virtual void postUpdate();
 
 protected:
 private:
 
-    float m_extraRotOffset;//extra offset we have from our rotation rate; radsCCW
-
+    bool m_on;
+    float m_oldRate;
     float m_rate;// radiansCCW/s
     Timer m_timer;//tells us how long since last update
 };

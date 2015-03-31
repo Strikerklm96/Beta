@@ -16,7 +16,7 @@ enum class HealthState
 
 struct ShipModuleData;
 
-class ShipModule : public Module
+class ShipModule : public Module ///maybe we should make this virtual to ensure this never gets created...
 {
 public:
     ShipModule(const ShipModuleData& rData);
@@ -38,8 +38,9 @@ protected:
     HealthState m_healthState;
     bool m_functionsDamaged;
 
+    std::vector<sptr<GraphicsComponent> > m_decors;
+
 private:
-    QuadComponent m_baseDecor;
 };
 
 
