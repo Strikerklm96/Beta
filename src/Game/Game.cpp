@@ -323,6 +323,7 @@ void Game::loadWindow(const std::string& windowFile)
     }
 
     m_spWindow->setVerticalSyncEnabled(windowData.vSinc);
+    cout << "\nFPS Limit:" << windowData.targetFPS;
     m_spWindow->setFramerateLimit(windowData.targetFPS);
 }
 

@@ -31,6 +31,7 @@
 					<Add directory="include/Universe/Module" />
 					<Add directory="include/Universe/ShipModule" />
 					<Add directory="include/Universe/ShipModules" />
+					<Add directory="include/Chunk" />
 				</Compiler>
 				<Linker>
 					<Add option="-pg -lgmon" />
@@ -69,6 +70,7 @@
 					<Add directory="include/Universe/Module" />
 					<Add directory="include/Universe/ShipModule" />
 					<Add directory="include/Universe/ShipModules" />
+					<Add directory="include/Chunk" />
 				</Compiler>
 				<Linker>
 					<Add library="lib\box2d_release\libBox2D.dll.a" />
@@ -107,6 +109,7 @@
 		</Compiler>
 		<Unit filename="include/Audio/SoundData.hpp" />
 		<Unit filename="include/Audio/SoundManager.hpp" />
+		<Unit filename="include/Basic/BallisticWeapon.hpp" />
 		<Unit filename="include/Basic/Health.hpp" />
 		<Unit filename="include/Basic/LaserWeapon.hpp" />
 		<Unit filename="include/Basic/Link.hpp" />
@@ -161,6 +164,7 @@
 		<Unit filename="include/Physics/CollisionCategory.hpp" />
 		<Unit filename="include/Physics/FixtureComponent.hpp" />
 		<Unit filename="include/Universe/Chunk/Chunk.hpp" />
+		<Unit filename="include/Universe/Chunk/Projectile.hpp" />
 		<Unit filename="include/Universe/Module/Module.hpp" />
 		<Unit filename="include/Universe/Module/Sensor.hpp" />
 		<Unit filename="include/Universe/Module/ShipModule.hpp" />
@@ -174,10 +178,12 @@
 		<Unit filename="include/Universe/Utility/BlueprintLoader.hpp" />
 		<Unit filename="include/Universe/Utility/DebugDraw.hpp" />
 		<Unit filename="include/Universe/Utility/GameObject.hpp" />
+		<Unit filename="include/Universe/Utility/ProjectileMan.hpp" />
 		<Unit filename="include/Universe/Utility/RayCastCallback.hpp" />
 		<Unit filename="include/Universe/Utility/UniversalContactListener.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Audio/SoundManager.cpp" />
+		<Unit filename="src/Basic/BallisticWeapon.cpp" />
 		<Unit filename="src/Basic/Health.cpp" />
 		<Unit filename="src/Basic/LaserWeapon.cpp" />
 		<Unit filename="src/Basic/Link.cpp" />
@@ -224,6 +230,7 @@
 		<Unit filename="src/Physics/BodyComponent.cpp" />
 		<Unit filename="src/Physics/FixtureComponent.cpp" />
 		<Unit filename="src/Universe/Chunk/Chunk.cpp" />
+		<Unit filename="src/Universe/Chunk/Projectile.cpp" />
 		<Unit filename="src/Universe/Module/Module.cpp" />
 		<Unit filename="src/Universe/Module/Sensor.cpp" />
 		<Unit filename="src/Universe/Module/ShipModule.cpp" />
@@ -237,6 +244,7 @@
 		<Unit filename="src/Universe/Utility/BlueprintLoader.cpp" />
 		<Unit filename="src/Universe/Utility/DebugDraw.cpp" />
 		<Unit filename="src/Universe/Utility/GameObject.cpp" />
+		<Unit filename="src/Universe/Utility/ProjectileMan.cpp" />
 		<Unit filename="src/Universe/Utility/RayCastCallback.cpp" />
 		<Unit filename="src/Universe/Utility/UniversalContactListener.cpp" />
 		<Extensions>

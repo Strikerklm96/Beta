@@ -9,6 +9,10 @@
 
 struct WeaponData;
 
+
+///ADD ANOTHER TIMER THAT SIMULATES RELOADING A MAGAZINE**/
+
+
 class Weapon
 {
 public:

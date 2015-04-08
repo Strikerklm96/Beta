@@ -18,6 +18,7 @@
 #include "Turret.hpp"
 #include "LaserWeapon.hpp"
 #include "LinearMeter.hpp"
+#include "BallisticWeapon.hpp"
 
 using namespace std;
 
@@ -218,7 +219,8 @@ void Universe::loadLevel(const std::string& levelDir, int localController, const
 
     ChunkData chunkdata_1;
     chunkdata_1.bodyComp.coords = b2Vec2(-2,5);
-    chunkdata_1.ioComp.name = "chunk_99";
+    chunkdata_1.ioComp.name = "hard_coded_chunk";
+    chunkdata_1.zoomData.startValue = 10;
 
     ThrusterData thrust;
     thrust.force = 40;
@@ -243,14 +245,20 @@ void Universe::loadLevel(const std::string& levelDir, int localController, const
     data4.fixComp.offset = b2Vec2(-2,1);
     LaserWeaponData* pWep = new LaserWeaponData;
     pWep->beamColor = sf::Color::Red;
+    pWep->damage = 100;
     pWep->beamWidth = 32;
     data4.startWep.reset(pWep);
-    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new TurretData(data4)));
+    //chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new TurretData(data4)));
 
+    TurretData data6;
+    data6.fixComp.offset = b2Vec2(0,3);
+    BallisticWeaponData* pBall = new BallisticWeaponData;
+    data6.startWep.reset(pBall);
+    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new TurretData(data6)));
 
     TurretData* pData5 = (TurretData*)m_spBPLoader->getModuleSPtr("DefaultTurret")->clone();
     pData5->fixComp.offset = b2Vec2(0, 2);
-    chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new TurretData(*pData5)));
+    //chunkdata_1.moduleData.push_back(std::tr1::shared_ptr<ModuleData>(new TurretData(*pData5)));
 
     add(chunkdata_1.generate());
     /**HARD CODED**/
@@ -260,10 +268,14 @@ void Universe::loadLevel(const std::string& levelDir, int localController, const
 
     game.getLocalPlayer().loadOverlay("overlayconfig");
 
+    /**CHOSE A CONTROLLER MANUALLY**/
+    localController = 0;
+    std::vector<std::string> manualController;
+    manualController.push_back("hard_coded_chunk");
 
 
     /**CONTROL**/
-    m_spControlFactory->resetControllers(rControllerList);
+    m_spControlFactory->resetControllers(manualController);
     game.getLocalPlayer().setController(localController);
 }
 void Universe::add(std::tr1::shared_ptr<GameObject> spGO)
