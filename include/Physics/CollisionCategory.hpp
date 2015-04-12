@@ -38,16 +38,13 @@ enum class Mask
 {
     None = Category::None,
 
-    Projectile = Category::ShipModule | Category::ShipForceField | Category::Trigger,
+    Projectile = Category::ShipModule | Category::ShipForceField,
     ProjectileOff = Category::ShipHullSensor,
     Laser = Category::ShipModule,
 
     ShipModule = Category::Projectile | Category::Trigger | Category::ShipModule | Category::ShipModuleBroke,
 
     ShipForceField = Category::Projectile,
-
-    ///ShipHull = Category::ShipHull,//ship hulls should collide with other ship hulls
-    ShipHullSensor = Category::Projectile,
 
     Trigger = Category::All,
 

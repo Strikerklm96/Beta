@@ -10,7 +10,7 @@
 #include "Radar.hpp"
 #include "Plating.hpp"
 #include "Turret.hpp"
-
+#include "ProjectileModule.hpp"
 #include "LaserWeapon.hpp"
 
 using namespace std;
@@ -23,9 +23,6 @@ BlueprintLoader::~BlueprintLoader()
 {
 
 }
-
-
-
 /**GET A BLUEPRINT**/
 /**===============**/
 std::tr1::shared_ptr<const ChunkData> BlueprintLoader::getChunkSPtr(const std::string& rBPName) const
@@ -269,7 +266,7 @@ std::tr1::shared_ptr<const WeaponData> BlueprintLoader::loadWeapon(const Json::V
     }
     else if(root["WeaponType"].asString() == "Ballistic")
     {
-
+        cout << "\nAttempted to load ballistic weapon. still needs coding" << FILELINE;
     }
     else
     {
@@ -319,54 +316,23 @@ std::tr1::shared_ptr<const ModuleData> BlueprintLoader::loadModule(const Json::V
     if(root["ClassName"].asString() == "Module")
     {
         ModuleData* pSMod = new ModuleData;
-
-        if(not root["IO"].isNull())
-            pSMod->ioComp = loadIOComp(root["IO"], pSMod->ioComp);
-        if(not root["Physics"].isNull())
-            pSMod->fixComp = loadFixComp(root["Physics"], pSMod->fixComp);
-        if(not root["Network"].isNull())
-            pSMod->nwComp = loadNWComp(root["Network"], pSMod->nwComp);
-
+        copyModule<ModuleData>(root, pSMod);
+        inheritModule(root, pSMod);
         spMod.reset(pSMod);
     }
     else if(root["ClassName"].asString() == "Sensor")
     {
         SensorData* pSMod = new SensorData;
-        /**INHERIT**/
-        if(not root["Inherits"].isNull())
-            *static_cast<ModuleData*>(pSMod) = *static_cast<const ModuleData*>(getModuleSPtr(root["Inherits"].asString()).get());
-
-        if(not root["IO"].isNull())
-            pSMod->ioComp = loadIOComp(root["IO"], pSMod->ioComp);
-        if(not root["Physics"].isNull())
-            pSMod->fixComp = loadFixComp(root["Physics"], pSMod->fixComp);
-        if(not root["Network"].isNull())
-            pSMod->nwComp = loadNWComp(root["Network"], pSMod->nwComp);
-
+        copyModule<SensorData>(root, pSMod);
+        inheritModule(root, pSMod);
         spMod.reset(pSMod);
     }
     else if(root["ClassName"].asString() == "ShipModule")
     {
         ShipModuleData* pSMod = new ShipModuleData;
-        /**INHERIT**/
-        if(not root["Inherits"].isNull())
-            *static_cast<ModuleData*>(pSMod) = *static_cast<const ModuleData*>(getModuleSPtr(root["Inherits"].asString()).get());
-
-        /**OVERWRITES**/
-        if(not root["IO"].isNull())
-            pSMod->ioComp = loadIOComp(root["IO"], pSMod->ioComp);
-        if(not root["Physics"].isNull())
-            pSMod->fixComp = loadFixComp(root["Physics"], pSMod->fixComp);
-        if(not root["Network"].isNull())
-            pSMod->nwComp = loadNWComp(root["Network"], pSMod->nwComp);
-        if(not root["BaseSprite"].isNull())
-            pSMod->baseDecor = loadQuad(root["BaseSprite"], pSMod->baseDecor);
-
+        inheritModule(root, pSMod);
         spMod.reset(pSMod);
     }
-
-
-
 
 
     /**======================**/
@@ -375,8 +341,7 @@ std::tr1::shared_ptr<const ModuleData> BlueprintLoader::loadModule(const Json::V
     else if(root["ClassName"].asString() == "Turret")
     {
         TurretData* pSMod = new TurretData;
-        if(not root["Copies"].isNull())
-            *pSMod = *dynamic_cast<const TurretData*>(getModuleSPtr(root["Copies"].asString()).get());
+        copyModule<TurretData>(root, pSMod);
 
         if(not root["StartEmpty"].isNull())
             pSMod->startEmpty = root["StartEmpty"].asBool();
@@ -389,8 +354,7 @@ std::tr1::shared_ptr<const ModuleData> BlueprintLoader::loadModule(const Json::V
     else if(root["ClassName"].asString() == "Plating")
     {
         PlatingData* pSMod = new PlatingData;
-        if(not root["Copies"].isNull())
-            *pSMod = *dynamic_cast<const PlatingData*>(getModuleSPtr(root["Copies"].asString()).get());
+        copyModule<PlatingData>(root, pSMod);
 
         inheritShipModule(root, pSMod);
         spMod.reset(pSMod);
@@ -398,8 +362,7 @@ std::tr1::shared_ptr<const ModuleData> BlueprintLoader::loadModule(const Json::V
     else if(root["ClassName"].asString() == "Radar")
     {
         RadarData* pSMod = new RadarData;
-        if(not root["Copies"].isNull())
-            *pSMod = *dynamic_cast<const RadarData*>(getModuleSPtr(root["Copies"].asString()).get());
+        copyModule<RadarData>(root, pSMod);
 
         if(not root["RadarStrength"].isNull())
             pSMod->zoomAddition = root["RadarStrength"].asFloat();
@@ -410,8 +373,7 @@ std::tr1::shared_ptr<const ModuleData> BlueprintLoader::loadModule(const Json::V
     else if(root["ClassName"].asString() == "Thruster")
     {
         ThrusterData* pSMod = new ThrusterData;
-        if(not root["Copies"].isNull())
-            *pSMod = *dynamic_cast<const ThrusterData*>(getModuleSPtr(root["Copies"].asString()).get());
+        copyModule<ThrusterData>(root, pSMod);
 
         if(not root["Force"].isNull())
             pSMod->force = root["Force"].asFloat();
@@ -426,8 +388,7 @@ std::tr1::shared_ptr<const ModuleData> BlueprintLoader::loadModule(const Json::V
     else if(root["ClassName"].asString() == "Capacitor")
     {
         CapacitorData* pSMod = new CapacitorData;
-        if(not root["Copies"].isNull())
-            *pSMod = *dynamic_cast<const CapacitorData*>(getModuleSPtr(root["Copies"].asString()).get());
+        copyModule<CapacitorData>(root, pSMod);
 
         if(not root["EnergyCapacity"].isNull())
             pSMod->storage = root["EnergyCapacity"].asFloat();
@@ -438,8 +399,7 @@ std::tr1::shared_ptr<const ModuleData> BlueprintLoader::loadModule(const Json::V
     else if(root["ClassName"].asString() == "Reactor")
     {
         ReactorData* pSMod = new ReactorData;
-        if(not root["Copies"].isNull())
-            *pSMod = *dynamic_cast<const ReactorData*>(getModuleSPtr(root["Copies"].asString()).get());
+        copyModule<ReactorData>(root, pSMod);
 
         if(not root["EnergyProduction"].isNull())
             pSMod->rate = root["EnergyProduction"].asFloat();
@@ -447,15 +407,22 @@ std::tr1::shared_ptr<const ModuleData> BlueprintLoader::loadModule(const Json::V
         inheritShipModule(root, pSMod);
         spMod.reset(pSMod);
     }
+    else if(root["ClassName"].asString() == "Projectile")
+    {
+        ProjectileModuleData* pSMod = new ProjectileModuleData;
+        copyModule<ProjectileModuleData>(root, pSMod);
+        inheritShipModule(root, pSMod);
+        spMod.reset(pSMod);
+    }
     else
     {
-        cout << "\n" << FILELINE;
+        cout << "\n" << "Couldn't Find [" << root["ClassName"].asString() << "]" << FILELINE;
         ///ERROR LOG
     }
 
     return spMod;
 }
-void BlueprintLoader::inheritShipModule(const Json::Value& root, ShipModuleData* pSMod)
+void BlueprintLoader::inheritShipModule(const Json::Value& root, ShipModuleData* pSMod)//do things that they all have in common
 {
     /**INHERIT**/
     if(not root["Inherits"].isNull())
@@ -464,14 +431,23 @@ void BlueprintLoader::inheritShipModule(const Json::Value& root, ShipModuleData*
     /**OVERWRITES**/
     if(not root["Defense"].isNull())
         pSMod->health = loadHealth(root["Defense"], pSMod->health);
+    if(not root["BaseSprite"].isNull())
+        pSMod->baseDecor = loadQuad(root["BaseSprite"], pSMod->baseDecor);
+
+    /**ParentData**/
+    inheritModule(root, pSMod);
+}
+void BlueprintLoader::inheritModule(const Json::Value& root, ModuleData* pSMod)//do things that they all have in common
+{
+    if(not root["Inherits"].isNull())
+        *static_cast<ModuleData*>(pSMod) = *static_cast<const ModuleData*>(getModuleSPtr(root["Inherits"].asString()).get());
+    /**OVERWRITES**/
     if(not root["IO"].isNull())
         pSMod->ioComp = loadIOComp(root["IO"], pSMod->ioComp);
     if(not root["Physics"].isNull())
         pSMod->fixComp = loadFixComp(root["Physics"], pSMod->fixComp);
     if(not root["Network"].isNull())
         pSMod->nwComp = loadNWComp(root["Network"], pSMod->nwComp);
-    if(not root["BaseSprite"].isNull())
-        pSMod->baseDecor = loadQuad(root["BaseSprite"], pSMod->baseDecor);
 }
 /**====================**/
 /**LOAD MULTI PART DATA**/

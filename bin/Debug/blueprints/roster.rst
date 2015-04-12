@@ -12,9 +12,11 @@
     ],
     "ChunkList": [
 		"chunk/CombatShip.bp",
-        "chunk/DefaultChunk.bp"
+        "chunk/DefaultChunk.bp",
+		"projectiles/DefaultProjectile.bp"
     ],
     "WeaponList": [
-        "weapon/DefaultWeapon.bp"
+        "weapon/DefaultWeapon.bp",
+		"weapon/DefaultBallisticWeapon.bp"
     ]
 }
