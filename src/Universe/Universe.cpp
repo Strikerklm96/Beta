@@ -268,7 +268,7 @@ void Universe::loadLevel(const std::string& levelDir, int localController, const
 
     game.getLocalPlayer().loadOverlay("overlayconfig");
 
-    /**CHOSE A CONTROLLER MANUALLY**/
+    //CHOSE A CONTROLLER MANUALLY
     localController = 0;
     std::vector<std::string> manualController;
     manualController.push_back("hard_coded_chunk");

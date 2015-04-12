@@ -54,6 +54,14 @@ protected:
 private:
     std::tr1::shared_ptr<const ModuleData> loadModule(const Json::Value& root);
     void inheritShipModule(const Json::Value& root, ShipModuleData* pSMod);
+    void inheritModule(const Json::Value& root, ModuleData* pSMod);
+
+    template <typename T>
+    void copyModule(const Json::Value& root, T* pSMod)
+    {
+        if(not root["Copies"].isNull())
+            *pSMod = *dynamic_cast<const T*>(getModuleSPtr(root["Copies"].asString()).get());
+    }
 
     std::tr1::shared_ptr<const WeaponData> loadWeapon(const Json::Value& root);
     void inheritWeapon(const Json::Value& root, WeaponData* pWep);
