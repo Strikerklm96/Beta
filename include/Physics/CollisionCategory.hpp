@@ -1,6 +1,8 @@
 #ifndef COLLISIONCATEGORY_H
 #define COLLISIONCATEGORY_H
 
+#include "stdafx.hpp"
+
 /**What Are We?**/
 enum class Category//up to 16 types
 {
@@ -11,7 +13,7 @@ enum class Category//up to 16 types
     ShipModuleBroke = 0x0004,       //  0000 0000 0000 0100
     ShipForceField = 0x0008,        //  0000 0000 0000 1000 //wait, if we don't have this, we wont collide with sensors??? that could be a problem (WHAT?)
 
-    ShipHullSensor = 0x0010,
+    ///ShipHullSensor = 0x0010,
     ///ShipHull = 0x0010,
     Actor = 0x0020,
     Item = 0x0040,
@@ -19,6 +21,7 @@ enum class Category//up to 16 types
 
     All = 0xFFFF,
 };
+Category ChooseCategory(const std::string& rChoice);
 
 constexpr inline int operator |(int a, Category b)
 {
@@ -39,7 +42,6 @@ enum class Mask
     None = Category::None,
 
     Projectile = Category::ShipModule | Category::ShipForceField,
-    ProjectileOff = Category::ShipHullSensor,
     Laser = Category::ShipModule,
 
     ShipModule = Category::Projectile | Category::Trigger | Category::ShipModule | Category::ShipModuleBroke,
@@ -50,4 +52,8 @@ enum class Mask
 
     All = Category::All,
 };
+Mask ChooseMask(const std::string& rChoice);
+
+
+
 #endif // COLLISIONCATEGORY_H

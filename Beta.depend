@@ -1088,7 +1088,7 @@
 1421876197 source:c:\users\leon\desktop\projects\beta\src\overlay\widgetbase.cpp
 	"WidgetBase.hpp"
 
-1428533099 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
+1428810982 source:c:\users\leon\desktop\projects\beta\src\universe\universe.cpp
 	"Universe.hpp"
 	"BlueprintLoader.hpp"
 	"Globals.hpp"
@@ -1371,7 +1371,7 @@
 1416349861 c:\users\leon\desktop\projects\beta\include\universe\module\capacitor.hpp
 	"ShipModule.hpp"
 
-1425610657 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
+1428812806 source:c:\users\leon\desktop\projects\beta\src\universe\utility\blueprintloader.cpp
 	"BlueprintLoader.hpp"
 	"Module.hpp"
 	"ShipModule.hpp"
@@ -1383,6 +1383,7 @@
 	"Radar.hpp"
 	"Plating.hpp"
 	"Turret.hpp"
+	"ProjectileModule.hpp"
 	"LaserWeapon.hpp"
 
 1428808211 c:\users\leon\desktop\projects\beta\include\universe\utility\blueprintloader.hpp
@@ -1647,7 +1648,8 @@
 	"SoundManager.hpp"
 	"globals.hpp"
 
-1428804212 c:\users\leon\desktop\projects\beta\include\physics\collisioncategory.hpp
+1428813983 c:\users\leon\desktop\projects\beta\include\physics\collisioncategory.hpp
+	"stdafx.hpp"
 
 1428528424 source:c:\users\leon\desktop\projects\beta\src\basic\ballisticweapon.cpp
 	"BallisticWeapon.hpp"
@@ -1666,4 +1668,7 @@
 
 1428806577 c:\users\leon\desktop\projects\beta\include\universe\utility\projectileman.hpp
 	"stdafx.hpp"
+
+1428813941 source:c:\users\leon\desktop\projects\beta\src\physics\collisioncategory.cpp
+	"CollisionCategory.hpp"
 

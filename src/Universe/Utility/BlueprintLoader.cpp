@@ -644,6 +644,11 @@ FixtureComponentData BlueprintLoader::loadFixComp(const Json::Value& root, const
     if(not root["isSensor"].isNull())
         data.isSensor = root["isSensor"].asBool();
 
+    if(not root["colCat"].isNull())
+        data.colCategory = ChooseCategory(root["colCat"].asString());
+    if(not root["colMask"].isNull())
+        data.colMask = ChooseMask(root["colMask"].asString());
+
     return data;
 }
 NetworkComponentData BlueprintLoader::loadNWComp(const Json::Value& root, const NetworkComponentData& orig)

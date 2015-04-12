@@ -263,8 +263,9 @@ void Universe::loadLevel(const std::string& levelDir, int localController, const
     add(chunkdata_1.generate());
     /**HARD CODED**/
 
-
-
+    ChunkData ballist = *(ChunkData*)m_spBPLoader->getChunkSPtr("DefaultProjectile")->clone();
+    ballist.bodyComp.coords = b2Vec2(30,30);
+    add(ballist.generate());
 
     game.getLocalPlayer().loadOverlay("overlayconfig");
 
