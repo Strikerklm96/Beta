@@ -16,75 +16,85 @@ class SlaveLocator;
 class BlueprintLoader;
 class Decoration;
 class ControlFactory;
+class ProjectileMan;
 
 class Universe
 {
 public:
-    Universe(const IOComponentData& rData);
-    virtual ~Universe();
+	Universe(const IOComponentData& rData);
+	virtual ~Universe();
 
-    ControlFactory& getControllerFactory();
-    SlaveLocator& getSlaveLocator();
-    BatchLayers& getBatchLayers();
-    GraphicsComponentUpdater& getGfxUpdater();
-    IOManager& getUniverseIO();
-    b2World& getWorld();
+	ControlFactory& getControllerFactory();
+	SlaveLocator& getSlaveLocator();
+	BatchLayers& getBatchLayers();
+	GraphicsComponentUpdater& getGfxUpdater();
+	IOManager& getUniverseIO();
+	ProjectileMan& getProjMan();
+	b2World& getWorld();
 
-    float getTimeStep() const;
-    void prePhysUpdate();
-    void physUpdate();
-    void postPhysUpdate();
-
-
-    bool debugDraw() const;//should we draw debug or normal?
-    float getTime() const;
-    void togglePause(bool pause);
-    void togglePause();
-    bool isPaused();
-    void toggleDebugDraw();
+	float getTimeStep() const;
+	void prePhysUpdate();
+	void physUpdate();
+	void postPhysUpdate();
 
 
-    void loadLevel(const std::string& level, int localController, const std::string& bluePrints, const std::vector<std::string>& rControllerList);//loads a level using blueprints
-    void add(std::tr1::shared_ptr<GameObject> spGO);
-    void add(GameObject* pGO);
+	bool debugDraw() const;//should we draw debug or normal?
+	float getTime() const;
+	void togglePause(bool pause);
+	void togglePause();
+	bool isPaused();
+	void toggleDebugDraw();
+
+	b2Vec2 getBed();//give a position to sleep at
+	void addBed(const b2Vec2& rBed);//someone gave a bed back to us!
+
+	void loadLevel(const std::string& level, int localController, const std::string& bluePrints, const std::vector<std::string>& rControllerList);//loads a level using blueprints
+	void add(std::tr1::shared_ptr<GameObject> spGO);
+	void add(GameObject* pGO);
 
 protected:
-    void loadBlueprints(const std::string& bluePrints);//loads blueprints
+	void loadBlueprints(const std::string& bluePrints);//loads blueprints
 
-    void input(std::string rCommand, sf::Packet rData);
+	void input(std::string rCommand, sf::Packet rData);
 
 private:
-    /**PHYControlCS**/
-    float m_timeStep;
-    int m_velocityIterations;
-    int m_positionIterations;
+	/**SLEEP**/
+	std::vector<b2Vec2> m_beds;
+	int m_inc;
+	b2Vec2 m_currentBed;
+	/**SLEEP**/
 
-    UniversalContactListener m_contactListener;
-    DebugDraw m_debugDraw;
+	/**PHYSICS**/
+	float m_timeStep;
+	int m_velocityIterations;
+	int m_positionIterations;
 
-    b2World m_physWorld;
-    /**PHYControlCS**/
+	UniversalContactListener m_contactListener;
+	DebugDraw m_debugDraw;
+	b2World m_physWorld;
+	/**PHYSICS**/
 
-    std::tr1::shared_ptr<ControlFactory> m_spControlFactory;
-    std::tr1::shared_ptr<BlueprintLoader> m_spBPLoader;
-    std::tr1::shared_ptr<SlaveLocator> m_spSlaveLocator;//list of all slaves
-    std::tr1::shared_ptr<BatchLayers> m_spBatchLayers;
-    std::tr1::shared_ptr<GraphicsComponentUpdater> m_spGfxUpdater;
-    std::tr1::shared_ptr<IOManager> m_spUniverseIO;//manages IO for the game objects
+	std::tr1::shared_ptr<ControlFactory> m_spControlFactory;
+	std::tr1::shared_ptr<BlueprintLoader> m_spBPLoader;
+	std::tr1::shared_ptr<SlaveLocator> m_spSlaveLocator;//list of all slaves
+	std::tr1::shared_ptr<BatchLayers> m_spBatchLayers;
+	std::tr1::shared_ptr<GraphicsComponentUpdater> m_spGfxUpdater;
+	std::tr1::shared_ptr<IOManager> m_spUniverseIO;//manages IO for the game objects
+	std::tr1::shared_ptr<ProjectileMan> m_spProjMan;//manages IO for the game objects
 
-    std::vector<std::tr1::shared_ptr<GameObject> > m_goList;//list of game objects that WE need to keep track of
-    std::vector<std::tr1::shared_ptr<Decoration> > m_decorList;
+	std::vector<std::tr1::shared_ptr<GameObject> > m_goList;//list of game objects that WE need to keep track of
+	std::vector<std::tr1::shared_ptr<Decoration> > m_decorList;
 
-    IOComponent m_io;
-    float m_lastTime;//used for update method//cant use timer because timer references us!
-    bool m_debugDrawEnabled;
+	IOComponent m_io;
+	float m_lastTime;//used for update method//cant use timer because timer references us!
+	bool m_debugDrawEnabled;
 
 
-    /**TIME**/
-    float m_pauseTime;
-    float m_skippedTime;
-    bool m_paused;
-    /**TIME**/
+	/**TIME**/
+	float m_pauseTime;
+	float m_skippedTime;
+	bool m_paused;
+	/**TIME**/
 };
 
 #endif // UNIVERSE_HPP

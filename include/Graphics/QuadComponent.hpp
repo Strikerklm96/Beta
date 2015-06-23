@@ -6,11 +6,11 @@
 
 struct QuadComponentData : public GraphicsComponentData
 {
-    QuadComponentData() :
-        GraphicsComponentData()
-    {
+	QuadComponentData() :
+		GraphicsComponentData()
+	{
 
-    }
+	}
 
 };
 
@@ -18,11 +18,11 @@ struct QuadComponentData : public GraphicsComponentData
 class QuadComponent : public GraphicsComponent
 {
 public:
-    QuadComponent(const QuadComponentData& rData);
-    virtual ~QuadComponent();
+	QuadComponent(const QuadComponentData& rData);
+	virtual ~QuadComponent();
 
-    ///void setAnimation();
-    virtual void postUpdate();
+	///void setAnimation();
+	virtual void postUpdate();
 
 protected:
 private:

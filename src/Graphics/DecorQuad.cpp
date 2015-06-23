@@ -12,10 +12,10 @@ DecorQuad::~DecorQuad()
 }
 void DecorQuad::input(std::string rCommand, sf::Packet rData)
 {
-    if(rCommand == "filler")
-    {
-        cout << "filler.";
-    }
-    else
-        Decoration::input(rCommand, rData);
+	if(rCommand == "filler")
+	{
+		cout << "filler.";
+	}
+	else
+		Decoration::input(rCommand, rData);
 }

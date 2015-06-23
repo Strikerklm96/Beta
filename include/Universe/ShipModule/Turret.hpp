@@ -9,51 +9,51 @@ struct TurretData;
 class Turret : public ShipModule
 {
 public:
-    Turret(const TurretData& rData);
-    virtual ~Turret();
+	Turret(const TurretData& rData);
+	virtual ~Turret();
 
-    void setWep(std::tr1::shared_ptr<const WeaponData> spWep);
-    void removeWep();
+	void setWep(std::tr1::shared_ptr<const WeaponData> spWep);
+	void removeWep();
 
-    void prePhysUpdate() final;
-    void postPhysUpdate() final;
-    virtual void setAim(const b2Vec2& rTarget);
-    virtual void directive(Directive issue);
+	void prePhysUpdate() final;
+	void postPhysUpdate() final;
+	virtual void setAim(const b2Vec2& rTarget);
+	virtual void directive(Directive issue);
 
 protected:
 private:
-    std::tr1::shared_ptr<Weapon> m_spWep;
-    int m_shotsRemain;//shots remaining in this volley
+	std::tr1::shared_ptr<Weapon> m_spWep;
+	int m_shotsRemain;//shots remaining in this volley
 
-    b2Vec2 m_lastAim;
-    float32 m_lastAngle;
+	b2Vec2 m_lastAim;
+	float32 m_lastAngle;
 };
 
 
 struct TurretData : public ShipModuleData
 {
-    TurretData() :
-        ShipModuleData(),
-        startEmpty(false)//should we start with no weapon
-    {
-        baseDecor.texName = "turret/turret_base.png";
-        baseDecor.animSheetName = "turret/turret_base.acfg";
-    }
+	TurretData() :
+		ShipModuleData(),
+		startEmpty(false)//should we start with no weapon
+	{
+		baseDecor.texName = "turret/turret_base.png";
+		baseDecor.animSheetName = "turret/turret_base.acfg";
+	}
 
-    bool startEmpty;
-    std::tr1::shared_ptr<const WeaponData> startWep;
+	bool startEmpty;
+	std::tr1::shared_ptr<const WeaponData> startWep;
 
-    virtual Module* generate(b2Body* pBody, PoolCollection stuff) const
-    {
-        TurretData copy(*this);
-        copy.pools = stuff;
-        copy.fixComp.pBody = pBody;
-        return new Turret(copy);
-    }
-    virtual ModuleData* clone() const
-    {
-        return new TurretData(*this);
-    }
+	virtual Module* generate(b2Body* pBody, PoolCollection stuff) const
+	{
+		TurretData copy(*this);
+		copy.pools = stuff;
+		copy.fixComp.pBody = pBody;
+		return new Turret(copy);
+	}
+	virtual ModuleData* clone() const
+	{
+		return new TurretData(*this);
+	}
 };
 
 #endif // TURRET_HPP

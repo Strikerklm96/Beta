@@ -5,25 +5,25 @@
 
 enum class GraphicsLayer
 {
-    BackgroundFar = 0,//scenery
-    BackgroundClose,//scenery
+	BackgroundFar = 0,//scenery
+	BackgroundClose,//scenery
 
-    ShipUnder,//fill background
-    ShipMiddle,//fill (meter)
-    ShipModules,//ship module
+	ShipUnder,//fill background
+	ShipMiddle,//fill (meter)
+	ShipModules,//ship module
 
-    ShipHull,//ship skin
+	ShipHull,//ship skin
 
-    ShipAppendagesLower,//appendages
-    Projectiles,//other
-    ShipAppendagesUpper,//tippy top appendages
-    Effects,
+	ShipAppendagesLower,//appendages
+	Projectiles,//other
+	ShipAppendagesUpper,//tippy top appendages
+	Effects,
 
-    Shield,//force fields
+	Shield,//force fields
 
-    Overlay,//HUD SPRITES LIKE HEALTH AND AMMO
-    OverlayMiddle,
-    maxLayers,
+	Overlay,//HUD SPRITES LIKE HEALTH AND AMMO
+	OverlayMiddle,
+	maxLayers,
 };
 
 GraphicsLayer ChooseLayer(const std::string& rStr);

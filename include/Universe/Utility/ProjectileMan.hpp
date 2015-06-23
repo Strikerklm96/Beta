@@ -2,20 +2,22 @@
 #define PROJECTILEMAN_HPP
 
 #include "stdafx.hpp"
-class Chunk;
+class Projectile;
 
 /**MANAGES PROJECTILES**/
 class ProjectileMan
 {
 public:
-    ProjectileMan();
-    virtual ~ProjectileMan();
+	ProjectileMan();
+	virtual ~ProjectileMan();
 
-    Chunk* getProjectile(const std::string& rType);
+	Projectile* getProjectile(const std::string& rBPName);
+	void addNew(const std::string& rBPName);
 
 protected:
 private:
-    std::map<std::string, std::vector<sptr<Chunk> > > m_projectileList;//access[projectileName][index]
+    typedef std::pair<std::vector<sptr<Projectile> >, int> IndexedList;
+	std::map<std::string, IndexedList> m_projectileList;//access[projectileName][index]
 };
 
 #endif // PROJECTILEMAN_HPP

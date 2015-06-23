@@ -6,15 +6,15 @@
 
 struct QuadData
 {
-    int firstElement;//marks the first vertex element that we own
-    sf::VertexArray* vertexList;//list of all vertices for this textures
+	int firstElement;//marks the first vertex element that we own
+	sf::VertexArray* vertexList;//list of all vertices for this textures
 };
 
 
 struct Batch
 {
-    const sf::Texture* pTexture;
-    sf::VertexArray vertexList;
+	const sf::Texture* pTexture;
+	sf::VertexArray vertexList;
 };
 
 
@@ -22,16 +22,16 @@ struct Batch
 class QuadBatchContainer : public sf::Drawable
 {
 public:
-    QuadBatchContainer();
-    virtual ~QuadBatchContainer();
+	QuadBatchContainer();
+	virtual ~QuadBatchContainer();
 
-    QuadData request(const std::string& rTexName);//gives 4 texture vertexes
-    void draw(sf::RenderTarget& rTarget, sf::RenderStates states) const;//draws all the quads with their textures!
+	QuadData request(const std::string& rTexName);//gives 4 texture vertexes
+	void draw(sf::RenderTarget& rTarget, sf::RenderStates states) const;//draws all the quads with their textures!
 
 protected:
 private:
 
-    std::map<std::string, std::tr1::shared_ptr<Batch> > m_vertexLists;//contains all QUAD vertexes for all
+	std::map<std::string, std::tr1::shared_ptr<Batch> > m_vertexLists;//contains all QUAD vertexes for all
 };
 
 #endif // QUADBATCHCONTAINER_HPP

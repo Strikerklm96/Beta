@@ -8,19 +8,19 @@ struct SensorData;
 class Sensor : public Module
 {
 public:
-    Sensor(const SensorData& rData);
-    virtual ~Sensor();
+	Sensor(const SensorData& rData);
+	virtual ~Sensor();
 
-    virtual void prePhysUpdate();
+	virtual void prePhysUpdate();
 
-    virtual void entered(FixtureComponent* pOther);
-    virtual void exited(FixtureComponent* pOther);
+	virtual void entered(FixtureComponent* pOther);
+	virtual void exited(FixtureComponent* pOther);
 
 protected:
-    void startContactCB(FixtureComponent* pOther) final;
-    void endContactCB(FixtureComponent* pOther) final;
+	void startContactCB(FixtureComponent* pOther) final;
+	void endContactCB(FixtureComponent* pOther) final;
 
-    std::vector<FixtureComponent*> m_guests;
+	std::vector<FixtureComponent*> m_guests;
 private:
 
 };
@@ -29,23 +29,23 @@ private:
 
 struct SensorData : public ModuleData
 {
-    SensorData()
-    {
-        fixComp.isSensor = true;
-        fixComp.density = 0.f;
-    }
+	SensorData()
+	{
+		fixComp.isSensor = true;
+		fixComp.density = 0.f;
+	}
 
-    virtual Module* generate(b2Body* pBody, PoolCollection stuff) const
-    {
-        SensorData copy(*this);
-        copy.pools = stuff;
-        copy.fixComp.pBody = pBody;
-        return new Sensor(copy);
-    }
-    virtual ModuleData* clone() const
-    {
-        return new SensorData(*this);
-    }
+	virtual Module* generate(b2Body* pBody, PoolCollection stuff) const
+	{
+		SensorData copy(*this);
+		copy.pools = stuff;
+		copy.fixComp.pBody = pBody;
+		return new Sensor(copy);
+	}
+	virtual ModuleData* clone() const
+	{
+		return new SensorData(*this);
+	}
 };
 
 

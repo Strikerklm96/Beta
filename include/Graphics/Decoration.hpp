@@ -11,37 +11,37 @@ struct DecorationData;
 class Decoration
 {
 public:
-    Decoration(const DecorationData& rData, GraphicsComponent* pGfx);
-    virtual ~Decoration() = 0;
+	Decoration(const DecorationData& rData, GraphicsComponent* pGfx);
+	virtual ~Decoration() = 0;
 
-    void setPosition(const b2Vec2& rWorld);
-    void setRotation(float radiansCCW);
+	void setPosition(const b2Vec2& rWorld);
+	void setRotation(float radiansCCW);
 
-    virtual void input(std::string rCommand, sf::Packet rData);
+	virtual void input(std::string rCommand, sf::Packet rData);
 protected:
 
 private:
-    IOComponent m_io;
+	IOComponent m_io;
 
-    GraphicsComponent* m_gfx;
-    b2Vec2 m_position;//world
-    float m_rotation;//radians CCW
+	GraphicsComponent* m_gfx;
+	b2Vec2 m_position;//world
+	float m_rotation;//radians CCW
 };
 
 
 
 struct DecorationData
 {
-    DecorationData() :
-        ioComp(game.getUniverse().getUniverseIO())
-        {
+	DecorationData() :
+		ioComp(game.getUniverse().getUniverseIO())
+	{
 
-        }
+	}
 
-    IOComponentData ioComp;
+	IOComponentData ioComp;
 
-    virtual Decoration* generate() const = 0;
-    virtual DecorationData* clone() const = 0;
+	virtual Decoration* generate() const = 0;
+	virtual DecorationData* clone() const = 0;
 };
 
 

@@ -8,33 +8,33 @@
 
 struct GameObjectData
 {
-    GameObjectData() :
-        ioComp(game.getUniverse().getUniverseIO()),
-        nwComp()
-    {
+	GameObjectData() :
+		ioComp(game.getUniverse().getUniverseIO()),
+		nwComp()
+	{
 
-    }
-    IOComponentData ioComp;
-    NetworkComponentData nwComp;
+	}
+	IOComponentData ioComp;
+	NetworkComponentData nwComp;
 };
 
 
 class GameObject
 {
 public:
-    GameObject(const GameObjectData& rData);
-    virtual ~GameObject();
+	GameObject(const GameObjectData& rData);
+	virtual ~GameObject();
 
-    virtual void prePhysUpdate() = 0;//called just before physics step (do extra physics)
-    virtual void postPhysUpdate() = 0;//called just after physics step (do corrections, or graphics stuff)
+	virtual void prePhysUpdate() = 0;//called just before physics step (do extra physics)
+	virtual void postPhysUpdate() = 0;//called just after physics step (do corrections, or graphics stuff)
 
 protected:
-    virtual void input(std::string rCommand, sf::Packet rData);
-    virtual void pack(sf::Packet& rPacket) final;
-    virtual void unpack(sf::Packet& rPacket) final;
+	virtual void input(std::string rCommand, sf::Packet rData);
+	virtual void pack(sf::Packet& rPacket) final;
+	virtual void unpack(sf::Packet& rPacket) final;
 
-    IOComponent m_io;
-    NetworkComponent m_nw;
+	IOComponent m_io;
+	NetworkComponent m_nw;
 private:
 };
 

@@ -6,8 +6,8 @@
 
 struct Courier
 {
-    Condition condition;
-    Message message;
+	Condition condition;
+	Message message;
 };
 
 #endif //COURIER_HPP

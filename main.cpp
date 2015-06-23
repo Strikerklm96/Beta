@@ -4,8 +4,8 @@ Game game;
 
 int main()
 {
-    game.run();
-    return 0;
+	game.run();
+	return 0;
 }
 /*
        ▄▄▀▀▀▀▀▀▀▀▀▀▄▄█▄    ▄    █

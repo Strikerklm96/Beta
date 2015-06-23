@@ -164,6 +164,7 @@
 		<Unit filename="include/Physics/CollisionCategory.hpp" />
 		<Unit filename="include/Physics/FixtureComponent.hpp" />
 		<Unit filename="include/Universe/Chunk/Chunk.hpp" />
+		<Unit filename="include/Universe/Chunk/Projectile.hpp" />
 		<Unit filename="include/Universe/Module/Module.hpp" />
 		<Unit filename="include/Universe/Module/ProjectileModule.hpp" />
 		<Unit filename="include/Universe/Module/Sensor.hpp" />
@@ -231,6 +232,7 @@
 		<Unit filename="src/Physics/CollisionCategory.cpp" />
 		<Unit filename="src/Physics/FixtureComponent.cpp" />
 		<Unit filename="src/Universe/Chunk/Chunk.cpp" />
+		<Unit filename="src/Universe/Chunk/Projectile.cpp" />
 		<Unit filename="src/Universe/Module/Module.cpp" />
 		<Unit filename="src/Universe/Module/ProjectileModule.cpp" />
 		<Unit filename="src/Universe/Module/Sensor.cpp" />

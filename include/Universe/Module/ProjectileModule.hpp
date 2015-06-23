@@ -1,49 +1,55 @@
 #ifndef PROJECTILEMODULE_HPP
 #define PROJECTILEMODULE_HPP
 
-#include "ShipModule.hpp"
+#include "Sensor.hpp"
+#include "QuadComponent.hpp"
 
 struct ProjectileModuleData;
 
-class ProjectileModule : public ShipModule
+class ProjectileModule : public Sensor
 {
 public:
-    ProjectileModule(const ProjectileModuleData& rData);
-    virtual ~ProjectileModule();
+	ProjectileModule(const ProjectileModuleData& rData);
+	virtual ~ProjectileModule();
 
-    virtual void prePhysUpdate();
+	void postPhysUpdate();
+	void arm();//we will now collide and send our damage Message packet
+	void disarm();//we wont collide with anyone
 
 protected:
 private:
+	QuadComponent m_decor;
 };
 
 
-struct ProjectileModuleData : public ShipModuleData
+struct ProjectileModuleData : public SensorData
 {
-    ProjectileModuleData() :
-        ShipModuleData()
-    {
-        fixComp.isSensor = true;
-        fixComp.shape = Shape::Circle;
-        fixComp.colCategory = Category::Projectile;
-        fixComp.colMask = Mask::Projectile;
-        baseDecor.animSheetName = "projectile/ballistic1.acfg";
-        baseDecor.texName = "projectile/ballistic1.png";
-        baseDecor.layer = GraphicsLayer::Projectiles;
-    }
+	ProjectileModuleData() :
+		SensorData(),
+		baseDecor()
+	{
+		fixComp.isSensor = true;
+		fixComp.shape = Shape::Circle;
+		fixComp.colCategory = Category::Projectile;
+		fixComp.colMask = Mask::Projectile;
+		baseDecor.animSheetName = "projectile/ballistic1.acfg";
+		baseDecor.texName = "projectile/ballistic1.png";
+		baseDecor.layer = GraphicsLayer::Projectiles;
+	}
 
+	QuadComponentData baseDecor;
 
-    virtual Module* generate(b2Body* pBody, PoolCollection stuff) const
-    {
-        ProjectileModuleData copy(*this);
-        copy.pools = stuff;
-        copy.fixComp.pBody = pBody;
-        return new ProjectileModule(copy);
-    }
-    virtual ModuleData* clone() const
-    {
-        return new ProjectileModuleData(*this);
-    }
+	virtual Module* generate(b2Body* pBody, PoolCollection stuff) const
+	{
+		ProjectileModuleData copy(*this);
+		copy.pools = stuff;
+		copy.fixComp.pBody = pBody;
+		return new ProjectileModule(copy);
+	}
+	virtual ModuleData* clone() const
+	{
+		return new ProjectileModuleData(*this);
+	}
 };
 
 #endif // PROJECTILEMODULE_HPP

@@ -10,15 +10,15 @@ struct DecorQuadData;
 class DecorQuad : public Decoration
 {
 public:
-    DecorQuad(const DecorQuadData& rData);
-    virtual ~DecorQuad();
+	DecorQuad(const DecorQuadData& rData);
+	virtual ~DecorQuad();
 
 
-    virtual void input(std::string rCommand, sf::Packet rData);
+	virtual void input(std::string rCommand, sf::Packet rData);
 protected:
 
 
-    QuadComponent m_quad;
+	QuadComponent m_quad;
 private:
 };
 
@@ -26,22 +26,22 @@ private:
 
 struct DecorQuadData : public DecorationData
 {
-    DecorQuadData() :
-        DecorationData()
-    {
+	DecorQuadData() :
+		DecorationData()
+	{
 
-    }
+	}
 
-    QuadComponentData quadComp;
+	QuadComponentData quadComp;
 
-    virtual Decoration* generate() const
-    {
-        return new DecorQuad(*this);
-    }
-    virtual DecorationData* clone() const
-    {
-        return new DecorQuadData(*this);
-    }
+	virtual Decoration* generate() const
+	{
+		return new DecorQuad(*this);
+	}
+	virtual DecorationData* clone() const
+	{
+		return new DecorQuadData(*this);
+	}
 };
 
 #endif // DECORQUAD_HPP

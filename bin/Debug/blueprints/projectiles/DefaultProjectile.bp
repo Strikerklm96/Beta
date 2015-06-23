@@ -33,7 +33,11 @@
 			"ClassName": "Projectile",
 			"BaseSprite": {
 				"texName": "projectile/ballistic1.png",
-				"animSheetName": "projectile/ballistic1.acfg"
+				"animSheetName": "projectile/ballistic1.acfg",
+				"dimensions": [
+					128,
+					32
+				]
 			},
 			"Physics": {
 				"offset": [

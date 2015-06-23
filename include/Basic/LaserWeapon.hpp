@@ -10,17 +10,17 @@ struct LaserWeaponData;
 class LaserWeapon : public Weapon
 {
 public:
-    LaserWeapon(const LaserWeaponData& rData);
-    virtual ~LaserWeapon();
+	LaserWeapon(const LaserWeaponData& rData);
+	virtual ~LaserWeapon();
 
-    void preShot(const b2Vec2& center, const b2Vec2& aim, float radCCW);
-    void postShot(const b2Vec2& center, const b2Vec2& aim, float radCCW);
+	void preShot(const b2Vec2& center, const b2Vec2& aim, float radCCW);
+	void postShot(const b2Vec2& center, const b2Vec2& aim, float radCCW);
 protected:
-    RayCastCallback m_ray;
-    int m_beamWidth;
-    sf::Color m_beamColor;
-    Beam m_beam;
-    float m_showTime;
+	RayCastCallback m_ray;
+	int m_beamWidth;
+	sf::Color m_beamColor;
+	Beam m_beam;
+	float m_showTime;
 private:
 };
 
@@ -28,27 +28,27 @@ private:
 
 struct LaserWeaponData : public WeaponData
 {
-    LaserWeaponData() :
-        beamWidth(32),
-        beamColor(sf::Color::White),
-        showTime(0.03)
-    {
+	LaserWeaponData() :
+		beamWidth(32),
+		beamColor(sf::Color::White),
+		showTime(0.03)
+	{
 
-    }
+	}
 
-    int beamWidth;
-    sf::Color beamColor;
-    float showTime;//how long to display the beam per shot
-    BeamData beamComp;
+	int beamWidth;
+	sf::Color beamColor;
+	float showTime;//how long to display the beam per shot
+	BeamData beamComp;
 
-    virtual Weapon* generate() const
-    {
-        return new LaserWeapon(*this);
-    }
-    virtual LaserWeaponData* clone() const
-    {
-        return new LaserWeaponData(*this);
-    }
+	virtual Weapon* generate() const
+	{
+		return new LaserWeapon(*this);
+	}
+	virtual LaserWeaponData* clone() const
+	{
+		return new LaserWeaponData(*this);
+	}
 };
 
 #endif // LASERWEAPON_HPP

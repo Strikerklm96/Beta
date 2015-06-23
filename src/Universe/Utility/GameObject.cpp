@@ -12,7 +12,7 @@ GameObject::~GameObject()
 }
 void GameObject::input(std::string rCommand, sf::Packet rData)
 {
-    cout << "\nCommand not found in [" << m_io.getName() << "].";
+	cout << "\nCommand not found in [" << m_io.getName() << "].";
 }
 void GameObject::pack(sf::Packet& rPacket)
 {

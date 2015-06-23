@@ -8,24 +8,27 @@ ProjectileMan::~ProjectileMan()
 {
 
 }
-Chunk* ProjectileMan::getProjectile(const std::string& rType)
+Projectile* ProjectileMan::getProjectile(const std::string& rBPName)
 {
-    /**check to make sure we won't crash**/
-    /*
-    if(m_projList.size()-1 < type)
+	/**FIND LIST**/
+	auto it = m_projectileList.find(rBPName);
+	if(it != m_projectileList.cend())
+	{
+	    int index = it->second.first;
+	    std::vector<sptr<Projectile> >& rList = it->second.first;
+	    ++(it->second.first);
+	    /**FIND PROJECTILE IN LIST**/
+        if(index != rList.size())
+            return rList[index];
+        else
+        {
+            addNew(rBPName);
+        }
+	}
+	else
     {
         ///ERROR LOG
-        cout << "\nRequested [" << rType << "] but max was [" << m_projList.size()-1 << "].";
-    }**/
-
-
-    /**check if we have one available by comparing the free index to the size of our projectile list**/
-   /* if(get<spList>(m_projList[type]).size() == get<freeIndex>(m_projList[type]))  if not, create AT LEAST one
-    {
-        add(type); ///how many should we create if we start running out???
+        cout << FILELINE;
+		return NULL;
     }
-
-    get<freeIndex>(m_projList[type]) += 1; either way, increase free index by 1, and give a pointer to this one
-
-    return (get<spList>(m_projList[type])[get<freeIndex>(m_projList[type])-1].get());**/
 }
