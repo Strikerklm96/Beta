@@ -1,4 +1,5 @@
 #include "ProjectileMan.hpp"
+#include "Globals.hpp"
 
 ProjectileMan::ProjectileMan()
 {
@@ -14,21 +15,19 @@ Projectile* ProjectileMan::getProjectile(const std::string& rBPName)
 	auto it = m_projectileList.find(rBPName);
 	if(it != m_projectileList.cend())
 	{
-	    int index = it->second.first;
-	    std::vector<sptr<Projectile> >& rList = it->second.first;
-	    ++(it->second.first);
+	    int freeProjectileIndex = it->second.second;
+	    std::vector<sptr<Projectile> >& rProjectiles = it->second.first;
+	    ++(it->second.second);
 	    /**FIND PROJECTILE IN LIST**/
-        if(index != rList.size())
-            return rList[index];
-        else
-        {
+        if(freeProjectileIndex == rProjectiles.size())
             addNew(rBPName);
-        }
+        return rProjectiles[freeProjectileIndex].get();
 	}
 	else
     {
         ///ERROR LOG
-        cout << FILELINE;
+        std::cout << FILELINE;
 		return NULL;
     }
 }
+

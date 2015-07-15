@@ -13,7 +13,7 @@ public:
 
 	virtual void prePhysUpdate();
 
-	virtual void entered(FixtureComponent* pOther);
+	virtual void entered(FixtureComponent* pOther);//called when a
 	virtual void exited(FixtureComponent* pOther);
 
 protected:

@@ -13,7 +13,7 @@ public:
 	virtual ~ProjectileModule();
 
 	void postPhysUpdate();
-	void arm();//we will now collide and send our damage Message packet
+	void arm(const Message& rPayload);//we will now collide and send our damage Message packet
 	void disarm();//we wont collide with anyone
 
 protected:

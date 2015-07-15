@@ -29,8 +29,7 @@ public:
 	Projectile(const ProjectileData& rData);
 	virtual ~Projectile();
 
-	void launch(const b2Vec2& rStart, const b2Vec2&Vel, float radCCW, float radCCWps);// coord, linVel, rot, rotVel
-	void prep(const Message& rPayload);//set our payload
+	void launch(const b2Vec2& rStart, const b2Vec2& rVel, float radCCW, float radCCWps, const Message& rPayload);// coord, linVel, rot, rotVel
 	void reset();//this projectile will go back into projectile pool
 
 protected:
